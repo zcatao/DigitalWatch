@@ -42,7 +42,7 @@ module DigitalWatch (
                   .preset(preset),
                   .dispbuf(dispbuf)
                   );
-    smg_disp disp(.Watch_cnt_disp(dispbuf),
+    smg_disp disp(.dispbuf(dispbuf),
                   .disp_out(disp_out)
                   );
 endmodule // DigitalWatch

@@ -31,7 +31,7 @@ module key_Control (
               RESET = 2'b10;
 
     reg [1:0] Start_status;
-     reg en_,rst_,load_;
+     en_,rst_,load_;
     always @ (posedge key_start) begin
         case (Start_status)
             START: Start_status <= STOP;

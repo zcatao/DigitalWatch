@@ -1,0 +1,299 @@
+Version 9.0 Build 132 02/25/2009 SJ Full Version
+2
+24
+OFF
+OFF
+OFF
+ON
+ON
+OFF
+FV_OFF
+Level2
+0
+0
+VRSM_ON
+VHSM_ON
+0
+-- Start Library Paths --
+-- End Library Paths --
+-- Start VHDL Libraries --
+-- End VHDL Libraries --
+# entity
+clk_div
+# storage
+db|DigitalWatch.(1).cnf
+db|DigitalWatch.(1).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_sensitive
+# source_file
+clk_div.v
+4abbfe202e864e8d554d29ca0e628ca
+8
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+IGNORE_VERILOG_INITIAL_CONSTRUCTS
+OFF
+VERILOG_CONSTANT_LOOP_LIMIT
+5000
+VERILOG_NON_CONSTANT_LOOP_LIMIT
+250
+}
+# user_parameter {
+clk_div
+25000
+PARAMETER_SIGNED_DEC
+DEF
+}
+# hierarchies {
+clk_div:fdiv
+}
+# macro_sequence
+
+# end
+# entity
+key_Control
+# storage
+db|DigitalWatch.(2).cnf
+db|DigitalWatch.(2).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_sensitive
+# source_file
+key_Control.v
+c0f72c11513aff7ee54385bbc916db0
+8
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+IGNORE_VERILOG_INITIAL_CONSTRUCTS
+OFF
+VERILOG_CONSTANT_LOOP_LIMIT
+5000
+VERILOG_NON_CONSTANT_LOOP_LIMIT
+250
+}
+# user_parameter {
+START
+00
+PARAMETER_UNSIGNED_BIN
+DEF
+STOP
+01
+PARAMETER_UNSIGNED_BIN
+DEF
+RESET
+10
+PARAMETER_UNSIGNED_BIN
+DEF
+}
+# hierarchies {
+key_Control:Control
+}
+# macro_sequence
+
+# end
+# entity
+decimal_counter
+# storage
+db|DigitalWatch.(4).cnf
+db|DigitalWatch.(4).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_sensitive
+# source_file
+decimal_counter.v
+3f9f4fb269ef5d68ab7b67da1092d154
+8
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+IGNORE_VERILOG_INITIAL_CONSTRUCTS
+OFF
+VERILOG_CONSTANT_LOOP_LIMIT
+5000
+VERILOG_NON_CONSTANT_LOOP_LIMIT
+250
+}
+# hierarchies {
+watch_cnt:cnt|decimal_counter:bit_0
+watch_cnt:cnt|decimal_counter:bit_1
+watch_cnt:cnt|decimal_counter:bit_2
+watch_cnt:cnt|decimal_counter:bit_3
+watch_cnt:cnt|decimal_counter:bit_5
+}
+# macro_sequence
+
+# end
+# entity
+Six_counter
+# storage
+db|DigitalWatch.(5).cnf
+db|DigitalWatch.(5).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_sensitive
+# source_file
+Six_counter.v
+325f42b84bebaaccaa0e056f3893d3c
+8
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+IGNORE_VERILOG_INITIAL_CONSTRUCTS
+OFF
+VERILOG_CONSTANT_LOOP_LIMIT
+5000
+VERILOG_NON_CONSTANT_LOOP_LIMIT
+250
+}
+# hierarchies {
+watch_cnt:cnt|Six_counter:bit_4
+watch_cnt:cnt|Six_counter:bit_6
+}
+# macro_sequence
+
+# end
+# entity
+smg_disp
+# storage
+db|DigitalWatch.(6).cnf
+db|DigitalWatch.(6).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_sensitive
+# source_file
+smg_disp.v
+684ff24bd773f4e334d96c43baec5a
+8
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+IGNORE_VERILOG_INITIAL_CONSTRUCTS
+OFF
+VERILOG_CONSTANT_LOOP_LIMIT
+5000
+VERILOG_NON_CONSTANT_LOOP_LIMIT
+250
+}
+# hierarchies {
+smg_disp:disp
+}
+# macro_sequence
+
+# end
+# entity
+DigitalWatch
+# storage
+db|DigitalWatch.(0).cnf
+db|DigitalWatch.(0).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_sensitive
+# source_file
+DigitalWatch.v
+6da3576b2d584ac8a1da22943b8759
+8
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+IGNORE_VERILOG_INITIAL_CONSTRUCTS
+OFF
+VERILOG_CONSTANT_LOOP_LIMIT
+5000
+VERILOG_NON_CONSTANT_LOOP_LIMIT
+250
+}
+# hierarchies {
+|
+}
+# macro_sequence
+
+# end
+# entity
+watch_cnt
+# storage
+db|DigitalWatch.(3).cnf
+db|DigitalWatch.(3).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_sensitive
+# source_file
+watch_cnt.v
+808cbaf2cf19d4b799d7f28ad61e10ce
+8
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+IGNORE_VERILOG_INITIAL_CONSTRUCTS
+OFF
+VERILOG_CONSTANT_LOOP_LIMIT
+5000
+VERILOG_NON_CONSTANT_LOOP_LIMIT
+250
+}
+# hierarchies {
+watch_cnt:cnt
+}
+# macro_sequence
+
+# end
+# complete
+
