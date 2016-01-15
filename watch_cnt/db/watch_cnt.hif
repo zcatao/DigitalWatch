@@ -52,42 +52,6 @@ VERILOG_NON_CONSTANT_LOOP_LIMIT
 
 # end
 # entity
-watch_cnt
-# storage
-db|watch_cnt.(1).cnf
-db|watch_cnt.(1).cnf
-# logic_option {
-AUTO_RAM_RECOGNITION
-ON
-}
-# case_sensitive
-# source_file
-watch_cnt.v
-4edb47938c29eb7cd2a53843af19874
-8
-# internal_option {
-HDL_INITIAL_FANOUT_LIMIT
-OFF
-AUTO_RESOURCE_SHARING
-OFF
-AUTO_RAM_RECOGNITION
-ON
-AUTO_ROM_RECOGNITION
-ON
-IGNORE_VERILOG_INITIAL_CONSTRUCTS
-OFF
-VERILOG_CONSTANT_LOOP_LIMIT
-5000
-VERILOG_NON_CONSTANT_LOOP_LIMIT
-250
-}
-# hierarchies {
-|
-}
-# macro_sequence
-
-# end
-# entity
 decimal_counter
 # storage
 db|watch_cnt.(2).cnf
@@ -160,6 +124,42 @@ VERILOG_NON_CONSTANT_LOOP_LIMIT
 # hierarchies {
 Six_counter:comb_8
 Six_counter:comb_10
+}
+# macro_sequence
+
+# end
+# entity
+watch_cnt
+# storage
+db|watch_cnt.(1).cnf
+db|watch_cnt.(1).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_sensitive
+# source_file
+watch_cnt.v
+744e82572a845aeadaa59d8c424c
+8
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+IGNORE_VERILOG_INITIAL_CONSTRUCTS
+OFF
+VERILOG_CONSTANT_LOOP_LIMIT
+5000
+VERILOG_NON_CONSTANT_LOOP_LIMIT
+250
+}
+# hierarchies {
+|
 }
 # macro_sequence
 

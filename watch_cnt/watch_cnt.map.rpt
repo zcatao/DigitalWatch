@@ -1,5 +1,5 @@
 Analysis & Synthesis report for watch_cnt
-Fri Jan 15 12:05:09 2016
+Fri Jan 15 12:09:15 2016
 Quartus II Version 9.0 Build 132 02/25/2009 SJ Full Version
 
 
@@ -14,13 +14,8 @@ Quartus II Version 9.0 Build 132 02/25/2009 SJ Full Version
   6. Analysis & Synthesis Resource Utilization by Entity
   7. General Register Statistics
   8. Port Connectivity Checks: "Six_counter:comb_10"
-  9. Port Connectivity Checks: "decimal_counter:comb_9"
- 10. Port Connectivity Checks: "Six_counter:comb_8"
- 11. Port Connectivity Checks: "decimal_counter:comb_7"
- 12. Port Connectivity Checks: "decimal_counter:comb_6"
- 13. Port Connectivity Checks: "decimal_counter:comb_5"
- 14. Port Connectivity Checks: "decimal_counter:comb_4"
- 15. Analysis & Synthesis Messages
+  9. Port Connectivity Checks: "decimal_counter:comb_4"
+ 10. Analysis & Synthesis Messages
 
 
 
@@ -46,12 +41,12 @@ applicable agreement for further details.
 +------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                           ;
 +-----------------------------+------------------------------------------+
-; Analysis & Synthesis Status ; Successful - Fri Jan 15 12:05:09 2016    ;
+; Analysis & Synthesis Status ; Successful - Fri Jan 15 12:09:15 2016    ;
 ; Quartus II Version          ; 9.0 Build 132 02/25/2009 SJ Full Version ;
 ; Revision Name               ; watch_cnt                                ;
 ; Top-level Entity Name       ; watch_cnt                                ;
 ; Family                      ; ACEX1K                                   ;
-; Total logic elements        ; 0                                        ;
+; Total logic elements        ; 67                                       ;
 ; Total pins                  ; 56                                       ;
 ; Total memory bits           ; 0                                        ;
 ; Total PLLs                  ; 0                                        ;
@@ -136,25 +131,36 @@ applicable agreement for further details.
 +--------------------------------+------------+
 ; Resource                       ; Usage      ;
 +--------------------------------+------------+
-; Total logic elements           ; 0          ;
-; Total combinational functions  ; 0          ;
-;     -- Total 4-input functions ; 0          ;
-;     -- Total 3-input functions ; 0          ;
-;     -- Total 2-input functions ; 0          ;
-;     -- Total 1-input functions ; 0          ;
-;     -- Total 0-input functions ; 0          ;
-; Total registers                ; 0          ;
+; Total logic elements           ; 67         ;
+; Total combinational functions  ; 40         ;
+;     -- Total 4-input functions ; 12         ;
+;     -- Total 3-input functions ; 16         ;
+;     -- Total 2-input functions ; 6          ;
+;     -- Total 1-input functions ; 5          ;
+;     -- Total 0-input functions ; 1          ;
+; Total registers                ; 34         ;
 ; I/O pins                       ; 56         ;
+; Maximum fan-out node           ; EN         ;
+; Maximum fan-out                ; 34         ;
+; Total fan-out                  ; 322        ;
+; Average fan-out                ; 2.62       ;
 +--------------------------------+------------+
 
 
-+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                    ;
-+----------------------------+-------------+--------------+-------------+------+--------------+-------------------+------------------+-----------------+------------+---------------------+--------------+
-; Compilation Hierarchy Node ; Logic Cells ; LC Registers ; Memory Bits ; Pins ; LUT-Only LCs ; Register-Only LCs ; LUT/Register LCs ; Carry Chain LCs ; Packed LCs ; Full Hierarchy Name ; Library Name ;
-+----------------------------+-------------+--------------+-------------+------+--------------+-------------------+------------------+-----------------+------------+---------------------+--------------+
-; |watch_cnt                 ; 0 (0)       ; 0            ; 0           ; 56   ; 0 (0)        ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |watch_cnt          ; work         ;
-+----------------------------+-------------+--------------+-------------+------+--------------+-------------------+------------------+-----------------+------------+---------------------+--------------+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                   ;
++-----------------------------+-------------+--------------+-------------+------+--------------+-------------------+------------------+-----------------+------------+-----------------------------------+--------------+
+; Compilation Hierarchy Node  ; Logic Cells ; LC Registers ; Memory Bits ; Pins ; LUT-Only LCs ; Register-Only LCs ; LUT/Register LCs ; Carry Chain LCs ; Packed LCs ; Full Hierarchy Name               ; Library Name ;
++-----------------------------+-------------+--------------+-------------+------+--------------+-------------------+------------------+-----------------+------------+-----------------------------------+--------------+
+; |watch_cnt                  ; 67 (1)      ; 34           ; 0           ; 56   ; 33 (1)       ; 27 (0)            ; 7 (0)            ; 0 (0)           ; 0 (0)      ; |watch_cnt                        ; work         ;
+;    |Six_counter:comb_10|    ; 9 (9)       ; 4            ; 0           ; 0    ; 5 (5)        ; 3 (3)             ; 1 (1)            ; 0 (0)           ; 0 (0)      ; |watch_cnt|Six_counter:comb_10    ; work         ;
+;    |Six_counter:comb_8|     ; 10 (10)     ; 5            ; 0           ; 0    ; 5 (5)        ; 4 (4)             ; 1 (1)            ; 0 (0)           ; 0 (0)      ; |watch_cnt|Six_counter:comb_8     ; work         ;
+;    |decimal_counter:comb_4| ; 10 (10)     ; 5            ; 0           ; 0    ; 5 (5)        ; 4 (4)             ; 1 (1)            ; 0 (0)           ; 0 (0)      ; |watch_cnt|decimal_counter:comb_4 ; work         ;
+;    |decimal_counter:comb_5| ; 10 (10)     ; 5            ; 0           ; 0    ; 5 (5)        ; 4 (4)             ; 1 (1)            ; 0 (0)           ; 0 (0)      ; |watch_cnt|decimal_counter:comb_5 ; work         ;
+;    |decimal_counter:comb_6| ; 9 (9)       ; 5            ; 0           ; 0    ; 4 (4)        ; 4 (4)             ; 1 (1)            ; 0 (0)           ; 0 (0)      ; |watch_cnt|decimal_counter:comb_6 ; work         ;
+;    |decimal_counter:comb_7| ; 9 (9)       ; 5            ; 0           ; 0    ; 4 (4)        ; 4 (4)             ; 1 (1)            ; 0 (0)           ; 0 (0)      ; |watch_cnt|decimal_counter:comb_7 ; work         ;
+;    |decimal_counter:comb_9| ; 9 (9)       ; 5            ; 0           ; 0    ; 4 (4)        ; 4 (4)             ; 1 (1)            ; 0 (0)           ; 0 (0)      ; |watch_cnt|decimal_counter:comb_9 ; work         ;
++-----------------------------+-------------+--------------+-------------+------+--------------+-------------------+------------------+-----------------+------------+-----------------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
@@ -163,12 +169,12 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 0     ;
+; Total registers                              ; 34    ;
 ; Number of registers using Synchronous Clear  ; 0     ;
 ; Number of registers using Synchronous Load   ; 0     ;
-; Number of registers using Asynchronous Clear ; 0     ;
-; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 0     ;
+; Number of registers using Asynchronous Clear ; 34    ;
+; Number of registers using Asynchronous Load  ; 28    ;
+; Number of registers using Clock Enable       ; 34    ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -178,53 +184,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +------+--------+----------+-------------------------------------------------------------------------------------+
 ; Port ; Type   ; Severity ; Details                                                                             ;
 +------+--------+----------+-------------------------------------------------------------------------------------+
-; out  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
 ; cout ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+------+--------+----------+-------------------------------------------------------------------------------------+
-
-
-+----------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "decimal_counter:comb_9"                                                             ;
-+------+--------+----------+-------------------------------------------------------------------------------------+
-; Port ; Type   ; Severity ; Details                                                                             ;
-+------+--------+----------+-------------------------------------------------------------------------------------+
-; out  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+------+--------+----------+-------------------------------------------------------------------------------------+
-
-
-+----------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "Six_counter:comb_8"                                                                 ;
-+------+--------+----------+-------------------------------------------------------------------------------------+
-; Port ; Type   ; Severity ; Details                                                                             ;
-+------+--------+----------+-------------------------------------------------------------------------------------+
-; out  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+------+--------+----------+-------------------------------------------------------------------------------------+
-
-
-+----------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "decimal_counter:comb_7"                                                             ;
-+------+--------+----------+-------------------------------------------------------------------------------------+
-; Port ; Type   ; Severity ; Details                                                                             ;
-+------+--------+----------+-------------------------------------------------------------------------------------+
-; out  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+------+--------+----------+-------------------------------------------------------------------------------------+
-
-
-+----------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "decimal_counter:comb_6"                                                             ;
-+------+--------+----------+-------------------------------------------------------------------------------------+
-; Port ; Type   ; Severity ; Details                                                                             ;
-+------+--------+----------+-------------------------------------------------------------------------------------+
-; out  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+------+--------+----------+-------------------------------------------------------------------------------------+
-
-
-+----------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "decimal_counter:comb_5"                                                             ;
-+------+--------+----------+-------------------------------------------------------------------------------------+
-; Port ; Type   ; Severity ; Details                                                                             ;
-+------+--------+----------+-------------------------------------------------------------------------------------+
-; out  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
 +------+--------+----------+-------------------------------------------------------------------------------------+
 
 
@@ -243,7 +203,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 Info: *******************************************************************
 Info: Running Quartus II Analysis & Synthesis
     Info: Version 9.0 Build 132 02/25/2009 SJ Full Version
-    Info: Processing started: Fri Jan 15 12:05:08 2016
+    Info: Processing started: Fri Jan 15 12:09:14 2016
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off watch_cnt -c watch_cnt
 Info: Found 1 design units, including 1 entities, in source file decimal_counter.v
     Info: Found entity 1: decimal_counter
@@ -259,62 +219,11 @@ Critical Warning (10846): Verilog HDL Instantiation warning at watch_cnt.v(79): 
 Critical Warning (10846): Verilog HDL Instantiation warning at watch_cnt.v(88): instance has no name
 Critical Warning (10846): Verilog HDL Instantiation warning at watch_cnt.v(97): instance has no name
 Info: Elaborating entity "watch_cnt" for the top level hierarchy
-Warning (10034): Output port "dispbuf[23]" at watch_cnt.v(22) has no driver
-Warning (10034): Output port "dispbuf[22]" at watch_cnt.v(22) has no driver
-Warning (10034): Output port "dispbuf[21]" at watch_cnt.v(22) has no driver
-Warning (10034): Output port "dispbuf[20]" at watch_cnt.v(22) has no driver
-Warning (10034): Output port "dispbuf[19]" at watch_cnt.v(22) has no driver
-Warning (10034): Output port "dispbuf[18]" at watch_cnt.v(22) has no driver
-Warning (10034): Output port "dispbuf[17]" at watch_cnt.v(22) has no driver
-Warning (10034): Output port "dispbuf[16]" at watch_cnt.v(22) has no driver
-Warning (10034): Output port "dispbuf[15]" at watch_cnt.v(22) has no driver
-Warning (10034): Output port "dispbuf[14]" at watch_cnt.v(22) has no driver
-Warning (10034): Output port "dispbuf[13]" at watch_cnt.v(22) has no driver
-Warning (10034): Output port "dispbuf[12]" at watch_cnt.v(22) has no driver
-Warning (10034): Output port "dispbuf[11]" at watch_cnt.v(22) has no driver
-Warning (10034): Output port "dispbuf[10]" at watch_cnt.v(22) has no driver
-Warning (10034): Output port "dispbuf[9]" at watch_cnt.v(22) has no driver
-Warning (10034): Output port "dispbuf[8]" at watch_cnt.v(22) has no driver
-Warning (10034): Output port "dispbuf[7]" at watch_cnt.v(22) has no driver
-Warning (10034): Output port "dispbuf[6]" at watch_cnt.v(22) has no driver
-Warning (10034): Output port "dispbuf[5]" at watch_cnt.v(22) has no driver
-Warning (10034): Output port "dispbuf[4]" at watch_cnt.v(22) has no driver
-Warning (10034): Output port "dispbuf[3]" at watch_cnt.v(22) has no driver
-Warning (10034): Output port "dispbuf[2]" at watch_cnt.v(22) has no driver
-Warning (10034): Output port "dispbuf[1]" at watch_cnt.v(22) has no driver
-Warning (10034): Output port "dispbuf[0]" at watch_cnt.v(22) has no driver
 Info: Elaborating entity "decimal_counter" for hierarchy "decimal_counter:comb_4"
 Warning (10230): Verilog HDL assignment warning at decimal_counter.v(43): truncated value with size 32 to match size of target (4)
 Info: Elaborating entity "Six_counter" for hierarchy "Six_counter:comb_8"
 Warning (10230): Verilog HDL assignment warning at Six_counter.v(43): truncated value with size 32 to match size of target (4)
-Warning: Output pins are stuck at VCC or GND
-    Warning (13410): Pin "dispbuf[0]" is stuck at GND
-    Warning (13410): Pin "dispbuf[1]" is stuck at GND
-    Warning (13410): Pin "dispbuf[2]" is stuck at GND
-    Warning (13410): Pin "dispbuf[3]" is stuck at GND
-    Warning (13410): Pin "dispbuf[4]" is stuck at GND
-    Warning (13410): Pin "dispbuf[5]" is stuck at GND
-    Warning (13410): Pin "dispbuf[6]" is stuck at GND
-    Warning (13410): Pin "dispbuf[7]" is stuck at GND
-    Warning (13410): Pin "dispbuf[8]" is stuck at GND
-    Warning (13410): Pin "dispbuf[9]" is stuck at GND
-    Warning (13410): Pin "dispbuf[10]" is stuck at GND
-    Warning (13410): Pin "dispbuf[11]" is stuck at GND
-    Warning (13410): Pin "dispbuf[12]" is stuck at GND
-    Warning (13410): Pin "dispbuf[13]" is stuck at GND
-    Warning (13410): Pin "dispbuf[14]" is stuck at GND
-    Warning (13410): Pin "dispbuf[15]" is stuck at GND
-    Warning (13410): Pin "dispbuf[16]" is stuck at GND
-    Warning (13410): Pin "dispbuf[17]" is stuck at GND
-    Warning (13410): Pin "dispbuf[18]" is stuck at GND
-    Warning (13410): Pin "dispbuf[19]" is stuck at GND
-    Warning (13410): Pin "dispbuf[20]" is stuck at GND
-    Warning (13410): Pin "dispbuf[21]" is stuck at GND
-    Warning (13410): Pin "dispbuf[22]" is stuck at GND
-    Warning (13410): Pin "dispbuf[23]" is stuck at GND
-Warning: Design contains 32 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "clk_1Khz"
-    Warning (15610): No output dependent on input pin "rst"
+Warning: Design contains 28 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "preset[0]"
     Warning (15610): No output dependent on input pin "preset[1]"
     Warning (15610): No output dependent on input pin "preset[2]"
@@ -343,14 +252,13 @@ Warning: Design contains 32 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "preset[25]"
     Warning (15610): No output dependent on input pin "preset[26]"
     Warning (15610): No output dependent on input pin "preset[27]"
-    Warning (15610): No output dependent on input pin "EN"
-    Warning (15610): No output dependent on input pin "load"
-Info: Implemented 56 device resources after synthesis - the final resource count might be different
+Info: Implemented 123 device resources after synthesis - the final resource count might be different
     Info: Implemented 32 input pins
     Info: Implemented 24 output pins
-Info: Quartus II Analysis & Synthesis was successful. 0 errors, 91 warnings
+    Info: Implemented 67 logic cells
+Info: Quartus II Analysis & Synthesis was successful. 0 errors, 38 warnings
     Info: Peak virtual memory: 237 megabytes
-    Info: Processing ended: Fri Jan 15 12:05:09 2016
+    Info: Processing ended: Fri Jan 15 12:09:15 2016
     Info: Elapsed time: 00:00:01
     Info: Total CPU time (on all processors): 00:00:00
 

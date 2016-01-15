@@ -96,5 +96,7 @@ module watch_cnt (
                 .cout(cout[6])
                 );
     assign dispbuf = {minute1,minute0,sec1,sec0,msec2,msec1};
+    assign preset = {minute1_set,minute0_set,sec1_set,sec0_set,msec2_set,msec1_set,msec0_set};
+
 
 endmodule // watch_cnt
