@@ -63,7 +63,7 @@ ON
 # case_sensitive
 # source_file
 decimal_counter.v
-828a8bd5a8c9ff25ac6595f99d085a7
+ffcd63c35a76a7c38e582b3d44c0365a
 8
 # internal_option {
 HDL_INITIAL_FANOUT_LIMIT
@@ -82,11 +82,11 @@ VERILOG_NON_CONSTANT_LOOP_LIMIT
 250
 }
 # hierarchies {
-decimal_counter:comb_4
-decimal_counter:comb_5
-decimal_counter:comb_6
-decimal_counter:comb_7
-decimal_counter:comb_9
+decimal_counter:bit_0
+decimal_counter:bit_1
+decimal_counter:bit_2
+decimal_counter:bit_3
+decimal_counter:bit_5
 }
 # macro_sequence
 
@@ -103,7 +103,7 @@ ON
 # case_sensitive
 # source_file
 Six_counter.v
-9c7272bc9ce8d25ad4c210f8f848b44c
+b31d6b84381a463b08e442b1cf1ebdc
 8
 # internal_option {
 HDL_INITIAL_FANOUT_LIMIT
@@ -122,8 +122,8 @@ VERILOG_NON_CONSTANT_LOOP_LIMIT
 250
 }
 # hierarchies {
-Six_counter:comb_8
-Six_counter:comb_10
+Six_counter:bit_4
+Six_counter:bit_6
 }
 # macro_sequence
 
@@ -140,7 +140,7 @@ ON
 # case_sensitive
 # source_file
 watch_cnt.v
-744e82572a845aeadaa59d8c424c
+1d8ae7c2f2f3b2e902b8ad153fa3577
 8
 # internal_option {
 HDL_INITIAL_FANOUT_LIMIT

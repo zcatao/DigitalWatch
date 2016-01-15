@@ -32,7 +32,7 @@ module watch_cnt (
     wire[3:0] minute1_set,minute0_set,sec1_set,sec0_set,msec2_set,msec1_set,msec0_set;
     //毫秒个位
 
-    decimal_counter(.clk_cin(clk_1Khz),
+    decimal_counter bit_0(.clk_cin(clk_1Khz),
                     .rst(rst),
                     .EN(EN),
                     .load(load),
@@ -41,7 +41,7 @@ module watch_cnt (
                     .cout(cout[0])
                     );
     //毫秒十位
-    decimal_counter(.clk_cin(cout[0]),
+    decimal_counter bit_1(.clk_cin(cout[0]),
                     .rst(rst),
                     .EN(EN),
                     .load(load),
@@ -50,7 +50,7 @@ module watch_cnt (
                     .cout(cout[1])
                     );
     //毫秒百位
-    decimal_counter(.clk_cin(cout[1]),
+    decimal_counter bit_2(.clk_cin(cout[1]),
                     .rst(rst),
                     .EN(EN),
                     .load(load),
@@ -60,7 +60,7 @@ module watch_cnt (
                     );
 
     //秒个位
-    decimal_counter(.clk_cin(cout[2]),
+    decimal_counter bit_3(.clk_cin(cout[2]),
                     .rst(rst),
                     .EN(EN),
                     .load(load),
@@ -69,7 +69,7 @@ module watch_cnt (
                     .cout(cout[3])
                     );
     //秒十位
-    Six_counter(.clk_cin(cout[3]),
+    Six_counter bit_4(.clk_cin(cout[3]),
                 .rst(rst),
                 .EN(EN),
                 .load(load),
@@ -78,7 +78,7 @@ module watch_cnt (
                 .cout(cout[4])
                 );
     //分个位
-    decimal_counter(.clk_cin(cout[4]),
+    decimal_counter bit_5(.clk_cin(cout[4]),
                     .rst(rst),
                     .EN(EN),
                     .load(load),
@@ -87,7 +87,7 @@ module watch_cnt (
                     .cout(cout[5])
                     );
     //分十位
-    Six_counter(.clk_cin(cout[5]),
+    Six_counter bit_6(.clk_cin(cout[5]),
                 .rst(rst),
                 .EN(EN),
                 .load(load),
@@ -96,7 +96,7 @@ module watch_cnt (
                 .cout(cout[6])
                 );
     assign dispbuf = {minute1,minute0,sec1,sec0,msec2,msec1};
-    assign preset = {minute1_set,minute0_set,sec1_set,sec0_set,msec2_set,msec1_set,msec0_set};
+    assign {minute1_set,minute0_set,sec1_set,sec0_set,msec2_set,msec1_set,msec0_set} = preset  ;
 
 
 endmodule // watch_cnt

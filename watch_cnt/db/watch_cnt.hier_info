@@ -1,63 +1,63 @@
 |watch_cnt
 clk_1Khz => clk_1Khz~0.IN1
 rst => rst~0.IN7
-preset[0] => ~NO_FANOUT~
-preset[1] => ~NO_FANOUT~
-preset[2] => ~NO_FANOUT~
-preset[3] => ~NO_FANOUT~
-preset[4] => ~NO_FANOUT~
-preset[5] => ~NO_FANOUT~
-preset[6] => ~NO_FANOUT~
-preset[7] => ~NO_FANOUT~
-preset[8] => ~NO_FANOUT~
-preset[9] => ~NO_FANOUT~
-preset[10] => ~NO_FANOUT~
-preset[11] => ~NO_FANOUT~
-preset[12] => ~NO_FANOUT~
-preset[13] => ~NO_FANOUT~
-preset[14] => ~NO_FANOUT~
-preset[15] => ~NO_FANOUT~
-preset[16] => ~NO_FANOUT~
-preset[17] => ~NO_FANOUT~
-preset[18] => ~NO_FANOUT~
-preset[19] => ~NO_FANOUT~
-preset[20] => ~NO_FANOUT~
-preset[21] => ~NO_FANOUT~
-preset[22] => ~NO_FANOUT~
-preset[23] => ~NO_FANOUT~
-preset[24] => ~NO_FANOUT~
-preset[25] => ~NO_FANOUT~
-preset[26] => ~NO_FANOUT~
-preset[27] => ~NO_FANOUT~
+preset[0] => msec0_set[0].IN1
+preset[1] => msec0_set[1].IN1
+preset[2] => msec0_set[2].IN1
+preset[3] => msec0_set[3].IN1
+preset[4] => msec1_set[0].IN1
+preset[5] => msec1_set[1].IN1
+preset[6] => msec1_set[2].IN1
+preset[7] => msec1_set[3].IN1
+preset[8] => msec2_set[0].IN1
+preset[9] => msec2_set[1].IN1
+preset[10] => msec2_set[2].IN1
+preset[11] => msec2_set[3].IN1
+preset[12] => sec0_set[0].IN1
+preset[13] => sec0_set[1].IN1
+preset[14] => sec0_set[2].IN1
+preset[15] => sec0_set[3].IN1
+preset[16] => sec1_set[0].IN1
+preset[17] => sec1_set[1].IN1
+preset[18] => sec1_set[2].IN1
+preset[19] => sec1_set[3].IN1
+preset[20] => minute0_set[0].IN1
+preset[21] => minute0_set[1].IN1
+preset[22] => minute0_set[2].IN1
+preset[23] => minute0_set[3].IN1
+preset[24] => minute1_set[0].IN1
+preset[25] => minute1_set[1].IN1
+preset[26] => minute1_set[2].IN1
+preset[27] => minute1_set[3].IN1
 EN => EN~0.IN7
 load => load~0.IN7
-dispbuf[0] <= decimal_counter:comb_5.out
-dispbuf[1] <= decimal_counter:comb_5.out
-dispbuf[2] <= decimal_counter:comb_5.out
-dispbuf[3] <= decimal_counter:comb_5.out
-dispbuf[4] <= decimal_counter:comb_6.out
-dispbuf[5] <= decimal_counter:comb_6.out
-dispbuf[6] <= decimal_counter:comb_6.out
-dispbuf[7] <= decimal_counter:comb_6.out
-dispbuf[8] <= decimal_counter:comb_7.out
-dispbuf[9] <= decimal_counter:comb_7.out
-dispbuf[10] <= decimal_counter:comb_7.out
-dispbuf[11] <= decimal_counter:comb_7.out
-dispbuf[12] <= Six_counter:comb_8.out
-dispbuf[13] <= Six_counter:comb_8.out
-dispbuf[14] <= Six_counter:comb_8.out
-dispbuf[15] <= Six_counter:comb_8.out
-dispbuf[16] <= decimal_counter:comb_9.out
-dispbuf[17] <= decimal_counter:comb_9.out
-dispbuf[18] <= decimal_counter:comb_9.out
-dispbuf[19] <= decimal_counter:comb_9.out
-dispbuf[20] <= Six_counter:comb_10.out
-dispbuf[21] <= Six_counter:comb_10.out
-dispbuf[22] <= Six_counter:comb_10.out
-dispbuf[23] <= Six_counter:comb_10.out
+dispbuf[0] <= decimal_counter:bit_1.out
+dispbuf[1] <= decimal_counter:bit_1.out
+dispbuf[2] <= decimal_counter:bit_1.out
+dispbuf[3] <= decimal_counter:bit_1.out
+dispbuf[4] <= decimal_counter:bit_2.out
+dispbuf[5] <= decimal_counter:bit_2.out
+dispbuf[6] <= decimal_counter:bit_2.out
+dispbuf[7] <= decimal_counter:bit_2.out
+dispbuf[8] <= decimal_counter:bit_3.out
+dispbuf[9] <= decimal_counter:bit_3.out
+dispbuf[10] <= decimal_counter:bit_3.out
+dispbuf[11] <= decimal_counter:bit_3.out
+dispbuf[12] <= Six_counter:bit_4.out
+dispbuf[13] <= Six_counter:bit_4.out
+dispbuf[14] <= Six_counter:bit_4.out
+dispbuf[15] <= Six_counter:bit_4.out
+dispbuf[16] <= decimal_counter:bit_5.out
+dispbuf[17] <= decimal_counter:bit_5.out
+dispbuf[18] <= decimal_counter:bit_5.out
+dispbuf[19] <= decimal_counter:bit_5.out
+dispbuf[20] <= Six_counter:bit_6.out
+dispbuf[21] <= Six_counter:bit_6.out
+dispbuf[22] <= Six_counter:bit_6.out
+dispbuf[23] <= Six_counter:bit_6.out
 
 
-|watch_cnt|decimal_counter:comb_4
+|watch_cnt|decimal_counter:bit_0
 clk_cin => out_dat[3].CLK
 clk_cin => out_dat[2].CLK
 clk_cin => out_dat[1].CLK
@@ -87,7 +87,7 @@ out[3] <= out_dat[3].DB_MAX_OUTPUT_PORT_TYPE
 cout <= FULL.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|watch_cnt|decimal_counter:comb_5
+|watch_cnt|decimal_counter:bit_1
 clk_cin => out_dat[3].CLK
 clk_cin => out_dat[2].CLK
 clk_cin => out_dat[1].CLK
@@ -117,7 +117,7 @@ out[3] <= out_dat[3].DB_MAX_OUTPUT_PORT_TYPE
 cout <= FULL.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|watch_cnt|decimal_counter:comb_6
+|watch_cnt|decimal_counter:bit_2
 clk_cin => out_dat[3].CLK
 clk_cin => out_dat[2].CLK
 clk_cin => out_dat[1].CLK
@@ -147,7 +147,7 @@ out[3] <= out_dat[3].DB_MAX_OUTPUT_PORT_TYPE
 cout <= FULL.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|watch_cnt|decimal_counter:comb_7
+|watch_cnt|decimal_counter:bit_3
 clk_cin => out_dat[3].CLK
 clk_cin => out_dat[2].CLK
 clk_cin => out_dat[1].CLK
@@ -177,7 +177,7 @@ out[3] <= out_dat[3].DB_MAX_OUTPUT_PORT_TYPE
 cout <= FULL.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|watch_cnt|Six_counter:comb_8
+|watch_cnt|Six_counter:bit_4
 clk_cin => out_dat[3].CLK
 clk_cin => out_dat[2].CLK
 clk_cin => out_dat[1].CLK
@@ -207,7 +207,7 @@ out[3] <= out_dat[3].DB_MAX_OUTPUT_PORT_TYPE
 cout <= FULL.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|watch_cnt|decimal_counter:comb_9
+|watch_cnt|decimal_counter:bit_5
 clk_cin => out_dat[3].CLK
 clk_cin => out_dat[2].CLK
 clk_cin => out_dat[1].CLK
@@ -237,7 +237,7 @@ out[3] <= out_dat[3].DB_MAX_OUTPUT_PORT_TYPE
 cout <= FULL.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|watch_cnt|Six_counter:comb_10
+|watch_cnt|Six_counter:bit_6
 clk_cin => out_dat[3].CLK
 clk_cin => out_dat[2].CLK
 clk_cin => out_dat[1].CLK

@@ -1,5 +1,5 @@
 Analysis & Synthesis report for watch_cnt
-Fri Jan 15 12:09:15 2016
+Fri Jan 15 12:27:37 2016
 Quartus II Version 9.0 Build 132 02/25/2009 SJ Full Version
 
 
@@ -13,8 +13,8 @@ Quartus II Version 9.0 Build 132 02/25/2009 SJ Full Version
   5. Analysis & Synthesis Resource Usage Summary
   6. Analysis & Synthesis Resource Utilization by Entity
   7. General Register Statistics
-  8. Port Connectivity Checks: "Six_counter:comb_10"
-  9. Port Connectivity Checks: "decimal_counter:comb_4"
+  8. Port Connectivity Checks: "Six_counter:bit_6"
+  9. Port Connectivity Checks: "decimal_counter:bit_0"
  10. Analysis & Synthesis Messages
 
 
@@ -41,12 +41,12 @@ applicable agreement for further details.
 +------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                           ;
 +-----------------------------+------------------------------------------+
-; Analysis & Synthesis Status ; Successful - Fri Jan 15 12:09:15 2016    ;
+; Analysis & Synthesis Status ; Successful - Fri Jan 15 12:27:37 2016    ;
 ; Quartus II Version          ; 9.0 Build 132 02/25/2009 SJ Full Version ;
 ; Revision Name               ; watch_cnt                                ;
 ; Top-level Entity Name       ; watch_cnt                                ;
 ; Family                      ; ACEX1K                                   ;
-; Total logic elements        ; 67                                       ;
+; Total logic elements        ; 64                                       ;
 ; Total pins                  ; 56                                       ;
 ; Total memory bits           ; 0                                        ;
 ; Total PLLs                  ; 0                                        ;
@@ -131,36 +131,36 @@ applicable agreement for further details.
 +--------------------------------+------------+
 ; Resource                       ; Usage      ;
 +--------------------------------+------------+
-; Total logic elements           ; 67         ;
-; Total combinational functions  ; 40         ;
-;     -- Total 4-input functions ; 12         ;
-;     -- Total 3-input functions ; 16         ;
-;     -- Total 2-input functions ; 6          ;
+; Total logic elements           ; 64         ;
+; Total combinational functions  ; 49         ;
+;     -- Total 4-input functions ; 21         ;
+;     -- Total 3-input functions ; 2          ;
+;     -- Total 2-input functions ; 21         ;
 ;     -- Total 1-input functions ; 5          ;
-;     -- Total 0-input functions ; 1          ;
+;     -- Total 0-input functions ; 0          ;
 ; Total registers                ; 34         ;
 ; I/O pins                       ; 56         ;
 ; Maximum fan-out node           ; EN         ;
 ; Maximum fan-out                ; 34         ;
-; Total fan-out                  ; 322        ;
-; Average fan-out                ; 2.62       ;
+; Total fan-out                  ; 334        ;
+; Average fan-out                ; 2.78       ;
 +--------------------------------+------------+
 
 
-+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                   ;
-+-----------------------------+-------------+--------------+-------------+------+--------------+-------------------+------------------+-----------------+------------+-----------------------------------+--------------+
-; Compilation Hierarchy Node  ; Logic Cells ; LC Registers ; Memory Bits ; Pins ; LUT-Only LCs ; Register-Only LCs ; LUT/Register LCs ; Carry Chain LCs ; Packed LCs ; Full Hierarchy Name               ; Library Name ;
-+-----------------------------+-------------+--------------+-------------+------+--------------+-------------------+------------------+-----------------+------------+-----------------------------------+--------------+
-; |watch_cnt                  ; 67 (1)      ; 34           ; 0           ; 56   ; 33 (1)       ; 27 (0)            ; 7 (0)            ; 0 (0)           ; 0 (0)      ; |watch_cnt                        ; work         ;
-;    |Six_counter:comb_10|    ; 9 (9)       ; 4            ; 0           ; 0    ; 5 (5)        ; 3 (3)             ; 1 (1)            ; 0 (0)           ; 0 (0)      ; |watch_cnt|Six_counter:comb_10    ; work         ;
-;    |Six_counter:comb_8|     ; 10 (10)     ; 5            ; 0           ; 0    ; 5 (5)        ; 4 (4)             ; 1 (1)            ; 0 (0)           ; 0 (0)      ; |watch_cnt|Six_counter:comb_8     ; work         ;
-;    |decimal_counter:comb_4| ; 10 (10)     ; 5            ; 0           ; 0    ; 5 (5)        ; 4 (4)             ; 1 (1)            ; 0 (0)           ; 0 (0)      ; |watch_cnt|decimal_counter:comb_4 ; work         ;
-;    |decimal_counter:comb_5| ; 10 (10)     ; 5            ; 0           ; 0    ; 5 (5)        ; 4 (4)             ; 1 (1)            ; 0 (0)           ; 0 (0)      ; |watch_cnt|decimal_counter:comb_5 ; work         ;
-;    |decimal_counter:comb_6| ; 9 (9)       ; 5            ; 0           ; 0    ; 4 (4)        ; 4 (4)             ; 1 (1)            ; 0 (0)           ; 0 (0)      ; |watch_cnt|decimal_counter:comb_6 ; work         ;
-;    |decimal_counter:comb_7| ; 9 (9)       ; 5            ; 0           ; 0    ; 4 (4)        ; 4 (4)             ; 1 (1)            ; 0 (0)           ; 0 (0)      ; |watch_cnt|decimal_counter:comb_7 ; work         ;
-;    |decimal_counter:comb_9| ; 9 (9)       ; 5            ; 0           ; 0    ; 4 (4)        ; 4 (4)             ; 1 (1)            ; 0 (0)           ; 0 (0)      ; |watch_cnt|decimal_counter:comb_9 ; work         ;
-+-----------------------------+-------------+--------------+-------------+------+--------------+-------------------+------------------+-----------------+------------+-----------------------------------+--------------+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                 ;
++----------------------------+-------------+--------------+-------------+------+--------------+-------------------+------------------+-----------------+------------+----------------------------------+--------------+
+; Compilation Hierarchy Node ; Logic Cells ; LC Registers ; Memory Bits ; Pins ; LUT-Only LCs ; Register-Only LCs ; LUT/Register LCs ; Carry Chain LCs ; Packed LCs ; Full Hierarchy Name              ; Library Name ;
++----------------------------+-------------+--------------+-------------+------+--------------+-------------------+------------------+-----------------+------------+----------------------------------+--------------+
+; |watch_cnt                 ; 64 (0)      ; 34           ; 0           ; 56   ; 30 (0)       ; 15 (0)            ; 19 (0)           ; 0 (0)           ; 0 (0)      ; |watch_cnt                       ; work         ;
+;    |Six_counter:bit_4|     ; 9 (9)       ; 5            ; 0           ; 0    ; 4 (4)        ; 3 (3)             ; 2 (2)            ; 0 (0)           ; 0 (0)      ; |watch_cnt|Six_counter:bit_4     ; work         ;
+;    |Six_counter:bit_6|     ; 8 (8)       ; 4            ; 0           ; 0    ; 4 (4)        ; 2 (2)             ; 2 (2)            ; 0 (0)           ; 0 (0)      ; |watch_cnt|Six_counter:bit_6     ; work         ;
+;    |decimal_counter:bit_0| ; 10 (10)     ; 5            ; 0           ; 0    ; 5 (5)        ; 2 (2)             ; 3 (3)            ; 0 (0)           ; 0 (0)      ; |watch_cnt|decimal_counter:bit_0 ; work         ;
+;    |decimal_counter:bit_1| ; 10 (10)     ; 5            ; 0           ; 0    ; 5 (5)        ; 2 (2)             ; 3 (3)            ; 0 (0)           ; 0 (0)      ; |watch_cnt|decimal_counter:bit_1 ; work         ;
+;    |decimal_counter:bit_2| ; 9 (9)       ; 5            ; 0           ; 0    ; 4 (4)        ; 2 (2)             ; 3 (3)            ; 0 (0)           ; 0 (0)      ; |watch_cnt|decimal_counter:bit_2 ; work         ;
+;    |decimal_counter:bit_3| ; 9 (9)       ; 5            ; 0           ; 0    ; 4 (4)        ; 2 (2)             ; 3 (3)            ; 0 (0)           ; 0 (0)      ; |watch_cnt|decimal_counter:bit_3 ; work         ;
+;    |decimal_counter:bit_5| ; 9 (9)       ; 5            ; 0           ; 0    ; 4 (4)        ; 2 (2)             ; 3 (3)            ; 0 (0)           ; 0 (0)      ; |watch_cnt|decimal_counter:bit_5 ; work         ;
++----------------------------+-------------+--------------+-------------+------+--------------+-------------------+------------------+-----------------+------------+----------------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
@@ -180,7 +180,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 
 
 +----------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "Six_counter:comb_10"                                                                ;
+; Port Connectivity Checks: "Six_counter:bit_6"                                                                  ;
 +------+--------+----------+-------------------------------------------------------------------------------------+
 ; Port ; Type   ; Severity ; Details                                                                             ;
 +------+--------+----------+-------------------------------------------------------------------------------------+
@@ -189,7 +189,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 
 
 +----------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "decimal_counter:comb_4"                                                             ;
+; Port Connectivity Checks: "decimal_counter:bit_0"                                                              ;
 +------+--------+----------+-------------------------------------------------------------------------------------+
 ; Port ; Type   ; Severity ; Details                                                                             ;
 +------+--------+----------+-------------------------------------------------------------------------------------+
@@ -203,7 +203,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 Info: *******************************************************************
 Info: Running Quartus II Analysis & Synthesis
     Info: Version 9.0 Build 132 02/25/2009 SJ Full Version
-    Info: Processing started: Fri Jan 15 12:09:14 2016
+    Info: Processing started: Fri Jan 15 12:27:37 2016
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off watch_cnt -c watch_cnt
 Info: Found 1 design units, including 1 entities, in source file decimal_counter.v
     Info: Found entity 1: decimal_counter
@@ -211,54 +211,16 @@ Info: Found 1 design units, including 1 entities, in source file Six_counter.v
     Info: Found entity 1: Six_counter
 Info: Found 1 design units, including 1 entities, in source file watch_cnt.v
     Info: Found entity 1: watch_cnt
-Critical Warning (10846): Verilog HDL Instantiation warning at watch_cnt.v(42): instance has no name
-Critical Warning (10846): Verilog HDL Instantiation warning at watch_cnt.v(51): instance has no name
-Critical Warning (10846): Verilog HDL Instantiation warning at watch_cnt.v(60): instance has no name
-Critical Warning (10846): Verilog HDL Instantiation warning at watch_cnt.v(70): instance has no name
-Critical Warning (10846): Verilog HDL Instantiation warning at watch_cnt.v(79): instance has no name
-Critical Warning (10846): Verilog HDL Instantiation warning at watch_cnt.v(88): instance has no name
-Critical Warning (10846): Verilog HDL Instantiation warning at watch_cnt.v(97): instance has no name
 Info: Elaborating entity "watch_cnt" for the top level hierarchy
-Info: Elaborating entity "decimal_counter" for hierarchy "decimal_counter:comb_4"
-Warning (10230): Verilog HDL assignment warning at decimal_counter.v(43): truncated value with size 32 to match size of target (4)
-Info: Elaborating entity "Six_counter" for hierarchy "Six_counter:comb_8"
-Warning (10230): Verilog HDL assignment warning at Six_counter.v(43): truncated value with size 32 to match size of target (4)
-Warning: Design contains 28 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "preset[0]"
-    Warning (15610): No output dependent on input pin "preset[1]"
-    Warning (15610): No output dependent on input pin "preset[2]"
-    Warning (15610): No output dependent on input pin "preset[3]"
-    Warning (15610): No output dependent on input pin "preset[4]"
-    Warning (15610): No output dependent on input pin "preset[5]"
-    Warning (15610): No output dependent on input pin "preset[6]"
-    Warning (15610): No output dependent on input pin "preset[7]"
-    Warning (15610): No output dependent on input pin "preset[8]"
-    Warning (15610): No output dependent on input pin "preset[9]"
-    Warning (15610): No output dependent on input pin "preset[10]"
-    Warning (15610): No output dependent on input pin "preset[11]"
-    Warning (15610): No output dependent on input pin "preset[12]"
-    Warning (15610): No output dependent on input pin "preset[13]"
-    Warning (15610): No output dependent on input pin "preset[14]"
-    Warning (15610): No output dependent on input pin "preset[15]"
-    Warning (15610): No output dependent on input pin "preset[16]"
-    Warning (15610): No output dependent on input pin "preset[17]"
-    Warning (15610): No output dependent on input pin "preset[18]"
-    Warning (15610): No output dependent on input pin "preset[19]"
-    Warning (15610): No output dependent on input pin "preset[20]"
-    Warning (15610): No output dependent on input pin "preset[21]"
-    Warning (15610): No output dependent on input pin "preset[22]"
-    Warning (15610): No output dependent on input pin "preset[23]"
-    Warning (15610): No output dependent on input pin "preset[24]"
-    Warning (15610): No output dependent on input pin "preset[25]"
-    Warning (15610): No output dependent on input pin "preset[26]"
-    Warning (15610): No output dependent on input pin "preset[27]"
-Info: Implemented 123 device resources after synthesis - the final resource count might be different
+Info: Elaborating entity "decimal_counter" for hierarchy "decimal_counter:bit_0"
+Info: Elaborating entity "Six_counter" for hierarchy "Six_counter:bit_4"
+Info: Implemented 120 device resources after synthesis - the final resource count might be different
     Info: Implemented 32 input pins
     Info: Implemented 24 output pins
-    Info: Implemented 67 logic cells
-Info: Quartus II Analysis & Synthesis was successful. 0 errors, 38 warnings
-    Info: Peak virtual memory: 237 megabytes
-    Info: Processing ended: Fri Jan 15 12:09:15 2016
+    Info: Implemented 64 logic cells
+Info: Quartus II Analysis & Synthesis was successful. 0 errors, 0 warnings
+    Info: Peak virtual memory: 238 megabytes
+    Info: Processing ended: Fri Jan 15 12:27:38 2016
     Info: Elapsed time: 00:00:01
     Info: Total CPU time (on all processors): 00:00:00
 

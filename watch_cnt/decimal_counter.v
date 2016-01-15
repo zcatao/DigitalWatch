@@ -40,7 +40,7 @@ module decimal_counter (
                 FULL <= 1;
             end
             else begin
-                out_dat <= out_dat + 1;
+                out_dat <= out_dat + 4'd1;
                 FULL <= 0;
             end
         end
