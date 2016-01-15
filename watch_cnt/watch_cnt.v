@@ -15,7 +15,9 @@
 module watch_cnt (
     input clk_1Khz,
     input rst,
-    input [3:0]Command,
+    input [27:0] preset,
+    input EN,
+    input load,
     output [23:0] dispbuf
     );
     reg [3:0] minute1;
@@ -27,32 +29,15 @@ module watch_cnt (
     reg [3:0] msec0;
     //reg [35:0] Time;
     reg [6:0] cout; // 代表七位数字的进位
+    wire[3:0] minute1_set,minute0_set,sec1_set,sec0_set,msec2_sec,msec1_sec,msec0_sec;
     //毫秒个位
-    always @ (posedge clk_1Khz or posedge rst) begin
-      if (rst) begin
-          msec0 <= 0;
-          cout <= 0;
-      end else if (msec0 == 4'd9) begin
-          msec0 <= 0;
-          cout[0] <= 1;
-      end else begin
-          msec0 <= msec0 + 1;
-          cout[0] < = 0;
-      end
-    end
-    //毫秒十位
-    always @ (posedge cout[0] or posedge rst) begin
-        if(rst) begin
-            msec1 <= 0;
-            cout[1] <= 0;
-        end else if (msec1 == 4'd9) begin
-            msec1 <= 0;
-            cout[1] <= 1;
-        end else begin
-            msec1 <= msec1 + 1;
-            cout[1] <= 0;
-        end
-    end
+
+    decimal_counter(.clk_cin(clk_1Khz),
+                    .rst(rst),
+                    .EN(EN),
+                    .load(load),
+                    .preset())
+
 
 
 

@@ -38,11 +38,15 @@
 
 set_global_assignment -name FAMILY ACEX1K
 set_global_assignment -name DEVICE "EP1K30TC144-3"
-set_global_assignment -name TOP_LEVEL_ENTITY watch_cnt
+set_global_assignment -name TOP_LEVEL_ENTITY Six_counter
 set_global_assignment -name ORIGINAL_QUARTUS_VERSION 9.0
 set_global_assignment -name PROJECT_CREATION_TIME_DATE "09:21:27  JANUARY 15, 2016"
 set_global_assignment -name LAST_QUARTUS_VERSION 9.0
 set_global_assignment -name USE_GENERATED_PHYSICAL_CONSTRAINTS OFF -section_id eda_blast_fpga
 set_global_assignment -name MIN_CORE_JUNCTION_TEMP 0
 set_global_assignment -name MAX_CORE_JUNCTION_TEMP 85
+set_global_assignment -name VERILOG_FILE ../Six_counter.v
 set_global_assignment -name VERILOG_FILE watch_cnt.v
+set_global_assignment -name VECTOR_WAVEFORM_FILE six_cnt_m.vwf
+set_global_assignment -name SIMULATION_MODE FUNCTIONAL
+set_global_assignment -name INCREMENTAL_VECTOR_INPUT_SOURCE six_cnt_m.vwf
