@@ -1,0 +1,18 @@
+
+
+module Digitalwatch(
+	input clk_50M,
+	input rst,
+	input start,
+	input stop,
+	input time_out,
+	output dispout
+	);
+	
+	wire clk_1Khz;
+	
+	clk_div(.clk_50M(clk_50M),.out
+	
+	
+
+endmodule 

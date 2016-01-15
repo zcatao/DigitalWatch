@@ -1,0 +1,9 @@
+|half_adder
+a => cout~0.IN0
+a => out~0.IN0
+b => cout~0.IN1
+b => out~0.IN1
+out <= out~0.DB_MAX_OUTPUT_PORT_TYPE
+cout <= cout~0.DB_MAX_OUTPUT_PORT_TYPE
+
+
