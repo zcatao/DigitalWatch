@@ -301,11 +301,11 @@ VECTOR("C:/Users/Sontao/OneDrive/EDAøŒ…Ë/watch_cnt/db/watch_cnt.sim.cvwf")
 VECTOR("C:/Users/yangs/Documents/DigitalWatch/watch_cnt/db/watch_cnt.sim.cvwf")
 {
 	ZOOM{
-		ZBEGIN = 418012024;
-		ZEND = 434443856;
-		NUMERATOR = 794;
-		DENOMINATOR = 15625000;
-		TOP_INDEX = 0;
+		ZBEGIN = 231352718;
+		ZEND = 720606798;
+		NUMERATOR = 774;
+		DENOMINATOR = 489254080;
+		TOP_INDEX = 2;
 	}
 	CLOCK{
 		PERIOD = 10000;

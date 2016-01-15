@@ -45,7 +45,7 @@ set_global_assignment -name LAST_QUARTUS_VERSION 9.0
 set_global_assignment -name USE_GENERATED_PHYSICAL_CONSTRAINTS OFF -section_id eda_blast_fpga
 set_global_assignment -name MIN_CORE_JUNCTION_TEMP 0
 set_global_assignment -name MAX_CORE_JUNCTION_TEMP 85
-set_global_assignment -name SIMULATION_MODE FUNCTIONAL
+set_global_assignment -name SIMULATION_MODE TIMING
 set_global_assignment -name VERILOG_FILE decimal_counter.v
 set_global_assignment -name VERILOG_FILE Six_counter.v
 set_global_assignment -name VERILOG_FILE watch_cnt.v
