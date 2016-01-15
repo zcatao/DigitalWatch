@@ -1,0 +1,30 @@
+|Six_counter
+clk_cin => out_dat[3].CLK
+clk_cin => out_dat[2].CLK
+clk_cin => out_dat[1].CLK
+clk_cin => out_dat[0].CLK
+clk_cin => FULL.CLK
+rst => out_dat[3].ACLR
+rst => out_dat[2].ACLR
+rst => out_dat[1].ACLR
+rst => out_dat[0].ACLR
+rst => FULL~0.IN0
+rst => out_dat[3]~0.IN0
+EN => FULL.ENA
+EN => out_dat[3].ENA
+EN => out_dat[2].ENA
+EN => out_dat[1].ENA
+EN => out_dat[0].ENA
+load => out_dat[3]~0.IN1
+load => FULL~0.IN1
+preset[0] => out_dat[0].ADATA
+preset[1] => out_dat[1].ADATA
+preset[2] => out_dat[2].ADATA
+preset[3] => out_dat[3].ADATA
+out[0] <= out_dat[0].DB_MAX_OUTPUT_PORT_TYPE
+out[1] <= out_dat[1].DB_MAX_OUTPUT_PORT_TYPE
+out[2] <= out_dat[2].DB_MAX_OUTPUT_PORT_TYPE
+out[3] <= out_dat[3].DB_MAX_OUTPUT_PORT_TYPE
+cout <= FULL.DB_MAX_OUTPUT_PORT_TYPE
+
+
