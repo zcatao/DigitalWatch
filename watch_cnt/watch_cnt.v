@@ -13,14 +13,17 @@
 ***********************************************/
 
 module watch_cnt (
-    input clk_1Khz,
-    input rst,
-    input [27:0] preset,
-    input EN,
-    input load,
+    input clk_50Mhz,
+    input key_start,
+    input key_pause,
+    input key_load,
     output [23:0] dispbuf
     );
+    wire rst,EN,load;
+    wire clk_1Khz;
     wire [3:0] minute1,minute0,sec1,sec0,msec2,msec1,msec0;
+    parameter preset = 24'h4811111;
+
     // wire [3:0] minute0;
     // wire [3:0] sec1;
     // reg [3:0] sec0;
@@ -31,6 +34,11 @@ module watch_cnt (
     wire [6:0] cout; // 代表七位数字的进位
     wire[3:0] minute1_set,minute0_set,sec1_set,sec0_set,msec2_set,msec1_set,msec0_set;
     //毫秒个位
+    
+    clk_div clkdiv(.clk_50Mhz(clk_50Mhz),
+				   .rst(rst),
+				   .clk_1Khz(clk_1Khz)
+				   );
 
     decimal_counter bit_0(.clk_cin(clk_1Khz),
                     .rst(rst),
@@ -95,6 +103,15 @@ module watch_cnt (
                 .out(minute1),
                 .cout(cout[6])
                 );
+    // 按键控制
+    key_Control control(.key_start(key_start),
+                .key_pause(key_pause),
+                .key_load(key_load),
+                .EN(EN),
+                .load(load),
+                .rst(rst)
+                );
+
     assign dispbuf = {minute1,minute0,sec1,sec0,msec2,msec1};
     assign {minute1_set,minute0_set,sec1_set,sec0_set,msec2_set,msec1_set,msec0_set} = preset  ;
 

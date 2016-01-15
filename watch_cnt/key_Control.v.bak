@@ -45,13 +45,12 @@ module key_Control (
             START: en_ <= 1;
             STOP : en_ <= 0;
             RESET: begin
-                        en_ <= 0; rst_ <= 0;
+                        en_ <= 0; rst <= 0;
                    end
         endcase
-
+            
     end
-    assign EN = en_;
-    assign rst = rst_;
+
     assign load = key_load;
 
 endmodule // key_Control

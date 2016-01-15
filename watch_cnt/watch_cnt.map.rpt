@@ -1,5 +1,5 @@
 Analysis & Synthesis report for watch_cnt
-Fri Jan 15 12:27:37 2016
+Fri Jan 15 15:54:32 2016
 Quartus II Version 9.0 Build 132 02/25/2009 SJ Full Version
 
 
@@ -12,10 +12,23 @@ Quartus II Version 9.0 Build 132 02/25/2009 SJ Full Version
   4. Analysis & Synthesis Source Files Read
   5. Analysis & Synthesis Resource Usage Summary
   6. Analysis & Synthesis Resource Utilization by Entity
-  7. General Register Statistics
-  8. Port Connectivity Checks: "Six_counter:bit_6"
-  9. Port Connectivity Checks: "decimal_counter:bit_0"
- 10. Analysis & Synthesis Messages
+  7. State Machine - |watch_cnt|key_Control:control|Start_status
+  8. General Register Statistics
+  9. Inverted Register Statistics
+ 10. Source assignments for clk_div:clkdiv|lpm_counter:cnt_rtl_0
+ 11. Parameter Settings for User Entity Instance: Top-level Entity: |watch_cnt
+ 12. Parameter Settings for User Entity Instance: clk_div:clkdiv
+ 13. Parameter Settings for User Entity Instance: key_Control:control
+ 14. Parameter Settings for Inferred Entity Instance: clk_div:clkdiv|lpm_counter:cnt_rtl_0
+ 15. Port Connectivity Checks: "Six_counter:bit_6"
+ 16. Port Connectivity Checks: "decimal_counter:bit_5"
+ 17. Port Connectivity Checks: "Six_counter:bit_4"
+ 18. Port Connectivity Checks: "decimal_counter:bit_3"
+ 19. Port Connectivity Checks: "decimal_counter:bit_2"
+ 20. Port Connectivity Checks: "decimal_counter:bit_1"
+ 21. Port Connectivity Checks: "decimal_counter:bit_0"
+ 22. Analysis & Synthesis Messages
+ 23. Analysis & Synthesis Suppressed Messages
 
 
 
@@ -41,13 +54,13 @@ applicable agreement for further details.
 +------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                           ;
 +-----------------------------+------------------------------------------+
-; Analysis & Synthesis Status ; Successful - Fri Jan 15 12:27:37 2016    ;
+; Analysis & Synthesis Status ; Successful - Fri Jan 15 15:54:32 2016    ;
 ; Quartus II Version          ; 9.0 Build 132 02/25/2009 SJ Full Version ;
 ; Revision Name               ; watch_cnt                                ;
 ; Top-level Entity Name       ; watch_cnt                                ;
 ; Family                      ; ACEX1K                                   ;
-; Total logic elements        ; 64                                       ;
-; Total pins                  ; 56                                       ;
+; Total logic elements        ; 112                                      ;
+; Total pins                  ; 28                                       ;
 ; Total memory bits           ; 0                                        ;
 ; Total PLLs                  ; 0                                        ;
 +-----------------------------+------------------------------------------+
@@ -115,53 +128,87 @@ applicable agreement for further details.
 +----------------------------------------------------------------+---------------+---------------+
 
 
-+-------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                          ;
-+----------------------------------+-----------------+------------------------+-------------------------------------------------------------------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type              ; File Name with Absolute Path                                      ;
-+----------------------------------+-----------------+------------------------+-------------------------------------------------------------------+
-; decimal_counter.v                ; yes             ; User Verilog HDL File  ; C:/Users/yangs/Documents/DigitalWatch/watch_cnt/decimal_counter.v ;
-; Six_counter.v                    ; yes             ; User Verilog HDL File  ; C:/Users/yangs/Documents/DigitalWatch/watch_cnt/Six_counter.v     ;
-; watch_cnt.v                      ; yes             ; User Verilog HDL File  ; C:/Users/yangs/Documents/DigitalWatch/watch_cnt/watch_cnt.v       ;
-+----------------------------------+-----------------+------------------------+-------------------------------------------------------------------+
++----------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                             ;
++----------------------------------+-----------------+------------------------+----------------------------------------------------------------------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type              ; File Name with Absolute Path                                         ;
++----------------------------------+-----------------+------------------------+----------------------------------------------------------------------+
+; clk_div.v                        ; yes             ; User Verilog HDL File  ; C:/Users/Sontao/OneDrive/EDA课设/watch_cnt/clk_div.v                 ;
+; key_Control.v                    ; yes             ; User Verilog HDL File  ; C:/Users/Sontao/OneDrive/EDA课设/watch_cnt/key_Control.v             ;
+; decimal_counter.v                ; yes             ; User Verilog HDL File  ; C:/Users/Sontao/OneDrive/EDA课设/watch_cnt/decimal_counter.v         ;
+; Six_counter.v                    ; yes             ; User Verilog HDL File  ; C:/Users/Sontao/OneDrive/EDA课设/watch_cnt/Six_counter.v             ;
+; watch_cnt.v                      ; yes             ; User Verilog HDL File  ; C:/Users/Sontao/OneDrive/EDA课设/watch_cnt/watch_cnt.v               ;
+; lpm_counter.tdf                  ; yes             ; Megafunction           ; d:/altera/90/quartus/libraries/megafunctions/lpm_counter.tdf         ;
+; lpm_constant.inc                 ; yes             ; Megafunction           ; d:/altera/90/quartus/libraries/megafunctions/lpm_constant.inc        ;
+; lpm_decode.inc                   ; yes             ; Megafunction           ; d:/altera/90/quartus/libraries/megafunctions/lpm_decode.inc          ;
+; lpm_add_sub.inc                  ; yes             ; Megafunction           ; d:/altera/90/quartus/libraries/megafunctions/lpm_add_sub.inc         ;
+; cmpconst.inc                     ; yes             ; Megafunction           ; d:/altera/90/quartus/libraries/megafunctions/cmpconst.inc            ;
+; lpm_compare.inc                  ; yes             ; Megafunction           ; d:/altera/90/quartus/libraries/megafunctions/lpm_compare.inc         ;
+; lpm_counter.inc                  ; yes             ; Megafunction           ; d:/altera/90/quartus/libraries/megafunctions/lpm_counter.inc         ;
+; dffeea.inc                       ; yes             ; Megafunction           ; d:/altera/90/quartus/libraries/megafunctions/dffeea.inc              ;
+; alt_synch_counter.inc            ; yes             ; Megafunction           ; d:/altera/90/quartus/libraries/megafunctions/alt_synch_counter.inc   ;
+; alt_synch_counter_f.inc          ; yes             ; Megafunction           ; d:/altera/90/quartus/libraries/megafunctions/alt_synch_counter_f.inc ;
+; alt_counter_f10ke.inc            ; yes             ; Megafunction           ; d:/altera/90/quartus/libraries/megafunctions/alt_counter_f10ke.inc   ;
+; alt_counter_stratix.inc          ; yes             ; Megafunction           ; d:/altera/90/quartus/libraries/megafunctions/alt_counter_stratix.inc ;
+; aglobal90.inc                    ; yes             ; Megafunction           ; d:/altera/90/quartus/libraries/megafunctions/aglobal90.inc           ;
+; alt_counter_f10ke.tdf            ; yes             ; Megafunction           ; d:/altera/90/quartus/libraries/megafunctions/alt_counter_f10ke.tdf   ;
+; flex10ke_lcell.inc               ; yes             ; Megafunction           ; d:/altera/90/quartus/libraries/megafunctions/flex10ke_lcell.inc      ;
++----------------------------------+-----------------+------------------------+----------------------------------------------------------------------+
 
 
-+---------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary ;
-+--------------------------------+------------+
-; Resource                       ; Usage      ;
-+--------------------------------+------------+
-; Total logic elements           ; 64         ;
-; Total combinational functions  ; 49         ;
-;     -- Total 4-input functions ; 21         ;
-;     -- Total 3-input functions ; 2          ;
-;     -- Total 2-input functions ; 21         ;
-;     -- Total 1-input functions ; 5          ;
-;     -- Total 0-input functions ; 0          ;
-; Total registers                ; 34         ;
-; I/O pins                       ; 56         ;
-; Maximum fan-out node           ; EN         ;
-; Maximum fan-out                ; 34         ;
-; Total fan-out                  ; 334        ;
-; Average fan-out                ; 2.78       ;
-+--------------------------------+------------+
++-------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                             ;
++-----------------------------------+-------------------------------------+
+; Resource                          ; Usage                               ;
++-----------------------------------+-------------------------------------+
+; Total logic elements              ; 112                                 ;
+; Total combinational functions     ; 85                                  ;
+;     -- Total 4-input functions    ; 21                                  ;
+;     -- Total 3-input functions    ; 16                                  ;
+;     -- Total 2-input functions    ; 4                                   ;
+;     -- Total 1-input functions    ; 43                                  ;
+;     -- Total 0-input functions    ; 1                                   ;
+; Total registers                   ; 70                                  ;
+; Total logic cells in carry chains ; 32                                  ;
+; I/O pins                          ; 28                                  ;
+; Maximum fan-out node              ; decimal_counter:bit_1|out_dat[0]~14 ;
+; Maximum fan-out                   ; 34                                  ;
+; Total fan-out                     ; 428                                 ;
+; Average fan-out                   ; 3.06                                ;
++-----------------------------------+-------------------------------------+
 
 
-+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                 ;
-+----------------------------+-------------+--------------+-------------+------+--------------+-------------------+------------------+-----------------+------------+----------------------------------+--------------+
-; Compilation Hierarchy Node ; Logic Cells ; LC Registers ; Memory Bits ; Pins ; LUT-Only LCs ; Register-Only LCs ; LUT/Register LCs ; Carry Chain LCs ; Packed LCs ; Full Hierarchy Name              ; Library Name ;
-+----------------------------+-------------+--------------+-------------+------+--------------+-------------------+------------------+-----------------+------------+----------------------------------+--------------+
-; |watch_cnt                 ; 64 (0)      ; 34           ; 0           ; 56   ; 30 (0)       ; 15 (0)            ; 19 (0)           ; 0 (0)           ; 0 (0)      ; |watch_cnt                       ; work         ;
-;    |Six_counter:bit_4|     ; 9 (9)       ; 5            ; 0           ; 0    ; 4 (4)        ; 3 (3)             ; 2 (2)            ; 0 (0)           ; 0 (0)      ; |watch_cnt|Six_counter:bit_4     ; work         ;
-;    |Six_counter:bit_6|     ; 8 (8)       ; 4            ; 0           ; 0    ; 4 (4)        ; 2 (2)             ; 2 (2)            ; 0 (0)           ; 0 (0)      ; |watch_cnt|Six_counter:bit_6     ; work         ;
-;    |decimal_counter:bit_0| ; 10 (10)     ; 5            ; 0           ; 0    ; 5 (5)        ; 2 (2)             ; 3 (3)            ; 0 (0)           ; 0 (0)      ; |watch_cnt|decimal_counter:bit_0 ; work         ;
-;    |decimal_counter:bit_1| ; 10 (10)     ; 5            ; 0           ; 0    ; 5 (5)        ; 2 (2)             ; 3 (3)            ; 0 (0)           ; 0 (0)      ; |watch_cnt|decimal_counter:bit_1 ; work         ;
-;    |decimal_counter:bit_2| ; 9 (9)       ; 5            ; 0           ; 0    ; 4 (4)        ; 2 (2)             ; 3 (3)            ; 0 (0)           ; 0 (0)      ; |watch_cnt|decimal_counter:bit_2 ; work         ;
-;    |decimal_counter:bit_3| ; 9 (9)       ; 5            ; 0           ; 0    ; 4 (4)        ; 2 (2)             ; 3 (3)            ; 0 (0)           ; 0 (0)      ; |watch_cnt|decimal_counter:bit_3 ; work         ;
-;    |decimal_counter:bit_5| ; 9 (9)       ; 5            ; 0           ; 0    ; 4 (4)        ; 2 (2)             ; 3 (3)            ; 0 (0)           ; 0 (0)      ; |watch_cnt|decimal_counter:bit_5 ; work         ;
-+----------------------------+-------------+--------------+-------------+------+--------------+-------------------+------------------+-----------------+------------+----------------------------------+--------------+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                              ;
++-------------------------------------------+-------------+--------------+-------------+------+--------------+-------------------+------------------+-----------------+------------+--------------------------------------------------------------------------------+--------------+
+; Compilation Hierarchy Node                ; Logic Cells ; LC Registers ; Memory Bits ; Pins ; LUT-Only LCs ; Register-Only LCs ; LUT/Register LCs ; Carry Chain LCs ; Packed LCs ; Full Hierarchy Name                                                            ; Library Name ;
++-------------------------------------------+-------------+--------------+-------------+------+--------------+-------------------+------------------+-----------------+------------+--------------------------------------------------------------------------------+--------------+
+; |watch_cnt                                ; 112 (1)     ; 70           ; 0           ; 28   ; 42 (1)       ; 27 (0)            ; 43 (0)           ; 32 (0)          ; 0 (0)      ; |watch_cnt                                                                     ; work         ;
+;    |Six_counter:bit_4|                    ; 10 (10)     ; 5            ; 0           ; 0    ; 5 (5)        ; 4 (4)             ; 1 (1)            ; 0 (0)           ; 0 (0)      ; |watch_cnt|Six_counter:bit_4                                                   ; work         ;
+;    |Six_counter:bit_6|                    ; 9 (9)       ; 4            ; 0           ; 0    ; 5 (5)        ; 3 (3)             ; 1 (1)            ; 0 (0)           ; 0 (0)      ; |watch_cnt|Six_counter:bit_6                                                   ; work         ;
+;    |clk_div:clkdiv|                       ; 43 (11)     ; 33           ; 0           ; 0    ; 10 (10)      ; 0 (0)             ; 33 (1)           ; 32 (0)          ; 0 (0)      ; |watch_cnt|clk_div:clkdiv                                                      ; work         ;
+;       |lpm_counter:cnt_rtl_0|             ; 32 (0)      ; 32           ; 0           ; 0    ; 0 (0)        ; 0 (0)             ; 32 (0)           ; 32 (0)          ; 0 (0)      ; |watch_cnt|clk_div:clkdiv|lpm_counter:cnt_rtl_0                                ; work         ;
+;          |alt_counter_f10ke:wysi_counter| ; 32 (32)     ; 32           ; 0           ; 0    ; 0 (0)        ; 0 (0)             ; 32 (32)          ; 32 (32)         ; 0 (0)      ; |watch_cnt|clk_div:clkdiv|lpm_counter:cnt_rtl_0|alt_counter_f10ke:wysi_counter ; work         ;
+;    |decimal_counter:bit_0|                ; 9 (9)       ; 5            ; 0           ; 0    ; 4 (4)        ; 4 (4)             ; 1 (1)            ; 0 (0)           ; 0 (0)      ; |watch_cnt|decimal_counter:bit_0                                               ; work         ;
+;    |decimal_counter:bit_1|                ; 10 (10)     ; 5            ; 0           ; 0    ; 5 (5)        ; 4 (4)             ; 1 (1)            ; 0 (0)           ; 0 (0)      ; |watch_cnt|decimal_counter:bit_1                                               ; work         ;
+;    |decimal_counter:bit_2|                ; 9 (9)       ; 5            ; 0           ; 0    ; 4 (4)        ; 4 (4)             ; 1 (1)            ; 0 (0)           ; 0 (0)      ; |watch_cnt|decimal_counter:bit_2                                               ; work         ;
+;    |decimal_counter:bit_3|                ; 9 (9)       ; 5            ; 0           ; 0    ; 4 (4)        ; 4 (4)             ; 1 (1)            ; 0 (0)           ; 0 (0)      ; |watch_cnt|decimal_counter:bit_3                                               ; work         ;
+;    |decimal_counter:bit_5|                ; 9 (9)       ; 5            ; 0           ; 0    ; 4 (4)        ; 3 (3)             ; 2 (2)            ; 0 (0)           ; 0 (0)      ; |watch_cnt|decimal_counter:bit_5                                               ; work         ;
+;    |key_Control:control|                  ; 3 (3)       ; 3            ; 0           ; 0    ; 0 (0)        ; 1 (1)             ; 2 (2)            ; 0 (0)           ; 0 (0)      ; |watch_cnt|key_Control:control                                                 ; work         ;
++-------------------------------------------+-------------+--------------+-------------+------+--------------+-------------------+------------------+-----------------+------------+--------------------------------------------------------------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
+Encoding Type:  One-Hot
++----------------------------------------------------------------------------------+
+; State Machine - |watch_cnt|key_Control:control|Start_status                      ;
++--------------------+--------------------+--------------------+-------------------+
+; Name               ; Start_status.START ; Start_status.RESET ; Start_status.STOP ;
++--------------------+--------------------+--------------------+-------------------+
+; Start_status.START ; 0                  ; 0                  ; 0                 ;
+; Start_status.STOP  ; 1                  ; 0                  ; 1                 ;
+; Start_status.RESET ; 1                  ; 1                  ; 0                 ;
++--------------------+--------------------+--------------------+-------------------+
 
 
 +------------------------------------------------------+
@@ -169,32 +216,170 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 34    ;
-; Number of registers using Synchronous Clear  ; 0     ;
+; Total registers                              ; 70    ;
+; Number of registers using Synchronous Clear  ; 32    ;
 ; Number of registers using Synchronous Load   ; 0     ;
-; Number of registers using Asynchronous Clear ; 34    ;
-; Number of registers using Asynchronous Load  ; 28    ;
-; Number of registers using Clock Enable       ; 34    ;
+; Number of registers using Asynchronous Clear ; 12    ;
+; Number of registers using Asynchronous Load  ; 22    ;
+; Number of registers using Clock Enable       ; 35    ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
 
-+----------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "Six_counter:bit_6"                                                                  ;
-+------+--------+----------+-------------------------------------------------------------------------------------+
-; Port ; Type   ; Severity ; Details                                                                             ;
-+------+--------+----------+-------------------------------------------------------------------------------------+
-; cout ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+------+--------+----------+-------------------------------------------------------------------------------------+
++--------------------------------------------------+
+; Inverted Register Statistics                     ;
++----------------------------------------+---------+
+; Inverted Register                      ; Fan out ;
++----------------------------------------+---------+
+; decimal_counter:bit_1|out_dat[0]       ; 6       ;
+; decimal_counter:bit_2|out_dat[0]       ; 6       ;
+; decimal_counter:bit_3|out_dat[0]       ; 6       ;
+; Six_counter:bit_4|out_dat[0]           ; 5       ;
+; decimal_counter:bit_5|out_dat[3]       ; 3       ;
+; decimal_counter:bit_0|out_dat[0]       ; 5       ;
+; Total number of inverted registers = 6 ;         ;
++----------------------------------------+---------+
 
 
-+----------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "decimal_counter:bit_0"                                                              ;
-+------+--------+----------+-------------------------------------------------------------------------------------+
-; Port ; Type   ; Severity ; Details                                                                             ;
-+------+--------+----------+-------------------------------------------------------------------------------------+
-; out  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+------+--------+----------+-------------------------------------------------------------------------------------+
++-------------------------------------------------------------+
+; Source assignments for clk_div:clkdiv|lpm_counter:cnt_rtl_0 ;
++---------------------------+-------+------+------------------+
+; Assignment                ; Value ; From ; To               ;
++---------------------------+-------+------+------------------+
+; SUPPRESS_DA_RULE_INTERNAL ; a101  ; -    ; -                ;
+; SUPPRESS_DA_RULE_INTERNAL ; s102  ; -    ; -                ;
+; SUPPRESS_DA_RULE_INTERNAL ; s103  ; -    ; -                ;
++---------------------------+-------+------+------------------+
+
+
++---------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Top-level Entity: |watch_cnt ;
++----------------+--------------------------+-------------------------------+
+; Parameter Name ; Value                    ; Type                          ;
++----------------+--------------------------+-------------------------------+
+; preset         ; 100000010001000100010001 ; Unsigned Binary               ;
++----------------+--------------------------+-------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: clk_div:clkdiv ;
++----------------+-------+------------------------------------+
+; Parameter Name ; Value ; Type                               ;
++----------------+-------+------------------------------------+
+; clk_div        ; 25000 ; Signed Integer                     ;
++----------------+-------+------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: key_Control:control ;
++----------------+-------+-----------------------------------------+
+; Parameter Name ; Value ; Type                                    ;
++----------------+-------+-----------------------------------------+
+; START          ; 00    ; Unsigned Binary                         ;
+; STOP           ; 01    ; Unsigned Binary                         ;
+; RESET          ; 10    ; Unsigned Binary                         ;
++----------------+-------+-----------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: clk_div:clkdiv|lpm_counter:cnt_rtl_0 ;
++------------------------+-------------------+------------------------------------------+
+; Parameter Name         ; Value             ; Type                                     ;
++------------------------+-------------------+------------------------------------------+
+; AUTO_CARRY_CHAINS      ; ON                ; AUTO_CARRY                               ;
+; IGNORE_CARRY_BUFFERS   ; OFF               ; IGNORE_CARRY                             ;
+; AUTO_CASCADE_CHAINS    ; ON                ; AUTO_CASCADE                             ;
+; IGNORE_CASCADE_BUFFERS ; OFF               ; IGNORE_CASCADE                           ;
+; LPM_WIDTH              ; 32                ; Untyped                                  ;
+; LPM_DIRECTION          ; UP                ; Untyped                                  ;
+; LPM_MODULUS            ; 0                 ; Untyped                                  ;
+; LPM_AVALUE             ; UNUSED            ; Untyped                                  ;
+; LPM_SVALUE             ; UNUSED            ; Untyped                                  ;
+; LPM_PORT_UPDOWN        ; PORT_CONNECTIVITY ; Untyped                                  ;
+; DEVICE_FAMILY          ; ACEX1K            ; Untyped                                  ;
+; CARRY_CHAIN            ; MANUAL            ; Untyped                                  ;
+; CARRY_CHAIN_LENGTH     ; 48                ; CARRY_CHAIN_LENGTH                       ;
+; NOT_GATE_PUSH_BACK     ; ON                ; NOT_GATE_PUSH_BACK                       ;
+; CARRY_CNT_EN           ; SMART             ; Untyped                                  ;
+; LABWIDE_SCLR           ; ON                ; Untyped                                  ;
+; USE_NEW_VERSION        ; TRUE              ; Untyped                                  ;
+; CBXI_PARAMETER         ; NOTHING           ; Untyped                                  ;
++------------------------+-------------------+------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "Six_counter:bit_6"                                                                    ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; Port   ; Type   ; Severity ; Details                                                                             ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; preset ; Input  ; Info     ; Stuck at GND                                                                        ;
+; cout   ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------+
+; Port Connectivity Checks: "decimal_counter:bit_5" ;
++--------------+-------+----------+-----------------+
+; Port         ; Type  ; Severity ; Details         ;
++--------------+-------+----------+-----------------+
+; preset[2..0] ; Input ; Info     ; Stuck at GND    ;
+; preset[3]    ; Input ; Info     ; Stuck at VCC    ;
++--------------+-------+----------+-----------------+
+
+
++------------------------------------------------+
+; Port Connectivity Checks: "Six_counter:bit_4"  ;
++--------------+-------+----------+--------------+
+; Port         ; Type  ; Severity ; Details      ;
++--------------+-------+----------+--------------+
+; preset[3..1] ; Input ; Info     ; Stuck at GND ;
+; preset[0]    ; Input ; Info     ; Stuck at VCC ;
++--------------+-------+----------+--------------+
+
+
++---------------------------------------------------+
+; Port Connectivity Checks: "decimal_counter:bit_3" ;
++--------------+-------+----------+-----------------+
+; Port         ; Type  ; Severity ; Details         ;
++--------------+-------+----------+-----------------+
+; preset[3..1] ; Input ; Info     ; Stuck at GND    ;
+; preset[0]    ; Input ; Info     ; Stuck at VCC    ;
++--------------+-------+----------+-----------------+
+
+
++---------------------------------------------------+
+; Port Connectivity Checks: "decimal_counter:bit_2" ;
++--------------+-------+----------+-----------------+
+; Port         ; Type  ; Severity ; Details         ;
++--------------+-------+----------+-----------------+
+; preset[3..1] ; Input ; Info     ; Stuck at GND    ;
+; preset[0]    ; Input ; Info     ; Stuck at VCC    ;
++--------------+-------+----------+-----------------+
+
+
++---------------------------------------------------+
+; Port Connectivity Checks: "decimal_counter:bit_1" ;
++--------------+-------+----------+-----------------+
+; Port         ; Type  ; Severity ; Details         ;
++--------------+-------+----------+-----------------+
+; preset[3..1] ; Input ; Info     ; Stuck at GND    ;
+; preset[0]    ; Input ; Info     ; Stuck at VCC    ;
++--------------+-------+----------+-----------------+
+
+
++------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "decimal_counter:bit_0"                                                                      ;
++--------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port         ; Type   ; Severity ; Details                                                                             ;
++--------------+--------+----------+-------------------------------------------------------------------------------------+
+; preset[3..1] ; Input  ; Info     ; Stuck at GND                                                                        ;
+; preset[0]    ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; out          ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++--------------+--------+----------+-------------------------------------------------------------------------------------+
 
 
 +-------------------------------+
@@ -203,25 +388,52 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 Info: *******************************************************************
 Info: Running Quartus II Analysis & Synthesis
     Info: Version 9.0 Build 132 02/25/2009 SJ Full Version
-    Info: Processing started: Fri Jan 15 12:27:37 2016
+    Info: Processing started: Fri Jan 15 15:54:31 2016
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off watch_cnt -c watch_cnt
+Info: Found 1 design units, including 1 entities, in source file clk_div.v
+    Info: Found entity 1: clk_div
+Info: Found 1 design units, including 1 entities, in source file key_Control.v
+    Info: Found entity 1: key_Control
 Info: Found 1 design units, including 1 entities, in source file decimal_counter.v
     Info: Found entity 1: decimal_counter
 Info: Found 1 design units, including 1 entities, in source file Six_counter.v
     Info: Found entity 1: Six_counter
+Warning (10229): Verilog HDL Expression warning at watch_cnt.v(25): truncated literal to match 24 bits
 Info: Found 1 design units, including 1 entities, in source file watch_cnt.v
     Info: Found entity 1: watch_cnt
 Info: Elaborating entity "watch_cnt" for the top level hierarchy
+Info: Elaborating entity "clk_div" for hierarchy "clk_div:clkdiv"
 Info: Elaborating entity "decimal_counter" for hierarchy "decimal_counter:bit_0"
 Info: Elaborating entity "Six_counter" for hierarchy "Six_counter:bit_4"
-Info: Implemented 120 device resources after synthesis - the final resource count might be different
-    Info: Implemented 32 input pins
+Info: Elaborating entity "key_Control" for hierarchy "key_Control:control"
+Warning (10240): Verilog HDL Always Construct warning at key_Control.v(44): inferring latch(es) for variable "rst_", which holds its previous value in one or more paths through the always construct
+Info (10041): Inferred latch for "rst_" at key_Control.v(44)
+Info: Inferred 1 megafunctions from design logic
+    Info: Inferred lpm_counter megafunction (LPM_WIDTH=32) from the following logic: "clk_div:clkdiv|cnt[0]~32"
+Info: Elaborated megafunction instantiation "clk_div:clkdiv|lpm_counter:cnt_rtl_0"
+Info: Instantiated megafunction "clk_div:clkdiv|lpm_counter:cnt_rtl_0" with the following parameter:
+    Info: Parameter "LPM_WIDTH" = "32"
+    Info: Parameter "LPM_DIRECTION" = "UP"
+    Info: Parameter "LPM_TYPE" = "LPM_COUNTER"
+Info: Elaborated megafunction instantiation "clk_div:clkdiv|lpm_counter:cnt_rtl_0|alt_counter_f10ke:wysi_counter", which is child of megafunction instantiation "clk_div:clkdiv|lpm_counter:cnt_rtl_0"
+Info: Registers with preset signals will power-up high
+Warning: Design contains 1 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "key_pause"
+Info: Implemented 140 device resources after synthesis - the final resource count might be different
+    Info: Implemented 4 input pins
     Info: Implemented 24 output pins
-    Info: Implemented 64 logic cells
-Info: Quartus II Analysis & Synthesis was successful. 0 errors, 0 warnings
-    Info: Peak virtual memory: 238 megabytes
-    Info: Processing ended: Fri Jan 15 12:27:38 2016
+    Info: Implemented 112 logic cells
+Info: Generated suppressed messages file C:/Users/Sontao/OneDrive/EDA课设/watch_cnt/watch_cnt.map.smsg
+Info: Quartus II Analysis & Synthesis was successful. 0 errors, 4 warnings
+    Info: Peak virtual memory: 241 megabytes
+    Info: Processing ended: Fri Jan 15 15:54:32 2016
     Info: Elapsed time: 00:00:01
-    Info: Total CPU time (on all processors): 00:00:00
+    Info: Total CPU time (on all processors): 00:00:01
+
+
++------------------------------------------+
+; Analysis & Synthesis Suppressed Messages ;
++------------------------------------------+
+The suppressed messages can be found in C:/Users/Sontao/OneDrive/EDA课设/watch_cnt/watch_cnt.map.smsg.
 
 

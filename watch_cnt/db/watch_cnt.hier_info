@@ -1,36 +1,8 @@
 |watch_cnt
-clk_1Khz => clk_1Khz~0.IN1
-rst => rst~0.IN7
-preset[0] => msec0_set[0].IN1
-preset[1] => msec0_set[1].IN1
-preset[2] => msec0_set[2].IN1
-preset[3] => msec0_set[3].IN1
-preset[4] => msec1_set[0].IN1
-preset[5] => msec1_set[1].IN1
-preset[6] => msec1_set[2].IN1
-preset[7] => msec1_set[3].IN1
-preset[8] => msec2_set[0].IN1
-preset[9] => msec2_set[1].IN1
-preset[10] => msec2_set[2].IN1
-preset[11] => msec2_set[3].IN1
-preset[12] => sec0_set[0].IN1
-preset[13] => sec0_set[1].IN1
-preset[14] => sec0_set[2].IN1
-preset[15] => sec0_set[3].IN1
-preset[16] => sec1_set[0].IN1
-preset[17] => sec1_set[1].IN1
-preset[18] => sec1_set[2].IN1
-preset[19] => sec1_set[3].IN1
-preset[20] => minute0_set[0].IN1
-preset[21] => minute0_set[1].IN1
-preset[22] => minute0_set[2].IN1
-preset[23] => minute0_set[3].IN1
-preset[24] => minute1_set[0].IN1
-preset[25] => minute1_set[1].IN1
-preset[26] => minute1_set[2].IN1
-preset[27] => minute1_set[3].IN1
-EN => EN~0.IN7
-load => load~0.IN7
+clk_50Mhz => clk_50Mhz~0.IN1
+key_start => key_start~0.IN1
+key_pause => key_pause~0.IN1
+key_load => key_load~0.IN1
 dispbuf[0] <= decimal_counter:bit_1.out
 dispbuf[1] <= decimal_counter:bit_1.out
 dispbuf[2] <= decimal_counter:bit_1.out
@@ -55,6 +27,76 @@ dispbuf[20] <= Six_counter:bit_6.out
 dispbuf[21] <= Six_counter:bit_6.out
 dispbuf[22] <= Six_counter:bit_6.out
 dispbuf[23] <= Six_counter:bit_6.out
+
+
+|watch_cnt|clk_div:clkdiv
+clk_50Mhz => clk_out.CLK
+clk_50Mhz => cnt[31].CLK
+clk_50Mhz => cnt[30].CLK
+clk_50Mhz => cnt[29].CLK
+clk_50Mhz => cnt[28].CLK
+clk_50Mhz => cnt[27].CLK
+clk_50Mhz => cnt[26].CLK
+clk_50Mhz => cnt[25].CLK
+clk_50Mhz => cnt[24].CLK
+clk_50Mhz => cnt[23].CLK
+clk_50Mhz => cnt[22].CLK
+clk_50Mhz => cnt[21].CLK
+clk_50Mhz => cnt[20].CLK
+clk_50Mhz => cnt[19].CLK
+clk_50Mhz => cnt[18].CLK
+clk_50Mhz => cnt[17].CLK
+clk_50Mhz => cnt[16].CLK
+clk_50Mhz => cnt[15].CLK
+clk_50Mhz => cnt[14].CLK
+clk_50Mhz => cnt[13].CLK
+clk_50Mhz => cnt[12].CLK
+clk_50Mhz => cnt[11].CLK
+clk_50Mhz => cnt[10].CLK
+clk_50Mhz => cnt[9].CLK
+clk_50Mhz => cnt[8].CLK
+clk_50Mhz => cnt[7].CLK
+clk_50Mhz => cnt[6].CLK
+clk_50Mhz => cnt[5].CLK
+clk_50Mhz => cnt[4].CLK
+clk_50Mhz => cnt[3].CLK
+clk_50Mhz => cnt[2].CLK
+clk_50Mhz => cnt[1].CLK
+clk_50Mhz => cnt[0].CLK
+rst => clk_out.ACLR
+rst => cnt[31].ACLR
+rst => cnt[30].ACLR
+rst => cnt[29].ACLR
+rst => cnt[28].ACLR
+rst => cnt[27].ACLR
+rst => cnt[26].ACLR
+rst => cnt[25].ACLR
+rst => cnt[24].ACLR
+rst => cnt[23].ACLR
+rst => cnt[22].ACLR
+rst => cnt[21].ACLR
+rst => cnt[20].ACLR
+rst => cnt[19].ACLR
+rst => cnt[18].ACLR
+rst => cnt[17].ACLR
+rst => cnt[16].ACLR
+rst => cnt[15].ACLR
+rst => cnt[14].ACLR
+rst => cnt[13].ACLR
+rst => cnt[12].ACLR
+rst => cnt[11].ACLR
+rst => cnt[10].ACLR
+rst => cnt[9].ACLR
+rst => cnt[8].ACLR
+rst => cnt[7].ACLR
+rst => cnt[6].ACLR
+rst => cnt[5].ACLR
+rst => cnt[4].ACLR
+rst => cnt[3].ACLR
+rst => cnt[2].ACLR
+rst => cnt[1].ACLR
+rst => cnt[0].ACLR
+clk_1Khz <= clk_out.DB_MAX_OUTPUT_PORT_TYPE
 
 
 |watch_cnt|decimal_counter:bit_0
@@ -265,5 +307,12 @@ out[1] <= out_dat[1].DB_MAX_OUTPUT_PORT_TYPE
 out[2] <= out_dat[2].DB_MAX_OUTPUT_PORT_TYPE
 out[3] <= out_dat[3].DB_MAX_OUTPUT_PORT_TYPE
 cout <= FULL.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|watch_cnt|key_Control:control
+key_pause => ~NO_FANOUT~
+key_load => load.DATAIN
+rst <= <GND>
+load <= key_load.DB_MAX_OUTPUT_PORT_TYPE
 
 

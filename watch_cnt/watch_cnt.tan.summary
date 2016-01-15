@@ -2,44 +2,34 @@
 Timing Analyzer Summary
 --------------------------------------------------------------------------------------
 
-Type           : Worst-case tsu
-Slack          : N/A
-Required Time  : None
-Actual Time    : 1.400 ns
-From           : EN
-To             : decimal_counter:bit_0|out_dat[0]
-From Clock     : --
-To Clock       : clk_1Khz
-Failed Paths   : 0
-
 Type           : Worst-case tco
 Slack          : N/A
 Required Time  : None
-Actual Time    : 28.700 ns
+Actual Time    : 29.200 ns
 From           : Six_counter:bit_6|out_dat[0]
 To             : dispbuf[20]
-From Clock     : clk_1Khz
+From Clock     : clk_50Mhz
 To Clock       : --
 Failed Paths   : 0
 
-Type           : Worst-case th
+Type           : Clock Setup: 'clk_50Mhz'
 Slack          : N/A
 Required Time  : None
-Actual Time    : 18.400 ns
-From           : EN
-To             : Six_counter:bit_6|out_dat[3]
-From Clock     : --
-To Clock       : clk_1Khz
+Actual Time    : 79.37 MHz ( period = 12.600 ns )
+From           : clk_div:clkdiv|lpm_counter:cnt_rtl_0|alt_counter_f10ke:wysi_counter|counter_cell[6]
+To             : clk_div:clkdiv|clk_out
+From Clock     : clk_50Mhz
+To Clock       : clk_50Mhz
 Failed Paths   : 0
 
-Type           : Clock Setup: 'clk_1Khz'
+Type           : Clock Setup: 'key_start'
 Slack          : N/A
 Required Time  : None
-Actual Time    : 175.44 MHz ( period = 5.700 ns )
-From           : decimal_counter:bit_5|out_dat[2]
-To             : decimal_counter:bit_5|FULL
-From Clock     : clk_1Khz
-To Clock       : clk_1Khz
+Actual Time    : Restricted to 200.00 MHz ( period = 5.000 ns )
+From           : key_Control:control|Start_status.START
+To             : key_Control:control|Start_status.STOP
+From Clock     : key_start
+To Clock       : key_start
 Failed Paths   : 0
 
 Type           : Total number of failed paths

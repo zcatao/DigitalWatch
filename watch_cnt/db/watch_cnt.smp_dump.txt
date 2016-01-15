@@ -1,0 +1,6 @@
+
+State Machine - |watch_cnt|key_Control:control|Start_status
+Name Start_status.START Start_status.RESET Start_status.STOP 
+Start_status.START 0 0 0 
+Start_status.STOP 1 0 1 
+Start_status.RESET 1 1 0 

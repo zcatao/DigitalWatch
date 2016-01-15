@@ -1,5 +1,5 @@
 Simulator report for watch_cnt
-Fri Jan 15 13:10:23 2016
+Fri Jan 15 15:30:40 2016
 Quartus II Version 9.0 Build 132 02/25/2009 SJ Full Version
 
 
@@ -44,43 +44,43 @@ applicable agreement for further details.
 ; Type                        ; Value         ;
 +-----------------------------+---------------+
 ; Simulation Start Time       ; 0 ps          ;
-; Simulation End Time         ; 1.0 ms        ;
-; Simulation Netlist Size     ; 120 nodes     ;
-; Simulation Coverage         ;      47.22 %  ;
-; Total Number of Transitions ; 561168        ;
+; Simulation End Time         ; 10.0 ms       ;
+; Simulation Netlist Size     ; 122 nodes     ;
+; Simulation Coverage         ;      63.30 %  ;
+; Total Number of Transitions ; 7678706       ;
 ; Simulation Breakpoints      ; 0             ;
 ; Family                      ; ACEX1K        ;
 ; Device                      ; EP1K30TC144-3 ;
 +-----------------------------+---------------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------+
-; Simulator Settings                                                                                                         ;
-+--------------------------------------------------------------------------------------------+---------------+---------------+
-; Option                                                                                     ; Setting       ; Default Value ;
-+--------------------------------------------------------------------------------------------+---------------+---------------+
-; Simulation mode                                                                            ; Timing        ; Timing        ;
-; Start time                                                                                 ; 0 ns          ; 0 ns          ;
-; Simulation results format                                                                  ; CVWF          ;               ;
-; Vector input source                                                                        ; watch_cnt.vwf ;               ;
-; Add pins automatically to simulation output waveforms                                      ; On            ; On            ;
-; Check outputs                                                                              ; Off           ; Off           ;
-; Report simulation coverage                                                                 ; On            ; On            ;
-; Display complete 1/0 value coverage report                                                 ; On            ; On            ;
-; Display missing 1-value coverage report                                                    ; On            ; On            ;
-; Display missing 0-value coverage report                                                    ; On            ; On            ;
-; Detect setup and hold time violations                                                      ; Off           ; Off           ;
-; Detect glitches                                                                            ; Off           ; Off           ;
-; Disable timing delays in Timing Simulation                                                 ; Off           ; Off           ;
-; Generate Signal Activity File                                                              ; Off           ; Off           ;
-; Generate VCD File for PowerPlay Power Analyzer                                             ; Off           ; Off           ;
-; Group bus channels in simulation results                                                   ; Off           ; Off           ;
-; Preserve fewer signal transitions to reduce memory requirements                            ; On            ; On            ;
-; Trigger vector comparison with the specified mode                                          ; INPUT_EDGE    ; INPUT_EDGE    ;
-; Disable setup and hold time violations detection in input registers of bi-directional pins ; Off           ; Off           ;
-; Overwrite Waveform Inputs With Simulation Outputs                                          ; Off           ;               ;
-; Perform Glitch Filtering in Timing Simulation                                              ; Auto          ; Auto          ;
-+--------------------------------------------------------------------------------------------+---------------+---------------+
++-----------------------------------------------------------------------------------------------------------------------------+
+; Simulator Settings                                                                                                          ;
++--------------------------------------------------------------------------------------------+----------------+---------------+
+; Option                                                                                     ; Setting        ; Default Value ;
++--------------------------------------------------------------------------------------------+----------------+---------------+
+; Simulation mode                                                                            ; Timing         ; Timing        ;
+; Start time                                                                                 ; 0 ns           ; 0 ns          ;
+; Simulation results format                                                                  ; CVWF           ;               ;
+; Vector input source                                                                        ; watch_cnt2.vwf ;               ;
+; Add pins automatically to simulation output waveforms                                      ; On             ; On            ;
+; Check outputs                                                                              ; Off            ; Off           ;
+; Report simulation coverage                                                                 ; On             ; On            ;
+; Display complete 1/0 value coverage report                                                 ; On             ; On            ;
+; Display missing 1-value coverage report                                                    ; On             ; On            ;
+; Display missing 0-value coverage report                                                    ; On             ; On            ;
+; Detect setup and hold time violations                                                      ; Off            ; Off           ;
+; Detect glitches                                                                            ; Off            ; Off           ;
+; Disable timing delays in Timing Simulation                                                 ; Off            ; Off           ;
+; Generate Signal Activity File                                                              ; Off            ; Off           ;
+; Generate VCD File for PowerPlay Power Analyzer                                             ; Off            ; Off           ;
+; Group bus channels in simulation results                                                   ; Off            ; Off           ;
+; Preserve fewer signal transitions to reduce memory requirements                            ; On             ; On            ;
+; Trigger vector comparison with the specified mode                                          ; INPUT_EDGE     ; INPUT_EDGE    ;
+; Disable setup and hold time violations detection in input registers of bi-directional pins ; Off            ; Off           ;
+; Overwrite Waveform Inputs With Simulation Outputs                                          ; Off            ;               ;
+; Perform Glitch Filtering in Timing Simulation                                              ; Auto           ; Auto          ;
++--------------------------------------------------------------------------------------------+----------------+---------------+
 
 
 +----------------------+
@@ -95,197 +95,184 @@ Please use Quartus II to view the waveform report data.
 +-----------------------------------------------------+--------------+
 ; Type                                                ; Value        ;
 +-----------------------------------------------------+--------------+
-; Total coverage as a percentage                      ;      47.22 % ;
-; Total nodes checked                                 ; 120          ;
-; Total output ports checked                          ; 108          ;
-; Total output ports with complete 1/0-value coverage ; 51           ;
-; Total output ports with no 1/0-value coverage       ; 48           ;
-; Total output ports with no 1-value coverage         ; 48           ;
-; Total output ports with no 0-value coverage         ; 57           ;
+; Total coverage as a percentage                      ;      63.30 % ;
+; Total nodes checked                                 ; 122          ;
+; Total output ports checked                          ; 109          ;
+; Total output ports with complete 1/0-value coverage ; 69           ;
+; Total output ports with no 1/0-value coverage       ; 34           ;
+; Total output ports with no 1-value coverage         ; 34           ;
+; Total output ports with no 0-value coverage         ; 40           ;
 +-----------------------------------------------------+--------------+
 
 
 The following table displays output ports that toggle between 1 and 0 during simulation.
-+------------------------------------------------------------------------------------------------------------------+
-; Complete 1/0-Value Coverage                                                                                      ;
-+-----------------------------------------------+-----------------------------------------------+------------------+
-; Node Name                                     ; Output Port Name                              ; Output Port Type ;
-+-----------------------------------------------+-----------------------------------------------+------------------+
-; |watch_cnt|decimal_counter:bit_1|out_dat[1]   ; |watch_cnt|decimal_counter:bit_1|out_dat[1]   ; data_out0        ;
-; |watch_cnt|decimal_counter:bit_1|out_dat[3]   ; |watch_cnt|decimal_counter:bit_1|out_dat[3]   ; data_out0        ;
-; |watch_cnt|decimal_counter:bit_2|out_dat[1]   ; |watch_cnt|decimal_counter:bit_2|out_dat[1]   ; data_out0        ;
-; |watch_cnt|decimal_counter:bit_2|out_dat[3]   ; |watch_cnt|decimal_counter:bit_2|out_dat[3]   ; data_out0        ;
-; |watch_cnt|decimal_counter:bit_3|out_dat[1]   ; |watch_cnt|decimal_counter:bit_3|out_dat[1]   ; data_out0        ;
-; |watch_cnt|decimal_counter:bit_3|out_dat[3]   ; |watch_cnt|decimal_counter:bit_3|out_dat[3]   ; data_out0        ;
-; |watch_cnt|Six_counter:bit_4|out_dat[1]       ; |watch_cnt|Six_counter:bit_4|out_dat[1]       ; data_out0        ;
-; |watch_cnt|decimal_counter:bit_0|FULL         ; |watch_cnt|decimal_counter:bit_0|FULL         ; data_out0        ;
-; |watch_cnt|decimal_counter:bit_1|out_dat[3]~0 ; |watch_cnt|decimal_counter:bit_1|out_dat[3]~0 ; data_out0        ;
-; |watch_cnt|decimal_counter:bit_1|FULL         ; |watch_cnt|decimal_counter:bit_1|FULL         ; data_out0        ;
-; |watch_cnt|decimal_counter:bit_2|FULL         ; |watch_cnt|decimal_counter:bit_2|FULL         ; data_out0        ;
-; |watch_cnt|decimal_counter:bit_3|FULL         ; |watch_cnt|decimal_counter:bit_3|FULL         ; data_out0        ;
-; |watch_cnt|decimal_counter:bit_0|FULL~0       ; |watch_cnt|decimal_counter:bit_0|FULL~0       ; data_out0        ;
-; |watch_cnt|decimal_counter:bit_1|out_dat~11   ; |watch_cnt|decimal_counter:bit_1|out_dat~11   ; data_out0        ;
-; |watch_cnt|decimal_counter:bit_1|Add0~0       ; |watch_cnt|decimal_counter:bit_1|Add0~0       ; data_out0        ;
-; |watch_cnt|decimal_counter:bit_1|Add0~1       ; |watch_cnt|decimal_counter:bit_1|Add0~1       ; data_out0        ;
-; |watch_cnt|decimal_counter:bit_1|Equal0~0     ; |watch_cnt|decimal_counter:bit_1|Equal0~0     ; data_out0        ;
-; |watch_cnt|decimal_counter:bit_2|out_dat~11   ; |watch_cnt|decimal_counter:bit_2|out_dat~11   ; data_out0        ;
-; |watch_cnt|decimal_counter:bit_2|Add0~0       ; |watch_cnt|decimal_counter:bit_2|Add0~0       ; data_out0        ;
-; |watch_cnt|decimal_counter:bit_2|Add0~1       ; |watch_cnt|decimal_counter:bit_2|Add0~1       ; data_out0        ;
-; |watch_cnt|decimal_counter:bit_2|Equal0~0     ; |watch_cnt|decimal_counter:bit_2|Equal0~0     ; data_out0        ;
-; |watch_cnt|decimal_counter:bit_3|out_dat~11   ; |watch_cnt|decimal_counter:bit_3|out_dat~11   ; data_out0        ;
-; |watch_cnt|decimal_counter:bit_3|Add0~0       ; |watch_cnt|decimal_counter:bit_3|Add0~0       ; data_out0        ;
-; |watch_cnt|decimal_counter:bit_3|Add0~1       ; |watch_cnt|decimal_counter:bit_3|Add0~1       ; data_out0        ;
-; |watch_cnt|decimal_counter:bit_3|Equal0~0     ; |watch_cnt|decimal_counter:bit_3|Equal0~0     ; data_out0        ;
-; |watch_cnt|Six_counter:bit_4|out_dat~12       ; |watch_cnt|Six_counter:bit_4|out_dat~12       ; data_out0        ;
-; |watch_cnt|Six_counter:bit_4|Add0~0           ; |watch_cnt|Six_counter:bit_4|Add0~0           ; data_out0        ;
-; |watch_cnt|decimal_counter:bit_0|out_dat[3]   ; |watch_cnt|decimal_counter:bit_0|out_dat[3]   ; data_out0        ;
-; |watch_cnt|decimal_counter:bit_0|out_dat[1]   ; |watch_cnt|decimal_counter:bit_0|out_dat[1]   ; data_out0        ;
-; |watch_cnt|decimal_counter:bit_0|Equal0~0     ; |watch_cnt|decimal_counter:bit_0|Equal0~0     ; data_out0        ;
-; |watch_cnt|decimal_counter:bit_0|Add0~0       ; |watch_cnt|decimal_counter:bit_0|Add0~0       ; data_out0        ;
-; |watch_cnt|decimal_counter:bit_0|Add0~1       ; |watch_cnt|decimal_counter:bit_0|Add0~1       ; data_out0        ;
-; |watch_cnt|decimal_counter:bit_0|out_dat~11   ; |watch_cnt|decimal_counter:bit_0|out_dat~11   ; data_out0        ;
-; |watch_cnt|rst                                ; |watch_cnt|rst~corein                         ; dataout          ;
-; |watch_cnt|load                               ; |watch_cnt|load~corein                        ; dataout          ;
-; |watch_cnt|clk_1Khz                           ; |watch_cnt|clk_1Khz~corein                    ; dataout          ;
-; |watch_cnt|EN                                 ; |watch_cnt|EN~corein                          ; dataout          ;
-; |watch_cnt|dispbuf[0]                         ; |watch_cnt|dispbuf[0]                         ; padio            ;
-; |watch_cnt|dispbuf[1]                         ; |watch_cnt|dispbuf[1]                         ; padio            ;
-; |watch_cnt|dispbuf[2]                         ; |watch_cnt|dispbuf[2]                         ; padio            ;
-; |watch_cnt|dispbuf[3]                         ; |watch_cnt|dispbuf[3]                         ; padio            ;
-; |watch_cnt|dispbuf[4]                         ; |watch_cnt|dispbuf[4]                         ; padio            ;
-; |watch_cnt|dispbuf[5]                         ; |watch_cnt|dispbuf[5]                         ; padio            ;
-; |watch_cnt|dispbuf[6]                         ; |watch_cnt|dispbuf[6]                         ; padio            ;
-; |watch_cnt|dispbuf[7]                         ; |watch_cnt|dispbuf[7]                         ; padio            ;
-; |watch_cnt|dispbuf[8]                         ; |watch_cnt|dispbuf[8]                         ; padio            ;
-; |watch_cnt|dispbuf[9]                         ; |watch_cnt|dispbuf[9]                         ; padio            ;
-; |watch_cnt|dispbuf[10]                        ; |watch_cnt|dispbuf[10]                        ; padio            ;
-; |watch_cnt|dispbuf[11]                        ; |watch_cnt|dispbuf[11]                        ; padio            ;
-; |watch_cnt|dispbuf[12]                        ; |watch_cnt|dispbuf[12]                        ; padio            ;
-; |watch_cnt|dispbuf[13]                        ; |watch_cnt|dispbuf[13]                        ; padio            ;
-+-----------------------------------------------+-----------------------------------------------+------------------+
++--------------------------------------------------------------------------------------------------------------------------+
+; Complete 1/0-Value Coverage                                                                                              ;
++---------------------------------------------------+---------------------------------------------------+------------------+
+; Node Name                                         ; Output Port Name                                  ; Output Port Type ;
++---------------------------------------------------+---------------------------------------------------+------------------+
+; |watch_cnt|decimal_counter:bit_1|out_dat[1]       ; |watch_cnt|decimal_counter:bit_1|out_dat[1]       ; data_out0        ;
+; |watch_cnt|decimal_counter:bit_1|out_dat[3]       ; |watch_cnt|decimal_counter:bit_1|out_dat[3]       ; data_out0        ;
+; |watch_cnt|decimal_counter:bit_2|out_dat[1]       ; |watch_cnt|decimal_counter:bit_2|out_dat[1]       ; data_out0        ;
+; |watch_cnt|decimal_counter:bit_2|out_dat[3]       ; |watch_cnt|decimal_counter:bit_2|out_dat[3]       ; data_out0        ;
+; |watch_cnt|decimal_counter:bit_3|out_dat[1]       ; |watch_cnt|decimal_counter:bit_3|out_dat[1]       ; data_out0        ;
+; |watch_cnt|decimal_counter:bit_3|out_dat[3]       ; |watch_cnt|decimal_counter:bit_3|out_dat[3]       ; data_out0        ;
+; |watch_cnt|Six_counter:bit_4|out_dat[1]           ; |watch_cnt|Six_counter:bit_4|out_dat[1]           ; data_out0        ;
+; |watch_cnt|Six_counter:bit_4|out_dat[2]           ; |watch_cnt|Six_counter:bit_4|out_dat[2]           ; data_out0        ;
+; |watch_cnt|decimal_counter:bit_5|out_dat[1]       ; |watch_cnt|decimal_counter:bit_5|out_dat[1]       ; data_out0        ;
+; |watch_cnt|decimal_counter:bit_5|out_dat[3]       ; |watch_cnt|decimal_counter:bit_5|out_dat[3]       ; data_out0        ;
+; |watch_cnt|decimal_counter:bit_0|FULL             ; |watch_cnt|decimal_counter:bit_0|FULL             ; data_out0        ;
+; |watch_cnt|decimal_counter:bit_1|FULL             ; |watch_cnt|decimal_counter:bit_1|FULL             ; data_out0        ;
+; |watch_cnt|decimal_counter:bit_2|FULL             ; |watch_cnt|decimal_counter:bit_2|FULL             ; data_out0        ;
+; |watch_cnt|decimal_counter:bit_3|FULL             ; |watch_cnt|decimal_counter:bit_3|FULL             ; data_out0        ;
+; |watch_cnt|Six_counter:bit_4|FULL                 ; |watch_cnt|Six_counter:bit_4|FULL                 ; data_out0        ;
+; |watch_cnt|decimal_counter:bit_5|FULL             ; |watch_cnt|decimal_counter:bit_5|FULL             ; data_out0        ;
+; |watch_cnt|key_Control:control|Start_status.START ; |watch_cnt|key_Control:control|Start_status.START ; data_out0        ;
+; |watch_cnt|decimal_counter:bit_1|out_dat~11       ; |watch_cnt|decimal_counter:bit_1|out_dat~11       ; data_out0        ;
+; |watch_cnt|decimal_counter:bit_1|Add0~0           ; |watch_cnt|decimal_counter:bit_1|Add0~0           ; data_out0        ;
+; |watch_cnt|decimal_counter:bit_1|Add0~1           ; |watch_cnt|decimal_counter:bit_1|Add0~1           ; data_out0        ;
+; |watch_cnt|decimal_counter:bit_1|Equal0~0         ; |watch_cnt|decimal_counter:bit_1|Equal0~0         ; data_out0        ;
+; |watch_cnt|decimal_counter:bit_2|out_dat~11       ; |watch_cnt|decimal_counter:bit_2|out_dat~11       ; data_out0        ;
+; |watch_cnt|decimal_counter:bit_2|Add0~0           ; |watch_cnt|decimal_counter:bit_2|Add0~0           ; data_out0        ;
+; |watch_cnt|decimal_counter:bit_2|Add0~1           ; |watch_cnt|decimal_counter:bit_2|Add0~1           ; data_out0        ;
+; |watch_cnt|decimal_counter:bit_2|Equal0~0         ; |watch_cnt|decimal_counter:bit_2|Equal0~0         ; data_out0        ;
+; |watch_cnt|decimal_counter:bit_3|out_dat~11       ; |watch_cnt|decimal_counter:bit_3|out_dat~11       ; data_out0        ;
+; |watch_cnt|decimal_counter:bit_3|Add0~0           ; |watch_cnt|decimal_counter:bit_3|Add0~0           ; data_out0        ;
+; |watch_cnt|decimal_counter:bit_3|Add0~1           ; |watch_cnt|decimal_counter:bit_3|Add0~1           ; data_out0        ;
+; |watch_cnt|decimal_counter:bit_3|Equal0~0         ; |watch_cnt|decimal_counter:bit_3|Equal0~0         ; data_out0        ;
+; |watch_cnt|Six_counter:bit_4|Equal0~0             ; |watch_cnt|Six_counter:bit_4|Equal0~0             ; data_out0        ;
+; |watch_cnt|Six_counter:bit_4|out_dat~12           ; |watch_cnt|Six_counter:bit_4|out_dat~12           ; data_out0        ;
+; |watch_cnt|Six_counter:bit_4|Add0~0               ; |watch_cnt|Six_counter:bit_4|Add0~0               ; data_out0        ;
+; |watch_cnt|decimal_counter:bit_5|out_dat~11       ; |watch_cnt|decimal_counter:bit_5|out_dat~11       ; data_out0        ;
+; |watch_cnt|decimal_counter:bit_5|Add0~0           ; |watch_cnt|decimal_counter:bit_5|Add0~0           ; data_out0        ;
+; |watch_cnt|decimal_counter:bit_5|Add0~1           ; |watch_cnt|decimal_counter:bit_5|Add0~1           ; data_out0        ;
+; |watch_cnt|decimal_counter:bit_5|Equal0~0         ; |watch_cnt|decimal_counter:bit_5|Equal0~0         ; data_out0        ;
+; |watch_cnt|Six_counter:bit_6|out_dat~12           ; |watch_cnt|Six_counter:bit_6|out_dat~12           ; data_out0        ;
+; |watch_cnt|decimal_counter:bit_0|out_dat[3]       ; |watch_cnt|decimal_counter:bit_0|out_dat[3]       ; data_out0        ;
+; |watch_cnt|decimal_counter:bit_0|out_dat[1]       ; |watch_cnt|decimal_counter:bit_0|out_dat[1]       ; data_out0        ;
+; |watch_cnt|decimal_counter:bit_0|Equal0~0         ; |watch_cnt|decimal_counter:bit_0|Equal0~0         ; data_out0        ;
+; |watch_cnt|key_Control:control|Start_status.RESET ; |watch_cnt|key_Control:control|Start_status.RESET ; data_out0        ;
+; |watch_cnt|key_Control:control|Start_status.STOP  ; |watch_cnt|key_Control:control|Start_status.STOP  ; data_out0        ;
+; |watch_cnt|decimal_counter:bit_0|Add0~0           ; |watch_cnt|decimal_counter:bit_0|Add0~0           ; data_out0        ;
+; |watch_cnt|decimal_counter:bit_0|Add0~1           ; |watch_cnt|decimal_counter:bit_0|Add0~1           ; data_out0        ;
+; |watch_cnt|decimal_counter:bit_0|out_dat~11       ; |watch_cnt|decimal_counter:bit_0|out_dat~11       ; data_out0        ;
+; |watch_cnt|decimal_counter:bit_1|out_dat[0]~14    ; |watch_cnt|decimal_counter:bit_1|out_dat[0]~14    ; data_out0        ;
+; |watch_cnt|key_load                               ; |watch_cnt|key_load~corein                        ; dataout          ;
+; |watch_cnt|clk_1Khz                               ; |watch_cnt|clk_1Khz~corein                        ; dataout          ;
+; |watch_cnt|key_start                              ; |watch_cnt|key_start~corein                       ; dataout          ;
+; |watch_cnt|dispbuf[0]                             ; |watch_cnt|dispbuf[0]                             ; padio            ;
+; |watch_cnt|dispbuf[1]                             ; |watch_cnt|dispbuf[1]                             ; padio            ;
+; |watch_cnt|dispbuf[2]                             ; |watch_cnt|dispbuf[2]                             ; padio            ;
+; |watch_cnt|dispbuf[3]                             ; |watch_cnt|dispbuf[3]                             ; padio            ;
+; |watch_cnt|dispbuf[4]                             ; |watch_cnt|dispbuf[4]                             ; padio            ;
+; |watch_cnt|dispbuf[5]                             ; |watch_cnt|dispbuf[5]                             ; padio            ;
+; |watch_cnt|dispbuf[6]                             ; |watch_cnt|dispbuf[6]                             ; padio            ;
+; |watch_cnt|dispbuf[7]                             ; |watch_cnt|dispbuf[7]                             ; padio            ;
+; |watch_cnt|dispbuf[8]                             ; |watch_cnt|dispbuf[8]                             ; padio            ;
+; |watch_cnt|dispbuf[9]                             ; |watch_cnt|dispbuf[9]                             ; padio            ;
+; |watch_cnt|dispbuf[10]                            ; |watch_cnt|dispbuf[10]                            ; padio            ;
+; |watch_cnt|dispbuf[11]                            ; |watch_cnt|dispbuf[11]                            ; padio            ;
+; |watch_cnt|dispbuf[12]                            ; |watch_cnt|dispbuf[12]                            ; padio            ;
+; |watch_cnt|dispbuf[13]                            ; |watch_cnt|dispbuf[13]                            ; padio            ;
+; |watch_cnt|dispbuf[14]                            ; |watch_cnt|dispbuf[14]                            ; padio            ;
+; |watch_cnt|dispbuf[16]                            ; |watch_cnt|dispbuf[16]                            ; padio            ;
+; |watch_cnt|dispbuf[17]                            ; |watch_cnt|dispbuf[17]                            ; padio            ;
+; |watch_cnt|dispbuf[18]                            ; |watch_cnt|dispbuf[18]                            ; padio            ;
+; |watch_cnt|dispbuf[19]                            ; |watch_cnt|dispbuf[19]                            ; padio            ;
+; |watch_cnt|dispbuf[20]                            ; |watch_cnt|dispbuf[20]                            ; padio            ;
++---------------------------------------------------+---------------------------------------------------+------------------+
 
 
 The following table displays output ports that do not toggle to 1 during simulation.
-+--------------------------------------------------------------------------------------------------------------+
-; Missing 1-Value Coverage                                                                                     ;
-+---------------------------------------------+---------------------------------------------+------------------+
-; Node Name                                   ; Output Port Name                            ; Output Port Type ;
-+---------------------------------------------+---------------------------------------------+------------------+
-; |watch_cnt|Six_counter:bit_4|out_dat[3]     ; |watch_cnt|Six_counter:bit_4|out_dat[3]     ; data_out0        ;
-; |watch_cnt|decimal_counter:bit_5|out_dat[1] ; |watch_cnt|decimal_counter:bit_5|out_dat[1] ; data_out0        ;
-; |watch_cnt|Six_counter:bit_6|out_dat[2]     ; |watch_cnt|Six_counter:bit_6|out_dat[2]     ; data_out0        ;
-; |watch_cnt|Six_counter:bit_6|out_dat[3]     ; |watch_cnt|Six_counter:bit_6|out_dat[3]     ; data_out0        ;
-; |watch_cnt|Six_counter:bit_4|FULL           ; |watch_cnt|Six_counter:bit_4|FULL           ; data_out0        ;
-; |watch_cnt|decimal_counter:bit_5|FULL       ; |watch_cnt|decimal_counter:bit_5|FULL       ; data_out0        ;
-; |watch_cnt|Six_counter:bit_4|Add0~1         ; |watch_cnt|Six_counter:bit_4|Add0~1         ; data_out0        ;
-; |watch_cnt|decimal_counter:bit_5|out_dat~11 ; |watch_cnt|decimal_counter:bit_5|out_dat~11 ; data_out0        ;
-; |watch_cnt|decimal_counter:bit_5|Add0~0     ; |watch_cnt|decimal_counter:bit_5|Add0~0     ; data_out0        ;
-; |watch_cnt|decimal_counter:bit_5|Equal0~0   ; |watch_cnt|decimal_counter:bit_5|Equal0~0   ; data_out0        ;
-; |watch_cnt|Six_counter:bit_6|Equal0~0       ; |watch_cnt|Six_counter:bit_6|Equal0~0       ; data_out0        ;
-; |watch_cnt|Six_counter:bit_6|Add0~0         ; |watch_cnt|Six_counter:bit_6|Add0~0         ; data_out0        ;
-; |watch_cnt|Six_counter:bit_6|Add0~1         ; |watch_cnt|Six_counter:bit_6|Add0~1         ; data_out0        ;
-; |watch_cnt|preset[4]                        ; |watch_cnt|preset[4]~corein                 ; dataout          ;
-; |watch_cnt|preset[8]                        ; |watch_cnt|preset[8]~corein                 ; dataout          ;
-; |watch_cnt|preset[12]                       ; |watch_cnt|preset[12]~corein                ; dataout          ;
-; |watch_cnt|preset[20]                       ; |watch_cnt|preset[20]~corein                ; dataout          ;
-; |watch_cnt|preset[5]                        ; |watch_cnt|preset[5]~corein                 ; dataout          ;
-; |watch_cnt|preset[6]                        ; |watch_cnt|preset[6]~corein                 ; dataout          ;
-; |watch_cnt|preset[7]                        ; |watch_cnt|preset[7]~corein                 ; dataout          ;
-; |watch_cnt|preset[9]                        ; |watch_cnt|preset[9]~corein                 ; dataout          ;
-; |watch_cnt|preset[10]                       ; |watch_cnt|preset[10]~corein                ; dataout          ;
-; |watch_cnt|preset[11]                       ; |watch_cnt|preset[11]~corein                ; dataout          ;
-; |watch_cnt|preset[13]                       ; |watch_cnt|preset[13]~corein                ; dataout          ;
-; |watch_cnt|preset[14]                       ; |watch_cnt|preset[14]~corein                ; dataout          ;
-; |watch_cnt|preset[15]                       ; |watch_cnt|preset[15]~corein                ; dataout          ;
-; |watch_cnt|preset[16]                       ; |watch_cnt|preset[16]~corein                ; dataout          ;
-; |watch_cnt|preset[17]                       ; |watch_cnt|preset[17]~corein                ; dataout          ;
-; |watch_cnt|preset[18]                       ; |watch_cnt|preset[18]~corein                ; dataout          ;
-; |watch_cnt|preset[19]                       ; |watch_cnt|preset[19]~corein                ; dataout          ;
-; |watch_cnt|preset[21]                       ; |watch_cnt|preset[21]~corein                ; dataout          ;
-; |watch_cnt|preset[22]                       ; |watch_cnt|preset[22]~corein                ; dataout          ;
-; |watch_cnt|preset[23]                       ; |watch_cnt|preset[23]~corein                ; dataout          ;
-; |watch_cnt|preset[24]                       ; |watch_cnt|preset[24]~corein                ; dataout          ;
-; |watch_cnt|preset[25]                       ; |watch_cnt|preset[25]~corein                ; dataout          ;
-; |watch_cnt|preset[26]                       ; |watch_cnt|preset[26]~corein                ; dataout          ;
-; |watch_cnt|preset[27]                       ; |watch_cnt|preset[27]~corein                ; dataout          ;
-; |watch_cnt|preset[0]                        ; |watch_cnt|preset[0]~corein                 ; dataout          ;
-; |watch_cnt|preset[3]                        ; |watch_cnt|preset[3]~corein                 ; dataout          ;
-; |watch_cnt|preset[2]                        ; |watch_cnt|preset[2]~corein                 ; dataout          ;
-; |watch_cnt|preset[1]                        ; |watch_cnt|preset[1]~corein                 ; dataout          ;
-; |watch_cnt|dispbuf[15]                      ; |watch_cnt|dispbuf[15]                      ; padio            ;
-; |watch_cnt|dispbuf[16]                      ; |watch_cnt|dispbuf[16]                      ; padio            ;
-; |watch_cnt|dispbuf[17]                      ; |watch_cnt|dispbuf[17]                      ; padio            ;
-; |watch_cnt|dispbuf[18]                      ; |watch_cnt|dispbuf[18]                      ; padio            ;
-; |watch_cnt|dispbuf[20]                      ; |watch_cnt|dispbuf[20]                      ; padio            ;
-; |watch_cnt|dispbuf[22]                      ; |watch_cnt|dispbuf[22]                      ; padio            ;
-; |watch_cnt|dispbuf[23]                      ; |watch_cnt|dispbuf[23]                      ; padio            ;
-+---------------------------------------------+---------------------------------------------+------------------+
++------------------------------------------------------------------------------------------------------+
+; Missing 1-Value Coverage                                                                             ;
++-----------------------------------------+-----------------------------------------+------------------+
+; Node Name                               ; Output Port Name                        ; Output Port Type ;
++-----------------------------------------+-----------------------------------------+------------------+
+; |watch_cnt|Six_counter:bit_4|out_dat[3] ; |watch_cnt|Six_counter:bit_4|out_dat[3] ; data_out0        ;
+; |watch_cnt|Six_counter:bit_6|out_dat[3] ; |watch_cnt|Six_counter:bit_6|out_dat[3] ; data_out0        ;
+; |watch_cnt|Six_counter:bit_4|Add0~1     ; |watch_cnt|Six_counter:bit_4|Add0~1     ; data_out0        ;
+; |watch_cnt|Six_counter:bit_6|Add0~1     ; |watch_cnt|Six_counter:bit_6|Add0~1     ; data_out0        ;
+; |watch_cnt|preset[4]                    ; |watch_cnt|preset[4]~corein             ; dataout          ;
+; |watch_cnt|preset[8]                    ; |watch_cnt|preset[8]~corein             ; dataout          ;
+; |watch_cnt|preset[12]                   ; |watch_cnt|preset[12]~corein            ; dataout          ;
+; |watch_cnt|preset[20]                   ; |watch_cnt|preset[20]~corein            ; dataout          ;
+; |watch_cnt|preset[5]                    ; |watch_cnt|preset[5]~corein             ; dataout          ;
+; |watch_cnt|preset[6]                    ; |watch_cnt|preset[6]~corein             ; dataout          ;
+; |watch_cnt|preset[7]                    ; |watch_cnt|preset[7]~corein             ; dataout          ;
+; |watch_cnt|preset[9]                    ; |watch_cnt|preset[9]~corein             ; dataout          ;
+; |watch_cnt|preset[10]                   ; |watch_cnt|preset[10]~corein            ; dataout          ;
+; |watch_cnt|preset[11]                   ; |watch_cnt|preset[11]~corein            ; dataout          ;
+; |watch_cnt|preset[13]                   ; |watch_cnt|preset[13]~corein            ; dataout          ;
+; |watch_cnt|preset[14]                   ; |watch_cnt|preset[14]~corein            ; dataout          ;
+; |watch_cnt|preset[15]                   ; |watch_cnt|preset[15]~corein            ; dataout          ;
+; |watch_cnt|preset[16]                   ; |watch_cnt|preset[16]~corein            ; dataout          ;
+; |watch_cnt|preset[17]                   ; |watch_cnt|preset[17]~corein            ; dataout          ;
+; |watch_cnt|preset[18]                   ; |watch_cnt|preset[18]~corein            ; dataout          ;
+; |watch_cnt|preset[19]                   ; |watch_cnt|preset[19]~corein            ; dataout          ;
+; |watch_cnt|preset[21]                   ; |watch_cnt|preset[21]~corein            ; dataout          ;
+; |watch_cnt|preset[22]                   ; |watch_cnt|preset[22]~corein            ; dataout          ;
+; |watch_cnt|preset[23]                   ; |watch_cnt|preset[23]~corein            ; dataout          ;
+; |watch_cnt|preset[24]                   ; |watch_cnt|preset[24]~corein            ; dataout          ;
+; |watch_cnt|preset[25]                   ; |watch_cnt|preset[25]~corein            ; dataout          ;
+; |watch_cnt|preset[26]                   ; |watch_cnt|preset[26]~corein            ; dataout          ;
+; |watch_cnt|preset[27]                   ; |watch_cnt|preset[27]~corein            ; dataout          ;
+; |watch_cnt|preset[0]                    ; |watch_cnt|preset[0]~corein             ; dataout          ;
+; |watch_cnt|preset[3]                    ; |watch_cnt|preset[3]~corein             ; dataout          ;
+; |watch_cnt|preset[2]                    ; |watch_cnt|preset[2]~corein             ; dataout          ;
+; |watch_cnt|preset[1]                    ; |watch_cnt|preset[1]~corein             ; dataout          ;
+; |watch_cnt|dispbuf[15]                  ; |watch_cnt|dispbuf[15]                  ; padio            ;
+; |watch_cnt|dispbuf[23]                  ; |watch_cnt|dispbuf[23]                  ; padio            ;
++-----------------------------------------+-----------------------------------------+------------------+
 
 
 The following table displays output ports that do not toggle to 0 during simulation.
-+--------------------------------------------------------------------------------------------------------------+
-; Missing 0-Value Coverage                                                                                     ;
-+---------------------------------------------+---------------------------------------------+------------------+
-; Node Name                                   ; Output Port Name                            ; Output Port Type ;
-+---------------------------------------------+---------------------------------------------+------------------+
-; |watch_cnt|Six_counter:bit_4|out_dat[2]     ; |watch_cnt|Six_counter:bit_4|out_dat[2]     ; data_out0        ;
-; |watch_cnt|Six_counter:bit_4|out_dat[3]     ; |watch_cnt|Six_counter:bit_4|out_dat[3]     ; data_out0        ;
-; |watch_cnt|decimal_counter:bit_5|out_dat[1] ; |watch_cnt|decimal_counter:bit_5|out_dat[1] ; data_out0        ;
-; |watch_cnt|decimal_counter:bit_5|out_dat[3] ; |watch_cnt|decimal_counter:bit_5|out_dat[3] ; data_out0        ;
-; |watch_cnt|Six_counter:bit_6|out_dat[1]     ; |watch_cnt|Six_counter:bit_6|out_dat[1]     ; data_out0        ;
-; |watch_cnt|Six_counter:bit_6|out_dat[2]     ; |watch_cnt|Six_counter:bit_6|out_dat[2]     ; data_out0        ;
-; |watch_cnt|Six_counter:bit_6|out_dat[3]     ; |watch_cnt|Six_counter:bit_6|out_dat[3]     ; data_out0        ;
-; |watch_cnt|Six_counter:bit_4|FULL           ; |watch_cnt|Six_counter:bit_4|FULL           ; data_out0        ;
-; |watch_cnt|decimal_counter:bit_5|FULL       ; |watch_cnt|decimal_counter:bit_5|FULL       ; data_out0        ;
-; |watch_cnt|Six_counter:bit_4|Equal0~0       ; |watch_cnt|Six_counter:bit_4|Equal0~0       ; data_out0        ;
-; |watch_cnt|Six_counter:bit_4|Add0~1         ; |watch_cnt|Six_counter:bit_4|Add0~1         ; data_out0        ;
-; |watch_cnt|decimal_counter:bit_5|out_dat~11 ; |watch_cnt|decimal_counter:bit_5|out_dat~11 ; data_out0        ;
-; |watch_cnt|decimal_counter:bit_5|Add0~0     ; |watch_cnt|decimal_counter:bit_5|Add0~0     ; data_out0        ;
-; |watch_cnt|decimal_counter:bit_5|Add0~1     ; |watch_cnt|decimal_counter:bit_5|Add0~1     ; data_out0        ;
-; |watch_cnt|decimal_counter:bit_5|Equal0~0   ; |watch_cnt|decimal_counter:bit_5|Equal0~0   ; data_out0        ;
-; |watch_cnt|Six_counter:bit_6|Equal0~0       ; |watch_cnt|Six_counter:bit_6|Equal0~0       ; data_out0        ;
-; |watch_cnt|Six_counter:bit_6|out_dat~12     ; |watch_cnt|Six_counter:bit_6|out_dat~12     ; data_out0        ;
-; |watch_cnt|Six_counter:bit_6|Add0~0         ; |watch_cnt|Six_counter:bit_6|Add0~0         ; data_out0        ;
-; |watch_cnt|Six_counter:bit_6|Add0~1         ; |watch_cnt|Six_counter:bit_6|Add0~1         ; data_out0        ;
-; |watch_cnt|preset[4]                        ; |watch_cnt|preset[4]~corein                 ; dataout          ;
-; |watch_cnt|preset[8]                        ; |watch_cnt|preset[8]~corein                 ; dataout          ;
-; |watch_cnt|preset[12]                       ; |watch_cnt|preset[12]~corein                ; dataout          ;
-; |watch_cnt|preset[20]                       ; |watch_cnt|preset[20]~corein                ; dataout          ;
-; |watch_cnt|preset[5]                        ; |watch_cnt|preset[5]~corein                 ; dataout          ;
-; |watch_cnt|preset[6]                        ; |watch_cnt|preset[6]~corein                 ; dataout          ;
-; |watch_cnt|preset[7]                        ; |watch_cnt|preset[7]~corein                 ; dataout          ;
-; |watch_cnt|preset[9]                        ; |watch_cnt|preset[9]~corein                 ; dataout          ;
-; |watch_cnt|preset[10]                       ; |watch_cnt|preset[10]~corein                ; dataout          ;
-; |watch_cnt|preset[11]                       ; |watch_cnt|preset[11]~corein                ; dataout          ;
-; |watch_cnt|preset[13]                       ; |watch_cnt|preset[13]~corein                ; dataout          ;
-; |watch_cnt|preset[14]                       ; |watch_cnt|preset[14]~corein                ; dataout          ;
-; |watch_cnt|preset[15]                       ; |watch_cnt|preset[15]~corein                ; dataout          ;
-; |watch_cnt|preset[16]                       ; |watch_cnt|preset[16]~corein                ; dataout          ;
-; |watch_cnt|preset[17]                       ; |watch_cnt|preset[17]~corein                ; dataout          ;
-; |watch_cnt|preset[18]                       ; |watch_cnt|preset[18]~corein                ; dataout          ;
-; |watch_cnt|preset[19]                       ; |watch_cnt|preset[19]~corein                ; dataout          ;
-; |watch_cnt|preset[21]                       ; |watch_cnt|preset[21]~corein                ; dataout          ;
-; |watch_cnt|preset[22]                       ; |watch_cnt|preset[22]~corein                ; dataout          ;
-; |watch_cnt|preset[23]                       ; |watch_cnt|preset[23]~corein                ; dataout          ;
-; |watch_cnt|preset[24]                       ; |watch_cnt|preset[24]~corein                ; dataout          ;
-; |watch_cnt|preset[25]                       ; |watch_cnt|preset[25]~corein                ; dataout          ;
-; |watch_cnt|preset[26]                       ; |watch_cnt|preset[26]~corein                ; dataout          ;
-; |watch_cnt|preset[27]                       ; |watch_cnt|preset[27]~corein                ; dataout          ;
-; |watch_cnt|preset[0]                        ; |watch_cnt|preset[0]~corein                 ; dataout          ;
-; |watch_cnt|preset[3]                        ; |watch_cnt|preset[3]~corein                 ; dataout          ;
-; |watch_cnt|preset[2]                        ; |watch_cnt|preset[2]~corein                 ; dataout          ;
-; |watch_cnt|preset[1]                        ; |watch_cnt|preset[1]~corein                 ; dataout          ;
-; |watch_cnt|dispbuf[14]                      ; |watch_cnt|dispbuf[14]                      ; padio            ;
-; |watch_cnt|dispbuf[15]                      ; |watch_cnt|dispbuf[15]                      ; padio            ;
-; |watch_cnt|dispbuf[16]                      ; |watch_cnt|dispbuf[16]                      ; padio            ;
-; |watch_cnt|dispbuf[17]                      ; |watch_cnt|dispbuf[17]                      ; padio            ;
-; |watch_cnt|dispbuf[18]                      ; |watch_cnt|dispbuf[18]                      ; padio            ;
-; |watch_cnt|dispbuf[19]                      ; |watch_cnt|dispbuf[19]                      ; padio            ;
-; |watch_cnt|dispbuf[20]                      ; |watch_cnt|dispbuf[20]                      ; padio            ;
-; |watch_cnt|dispbuf[21]                      ; |watch_cnt|dispbuf[21]                      ; padio            ;
-; |watch_cnt|dispbuf[22]                      ; |watch_cnt|dispbuf[22]                      ; padio            ;
-; |watch_cnt|dispbuf[23]                      ; |watch_cnt|dispbuf[23]                      ; padio            ;
-+---------------------------------------------+---------------------------------------------+------------------+
++------------------------------------------------------------------------------------------------------+
+; Missing 0-Value Coverage                                                                             ;
++-----------------------------------------+-----------------------------------------+------------------+
+; Node Name                               ; Output Port Name                        ; Output Port Type ;
++-----------------------------------------+-----------------------------------------+------------------+
+; |watch_cnt|Six_counter:bit_4|out_dat[3] ; |watch_cnt|Six_counter:bit_4|out_dat[3] ; data_out0        ;
+; |watch_cnt|Six_counter:bit_6|out_dat[1] ; |watch_cnt|Six_counter:bit_6|out_dat[1] ; data_out0        ;
+; |watch_cnt|Six_counter:bit_6|out_dat[2] ; |watch_cnt|Six_counter:bit_6|out_dat[2] ; data_out0        ;
+; |watch_cnt|Six_counter:bit_6|out_dat[3] ; |watch_cnt|Six_counter:bit_6|out_dat[3] ; data_out0        ;
+; |watch_cnt|Six_counter:bit_4|Add0~1     ; |watch_cnt|Six_counter:bit_4|Add0~1     ; data_out0        ;
+; |watch_cnt|Six_counter:bit_6|Equal0~0   ; |watch_cnt|Six_counter:bit_6|Equal0~0   ; data_out0        ;
+; |watch_cnt|Six_counter:bit_6|Add0~0     ; |watch_cnt|Six_counter:bit_6|Add0~0     ; data_out0        ;
+; |watch_cnt|Six_counter:bit_6|Add0~1     ; |watch_cnt|Six_counter:bit_6|Add0~1     ; data_out0        ;
+; |watch_cnt|preset[4]                    ; |watch_cnt|preset[4]~corein             ; dataout          ;
+; |watch_cnt|preset[8]                    ; |watch_cnt|preset[8]~corein             ; dataout          ;
+; |watch_cnt|preset[12]                   ; |watch_cnt|preset[12]~corein            ; dataout          ;
+; |watch_cnt|preset[20]                   ; |watch_cnt|preset[20]~corein            ; dataout          ;
+; |watch_cnt|preset[5]                    ; |watch_cnt|preset[5]~corein             ; dataout          ;
+; |watch_cnt|preset[6]                    ; |watch_cnt|preset[6]~corein             ; dataout          ;
+; |watch_cnt|preset[7]                    ; |watch_cnt|preset[7]~corein             ; dataout          ;
+; |watch_cnt|preset[9]                    ; |watch_cnt|preset[9]~corein             ; dataout          ;
+; |watch_cnt|preset[10]                   ; |watch_cnt|preset[10]~corein            ; dataout          ;
+; |watch_cnt|preset[11]                   ; |watch_cnt|preset[11]~corein            ; dataout          ;
+; |watch_cnt|preset[13]                   ; |watch_cnt|preset[13]~corein            ; dataout          ;
+; |watch_cnt|preset[14]                   ; |watch_cnt|preset[14]~corein            ; dataout          ;
+; |watch_cnt|preset[15]                   ; |watch_cnt|preset[15]~corein            ; dataout          ;
+; |watch_cnt|preset[16]                   ; |watch_cnt|preset[16]~corein            ; dataout          ;
+; |watch_cnt|preset[17]                   ; |watch_cnt|preset[17]~corein            ; dataout          ;
+; |watch_cnt|preset[18]                   ; |watch_cnt|preset[18]~corein            ; dataout          ;
+; |watch_cnt|preset[19]                   ; |watch_cnt|preset[19]~corein            ; dataout          ;
+; |watch_cnt|preset[21]                   ; |watch_cnt|preset[21]~corein            ; dataout          ;
+; |watch_cnt|preset[22]                   ; |watch_cnt|preset[22]~corein            ; dataout          ;
+; |watch_cnt|preset[23]                   ; |watch_cnt|preset[23]~corein            ; dataout          ;
+; |watch_cnt|preset[24]                   ; |watch_cnt|preset[24]~corein            ; dataout          ;
+; |watch_cnt|preset[25]                   ; |watch_cnt|preset[25]~corein            ; dataout          ;
+; |watch_cnt|preset[26]                   ; |watch_cnt|preset[26]~corein            ; dataout          ;
+; |watch_cnt|preset[27]                   ; |watch_cnt|preset[27]~corein            ; dataout          ;
+; |watch_cnt|preset[0]                    ; |watch_cnt|preset[0]~corein             ; dataout          ;
+; |watch_cnt|preset[3]                    ; |watch_cnt|preset[3]~corein             ; dataout          ;
+; |watch_cnt|preset[2]                    ; |watch_cnt|preset[2]~corein             ; dataout          ;
+; |watch_cnt|preset[1]                    ; |watch_cnt|preset[1]~corein             ; dataout          ;
+; |watch_cnt|dispbuf[15]                  ; |watch_cnt|dispbuf[15]                  ; padio            ;
+; |watch_cnt|dispbuf[21]                  ; |watch_cnt|dispbuf[21]                  ; padio            ;
+; |watch_cnt|dispbuf[22]                  ; |watch_cnt|dispbuf[22]                  ; padio            ;
+; |watch_cnt|dispbuf[23]                  ; |watch_cnt|dispbuf[23]                  ; padio            ;
++-----------------------------------------+-----------------------------------------+------------------+
 
 
 +---------------------+
@@ -301,18 +288,18 @@ The following table displays output ports that do not toggle to 0 during simulat
 Info: *******************************************************************
 Info: Running Quartus II Simulator
     Info: Version 9.0 Build 132 02/25/2009 SJ Full Version
-    Info: Processing started: Fri Jan 15 13:10:18 2016
+    Info: Processing started: Fri Jan 15 15:30:02 2016
 Info: Command: quartus_sim --read_settings_files=on --write_settings_files=off watch_cnt -c watch_cnt
-Info: Using vector source file "C:/Users/yangs/Documents/DigitalWatch/watch_cnt/watch_cnt.vwf"
+Info: Using vector source file "C:/Users/Sontao/OneDrive/EDAøŒ…Ë/watch_cnt/watch_cnt2.vwf"
 Info: Option to preserve fewer signal transitions to reduce memory requirements is enabled
     Info: Simulation has been partitioned into sub-simulations according to the maximum transition count determined by the engine. Transitions from memory will be flushed out to disk at the end of each sub-simulation to reduce memory requirements.
 Info: Simulation partitioned into 1 sub-simulations
-Info: Simulation coverage is      47.22 %
-Info: Number of transitions in simulation is 561168
+Info: Simulation coverage is      63.30 %
+Info: Number of transitions in simulation is 7678706
 Info: Quartus II Simulator was successful. 0 errors, 0 warnings
-    Info: Peak virtual memory: 174 megabytes
-    Info: Processing ended: Fri Jan 15 13:10:23 2016
-    Info: Elapsed time: 00:00:05
-    Info: Total CPU time (on all processors): 00:00:05
+    Info: Peak virtual memory: 175 megabytes
+    Info: Processing ended: Fri Jan 15 15:30:40 2016
+    Info: Elapsed time: 00:00:38
+    Info: Total CPU time (on all processors): 00:00:37
 
 
