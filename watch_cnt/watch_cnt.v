@@ -95,4 +95,6 @@ module watch_cnt (
                 .out(minute1),
                 .cout(cout[6])
                 );
+    assign dispbuf = {minute1,minute0,sec1,sec0,msec2,msec1};
+
 endmodule // watch_cnt

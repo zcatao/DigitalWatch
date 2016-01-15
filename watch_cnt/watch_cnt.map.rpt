@@ -1,5 +1,5 @@
 Analysis & Synthesis report for watch_cnt
-Fri Jan 15 11:25:06 2016
+Fri Jan 15 12:05:09 2016
 Quartus II Version 9.0 Build 132 02/25/2009 SJ Full Version
 
 
@@ -13,7 +13,14 @@ Quartus II Version 9.0 Build 132 02/25/2009 SJ Full Version
   5. Analysis & Synthesis Resource Usage Summary
   6. Analysis & Synthesis Resource Utilization by Entity
   7. General Register Statistics
-  8. Analysis & Synthesis Messages
+  8. Port Connectivity Checks: "Six_counter:comb_10"
+  9. Port Connectivity Checks: "decimal_counter:comb_9"
+ 10. Port Connectivity Checks: "Six_counter:comb_8"
+ 11. Port Connectivity Checks: "decimal_counter:comb_7"
+ 12. Port Connectivity Checks: "decimal_counter:comb_6"
+ 13. Port Connectivity Checks: "decimal_counter:comb_5"
+ 14. Port Connectivity Checks: "decimal_counter:comb_4"
+ 15. Analysis & Synthesis Messages
 
 
 
@@ -39,13 +46,13 @@ applicable agreement for further details.
 +------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                           ;
 +-----------------------------+------------------------------------------+
-; Analysis & Synthesis Status ; Successful - Fri Jan 15 11:25:06 2016    ;
+; Analysis & Synthesis Status ; Successful - Fri Jan 15 12:05:09 2016    ;
 ; Quartus II Version          ; 9.0 Build 132 02/25/2009 SJ Full Version ;
 ; Revision Name               ; watch_cnt                                ;
-; Top-level Entity Name       ; Six_counter                              ;
+; Top-level Entity Name       ; watch_cnt                                ;
 ; Family                      ; ACEX1K                                   ;
-; Total logic elements        ; 11                                       ;
-; Total pins                  ; 13                                       ;
+; Total logic elements        ; 0                                        ;
+; Total pins                  ; 56                                       ;
 ; Total memory bits           ; 0                                        ;
 ; Total PLLs                  ; 0                                        ;
 +-----------------------------+------------------------------------------+
@@ -57,7 +64,7 @@ applicable agreement for further details.
 ; Option                                                         ; Setting       ; Default Value ;
 +----------------------------------------------------------------+---------------+---------------+
 ; Device                                                         ; EP1K30TC144-3 ;               ;
-; Top-level entity name                                          ; Six_counter   ; watch_cnt     ;
+; Top-level entity name                                          ; watch_cnt     ; watch_cnt     ;
 ; Family name                                                    ; ACEX1K        ; Stratix II    ;
 ; Use Generated Physical Constraints File                        ; Off           ;               ;
 ; Use smart compilation                                          ; Off           ; Off           ;
@@ -113,13 +120,15 @@ applicable agreement for further details.
 +----------------------------------------------------------------+---------------+---------------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                       ;
-+----------------------------------+-----------------+------------------------+------------------------------------------------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type              ; File Name with Absolute Path                   ;
-+----------------------------------+-----------------+------------------------+------------------------------------------------+
-; ../Six_counter.v                 ; yes             ; User Verilog HDL File  ; C:/Users/Sontao/OneDrive/EDAøŒ…Ë/Six_counter.v ;
-+----------------------------------+-----------------+------------------------+------------------------------------------------+
++-------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                          ;
++----------------------------------+-----------------+------------------------+-------------------------------------------------------------------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type              ; File Name with Absolute Path                                      ;
++----------------------------------+-----------------+------------------------+-------------------------------------------------------------------+
+; decimal_counter.v                ; yes             ; User Verilog HDL File  ; C:/Users/yangs/Documents/DigitalWatch/watch_cnt/decimal_counter.v ;
+; Six_counter.v                    ; yes             ; User Verilog HDL File  ; C:/Users/yangs/Documents/DigitalWatch/watch_cnt/Six_counter.v     ;
+; watch_cnt.v                      ; yes             ; User Verilog HDL File  ; C:/Users/yangs/Documents/DigitalWatch/watch_cnt/watch_cnt.v       ;
++----------------------------------+-----------------+------------------------+-------------------------------------------------------------------+
 
 
 +---------------------------------------------+
@@ -127,19 +136,15 @@ applicable agreement for further details.
 +--------------------------------+------------+
 ; Resource                       ; Usage      ;
 +--------------------------------+------------+
-; Total logic elements           ; 11         ;
-; Total combinational functions  ; 8          ;
-;     -- Total 4-input functions ; 4          ;
+; Total logic elements           ; 0          ;
+; Total combinational functions  ; 0          ;
+;     -- Total 4-input functions ; 0          ;
 ;     -- Total 3-input functions ; 0          ;
-;     -- Total 2-input functions ; 3          ;
-;     -- Total 1-input functions ; 1          ;
+;     -- Total 2-input functions ; 0          ;
+;     -- Total 1-input functions ; 0          ;
 ;     -- Total 0-input functions ; 0          ;
-; Total registers                ; 5          ;
-; I/O pins                       ; 13         ;
-; Maximum fan-out node           ; out_dat[1] ;
-; Maximum fan-out                ; 6          ;
-; Total fan-out                  ; 54         ;
-; Average fan-out                ; 2.25       ;
+; Total registers                ; 0          ;
+; I/O pins                       ; 56         ;
 +--------------------------------+------------+
 
 
@@ -148,7 +153,7 @@ applicable agreement for further details.
 +----------------------------+-------------+--------------+-------------+------+--------------+-------------------+------------------+-----------------+------------+---------------------+--------------+
 ; Compilation Hierarchy Node ; Logic Cells ; LC Registers ; Memory Bits ; Pins ; LUT-Only LCs ; Register-Only LCs ; LUT/Register LCs ; Carry Chain LCs ; Packed LCs ; Full Hierarchy Name ; Library Name ;
 +----------------------------+-------------+--------------+-------------+------+--------------+-------------------+------------------+-----------------+------------+---------------------+--------------+
-; |Six_counter               ; 11 (11)     ; 5            ; 0           ; 13   ; 6 (6)        ; 3 (3)             ; 2 (2)            ; 0 (0)           ; 0 (0)      ; |Six_counter        ; work         ;
+; |watch_cnt                 ; 0 (0)       ; 0            ; 0           ; 56   ; 0 (0)        ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |watch_cnt          ; work         ;
 +----------------------------+-------------+--------------+-------------+------+--------------+-------------------+------------------+-----------------+------------+---------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
@@ -158,14 +163,78 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 5     ;
+; Total registers                              ; 0     ;
 ; Number of registers using Synchronous Clear  ; 0     ;
 ; Number of registers using Synchronous Load   ; 0     ;
-; Number of registers using Asynchronous Clear ; 5     ;
-; Number of registers using Asynchronous Load  ; 4     ;
-; Number of registers using Clock Enable       ; 5     ;
+; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 0     ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
+
+
++----------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "Six_counter:comb_10"                                                                ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; Port ; Type   ; Severity ; Details                                                                             ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; out  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; cout ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "decimal_counter:comb_9"                                                             ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; Port ; Type   ; Severity ; Details                                                                             ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; out  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "Six_counter:comb_8"                                                                 ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; Port ; Type   ; Severity ; Details                                                                             ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; out  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "decimal_counter:comb_7"                                                             ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; Port ; Type   ; Severity ; Details                                                                             ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; out  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "decimal_counter:comb_6"                                                             ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; Port ; Type   ; Severity ; Details                                                                             ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; out  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "decimal_counter:comb_5"                                                             ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; Port ; Type   ; Severity ; Details                                                                             ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; out  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "decimal_counter:comb_4"                                                             ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; Port ; Type   ; Severity ; Details                                                                             ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; out  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++------+--------+----------+-------------------------------------------------------------------------------------+
 
 
 +-------------------------------+
@@ -174,22 +243,115 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 Info: *******************************************************************
 Info: Running Quartus II Analysis & Synthesis
     Info: Version 9.0 Build 132 02/25/2009 SJ Full Version
-    Info: Processing started: Fri Jan 15 11:25:06 2016
+    Info: Processing started: Fri Jan 15 12:05:08 2016
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off watch_cnt -c watch_cnt
-Info: Found 1 design units, including 1 entities, in source file ../Six_counter.v
+Info: Found 1 design units, including 1 entities, in source file decimal_counter.v
+    Info: Found entity 1: decimal_counter
+Info: Found 1 design units, including 1 entities, in source file Six_counter.v
     Info: Found entity 1: Six_counter
 Info: Found 1 design units, including 1 entities, in source file watch_cnt.v
     Info: Found entity 1: watch_cnt
-Info: Elaborating entity "Six_counter" for the top level hierarchy
+Critical Warning (10846): Verilog HDL Instantiation warning at watch_cnt.v(42): instance has no name
+Critical Warning (10846): Verilog HDL Instantiation warning at watch_cnt.v(51): instance has no name
+Critical Warning (10846): Verilog HDL Instantiation warning at watch_cnt.v(60): instance has no name
+Critical Warning (10846): Verilog HDL Instantiation warning at watch_cnt.v(70): instance has no name
+Critical Warning (10846): Verilog HDL Instantiation warning at watch_cnt.v(79): instance has no name
+Critical Warning (10846): Verilog HDL Instantiation warning at watch_cnt.v(88): instance has no name
+Critical Warning (10846): Verilog HDL Instantiation warning at watch_cnt.v(97): instance has no name
+Info: Elaborating entity "watch_cnt" for the top level hierarchy
+Warning (10034): Output port "dispbuf[23]" at watch_cnt.v(22) has no driver
+Warning (10034): Output port "dispbuf[22]" at watch_cnt.v(22) has no driver
+Warning (10034): Output port "dispbuf[21]" at watch_cnt.v(22) has no driver
+Warning (10034): Output port "dispbuf[20]" at watch_cnt.v(22) has no driver
+Warning (10034): Output port "dispbuf[19]" at watch_cnt.v(22) has no driver
+Warning (10034): Output port "dispbuf[18]" at watch_cnt.v(22) has no driver
+Warning (10034): Output port "dispbuf[17]" at watch_cnt.v(22) has no driver
+Warning (10034): Output port "dispbuf[16]" at watch_cnt.v(22) has no driver
+Warning (10034): Output port "dispbuf[15]" at watch_cnt.v(22) has no driver
+Warning (10034): Output port "dispbuf[14]" at watch_cnt.v(22) has no driver
+Warning (10034): Output port "dispbuf[13]" at watch_cnt.v(22) has no driver
+Warning (10034): Output port "dispbuf[12]" at watch_cnt.v(22) has no driver
+Warning (10034): Output port "dispbuf[11]" at watch_cnt.v(22) has no driver
+Warning (10034): Output port "dispbuf[10]" at watch_cnt.v(22) has no driver
+Warning (10034): Output port "dispbuf[9]" at watch_cnt.v(22) has no driver
+Warning (10034): Output port "dispbuf[8]" at watch_cnt.v(22) has no driver
+Warning (10034): Output port "dispbuf[7]" at watch_cnt.v(22) has no driver
+Warning (10034): Output port "dispbuf[6]" at watch_cnt.v(22) has no driver
+Warning (10034): Output port "dispbuf[5]" at watch_cnt.v(22) has no driver
+Warning (10034): Output port "dispbuf[4]" at watch_cnt.v(22) has no driver
+Warning (10034): Output port "dispbuf[3]" at watch_cnt.v(22) has no driver
+Warning (10034): Output port "dispbuf[2]" at watch_cnt.v(22) has no driver
+Warning (10034): Output port "dispbuf[1]" at watch_cnt.v(22) has no driver
+Warning (10034): Output port "dispbuf[0]" at watch_cnt.v(22) has no driver
+Info: Elaborating entity "decimal_counter" for hierarchy "decimal_counter:comb_4"
+Warning (10230): Verilog HDL assignment warning at decimal_counter.v(43): truncated value with size 32 to match size of target (4)
+Info: Elaborating entity "Six_counter" for hierarchy "Six_counter:comb_8"
 Warning (10230): Verilog HDL assignment warning at Six_counter.v(43): truncated value with size 32 to match size of target (4)
-Info: Implemented 24 device resources after synthesis - the final resource count might be different
-    Info: Implemented 8 input pins
-    Info: Implemented 5 output pins
-    Info: Implemented 11 logic cells
-Info: Quartus II Analysis & Synthesis was successful. 0 errors, 1 warning
+Warning: Output pins are stuck at VCC or GND
+    Warning (13410): Pin "dispbuf[0]" is stuck at GND
+    Warning (13410): Pin "dispbuf[1]" is stuck at GND
+    Warning (13410): Pin "dispbuf[2]" is stuck at GND
+    Warning (13410): Pin "dispbuf[3]" is stuck at GND
+    Warning (13410): Pin "dispbuf[4]" is stuck at GND
+    Warning (13410): Pin "dispbuf[5]" is stuck at GND
+    Warning (13410): Pin "dispbuf[6]" is stuck at GND
+    Warning (13410): Pin "dispbuf[7]" is stuck at GND
+    Warning (13410): Pin "dispbuf[8]" is stuck at GND
+    Warning (13410): Pin "dispbuf[9]" is stuck at GND
+    Warning (13410): Pin "dispbuf[10]" is stuck at GND
+    Warning (13410): Pin "dispbuf[11]" is stuck at GND
+    Warning (13410): Pin "dispbuf[12]" is stuck at GND
+    Warning (13410): Pin "dispbuf[13]" is stuck at GND
+    Warning (13410): Pin "dispbuf[14]" is stuck at GND
+    Warning (13410): Pin "dispbuf[15]" is stuck at GND
+    Warning (13410): Pin "dispbuf[16]" is stuck at GND
+    Warning (13410): Pin "dispbuf[17]" is stuck at GND
+    Warning (13410): Pin "dispbuf[18]" is stuck at GND
+    Warning (13410): Pin "dispbuf[19]" is stuck at GND
+    Warning (13410): Pin "dispbuf[20]" is stuck at GND
+    Warning (13410): Pin "dispbuf[21]" is stuck at GND
+    Warning (13410): Pin "dispbuf[22]" is stuck at GND
+    Warning (13410): Pin "dispbuf[23]" is stuck at GND
+Warning: Design contains 32 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "clk_1Khz"
+    Warning (15610): No output dependent on input pin "rst"
+    Warning (15610): No output dependent on input pin "preset[0]"
+    Warning (15610): No output dependent on input pin "preset[1]"
+    Warning (15610): No output dependent on input pin "preset[2]"
+    Warning (15610): No output dependent on input pin "preset[3]"
+    Warning (15610): No output dependent on input pin "preset[4]"
+    Warning (15610): No output dependent on input pin "preset[5]"
+    Warning (15610): No output dependent on input pin "preset[6]"
+    Warning (15610): No output dependent on input pin "preset[7]"
+    Warning (15610): No output dependent on input pin "preset[8]"
+    Warning (15610): No output dependent on input pin "preset[9]"
+    Warning (15610): No output dependent on input pin "preset[10]"
+    Warning (15610): No output dependent on input pin "preset[11]"
+    Warning (15610): No output dependent on input pin "preset[12]"
+    Warning (15610): No output dependent on input pin "preset[13]"
+    Warning (15610): No output dependent on input pin "preset[14]"
+    Warning (15610): No output dependent on input pin "preset[15]"
+    Warning (15610): No output dependent on input pin "preset[16]"
+    Warning (15610): No output dependent on input pin "preset[17]"
+    Warning (15610): No output dependent on input pin "preset[18]"
+    Warning (15610): No output dependent on input pin "preset[19]"
+    Warning (15610): No output dependent on input pin "preset[20]"
+    Warning (15610): No output dependent on input pin "preset[21]"
+    Warning (15610): No output dependent on input pin "preset[22]"
+    Warning (15610): No output dependent on input pin "preset[23]"
+    Warning (15610): No output dependent on input pin "preset[24]"
+    Warning (15610): No output dependent on input pin "preset[25]"
+    Warning (15610): No output dependent on input pin "preset[26]"
+    Warning (15610): No output dependent on input pin "preset[27]"
+    Warning (15610): No output dependent on input pin "EN"
+    Warning (15610): No output dependent on input pin "load"
+Info: Implemented 56 device resources after synthesis - the final resource count might be different
+    Info: Implemented 32 input pins
+    Info: Implemented 24 output pins
+Info: Quartus II Analysis & Synthesis was successful. 0 errors, 91 warnings
     Info: Peak virtual memory: 237 megabytes
-    Info: Processing ended: Fri Jan 15 11:25:06 2016
-    Info: Elapsed time: 00:00:00
+    Info: Processing ended: Fri Jan 15 12:05:09 2016
+    Info: Elapsed time: 00:00:01
     Info: Total CPU time (on all processors): 00:00:00
 
 
