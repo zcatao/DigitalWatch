@@ -1,5 +1,5 @@
 Analysis & Synthesis report for DigitalWatch
-Fri Jan 15 20:34:48 2016
+Sun Jan 17 18:23:30 2016
 Quartus II Version 9.0 Build 132 02/25/2009 SJ Full Version
 
 
@@ -13,11 +13,11 @@ Quartus II Version 9.0 Build 132 02/25/2009 SJ Full Version
   5. Analysis & Synthesis Resource Usage Summary
   6. Analysis & Synthesis Resource Utilization by Entity
   7. State Machine - |DigitalWatch|key_Control:Control|Start_status
-  8. Registers Removed During Synthesis
-  9. Removed Registers Triggering Further Register Optimizations
- 10. General Register Statistics
- 11. Parameter Settings for User Entity Instance: clk_div:fdiv
- 12. Parameter Settings for User Entity Instance: key_Control:Control
+  8. General Register Statistics
+  9. Source assignments for clk_div:fdiv|lpm_counter:cnt_rtl_0
+ 10. Parameter Settings for User Entity Instance: clk_div:fdiv
+ 11. Parameter Settings for User Entity Instance: key_Control:Control
+ 12. Parameter Settings for Inferred Entity Instance: clk_div:fdiv|lpm_counter:cnt_rtl_0
  13. Port Connectivity Checks: "watch_cnt:cnt|Six_counter:bit_6"
  14. Port Connectivity Checks: "watch_cnt:cnt|decimal_counter:bit_0"
  15. Port Connectivity Checks: "watch_cnt:cnt"
@@ -48,12 +48,12 @@ applicable agreement for further details.
 +------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                           ;
 +-----------------------------+------------------------------------------+
-; Analysis & Synthesis Status ; Successful - Fri Jan 15 20:34:48 2016    ;
+; Analysis & Synthesis Status ; Successful - Sun Jan 17 18:23:30 2016    ;
 ; Quartus II Version          ; 9.0 Build 132 02/25/2009 SJ Full Version ;
 ; Revision Name               ; DigitalWatch                             ;
 ; Top-level Entity Name       ; DigitalWatch                             ;
 ; Family                      ; ACEX1K                                   ;
-; Total logic elements        ; 0                                        ;
+; Total logic elements        ; 114                                      ;
 ; Total pins                  ; 28                                       ;
 ; Total memory bits           ; 0                                        ;
 ; Total PLLs                  ; 0                                        ;
@@ -134,33 +134,65 @@ applicable agreement for further details.
 ; Six_counter.v                    ; yes             ; User Verilog HDL File  ; C:/Users/yangs/Documents/DigitalWatch/DigitalWatch/Six_counter.v     ;
 ; smg_disp.v                       ; yes             ; User Verilog HDL File  ; C:/Users/yangs/Documents/DigitalWatch/DigitalWatch/smg_disp.v        ;
 ; watch_cnt.v                      ; yes             ; User Verilog HDL File  ; C:/Users/yangs/Documents/DigitalWatch/DigitalWatch/watch_cnt.v       ;
+; lpm_counter.tdf                  ; yes             ; Megafunction           ; d:/altera/90/quartus/libraries/megafunctions/lpm_counter.tdf         ;
+; lpm_constant.inc                 ; yes             ; Megafunction           ; d:/altera/90/quartus/libraries/megafunctions/lpm_constant.inc        ;
+; lpm_decode.inc                   ; yes             ; Megafunction           ; d:/altera/90/quartus/libraries/megafunctions/lpm_decode.inc          ;
+; lpm_add_sub.inc                  ; yes             ; Megafunction           ; d:/altera/90/quartus/libraries/megafunctions/lpm_add_sub.inc         ;
+; cmpconst.inc                     ; yes             ; Megafunction           ; d:/altera/90/quartus/libraries/megafunctions/cmpconst.inc            ;
+; lpm_compare.inc                  ; yes             ; Megafunction           ; d:/altera/90/quartus/libraries/megafunctions/lpm_compare.inc         ;
+; lpm_counter.inc                  ; yes             ; Megafunction           ; d:/altera/90/quartus/libraries/megafunctions/lpm_counter.inc         ;
+; dffeea.inc                       ; yes             ; Megafunction           ; d:/altera/90/quartus/libraries/megafunctions/dffeea.inc              ;
+; alt_synch_counter.inc            ; yes             ; Megafunction           ; d:/altera/90/quartus/libraries/megafunctions/alt_synch_counter.inc   ;
+; alt_synch_counter_f.inc          ; yes             ; Megafunction           ; d:/altera/90/quartus/libraries/megafunctions/alt_synch_counter_f.inc ;
+; alt_counter_f10ke.inc            ; yes             ; Megafunction           ; d:/altera/90/quartus/libraries/megafunctions/alt_counter_f10ke.inc   ;
+; alt_counter_stratix.inc          ; yes             ; Megafunction           ; d:/altera/90/quartus/libraries/megafunctions/alt_counter_stratix.inc ;
+; aglobal90.inc                    ; yes             ; Megafunction           ; d:/altera/90/quartus/libraries/megafunctions/aglobal90.inc           ;
+; alt_counter_f10ke.tdf            ; yes             ; Megafunction           ; d:/altera/90/quartus/libraries/megafunctions/alt_counter_f10ke.tdf   ;
+; flex10ke_lcell.inc               ; yes             ; Megafunction           ; d:/altera/90/quartus/libraries/megafunctions/flex10ke_lcell.inc      ;
 +----------------------------------+-----------------+------------------------+----------------------------------------------------------------------+
 
 
-+---------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary ;
-+--------------------------------+------------+
-; Resource                       ; Usage      ;
-+--------------------------------+------------+
-; Total logic elements           ; 0          ;
-; Total combinational functions  ; 0          ;
-;     -- Total 4-input functions ; 0          ;
-;     -- Total 3-input functions ; 0          ;
-;     -- Total 2-input functions ; 0          ;
-;     -- Total 1-input functions ; 0          ;
-;     -- Total 0-input functions ; 0          ;
-; Total registers                ; 0          ;
-; I/O pins                       ; 28         ;
-+--------------------------------+------------+
++----------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                                ;
++-----------------------------------+----------------------------------------+
+; Resource                          ; Usage                                  ;
++-----------------------------------+----------------------------------------+
+; Total logic elements              ; 114                                    ;
+; Total combinational functions     ; 86                                     ;
+;     -- Total 4-input functions    ; 21                                     ;
+;     -- Total 3-input functions    ; 16                                     ;
+;     -- Total 2-input functions    ; 6                                      ;
+;     -- Total 1-input functions    ; 42                                     ;
+;     -- Total 0-input functions    ; 1                                      ;
+; Total registers                   ; 70                                     ;
+; Total logic cells in carry chains ; 32                                     ;
+; I/O pins                          ; 28                                     ;
+; Maximum fan-out node              ; key_Control:Control|Start_status.RESET ;
+; Maximum fan-out                   ; 64                                     ;
+; Total fan-out                     ; 499                                    ;
+; Average fan-out                   ; 3.51                                   ;
++-----------------------------------+----------------------------------------+
 
 
-+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                    ;
-+----------------------------+-------------+--------------+-------------+------+--------------+-------------------+------------------+-----------------+------------+---------------------+--------------+
-; Compilation Hierarchy Node ; Logic Cells ; LC Registers ; Memory Bits ; Pins ; LUT-Only LCs ; Register-Only LCs ; LUT/Register LCs ; Carry Chain LCs ; Packed LCs ; Full Hierarchy Name ; Library Name ;
-+----------------------------+-------------+--------------+-------------+------+--------------+-------------------+------------------+-----------------+------------+---------------------+--------------+
-; |DigitalWatch              ; 0 (0)       ; 0            ; 0           ; 28   ; 0 (0)        ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |DigitalWatch       ; work         ;
-+----------------------------+-------------+--------------+-------------+------+--------------+-------------------+------------------+-----------------+------------+---------------------+--------------+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                               ;
++-------------------------------------------+-------------+--------------+-------------+------+--------------+-------------------+------------------+-----------------+------------+---------------------------------------------------------------------------------+--------------+
+; Compilation Hierarchy Node                ; Logic Cells ; LC Registers ; Memory Bits ; Pins ; LUT-Only LCs ; Register-Only LCs ; LUT/Register LCs ; Carry Chain LCs ; Packed LCs ; Full Hierarchy Name                                                             ; Library Name ;
++-------------------------------------------+-------------+--------------+-------------+------+--------------+-------------------+------------------+-----------------+------------+---------------------------------------------------------------------------------+--------------+
+; |DigitalWatch                             ; 114 (1)     ; 70           ; 0           ; 28   ; 44 (1)       ; 28 (0)            ; 42 (0)           ; 32 (0)          ; 0 (0)      ; |DigitalWatch                                                                   ; work         ;
+;    |clk_div:fdiv|                         ; 43 (11)     ; 33           ; 0           ; 0    ; 10 (10)      ; 0 (0)             ; 33 (1)           ; 32 (0)          ; 0 (0)      ; |DigitalWatch|clk_div:fdiv                                                      ; work         ;
+;       |lpm_counter:cnt_rtl_0|             ; 32 (0)      ; 32           ; 0           ; 0    ; 0 (0)        ; 0 (0)             ; 32 (0)           ; 32 (0)          ; 0 (0)      ; |DigitalWatch|clk_div:fdiv|lpm_counter:cnt_rtl_0                                ; work         ;
+;          |alt_counter_f10ke:wysi_counter| ; 32 (32)     ; 32           ; 0           ; 0    ; 0 (0)        ; 0 (0)             ; 32 (32)          ; 32 (32)         ; 0 (0)      ; |DigitalWatch|clk_div:fdiv|lpm_counter:cnt_rtl_0|alt_counter_f10ke:wysi_counter ; work         ;
+;    |key_Control:Control|                  ; 3 (3)       ; 3            ; 0           ; 0    ; 0 (0)        ; 1 (1)             ; 2 (2)            ; 0 (0)           ; 0 (0)      ; |DigitalWatch|key_Control:Control                                               ; work         ;
+;    |watch_cnt:cnt|                        ; 67 (0)      ; 34           ; 0           ; 0    ; 33 (0)       ; 27 (0)            ; 7 (0)            ; 0 (0)           ; 0 (0)      ; |DigitalWatch|watch_cnt:cnt                                                     ; work         ;
+;       |Six_counter:bit_4|                 ; 10 (10)     ; 5            ; 0           ; 0    ; 5 (5)        ; 4 (4)             ; 1 (1)            ; 0 (0)           ; 0 (0)      ; |DigitalWatch|watch_cnt:cnt|Six_counter:bit_4                                   ; work         ;
+;       |Six_counter:bit_6|                 ; 9 (9)       ; 4            ; 0           ; 0    ; 5 (5)        ; 3 (3)             ; 1 (1)            ; 0 (0)           ; 0 (0)      ; |DigitalWatch|watch_cnt:cnt|Six_counter:bit_6                                   ; work         ;
+;       |decimal_counter:bit_0|             ; 10 (10)     ; 5            ; 0           ; 0    ; 5 (5)        ; 4 (4)             ; 1 (1)            ; 0 (0)           ; 0 (0)      ; |DigitalWatch|watch_cnt:cnt|decimal_counter:bit_0                               ; work         ;
+;       |decimal_counter:bit_1|             ; 11 (11)     ; 5            ; 0           ; 0    ; 6 (6)        ; 4 (4)             ; 1 (1)            ; 0 (0)           ; 0 (0)      ; |DigitalWatch|watch_cnt:cnt|decimal_counter:bit_1                               ; work         ;
+;       |decimal_counter:bit_2|             ; 9 (9)       ; 5            ; 0           ; 0    ; 4 (4)        ; 4 (4)             ; 1 (1)            ; 0 (0)           ; 0 (0)      ; |DigitalWatch|watch_cnt:cnt|decimal_counter:bit_2                               ; work         ;
+;       |decimal_counter:bit_3|             ; 9 (9)       ; 5            ; 0           ; 0    ; 4 (4)        ; 4 (4)             ; 1 (1)            ; 0 (0)           ; 0 (0)      ; |DigitalWatch|watch_cnt:cnt|decimal_counter:bit_3                               ; work         ;
+;       |decimal_counter:bit_5|             ; 9 (9)       ; 5            ; 0           ; 0    ; 4 (4)        ; 4 (4)             ; 1 (1)            ; 0 (0)           ; 0 (0)      ; |DigitalWatch|watch_cnt:cnt|decimal_counter:bit_5                               ; work         ;
++-------------------------------------------+-------------+--------------+-------------+------+--------------+-------------------+------------------+-----------------+------------+---------------------------------------------------------------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
@@ -176,57 +208,30 @@ Encoding Type:  One-Hot
 +--------------------+--------------------+--------------------+-------------------+
 
 
-+-------------------------------------------------------------------------------------------------+
-; Registers Removed During Synthesis                                                              ;
-+---------------------------------------------------+---------------------------------------------+
-; Register name                                     ; Reason for Removal                          ;
-+---------------------------------------------------+---------------------------------------------+
-; watch_cnt:cnt|decimal_counter:bit_0|out_dat[0..3] ; Lost fanout                                 ;
-; watch_cnt:cnt|decimal_counter:bit_1|out_dat[0..3] ; Stuck at GND due to stuck port clock_enable ;
-; watch_cnt:cnt|decimal_counter:bit_2|out_dat[0..3] ; Stuck at GND due to stuck port clock_enable ;
-; watch_cnt:cnt|decimal_counter:bit_3|out_dat[0..3] ; Stuck at GND due to stuck port clock_enable ;
-; watch_cnt:cnt|Six_counter:bit_4|out_dat[0..3]     ; Stuck at GND due to stuck port clock_enable ;
-; watch_cnt:cnt|decimal_counter:bit_5|out_dat[0..3] ; Stuck at GND due to stuck port clock_enable ;
-; watch_cnt:cnt|Six_counter:bit_6|out_dat[0..3]     ; Stuck at GND due to stuck port clock_enable ;
-; watch_cnt:cnt|decimal_counter:bit_0|FULL          ; Stuck at GND due to stuck port clock_enable ;
-; watch_cnt:cnt|decimal_counter:bit_1|FULL          ; Stuck at GND due to stuck port clock        ;
-; watch_cnt:cnt|decimal_counter:bit_2|FULL          ; Stuck at GND due to stuck port clock        ;
-; watch_cnt:cnt|decimal_counter:bit_3|FULL          ; Stuck at GND due to stuck port clock        ;
-; watch_cnt:cnt|Six_counter:bit_4|FULL              ; Stuck at GND due to stuck port clock        ;
-; watch_cnt:cnt|decimal_counter:bit_5|FULL          ; Lost fanout                                 ;
-; clk_div:fdiv|clk_out                              ; Lost fanout                                 ;
-; clk_div:fdiv|cnt[0..31]                           ; Lost fanout                                 ;
-; key_Control:Control|Start_status.STOP             ; Lost fanout                                 ;
-; key_Control:Control|Start_status.RESET            ; Lost fanout                                 ;
-; key_Control:Control|Start_status.START            ; Lost fanout                                 ;
-; Total Number of Removed Registers = 70            ;                                             ;
-+---------------------------------------------------+---------------------------------------------+
-
-
-+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Removed Registers Triggering Further Register Optimizations                                                                                                           ;
-+------------------------------------------------+--------------------------------+-------------------------------------------------------------------------------------+
-; Register name                                  ; Reason for Removal             ; Registers Removed due to This Register                                              ;
-+------------------------------------------------+--------------------------------+-------------------------------------------------------------------------------------+
-; watch_cnt:cnt|decimal_counter:bit_0|FULL       ; Stuck at GND                   ; watch_cnt:cnt|decimal_counter:bit_1|FULL, watch_cnt:cnt|decimal_counter:bit_2|FULL, ;
-;                                                ; due to stuck port clock_enable ; watch_cnt:cnt|decimal_counter:bit_3|FULL, watch_cnt:cnt|Six_counter:bit_4|FULL      ;
-; watch_cnt:cnt|decimal_counter:bit_0|out_dat[3] ; Lost Fanouts                   ; clk_div:fdiv|clk_out, clk_div:fdiv|cnt[31]                                          ;
-+------------------------------------------------+--------------------------------+-------------------------------------------------------------------------------------+
-
-
 +------------------------------------------------------+
 ; General Register Statistics                          ;
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 0     ;
-; Number of registers using Synchronous Clear  ; 0     ;
+; Total registers                              ; 70    ;
+; Number of registers using Synchronous Clear  ; 32    ;
 ; Number of registers using Synchronous Load   ; 0     ;
-; Number of registers using Asynchronous Clear ; 0     ;
-; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 0     ;
+; Number of registers using Asynchronous Clear ; 67    ;
+; Number of registers using Asynchronous Load  ; 28    ;
+; Number of registers using Clock Enable       ; 35    ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
+
+
++-----------------------------------------------------------+
+; Source assignments for clk_div:fdiv|lpm_counter:cnt_rtl_0 ;
++---------------------------+-------+------+----------------+
+; Assignment                ; Value ; From ; To             ;
++---------------------------+-------+------+----------------+
+; SUPPRESS_DA_RULE_INTERNAL ; a101  ; -    ; -              ;
+; SUPPRESS_DA_RULE_INTERNAL ; s102  ; -    ; -              ;
+; SUPPRESS_DA_RULE_INTERNAL ; s103  ; -    ; -              ;
++---------------------------+-------+------+----------------+
 
 
 +-----------------------------------------------------------+
@@ -248,6 +253,33 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; STOP           ; 01    ; Unsigned Binary                         ;
 ; RESET          ; 10    ; Unsigned Binary                         ;
 +----------------+-------+-----------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: clk_div:fdiv|lpm_counter:cnt_rtl_0 ;
++------------------------+-------------------+----------------------------------------+
+; Parameter Name         ; Value             ; Type                                   ;
++------------------------+-------------------+----------------------------------------+
+; AUTO_CARRY_CHAINS      ; ON                ; AUTO_CARRY                             ;
+; IGNORE_CARRY_BUFFERS   ; OFF               ; IGNORE_CARRY                           ;
+; AUTO_CASCADE_CHAINS    ; ON                ; AUTO_CASCADE                           ;
+; IGNORE_CASCADE_BUFFERS ; OFF               ; IGNORE_CASCADE                         ;
+; LPM_WIDTH              ; 32                ; Untyped                                ;
+; LPM_DIRECTION          ; UP                ; Untyped                                ;
+; LPM_MODULUS            ; 0                 ; Untyped                                ;
+; LPM_AVALUE             ; UNUSED            ; Untyped                                ;
+; LPM_SVALUE             ; UNUSED            ; Untyped                                ;
+; LPM_PORT_UPDOWN        ; PORT_CONNECTIVITY ; Untyped                                ;
+; DEVICE_FAMILY          ; ACEX1K            ; Untyped                                ;
+; CARRY_CHAIN            ; MANUAL            ; Untyped                                ;
+; CARRY_CHAIN_LENGTH     ; 48                ; CARRY_CHAIN_LENGTH                     ;
+; NOT_GATE_PUSH_BACK     ; ON                ; NOT_GATE_PUSH_BACK                     ;
+; CARRY_CNT_EN           ; SMART             ; Untyped                                ;
+; LABWIDE_SCLR           ; ON                ; Untyped                                ;
+; USE_NEW_VERSION        ; TRUE              ; Untyped                                ;
+; CBXI_PARAMETER         ; NOTHING           ; Untyped                                ;
++------------------------+-------------------+----------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
@@ -285,7 +317,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus II Analysis & Synthesis
     Info: Version 9.0 Build 132 02/25/2009 SJ Full Version
-    Info: Processing started: Fri Jan 15 20:34:47 2016
+    Info: Processing started: Sun Jan 17 18:23:29 2016
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off DigitalWatch -c DigitalWatch
 Info: Found 1 design units, including 1 entities, in source file clk_div.v
     Info: Found entity 1: clk_div
@@ -309,86 +341,25 @@ Info: Elaborating entity "watch_cnt" for hierarchy "watch_cnt:cnt"
 Info: Elaborating entity "decimal_counter" for hierarchy "watch_cnt:cnt|decimal_counter:bit_0"
 Info: Elaborating entity "Six_counter" for hierarchy "watch_cnt:cnt|Six_counter:bit_4"
 Info: Elaborating entity "smg_disp" for hierarchy "smg_disp:disp"
+Info: Inferred 1 megafunctions from design logic
+    Info: Inferred lpm_counter megafunction (LPM_WIDTH=32) from the following logic: "clk_div:fdiv|cnt[0]~32"
+Info: Elaborated megafunction instantiation "clk_div:fdiv|lpm_counter:cnt_rtl_0"
+Info: Instantiated megafunction "clk_div:fdiv|lpm_counter:cnt_rtl_0" with the following parameter:
+    Info: Parameter "LPM_WIDTH" = "32"
+    Info: Parameter "LPM_DIRECTION" = "UP"
+    Info: Parameter "LPM_TYPE" = "LPM_COUNTER"
+Info: Elaborated megafunction instantiation "clk_div:fdiv|lpm_counter:cnt_rtl_0|alt_counter_f10ke:wysi_counter", which is child of megafunction instantiation "clk_div:fdiv|lpm_counter:cnt_rtl_0"
 Warning: 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
-Warning: Output pins are stuck at VCC or GND
-    Warning (13410): Pin "disp_out[0]" is stuck at GND
-    Warning (13410): Pin "disp_out[1]" is stuck at GND
-    Warning (13410): Pin "disp_out[2]" is stuck at GND
-    Warning (13410): Pin "disp_out[3]" is stuck at GND
-    Warning (13410): Pin "disp_out[4]" is stuck at GND
-    Warning (13410): Pin "disp_out[5]" is stuck at GND
-    Warning (13410): Pin "disp_out[6]" is stuck at GND
-    Warning (13410): Pin "disp_out[7]" is stuck at GND
-    Warning (13410): Pin "disp_out[8]" is stuck at GND
-    Warning (13410): Pin "disp_out[9]" is stuck at GND
-    Warning (13410): Pin "disp_out[10]" is stuck at GND
-    Warning (13410): Pin "disp_out[11]" is stuck at GND
-    Warning (13410): Pin "disp_out[12]" is stuck at GND
-    Warning (13410): Pin "disp_out[13]" is stuck at GND
-    Warning (13410): Pin "disp_out[14]" is stuck at GND
-    Warning (13410): Pin "disp_out[15]" is stuck at GND
-    Warning (13410): Pin "disp_out[16]" is stuck at GND
-    Warning (13410): Pin "disp_out[17]" is stuck at GND
-    Warning (13410): Pin "disp_out[18]" is stuck at GND
-    Warning (13410): Pin "disp_out[19]" is stuck at GND
-    Warning (13410): Pin "disp_out[20]" is stuck at GND
-    Warning (13410): Pin "disp_out[21]" is stuck at GND
-    Warning (13410): Pin "disp_out[22]" is stuck at GND
-    Warning (13410): Pin "disp_out[23]" is stuck at GND
-Info: 41 registers lost all their fanouts during netlist optimizations. The first 41 are displayed below.
-    Info: Register "watch_cnt:cnt|decimal_counter:bit_0|out_dat[3]" lost all its fanouts during netlist optimizations.
-    Info: Register "watch_cnt:cnt|decimal_counter:bit_0|out_dat[2]" lost all its fanouts during netlist optimizations.
-    Info: Register "watch_cnt:cnt|decimal_counter:bit_0|out_dat[1]" lost all its fanouts during netlist optimizations.
-    Info: Register "watch_cnt:cnt|decimal_counter:bit_0|out_dat[0]" lost all its fanouts during netlist optimizations.
-    Info: Register "watch_cnt:cnt|decimal_counter:bit_5|FULL" lost all its fanouts during netlist optimizations.
-    Info: Register "clk_div:fdiv|clk_out" lost all its fanouts during netlist optimizations.
-    Info: Register "clk_div:fdiv|cnt[31]" lost all its fanouts during netlist optimizations.
-    Info: Register "clk_div:fdiv|cnt[30]" lost all its fanouts during netlist optimizations.
-    Info: Register "clk_div:fdiv|cnt[29]" lost all its fanouts during netlist optimizations.
-    Info: Register "clk_div:fdiv|cnt[28]" lost all its fanouts during netlist optimizations.
-    Info: Register "clk_div:fdiv|cnt[27]" lost all its fanouts during netlist optimizations.
-    Info: Register "clk_div:fdiv|cnt[26]" lost all its fanouts during netlist optimizations.
-    Info: Register "clk_div:fdiv|cnt[25]" lost all its fanouts during netlist optimizations.
-    Info: Register "clk_div:fdiv|cnt[24]" lost all its fanouts during netlist optimizations.
-    Info: Register "clk_div:fdiv|cnt[23]" lost all its fanouts during netlist optimizations.
-    Info: Register "clk_div:fdiv|cnt[22]" lost all its fanouts during netlist optimizations.
-    Info: Register "clk_div:fdiv|cnt[21]" lost all its fanouts during netlist optimizations.
-    Info: Register "clk_div:fdiv|cnt[20]" lost all its fanouts during netlist optimizations.
-    Info: Register "clk_div:fdiv|cnt[19]" lost all its fanouts during netlist optimizations.
-    Info: Register "clk_div:fdiv|cnt[18]" lost all its fanouts during netlist optimizations.
-    Info: Register "clk_div:fdiv|cnt[17]" lost all its fanouts during netlist optimizations.
-    Info: Register "clk_div:fdiv|cnt[16]" lost all its fanouts during netlist optimizations.
-    Info: Register "clk_div:fdiv|cnt[15]" lost all its fanouts during netlist optimizations.
-    Info: Register "clk_div:fdiv|cnt[14]" lost all its fanouts during netlist optimizations.
-    Info: Register "clk_div:fdiv|cnt[13]" lost all its fanouts during netlist optimizations.
-    Info: Register "clk_div:fdiv|cnt[12]" lost all its fanouts during netlist optimizations.
-    Info: Register "clk_div:fdiv|cnt[11]" lost all its fanouts during netlist optimizations.
-    Info: Register "clk_div:fdiv|cnt[10]" lost all its fanouts during netlist optimizations.
-    Info: Register "clk_div:fdiv|cnt[9]" lost all its fanouts during netlist optimizations.
-    Info: Register "clk_div:fdiv|cnt[8]" lost all its fanouts during netlist optimizations.
-    Info: Register "clk_div:fdiv|cnt[7]" lost all its fanouts during netlist optimizations.
-    Info: Register "clk_div:fdiv|cnt[6]" lost all its fanouts during netlist optimizations.
-    Info: Register "clk_div:fdiv|cnt[5]" lost all its fanouts during netlist optimizations.
-    Info: Register "clk_div:fdiv|cnt[4]" lost all its fanouts during netlist optimizations.
-    Info: Register "clk_div:fdiv|cnt[3]" lost all its fanouts during netlist optimizations.
-    Info: Register "clk_div:fdiv|cnt[2]" lost all its fanouts during netlist optimizations.
-    Info: Register "clk_div:fdiv|cnt[1]" lost all its fanouts during netlist optimizations.
-    Info: Register "clk_div:fdiv|cnt[0]" lost all its fanouts during netlist optimizations.
-    Info: Register "key_Control:Control|Start_status.STOP" lost all its fanouts during netlist optimizations.
-    Info: Register "key_Control:Control|Start_status.RESET" lost all its fanouts during netlist optimizations.
-    Info: Register "key_Control:Control|Start_status.START" lost all its fanouts during netlist optimizations.
-Warning: Design contains 4 input pin(s) that do not drive logic
+Warning: Design contains 1 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "key_pause"
-    Warning (15610): No output dependent on input pin "key_load"
-    Warning (15610): No output dependent on input pin "clk_50Mhz"
-    Warning (15610): No output dependent on input pin "key_start"
-Info: Implemented 28 device resources after synthesis - the final resource count might be different
+Info: Implemented 142 device resources after synthesis - the final resource count might be different
     Info: Implemented 4 input pins
     Info: Implemented 24 output pins
+    Info: Implemented 114 logic cells
 Info: Generated suppressed messages file C:/Users/yangs/Documents/DigitalWatch/DigitalWatch/DigitalWatch.map.smsg
-Info: Quartus II Analysis & Synthesis was successful. 0 errors, 32 warnings
-    Info: Peak virtual memory: 237 megabytes
-    Info: Processing ended: Fri Jan 15 20:34:48 2016
+Info: Quartus II Analysis & Synthesis was successful. 0 errors, 4 warnings
+    Info: Peak virtual memory: 241 megabytes
+    Info: Processing ended: Sun Jan 17 18:23:30 2016
     Info: Elapsed time: 00:00:01
     Info: Total CPU time (on all processors): 00:00:01
 

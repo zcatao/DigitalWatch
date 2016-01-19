@@ -19,6 +19,4 @@ module smg_disp (
     );
 
     assign disp_out = Watch_cnt_disp;
-
-
 endmodule // smg_disp

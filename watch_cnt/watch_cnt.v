@@ -1,14 +1,14 @@
 /*****************************************
-Ä£¿éÃû£ºwatch_cnt
-±àÐ´Õß£ºzcatao
-±àÐ´Ê±¼ä£º2016Äê1ÔÂ15ÈÕ 10:31:36
-ÊäÈë£º
-    1KhzÊ±ÖÓÔ´clk_1Khz
-    Òì²½¸´Î»ÐÅºÅrst
-    À´×Ô¼üÅÌ´¦ÀíµÄÃüÁî
-Êä³ö£º
-    ËÍ¸øÏÔÊ¾Ä£¿éµÄÊý¾Ý»º´ædispbuf
-×¢ÒâÊÂÏî£º
+Ä£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½watch_cnt
+ï¿½ï¿½Ð´ï¿½ß£ï¿½zcatao
+ï¿½ï¿½Ð´Ê±ï¿½ä£º2016ï¿½ï¿½1ï¿½ï¿½15ï¿½ï¿½ 10:31:36
+ï¿½ï¿½ï¿½ë£º
+    1KhzÊ±ï¿½ï¿½Ô´clk_1Khz
+    ï¿½ì²½ï¿½ï¿½Î»ï¿½Åºï¿½rst
+    ï¿½ï¿½ï¿½Ô¼ï¿½ï¿½Ì´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+    ï¿½Í¸ï¿½ï¿½ï¿½Ê¾Ä£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ý»ï¿½ï¿½ï¿½dispbuf
+×¢ï¿½ï¿½ï¿½ï¿½ï¿½î£º
 
 ***********************************************/
 
@@ -31,10 +31,10 @@ module watch_cnt (
     // reg [3:0] msec1;
     // reg [3:0] msec0;
     //reg [35:0] Time;
-    wire [6:0] cout; // ´ú±íÆßÎ»Êý×ÖµÄ½øÎ»
+    wire [6:0] cout; // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î»ï¿½ï¿½ï¿½ÖµÄ½ï¿½Î»
     wire[3:0] minute1_set,minute0_set,sec1_set,sec0_set,msec2_set,msec1_set,msec0_set;
-    //ºÁÃë¸öÎ»
-    
+    //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î»
+
     clk_div clkdiv(.clk_50Mhz(clk_50Mhz),
 				   .rst(rst),
 				   .clk_1Khz(clk_1Khz)
@@ -48,7 +48,7 @@ module watch_cnt (
                     .out(msec0),
                     .cout(cout[0])
                     );
-    //ºÁÃëÊ®Î»
+    //ï¿½ï¿½ï¿½ï¿½Ê®Î»
     decimal_counter bit_1(.clk_cin(cout[0]),
                     .rst(rst),
                     .EN(EN),
@@ -57,7 +57,7 @@ module watch_cnt (
                     .out(msec1),
                     .cout(cout[1])
                     );
-    //ºÁÃë°ÙÎ»
+    //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î»
     decimal_counter bit_2(.clk_cin(cout[1]),
                     .rst(rst),
                     .EN(EN),
@@ -67,7 +67,7 @@ module watch_cnt (
                     .cout(cout[2])
                     );
 
-    //Ãë¸öÎ»
+    //ï¿½ï¿½ï¿½ï¿½Î»
     decimal_counter bit_3(.clk_cin(cout[2]),
                     .rst(rst),
                     .EN(EN),
@@ -76,7 +76,7 @@ module watch_cnt (
                     .out(sec0),
                     .cout(cout[3])
                     );
-    //ÃëÊ®Î»
+    //ï¿½ï¿½Ê®Î»
     Six_counter bit_4(.clk_cin(cout[3]),
                 .rst(rst),
                 .EN(EN),
@@ -85,7 +85,7 @@ module watch_cnt (
                 .out(sec1),
                 .cout(cout[4])
                 );
-    //·Ö¸öÎ»
+    //ï¿½Ö¸ï¿½Î»
     decimal_counter bit_5(.clk_cin(cout[4]),
                     .rst(rst),
                     .EN(EN),
@@ -94,7 +94,7 @@ module watch_cnt (
                     .out(minute0),
                     .cout(cout[5])
                     );
-    //·ÖÊ®Î»
+    //ï¿½ï¿½Ê®Î»
     Six_counter bit_6(.clk_cin(cout[5]),
                 .rst(rst),
                 .EN(EN),
@@ -103,7 +103,7 @@ module watch_cnt (
                 .out(minute1),
                 .cout(cout[6])
                 );
-    // °´¼ü¿ØÖÆ
+    // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     key_Control control(.key_start(key_start),
                 .key_pause(key_pause),
                 .key_load(key_load),
@@ -111,7 +111,7 @@ module watch_cnt (
                 .load(load),
                 .rst(rst)
                 );
-
+    smg_disp disp(.)
     assign dispbuf = {minute1,minute0,sec1,sec0,msec2,msec1};
     assign {minute1_set,minute0_set,sec1_set,sec0_set,msec2_set,msec1_set,msec0_set} = preset  ;
 

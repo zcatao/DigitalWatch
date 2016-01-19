@@ -43,7 +43,7 @@ module key_Control (
     always @ ( * ) begin
         case (Start_status)
             START: begin
-                    en_ <= 1; rst_ <= 1;
+                    en_ <= 1; rst_ <= 0;
             end
             STOP : begin
                     en_ <= 0; rst_ <= 0;
