@@ -138,42 +138,6 @@ watch_cnt:cnt|Six_counter:bit_6
 
 # end
 # entity
-DigitalWatch
-# storage
-db|DigitalWatch.(0).cnf
-db|DigitalWatch.(0).cnf
-# logic_option {
-AUTO_RAM_RECOGNITION
-ON
-}
-# case_sensitive
-# source_file
-DigitalWatch.v
-6da3576b2d584ac8a1da22943b8759
-8
-# internal_option {
-HDL_INITIAL_FANOUT_LIMIT
-OFF
-AUTO_RESOURCE_SHARING
-OFF
-AUTO_RAM_RECOGNITION
-ON
-AUTO_ROM_RECOGNITION
-ON
-IGNORE_VERILOG_INITIAL_CONSTRUCTS
-OFF
-VERILOG_CONSTANT_LOOP_LIMIT
-5000
-VERILOG_NON_CONSTANT_LOOP_LIMIT
-250
-}
-# hierarchies {
-|
-}
-# macro_sequence
-
-# end
-# entity
 watch_cnt
 # storage
 db|DigitalWatch.(3).cnf
@@ -689,6 +653,78 @@ d:|altera|90|quartus|libraries|megafunctions|lpm_compare.inc
 aec4ea1b78f4cda1c3effe18f1abbf63
 d:|altera|90|quartus|libraries|megafunctions|lpm_constant.inc
 dcde44eee59335c1e2fe75d574f9646
+}
+# macro_sequence
+
+# end
+# entity
+DigitalWatch
+# storage
+db|DigitalWatch.(0).cnf
+db|DigitalWatch.(0).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_sensitive
+# source_file
+DigitalWatch.v
+d7a1db2195e81f17271221c4e0fcc6c7
+8
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+IGNORE_VERILOG_INITIAL_CONSTRUCTS
+OFF
+VERILOG_CONSTANT_LOOP_LIMIT
+5000
+VERILOG_NON_CONSTANT_LOOP_LIMIT
+250
+}
+# hierarchies {
+|
+}
+# macro_sequence
+
+# end
+# entity
+ram_1port
+# storage
+db|DigitalWatch.(9).cnf
+db|DigitalWatch.(9).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_sensitive
+# source_file
+ram_1port.v
+fbcd8e4fb43e31aefe94201e2114dbfc
+8
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+IGNORE_VERILOG_INITIAL_CONSTRUCTS
+OFF
+VERILOG_CONSTANT_LOOP_LIMIT
+5000
+VERILOG_NON_CONSTANT_LOOP_LIMIT
+250
+}
+# hierarchies {
+ram_1port:ram
 }
 # macro_sequence
 

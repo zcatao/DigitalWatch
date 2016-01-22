@@ -7,7 +7,7 @@ module ram_1port(
     input [23:0]data,
     input       wren,
     output[23:0]q
-    );
+    )
 
     reg[23:0] mem[7:0];
 

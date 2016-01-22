@@ -1,5 +1,5 @@
 Analysis & Synthesis report for DigitalWatch
-Sun Jan 17 18:23:30 2016
+Fri Jan 22 21:24:10 2016
 Quartus II Version 9.0 Build 132 02/25/2009 SJ Full Version
 
 
@@ -18,11 +18,12 @@ Quartus II Version 9.0 Build 132 02/25/2009 SJ Full Version
  10. Parameter Settings for User Entity Instance: clk_div:fdiv
  11. Parameter Settings for User Entity Instance: key_Control:Control
  12. Parameter Settings for Inferred Entity Instance: clk_div:fdiv|lpm_counter:cnt_rtl_0
- 13. Port Connectivity Checks: "watch_cnt:cnt|Six_counter:bit_6"
- 14. Port Connectivity Checks: "watch_cnt:cnt|decimal_counter:bit_0"
- 15. Port Connectivity Checks: "watch_cnt:cnt"
- 16. Analysis & Synthesis Messages
- 17. Analysis & Synthesis Suppressed Messages
+ 13. Port Connectivity Checks: "ram_1port:ram"
+ 14. Port Connectivity Checks: "watch_cnt:cnt|Six_counter:bit_6"
+ 15. Port Connectivity Checks: "watch_cnt:cnt|decimal_counter:bit_0"
+ 16. Port Connectivity Checks: "watch_cnt:cnt"
+ 17. Analysis & Synthesis Messages
+ 18. Analysis & Synthesis Suppressed Messages
 
 
 
@@ -48,7 +49,7 @@ applicable agreement for further details.
 +------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                           ;
 +-----------------------------+------------------------------------------+
-; Analysis & Synthesis Status ; Successful - Sun Jan 17 18:23:30 2016    ;
+; Analysis & Synthesis Status ; Successful - Fri Jan 22 21:24:10 2016    ;
 ; Quartus II Version          ; 9.0 Build 132 02/25/2009 SJ Full Version ;
 ; Revision Name               ; DigitalWatch                             ;
 ; Top-level Entity Name       ; DigitalWatch                             ;
@@ -127,6 +128,7 @@ applicable agreement for further details.
 +----------------------------------+-----------------+------------------------+----------------------------------------------------------------------+
 ; File Name with User-Entered Path ; Used in Netlist ; File Type              ; File Name with Absolute Path                                         ;
 +----------------------------------+-----------------+------------------------+----------------------------------------------------------------------+
+; ram_1port.v                      ; yes             ; User Verilog HDL File  ; C:/Users/yangs/Documents/DigitalWatch/DigitalWatch/ram_1port.v       ;
 ; clk_div.v                        ; yes             ; User Verilog HDL File  ; C:/Users/yangs/Documents/DigitalWatch/DigitalWatch/clk_div.v         ;
 ; decimal_counter.v                ; yes             ; User Verilog HDL File  ; C:/Users/yangs/Documents/DigitalWatch/DigitalWatch/decimal_counter.v ;
 ; DigitalWatch.v                   ; yes             ; User Verilog HDL File  ; C:/Users/yangs/Documents/DigitalWatch/DigitalWatch/DigitalWatch.v    ;
@@ -284,6 +286,15 @@ Note: In order to hide this table in the UI and the text report file, please set
 
 
 +----------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "ram_1port:ram"                                                                      ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; Port ; Type   ; Severity ; Details                                                                             ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; q    ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------+
 ; Port Connectivity Checks: "watch_cnt:cnt|Six_counter:bit_6"                                                    ;
 +------+--------+----------+-------------------------------------------------------------------------------------+
 ; Port ; Type   ; Severity ; Details                                                                             ;
@@ -317,8 +328,10 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus II Analysis & Synthesis
     Info: Version 9.0 Build 132 02/25/2009 SJ Full Version
-    Info: Processing started: Sun Jan 17 18:23:29 2016
+    Info: Processing started: Fri Jan 22 21:24:09 2016
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off DigitalWatch -c DigitalWatch
+Info: Found 1 design units, including 1 entities, in source file ram_1port.v
+    Info: Found entity 1: ram_1port
 Info: Found 1 design units, including 1 entities, in source file clk_div.v
     Info: Found entity 1: clk_div
 Info: Found 1 design units, including 1 entities, in source file decimal_counter.v
@@ -333,7 +346,7 @@ Info: Found 1 design units, including 1 entities, in source file smg_disp.v
     Info: Found entity 1: smg_disp
 Info: Found 1 design units, including 1 entities, in source file watch_cnt.v
     Info: Found entity 1: watch_cnt
-Warning (10236): Verilog HDL Implicit Net warning at DigitalWatch.v(42): created implicit net for "preset"
+Warning (10236): Verilog HDL Implicit Net warning at DigitalWatch.v(45): created implicit net for "preset"
 Info: Elaborating entity "DigitalWatch" for the top level hierarchy
 Info: Elaborating entity "clk_div" for hierarchy "clk_div:fdiv"
 Info: Elaborating entity "key_Control" for hierarchy "key_Control:Control"
@@ -341,6 +354,7 @@ Info: Elaborating entity "watch_cnt" for hierarchy "watch_cnt:cnt"
 Info: Elaborating entity "decimal_counter" for hierarchy "watch_cnt:cnt|decimal_counter:bit_0"
 Info: Elaborating entity "Six_counter" for hierarchy "watch_cnt:cnt|Six_counter:bit_4"
 Info: Elaborating entity "smg_disp" for hierarchy "smg_disp:disp"
+Info: Elaborating entity "ram_1port" for hierarchy "ram_1port:ram"
 Info: Inferred 1 megafunctions from design logic
     Info: Inferred lpm_counter megafunction (LPM_WIDTH=32) from the following logic: "clk_div:fdiv|cnt[0]~32"
 Info: Elaborated megafunction instantiation "clk_div:fdiv|lpm_counter:cnt_rtl_0"
@@ -358,8 +372,8 @@ Info: Implemented 142 device resources after synthesis - the final resource coun
     Info: Implemented 114 logic cells
 Info: Generated suppressed messages file C:/Users/yangs/Documents/DigitalWatch/DigitalWatch/DigitalWatch.map.smsg
 Info: Quartus II Analysis & Synthesis was successful. 0 errors, 4 warnings
-    Info: Peak virtual memory: 241 megabytes
-    Info: Processing ended: Sun Jan 17 18:23:30 2016
+    Info: Peak virtual memory: 240 megabytes
+    Info: Processing ended: Fri Jan 22 21:24:10 2016
     Info: Elapsed time: 00:00:01
     Info: Total CPU time (on all processors): 00:00:01
 
