@@ -1,5 +1,5 @@
-Analysis & Synthesis report for DigitalWatch
-Fri Jan 22 21:24:10 2016
+Analysis & Elaboration report for DigitalWatch
+Sat Jan 23 22:14:49 2016
 Quartus II Version 9.0 Build 132 02/25/2009 SJ Full Version
 
 
@@ -7,23 +7,16 @@ Quartus II Version 9.0 Build 132 02/25/2009 SJ Full Version
 ; Table of Contents ;
 ---------------------
   1. Legal Notice
-  2. Analysis & Synthesis Summary
-  3. Analysis & Synthesis Settings
-  4. Analysis & Synthesis Source Files Read
-  5. Analysis & Synthesis Resource Usage Summary
-  6. Analysis & Synthesis Resource Utilization by Entity
-  7. State Machine - |DigitalWatch|key_Control:Control|Start_status
-  8. General Register Statistics
-  9. Source assignments for clk_div:fdiv|lpm_counter:cnt_rtl_0
- 10. Parameter Settings for User Entity Instance: clk_div:fdiv
- 11. Parameter Settings for User Entity Instance: key_Control:Control
- 12. Parameter Settings for Inferred Entity Instance: clk_div:fdiv|lpm_counter:cnt_rtl_0
- 13. Port Connectivity Checks: "ram_1port:ram"
- 14. Port Connectivity Checks: "watch_cnt:cnt|Six_counter:bit_6"
- 15. Port Connectivity Checks: "watch_cnt:cnt|decimal_counter:bit_0"
- 16. Port Connectivity Checks: "watch_cnt:cnt"
- 17. Analysis & Synthesis Messages
- 18. Analysis & Synthesis Suppressed Messages
+  2. Analysis & Elaboration Summary
+  3. Parameter Settings for User Entity Instance: clk_div:fdiv
+  4. Parameter Settings for User Entity Instance: key_Control:Control
+  5. Analysis & Elaboration Settings
+  6. Port Connectivity Checks: "ram_1port:ram"
+  7. Port Connectivity Checks: "watch_cnt:cnt|Six_counter:bit_6"
+  8. Port Connectivity Checks: "watch_cnt:cnt|decimal_counter:bit_0"
+  9. Port Connectivity Checks: "watch_cnt:cnt"
+ 10. Analysis & Elaboration Messages
+ 11. Analysis & Elaboration Suppressed Messages
 
 
 
@@ -46,23 +39,41 @@ applicable agreement for further details.
 
 
 
-+------------------------------------------------------------------------+
-; Analysis & Synthesis Summary                                           ;
-+-----------------------------+------------------------------------------+
-; Analysis & Synthesis Status ; Successful - Fri Jan 22 21:24:10 2016    ;
-; Quartus II Version          ; 9.0 Build 132 02/25/2009 SJ Full Version ;
-; Revision Name               ; DigitalWatch                             ;
-; Top-level Entity Name       ; DigitalWatch                             ;
-; Family                      ; ACEX1K                                   ;
-; Total logic elements        ; 114                                      ;
-; Total pins                  ; 28                                       ;
-; Total memory bits           ; 0                                        ;
-; Total PLLs                  ; 0                                        ;
-+-----------------------------+------------------------------------------+
++--------------------------------------------------------------------------+
+; Analysis & Elaboration Summary                                           ;
++-------------------------------+------------------------------------------+
+; Analysis & Elaboration Status ; Successful - Sat Jan 23 22:14:49 2016    ;
+; Quartus II Version            ; 9.0 Build 132 02/25/2009 SJ Full Version ;
+; Revision Name                 ; DigitalWatch                             ;
+; Top-level Entity Name         ; DigitalWatch                             ;
+; Family                        ; ACEX1K                                   ;
++-------------------------------+------------------------------------------+
+
+
++-----------------------------------------------------------+
+; Parameter Settings for User Entity Instance: clk_div:fdiv ;
++----------------+-------+----------------------------------+
+; Parameter Name ; Value ; Type                             ;
++----------------+-------+----------------------------------+
+; clk_div        ; 25000 ; Signed Integer                   ;
++----------------+-------+----------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: key_Control:Control ;
++----------------+-------+-----------------------------------------+
+; Parameter Name ; Value ; Type                                    ;
++----------------+-------+-----------------------------------------+
+; START          ; 00    ; Unsigned Binary                         ;
+; STOP           ; 01    ; Unsigned Binary                         ;
+; RESET          ; 10    ; Unsigned Binary                         ;
++----------------+-------+-----------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
 +------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Settings                                                                  ;
+; Analysis & Elaboration Settings                                                                ;
 +----------------------------------------------------------------+---------------+---------------+
 ; Option                                                         ; Setting       ; Default Value ;
 +----------------------------------------------------------------+---------------+---------------+
@@ -123,168 +134,6 @@ applicable agreement for further details.
 +----------------------------------------------------------------+---------------+---------------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                             ;
-+----------------------------------+-----------------+------------------------+----------------------------------------------------------------------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type              ; File Name with Absolute Path                                         ;
-+----------------------------------+-----------------+------------------------+----------------------------------------------------------------------+
-; ram_1port.v                      ; yes             ; User Verilog HDL File  ; C:/Users/yangs/Documents/DigitalWatch/DigitalWatch/ram_1port.v       ;
-; clk_div.v                        ; yes             ; User Verilog HDL File  ; C:/Users/yangs/Documents/DigitalWatch/DigitalWatch/clk_div.v         ;
-; decimal_counter.v                ; yes             ; User Verilog HDL File  ; C:/Users/yangs/Documents/DigitalWatch/DigitalWatch/decimal_counter.v ;
-; DigitalWatch.v                   ; yes             ; User Verilog HDL File  ; C:/Users/yangs/Documents/DigitalWatch/DigitalWatch/DigitalWatch.v    ;
-; key_Control.v                    ; yes             ; User Verilog HDL File  ; C:/Users/yangs/Documents/DigitalWatch/DigitalWatch/key_Control.v     ;
-; Six_counter.v                    ; yes             ; User Verilog HDL File  ; C:/Users/yangs/Documents/DigitalWatch/DigitalWatch/Six_counter.v     ;
-; smg_disp.v                       ; yes             ; User Verilog HDL File  ; C:/Users/yangs/Documents/DigitalWatch/DigitalWatch/smg_disp.v        ;
-; watch_cnt.v                      ; yes             ; User Verilog HDL File  ; C:/Users/yangs/Documents/DigitalWatch/DigitalWatch/watch_cnt.v       ;
-; lpm_counter.tdf                  ; yes             ; Megafunction           ; d:/altera/90/quartus/libraries/megafunctions/lpm_counter.tdf         ;
-; lpm_constant.inc                 ; yes             ; Megafunction           ; d:/altera/90/quartus/libraries/megafunctions/lpm_constant.inc        ;
-; lpm_decode.inc                   ; yes             ; Megafunction           ; d:/altera/90/quartus/libraries/megafunctions/lpm_decode.inc          ;
-; lpm_add_sub.inc                  ; yes             ; Megafunction           ; d:/altera/90/quartus/libraries/megafunctions/lpm_add_sub.inc         ;
-; cmpconst.inc                     ; yes             ; Megafunction           ; d:/altera/90/quartus/libraries/megafunctions/cmpconst.inc            ;
-; lpm_compare.inc                  ; yes             ; Megafunction           ; d:/altera/90/quartus/libraries/megafunctions/lpm_compare.inc         ;
-; lpm_counter.inc                  ; yes             ; Megafunction           ; d:/altera/90/quartus/libraries/megafunctions/lpm_counter.inc         ;
-; dffeea.inc                       ; yes             ; Megafunction           ; d:/altera/90/quartus/libraries/megafunctions/dffeea.inc              ;
-; alt_synch_counter.inc            ; yes             ; Megafunction           ; d:/altera/90/quartus/libraries/megafunctions/alt_synch_counter.inc   ;
-; alt_synch_counter_f.inc          ; yes             ; Megafunction           ; d:/altera/90/quartus/libraries/megafunctions/alt_synch_counter_f.inc ;
-; alt_counter_f10ke.inc            ; yes             ; Megafunction           ; d:/altera/90/quartus/libraries/megafunctions/alt_counter_f10ke.inc   ;
-; alt_counter_stratix.inc          ; yes             ; Megafunction           ; d:/altera/90/quartus/libraries/megafunctions/alt_counter_stratix.inc ;
-; aglobal90.inc                    ; yes             ; Megafunction           ; d:/altera/90/quartus/libraries/megafunctions/aglobal90.inc           ;
-; alt_counter_f10ke.tdf            ; yes             ; Megafunction           ; d:/altera/90/quartus/libraries/megafunctions/alt_counter_f10ke.tdf   ;
-; flex10ke_lcell.inc               ; yes             ; Megafunction           ; d:/altera/90/quartus/libraries/megafunctions/flex10ke_lcell.inc      ;
-+----------------------------------+-----------------+------------------------+----------------------------------------------------------------------+
-
-
-+----------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary                                ;
-+-----------------------------------+----------------------------------------+
-; Resource                          ; Usage                                  ;
-+-----------------------------------+----------------------------------------+
-; Total logic elements              ; 114                                    ;
-; Total combinational functions     ; 86                                     ;
-;     -- Total 4-input functions    ; 21                                     ;
-;     -- Total 3-input functions    ; 16                                     ;
-;     -- Total 2-input functions    ; 6                                      ;
-;     -- Total 1-input functions    ; 42                                     ;
-;     -- Total 0-input functions    ; 1                                      ;
-; Total registers                   ; 70                                     ;
-; Total logic cells in carry chains ; 32                                     ;
-; I/O pins                          ; 28                                     ;
-; Maximum fan-out node              ; key_Control:Control|Start_status.RESET ;
-; Maximum fan-out                   ; 64                                     ;
-; Total fan-out                     ; 499                                    ;
-; Average fan-out                   ; 3.51                                   ;
-+-----------------------------------+----------------------------------------+
-
-
-+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                               ;
-+-------------------------------------------+-------------+--------------+-------------+------+--------------+-------------------+------------------+-----------------+------------+---------------------------------------------------------------------------------+--------------+
-; Compilation Hierarchy Node                ; Logic Cells ; LC Registers ; Memory Bits ; Pins ; LUT-Only LCs ; Register-Only LCs ; LUT/Register LCs ; Carry Chain LCs ; Packed LCs ; Full Hierarchy Name                                                             ; Library Name ;
-+-------------------------------------------+-------------+--------------+-------------+------+--------------+-------------------+------------------+-----------------+------------+---------------------------------------------------------------------------------+--------------+
-; |DigitalWatch                             ; 114 (1)     ; 70           ; 0           ; 28   ; 44 (1)       ; 28 (0)            ; 42 (0)           ; 32 (0)          ; 0 (0)      ; |DigitalWatch                                                                   ; work         ;
-;    |clk_div:fdiv|                         ; 43 (11)     ; 33           ; 0           ; 0    ; 10 (10)      ; 0 (0)             ; 33 (1)           ; 32 (0)          ; 0 (0)      ; |DigitalWatch|clk_div:fdiv                                                      ; work         ;
-;       |lpm_counter:cnt_rtl_0|             ; 32 (0)      ; 32           ; 0           ; 0    ; 0 (0)        ; 0 (0)             ; 32 (0)           ; 32 (0)          ; 0 (0)      ; |DigitalWatch|clk_div:fdiv|lpm_counter:cnt_rtl_0                                ; work         ;
-;          |alt_counter_f10ke:wysi_counter| ; 32 (32)     ; 32           ; 0           ; 0    ; 0 (0)        ; 0 (0)             ; 32 (32)          ; 32 (32)         ; 0 (0)      ; |DigitalWatch|clk_div:fdiv|lpm_counter:cnt_rtl_0|alt_counter_f10ke:wysi_counter ; work         ;
-;    |key_Control:Control|                  ; 3 (3)       ; 3            ; 0           ; 0    ; 0 (0)        ; 1 (1)             ; 2 (2)            ; 0 (0)           ; 0 (0)      ; |DigitalWatch|key_Control:Control                                               ; work         ;
-;    |watch_cnt:cnt|                        ; 67 (0)      ; 34           ; 0           ; 0    ; 33 (0)       ; 27 (0)            ; 7 (0)            ; 0 (0)           ; 0 (0)      ; |DigitalWatch|watch_cnt:cnt                                                     ; work         ;
-;       |Six_counter:bit_4|                 ; 10 (10)     ; 5            ; 0           ; 0    ; 5 (5)        ; 4 (4)             ; 1 (1)            ; 0 (0)           ; 0 (0)      ; |DigitalWatch|watch_cnt:cnt|Six_counter:bit_4                                   ; work         ;
-;       |Six_counter:bit_6|                 ; 9 (9)       ; 4            ; 0           ; 0    ; 5 (5)        ; 3 (3)             ; 1 (1)            ; 0 (0)           ; 0 (0)      ; |DigitalWatch|watch_cnt:cnt|Six_counter:bit_6                                   ; work         ;
-;       |decimal_counter:bit_0|             ; 10 (10)     ; 5            ; 0           ; 0    ; 5 (5)        ; 4 (4)             ; 1 (1)            ; 0 (0)           ; 0 (0)      ; |DigitalWatch|watch_cnt:cnt|decimal_counter:bit_0                               ; work         ;
-;       |decimal_counter:bit_1|             ; 11 (11)     ; 5            ; 0           ; 0    ; 6 (6)        ; 4 (4)             ; 1 (1)            ; 0 (0)           ; 0 (0)      ; |DigitalWatch|watch_cnt:cnt|decimal_counter:bit_1                               ; work         ;
-;       |decimal_counter:bit_2|             ; 9 (9)       ; 5            ; 0           ; 0    ; 4 (4)        ; 4 (4)             ; 1 (1)            ; 0 (0)           ; 0 (0)      ; |DigitalWatch|watch_cnt:cnt|decimal_counter:bit_2                               ; work         ;
-;       |decimal_counter:bit_3|             ; 9 (9)       ; 5            ; 0           ; 0    ; 4 (4)        ; 4 (4)             ; 1 (1)            ; 0 (0)           ; 0 (0)      ; |DigitalWatch|watch_cnt:cnt|decimal_counter:bit_3                               ; work         ;
-;       |decimal_counter:bit_5|             ; 9 (9)       ; 5            ; 0           ; 0    ; 4 (4)        ; 4 (4)             ; 1 (1)            ; 0 (0)           ; 0 (0)      ; |DigitalWatch|watch_cnt:cnt|decimal_counter:bit_5                               ; work         ;
-+-------------------------------------------+-------------+--------------+-------------+------+--------------+-------------------+------------------+-----------------+------------+---------------------------------------------------------------------------------+--------------+
-Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
-
-
-Encoding Type:  One-Hot
-+----------------------------------------------------------------------------------+
-; State Machine - |DigitalWatch|key_Control:Control|Start_status                   ;
-+--------------------+--------------------+--------------------+-------------------+
-; Name               ; Start_status.START ; Start_status.RESET ; Start_status.STOP ;
-+--------------------+--------------------+--------------------+-------------------+
-; Start_status.START ; 0                  ; 0                  ; 0                 ;
-; Start_status.STOP  ; 1                  ; 0                  ; 1                 ;
-; Start_status.RESET ; 1                  ; 1                  ; 0                 ;
-+--------------------+--------------------+--------------------+-------------------+
-
-
-+------------------------------------------------------+
-; General Register Statistics                          ;
-+----------------------------------------------+-------+
-; Statistic                                    ; Value ;
-+----------------------------------------------+-------+
-; Total registers                              ; 70    ;
-; Number of registers using Synchronous Clear  ; 32    ;
-; Number of registers using Synchronous Load   ; 0     ;
-; Number of registers using Asynchronous Clear ; 67    ;
-; Number of registers using Asynchronous Load  ; 28    ;
-; Number of registers using Clock Enable       ; 35    ;
-; Number of registers using Preset             ; 0     ;
-+----------------------------------------------+-------+
-
-
-+-----------------------------------------------------------+
-; Source assignments for clk_div:fdiv|lpm_counter:cnt_rtl_0 ;
-+---------------------------+-------+------+----------------+
-; Assignment                ; Value ; From ; To             ;
-+---------------------------+-------+------+----------------+
-; SUPPRESS_DA_RULE_INTERNAL ; a101  ; -    ; -              ;
-; SUPPRESS_DA_RULE_INTERNAL ; s102  ; -    ; -              ;
-; SUPPRESS_DA_RULE_INTERNAL ; s103  ; -    ; -              ;
-+---------------------------+-------+------+----------------+
-
-
-+-----------------------------------------------------------+
-; Parameter Settings for User Entity Instance: clk_div:fdiv ;
-+----------------+-------+----------------------------------+
-; Parameter Name ; Value ; Type                             ;
-+----------------+-------+----------------------------------+
-; clk_div        ; 25000 ; Signed Integer                   ;
-+----------------+-------+----------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: key_Control:Control ;
-+----------------+-------+-----------------------------------------+
-; Parameter Name ; Value ; Type                                    ;
-+----------------+-------+-----------------------------------------+
-; START          ; 00    ; Unsigned Binary                         ;
-; STOP           ; 01    ; Unsigned Binary                         ;
-; RESET          ; 10    ; Unsigned Binary                         ;
-+----------------+-------+-----------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+-------------------------------------------------------------------------------------+
-; Parameter Settings for Inferred Entity Instance: clk_div:fdiv|lpm_counter:cnt_rtl_0 ;
-+------------------------+-------------------+----------------------------------------+
-; Parameter Name         ; Value             ; Type                                   ;
-+------------------------+-------------------+----------------------------------------+
-; AUTO_CARRY_CHAINS      ; ON                ; AUTO_CARRY                             ;
-; IGNORE_CARRY_BUFFERS   ; OFF               ; IGNORE_CARRY                           ;
-; AUTO_CASCADE_CHAINS    ; ON                ; AUTO_CASCADE                           ;
-; IGNORE_CASCADE_BUFFERS ; OFF               ; IGNORE_CASCADE                         ;
-; LPM_WIDTH              ; 32                ; Untyped                                ;
-; LPM_DIRECTION          ; UP                ; Untyped                                ;
-; LPM_MODULUS            ; 0                 ; Untyped                                ;
-; LPM_AVALUE             ; UNUSED            ; Untyped                                ;
-; LPM_SVALUE             ; UNUSED            ; Untyped                                ;
-; LPM_PORT_UPDOWN        ; PORT_CONNECTIVITY ; Untyped                                ;
-; DEVICE_FAMILY          ; ACEX1K            ; Untyped                                ;
-; CARRY_CHAIN            ; MANUAL            ; Untyped                                ;
-; CARRY_CHAIN_LENGTH     ; 48                ; CARRY_CHAIN_LENGTH                     ;
-; NOT_GATE_PUSH_BACK     ; ON                ; NOT_GATE_PUSH_BACK                     ;
-; CARRY_CNT_EN           ; SMART             ; Untyped                                ;
-; LABWIDE_SCLR           ; ON                ; Untyped                                ;
-; USE_NEW_VERSION        ; TRUE              ; Untyped                                ;
-; CBXI_PARAMETER         ; NOTHING           ; Untyped                                ;
-+------------------------+-------------------+----------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
 +----------------------------------------------------------------------------------------------------------------+
 ; Port Connectivity Checks: "ram_1port:ram"                                                                      ;
 +------+--------+----------+-------------------------------------------------------------------------------------+
@@ -322,14 +171,14 @@ Note: In order to hide this table in the UI and the text report file, please set
 +--------+-------+----------+--------------------------------------------------------------------------------------------------------------------------------------------------+
 
 
-+-------------------------------+
-; Analysis & Synthesis Messages ;
-+-------------------------------+
++---------------------------------+
+; Analysis & Elaboration Messages ;
++---------------------------------+
 Info: *******************************************************************
-Info: Running Quartus II Analysis & Synthesis
+Info: Running Quartus II Analysis & Elaboration
     Info: Version 9.0 Build 132 02/25/2009 SJ Full Version
-    Info: Processing started: Fri Jan 22 21:24:09 2016
-Info: Command: quartus_map --read_settings_files=on --write_settings_files=off DigitalWatch -c DigitalWatch
+    Info: Processing started: Sat Jan 23 22:14:48 2016
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off DigitalWatch -c DigitalWatch --analysis_and_elaboration
 Info: Found 1 design units, including 1 entities, in source file ram_1port.v
     Info: Found entity 1: ram_1port
 Info: Found 1 design units, including 1 entities, in source file clk_div.v
@@ -355,32 +204,18 @@ Info: Elaborating entity "decimal_counter" for hierarchy "watch_cnt:cnt|decimal_
 Info: Elaborating entity "Six_counter" for hierarchy "watch_cnt:cnt|Six_counter:bit_4"
 Info: Elaborating entity "smg_disp" for hierarchy "smg_disp:disp"
 Info: Elaborating entity "ram_1port" for hierarchy "ram_1port:ram"
-Info: Inferred 1 megafunctions from design logic
-    Info: Inferred lpm_counter megafunction (LPM_WIDTH=32) from the following logic: "clk_div:fdiv|cnt[0]~32"
-Info: Elaborated megafunction instantiation "clk_div:fdiv|lpm_counter:cnt_rtl_0"
-Info: Instantiated megafunction "clk_div:fdiv|lpm_counter:cnt_rtl_0" with the following parameter:
-    Info: Parameter "LPM_WIDTH" = "32"
-    Info: Parameter "LPM_DIRECTION" = "UP"
-    Info: Parameter "LPM_TYPE" = "LPM_COUNTER"
-Info: Elaborated megafunction instantiation "clk_div:fdiv|lpm_counter:cnt_rtl_0|alt_counter_f10ke:wysi_counter", which is child of megafunction instantiation "clk_div:fdiv|lpm_counter:cnt_rtl_0"
 Warning: 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
-Warning: Design contains 1 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "key_pause"
-Info: Implemented 142 device resources after synthesis - the final resource count might be different
-    Info: Implemented 4 input pins
-    Info: Implemented 24 output pins
-    Info: Implemented 114 logic cells
 Info: Generated suppressed messages file C:/Users/yangs/Documents/DigitalWatch/DigitalWatch/DigitalWatch.map.smsg
-Info: Quartus II Analysis & Synthesis was successful. 0 errors, 4 warnings
-    Info: Peak virtual memory: 240 megabytes
-    Info: Processing ended: Fri Jan 22 21:24:10 2016
+Info: Quartus II Analysis & Elaboration was successful. 0 errors, 2 warnings
+    Info: Peak virtual memory: 237 megabytes
+    Info: Processing ended: Sat Jan 23 22:14:49 2016
     Info: Elapsed time: 00:00:01
     Info: Total CPU time (on all processors): 00:00:01
 
 
-+------------------------------------------+
-; Analysis & Synthesis Suppressed Messages ;
-+------------------------------------------+
++--------------------------------------------+
+; Analysis & Elaboration Suppressed Messages ;
++--------------------------------------------+
 The suppressed messages can be found in C:/Users/yangs/Documents/DigitalWatch/DigitalWatch/DigitalWatch.map.smsg.
 
 
