@@ -1,0 +1,233 @@
+Simulator report for DigitalWatch
+Sun Jan 24 16:14:24 2016
+Quartus II Version 9.0 Build 132 02/25/2009 SJ Full Version
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Simulator Summary
+  3. Simulator Settings
+  4. Simulation Waveforms
+  5. Coverage Summary
+  6. Complete 1/0-Value Coverage
+  7. Missing 1-Value Coverage
+  8. Missing 0-Value Coverage
+  9. Simulator INI Usage
+ 10. Simulator Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2009 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++---------------------------------------------+
+; Simulator Summary                           ;
++-----------------------------+---------------+
+; Type                        ; Value         ;
++-----------------------------+---------------+
+; Simulation Start Time       ; 0 ps          ;
+; Simulation End Time         ; 1.0 ms        ;
+; Simulation Netlist Size     ; 73 nodes      ;
+; Simulation Coverage         ;     100.00 %  ;
+; Total Number of Transitions ; 20779         ;
+; Simulation Breakpoints      ; 0             ;
+; Family                      ; ACEX1K        ;
+; Device                      ; EP1K30TC144-3 ;
++-----------------------------+---------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------+
+; Simulator Settings                                                                                                             ;
++--------------------------------------------------------------------------------------------+-------------------+---------------+
+; Option                                                                                     ; Setting           ; Default Value ;
++--------------------------------------------------------------------------------------------+-------------------+---------------+
+; Simulation mode                                                                            ; Timing            ; Timing        ;
+; Start time                                                                                 ; 0 ns              ; 0 ns          ;
+; Simulation results format                                                                  ; CVWF              ;               ;
+; Vector input source                                                                        ; smg_disp_test.vwf ;               ;
+; Add pins automatically to simulation output waveforms                                      ; On                ; On            ;
+; Check outputs                                                                              ; Off               ; Off           ;
+; Report simulation coverage                                                                 ; On                ; On            ;
+; Display complete 1/0 value coverage report                                                 ; On                ; On            ;
+; Display missing 1-value coverage report                                                    ; On                ; On            ;
+; Display missing 0-value coverage report                                                    ; On                ; On            ;
+; Detect setup and hold time violations                                                      ; Off               ; Off           ;
+; Detect glitches                                                                            ; Off               ; Off           ;
+; Disable timing delays in Timing Simulation                                                 ; Off               ; Off           ;
+; Generate Signal Activity File                                                              ; Off               ; Off           ;
+; Generate VCD File for PowerPlay Power Analyzer                                             ; Off               ; Off           ;
+; Group bus channels in simulation results                                                   ; Off               ; Off           ;
+; Preserve fewer signal transitions to reduce memory requirements                            ; On                ; On            ;
+; Trigger vector comparison with the specified mode                                          ; ALL_EDGE          ; INPUT_EDGE    ;
+; Disable setup and hold time violations detection in input registers of bi-directional pins ; Off               ; Off           ;
+; Overwrite Waveform Inputs With Simulation Outputs                                          ; Off               ;               ;
+; Perform Glitch Filtering in Timing Simulation                                              ; Auto              ; Auto          ;
++--------------------------------------------------------------------------------------------+-------------------+---------------+
+
+
++----------------------+
+; Simulation Waveforms ;
++----------------------+
+Waveform report data cannot be output to ASCII.
+Please use Quartus II to view the waveform report data.
+
+
++--------------------------------------------------------------------+
+; Coverage Summary                                                   ;
++-----------------------------------------------------+--------------+
+; Type                                                ; Value        ;
++-----------------------------------------------------+--------------+
+; Total coverage as a percentage                      ;     100.00 % ;
+; Total nodes checked                                 ; 73           ;
+; Total output ports checked                          ; 73           ;
+; Total output ports with complete 1/0-value coverage ; 73           ;
+; Total output ports with no 1/0-value coverage       ; 0            ;
+; Total output ports with no 1-value coverage         ; 0            ;
+; Total output ports with no 0-value coverage         ; 0            ;
++-----------------------------------------------------+--------------+
+
+
+The following table displays output ports that toggle between 1 and 0 during simulation.
++---------------------------------------------------------------------------------------+
+; Complete 1/0-Value Coverage                                                           ;
++------------------------------+-------------------------------------+------------------+
+; Node Name                    ; Output Port Name                    ; Output Port Type ;
++------------------------------+-------------------------------------+------------------+
+; |smg_disp|out[0]             ; |smg_disp|out[0]                    ; data_out0        ;
+; |smg_disp|out[1]             ; |smg_disp|out[1]                    ; data_out0        ;
+; |smg_disp|out[2]             ; |smg_disp|out[2]                    ; data_out0        ;
+; |smg_disp|out[3]             ; |smg_disp|out[3]                    ; data_out0        ;
+; |smg_disp|out[4]             ; |smg_disp|out[4]                    ; data_out0        ;
+; |smg_disp|out[5]             ; |smg_disp|out[5]                    ; data_out0        ;
+; |smg_disp|out[6]             ; |smg_disp|out[6]                    ; data_out0        ;
+; |smg_disp|out[7]             ; |smg_disp|out[7]                    ; data_out0        ;
+; |smg_disp|out[8]             ; |smg_disp|out[8]                    ; data_out0        ;
+; |smg_disp|out[9]             ; |smg_disp|out[9]                    ; data_out0        ;
+; |smg_disp|out[10]            ; |smg_disp|out[10]                   ; data_out0        ;
+; |smg_disp|out[11]            ; |smg_disp|out[11]                   ; data_out0        ;
+; |smg_disp|out[12]            ; |smg_disp|out[12]                   ; data_out0        ;
+; |smg_disp|out[13]            ; |smg_disp|out[13]                   ; data_out0        ;
+; |smg_disp|out[14]            ; |smg_disp|out[14]                   ; data_out0        ;
+; |smg_disp|out[15]            ; |smg_disp|out[15]                   ; data_out0        ;
+; |smg_disp|out[16]            ; |smg_disp|out[16]                   ; data_out0        ;
+; |smg_disp|out[17]            ; |smg_disp|out[17]                   ; data_out0        ;
+; |smg_disp|out[18]            ; |smg_disp|out[18]                   ; data_out0        ;
+; |smg_disp|out[19]            ; |smg_disp|out[19]                   ; data_out0        ;
+; |smg_disp|out[20]            ; |smg_disp|out[20]                   ; data_out0        ;
+; |smg_disp|out[21]            ; |smg_disp|out[21]                   ; data_out0        ;
+; |smg_disp|out[22]            ; |smg_disp|out[22]                   ; data_out0        ;
+; |smg_disp|out[23]            ; |smg_disp|out[23]                   ; data_out0        ;
+; |smg_disp|Watch_cnt_disp[0]  ; |smg_disp|Watch_cnt_disp[0]~corein  ; dataout          ;
+; |smg_disp|clk                ; |smg_disp|clk~corein                ; dataout          ;
+; |smg_disp|Watch_cnt_disp[1]  ; |smg_disp|Watch_cnt_disp[1]~corein  ; dataout          ;
+; |smg_disp|Watch_cnt_disp[2]  ; |smg_disp|Watch_cnt_disp[2]~corein  ; dataout          ;
+; |smg_disp|Watch_cnt_disp[3]  ; |smg_disp|Watch_cnt_disp[3]~corein  ; dataout          ;
+; |smg_disp|Watch_cnt_disp[4]  ; |smg_disp|Watch_cnt_disp[4]~corein  ; dataout          ;
+; |smg_disp|Watch_cnt_disp[5]  ; |smg_disp|Watch_cnt_disp[5]~corein  ; dataout          ;
+; |smg_disp|Watch_cnt_disp[6]  ; |smg_disp|Watch_cnt_disp[6]~corein  ; dataout          ;
+; |smg_disp|Watch_cnt_disp[7]  ; |smg_disp|Watch_cnt_disp[7]~corein  ; dataout          ;
+; |smg_disp|Watch_cnt_disp[8]  ; |smg_disp|Watch_cnt_disp[8]~corein  ; dataout          ;
+; |smg_disp|Watch_cnt_disp[9]  ; |smg_disp|Watch_cnt_disp[9]~corein  ; dataout          ;
+; |smg_disp|Watch_cnt_disp[10] ; |smg_disp|Watch_cnt_disp[10]~corein ; dataout          ;
+; |smg_disp|Watch_cnt_disp[11] ; |smg_disp|Watch_cnt_disp[11]~corein ; dataout          ;
+; |smg_disp|Watch_cnt_disp[12] ; |smg_disp|Watch_cnt_disp[12]~corein ; dataout          ;
+; |smg_disp|Watch_cnt_disp[13] ; |smg_disp|Watch_cnt_disp[13]~corein ; dataout          ;
+; |smg_disp|Watch_cnt_disp[14] ; |smg_disp|Watch_cnt_disp[14]~corein ; dataout          ;
+; |smg_disp|Watch_cnt_disp[15] ; |smg_disp|Watch_cnt_disp[15]~corein ; dataout          ;
+; |smg_disp|Watch_cnt_disp[16] ; |smg_disp|Watch_cnt_disp[16]~corein ; dataout          ;
+; |smg_disp|Watch_cnt_disp[17] ; |smg_disp|Watch_cnt_disp[17]~corein ; dataout          ;
+; |smg_disp|Watch_cnt_disp[18] ; |smg_disp|Watch_cnt_disp[18]~corein ; dataout          ;
+; |smg_disp|Watch_cnt_disp[19] ; |smg_disp|Watch_cnt_disp[19]~corein ; dataout          ;
+; |smg_disp|Watch_cnt_disp[20] ; |smg_disp|Watch_cnt_disp[20]~corein ; dataout          ;
+; |smg_disp|Watch_cnt_disp[21] ; |smg_disp|Watch_cnt_disp[21]~corein ; dataout          ;
+; |smg_disp|Watch_cnt_disp[22] ; |smg_disp|Watch_cnt_disp[22]~corein ; dataout          ;
+; |smg_disp|Watch_cnt_disp[23] ; |smg_disp|Watch_cnt_disp[23]~corein ; dataout          ;
+; |smg_disp|disp_out[0]        ; |smg_disp|disp_out[0]               ; padio            ;
+; |smg_disp|disp_out[1]        ; |smg_disp|disp_out[1]               ; padio            ;
+; |smg_disp|disp_out[2]        ; |smg_disp|disp_out[2]               ; padio            ;
+; |smg_disp|disp_out[3]        ; |smg_disp|disp_out[3]               ; padio            ;
+; |smg_disp|disp_out[4]        ; |smg_disp|disp_out[4]               ; padio            ;
+; |smg_disp|disp_out[5]        ; |smg_disp|disp_out[5]               ; padio            ;
+; |smg_disp|disp_out[6]        ; |smg_disp|disp_out[6]               ; padio            ;
+; |smg_disp|disp_out[7]        ; |smg_disp|disp_out[7]               ; padio            ;
+; |smg_disp|disp_out[8]        ; |smg_disp|disp_out[8]               ; padio            ;
+; |smg_disp|disp_out[9]        ; |smg_disp|disp_out[9]               ; padio            ;
+; |smg_disp|disp_out[10]       ; |smg_disp|disp_out[10]              ; padio            ;
+; |smg_disp|disp_out[11]       ; |smg_disp|disp_out[11]              ; padio            ;
+; |smg_disp|disp_out[12]       ; |smg_disp|disp_out[12]              ; padio            ;
+; |smg_disp|disp_out[13]       ; |smg_disp|disp_out[13]              ; padio            ;
+; |smg_disp|disp_out[14]       ; |smg_disp|disp_out[14]              ; padio            ;
+; |smg_disp|disp_out[15]       ; |smg_disp|disp_out[15]              ; padio            ;
+; |smg_disp|disp_out[16]       ; |smg_disp|disp_out[16]              ; padio            ;
+; |smg_disp|disp_out[17]       ; |smg_disp|disp_out[17]              ; padio            ;
+; |smg_disp|disp_out[18]       ; |smg_disp|disp_out[18]              ; padio            ;
+; |smg_disp|disp_out[19]       ; |smg_disp|disp_out[19]              ; padio            ;
+; |smg_disp|disp_out[20]       ; |smg_disp|disp_out[20]              ; padio            ;
+; |smg_disp|disp_out[21]       ; |smg_disp|disp_out[21]              ; padio            ;
+; |smg_disp|disp_out[22]       ; |smg_disp|disp_out[22]              ; padio            ;
+; |smg_disp|disp_out[23]       ; |smg_disp|disp_out[23]              ; padio            ;
++------------------------------+-------------------------------------+------------------+
+
+
+The following table displays output ports that do not toggle to 1 during simulation.
++-------------------------------------------------+
+; Missing 1-Value Coverage                        ;
++-----------+------------------+------------------+
+; Node Name ; Output Port Name ; Output Port Type ;
++-----------+------------------+------------------+
+
+
+The following table displays output ports that do not toggle to 0 during simulation.
++-------------------------------------------------+
+; Missing 0-Value Coverage                        ;
++-----------+------------------+------------------+
+; Node Name ; Output Port Name ; Output Port Type ;
++-----------+------------------+------------------+
+
+
++---------------------+
+; Simulator INI Usage ;
++--------+------------+
+; Option ; Usage      ;
++--------+------------+
+
+
++--------------------+
+; Simulator Messages ;
++--------------------+
+Info: *******************************************************************
+Info: Running Quartus II Simulator
+    Info: Version 9.0 Build 132 02/25/2009 SJ Full Version
+    Info: Processing started: Sun Jan 24 16:14:23 2016
+Info: Command: quartus_sim --read_settings_files=on --write_settings_files=off DigitalWatch -c DigitalWatch
+Info: Using vector source file "C:/Users/yangs/Documents/DigitalWatch/DigitalWatch/smg_disp_test.vwf"
+Info: Option to preserve fewer signal transitions to reduce memory requirements is enabled
+    Info: Simulation has been partitioned into sub-simulations according to the maximum transition count determined by the engine. Transitions from memory will be flushed out to disk at the end of each sub-simulation to reduce memory requirements.
+Info: Simulation partitioned into 1 sub-simulations
+Info: Simulation coverage is     100.00 %
+Info: Number of transitions in simulation is 20779
+Info: Quartus II Simulator was successful. 0 errors, 0 warnings
+    Info: Peak virtual memory: 174 megabytes
+    Info: Processing ended: Sun Jan 24 16:14:24 2016
+    Info: Elapsed time: 00:00:01
+    Info: Total CPU time (on all processors): 00:00:01
+
+
