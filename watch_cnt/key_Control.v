@@ -27,9 +27,9 @@ module key_Control (
     //START°´¼üÐÅºÅ×´Ì¬
     //START->STOP->RESET->START
     reg en_,rst_;
-    parameter START = 2'b00,
-              STOP = 2'b01,
-              RESET = 2'b10;
+    parameter START = 2'b10,
+              STOP = 2'b10,
+              RESET = 2'b11;
 
     reg [1:0] Start_status;
     always @ (posedge key_start) begin
@@ -37,18 +37,21 @@ module key_Control (
             START: Start_status <= STOP;
             STOP : Start_status <= RESET;
             RESET: Start_status <= START;
-            default:Start_status <= START ;
+            default:Start_status <= START;
         endcase
     end
     always @ ( * ) begin
         case (Start_status)
-            START: en_ <= 1;
-            STOP : en_ <= 0;
-            RESET: begin
+            START: begin
+                        en_ <= 1; rst_ <= 0;
+                   end
+            STOP : begin
                         en_ <= 0; rst_ <= 0;
                    end
+            RESET: begin
+                        en_ <= 0; rst_ <= 1;
+                   end
         endcase
-
     end
     assign EN = en_;
     assign rst = rst_;
