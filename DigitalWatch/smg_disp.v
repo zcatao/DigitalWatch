@@ -15,8 +15,14 @@
 ***********************************************/
 module smg_disp (
     input[23:0] Watch_cnt_disp,
+    input clk,
     output[23:0] disp_out
     );
-
-    assign disp_out = Watch_cnt_disp;
+    reg [23:0] out;
+	always @ ( posedge clk) begin
+		if(clk)
+			out <= Watch_cnt_disp;
+	end
+	
+	assign disp_out = out;
 endmodule // smg_disp

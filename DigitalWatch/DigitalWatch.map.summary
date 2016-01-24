@@ -1,5 +1,9 @@
-Analysis & Elaboration Status : Successful - Sat Jan 23 22:14:49 2016
+Analysis & Synthesis Status : Successful - Sun Jan 24 20:26:53 2016
 Quartus II Version : 9.0 Build 132 02/25/2009 SJ Full Version
 Revision Name : DigitalWatch
-Top-level Entity Name : DigitalWatch
+Top-level Entity Name : key_Control
 Family : ACEX1K
+Total logic elements : 3
+Total pins : 81
+Total memory bits : 0
+Total PLLs : 0

@@ -45,7 +45,8 @@ module DigitalWatch (
                   .preset(preset),
                   .dispbuf(dispbuf)
                   );
-    smg_disp disp(.Watch_cnt_disp(dispbuf),
+    smg_disp disp(.clk(clk_1Khz),
+                  .Watch_cnt_disp(dispbuf),
                   .disp_out(disp_out)
                   );
     ram_1port ram(.address(address),

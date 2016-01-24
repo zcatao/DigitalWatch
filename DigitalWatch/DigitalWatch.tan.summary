@@ -5,29 +5,29 @@ Timing Analyzer Summary
 Type           : Worst-case tco
 Slack          : N/A
 Required Time  : None
-Actual Time    : 29.500 ns
-From           : watch_cnt:cnt|Six_counter:bit_6|out_dat[0]
-To             : disp_out[20]
-From Clock     : clk_50Mhz
+Actual Time    : 10.600 ns
+From           : Start_status.RESET
+To             : rst
+From Clock     : key_start
 To Clock       : --
 Failed Paths   : 0
 
-Type           : Clock Setup: 'clk_50Mhz'
+Type           : Worst-case tpd
 Slack          : N/A
 Required Time  : None
-Actual Time    : 79.37 MHz ( period = 12.600 ns )
-From           : clk_div:fdiv|lpm_counter:cnt_rtl_0|alt_counter_f10ke:wysi_counter|counter_cell[6]
-To             : clk_div:fdiv|clk_out
-From Clock     : clk_50Mhz
-To Clock       : clk_50Mhz
+Actual Time    : 11.300 ns
+From           : key_load
+To             : load
+From Clock     : --
+To Clock       : --
 Failed Paths   : 0
 
 Type           : Clock Setup: 'key_start'
 Slack          : N/A
 Required Time  : None
 Actual Time    : Restricted to 200.00 MHz ( period = 5.000 ns )
-From           : key_Control:Control|Start_status.START
-To             : key_Control:Control|Start_status.STOP
+From           : Start_status.RESET
+To             : Start_status.START
 From Clock     : key_start
 To Clock       : key_start
 Failed Paths   : 0

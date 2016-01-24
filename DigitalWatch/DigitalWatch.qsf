@@ -38,7 +38,7 @@
 
 set_global_assignment -name FAMILY ACEX1K
 set_global_assignment -name DEVICE "EP1K30TC144-3"
-set_global_assignment -name TOP_LEVEL_ENTITY DigitalWatch
+set_global_assignment -name TOP_LEVEL_ENTITY key_Control
 set_global_assignment -name ORIGINAL_QUARTUS_VERSION 9.0
 set_global_assignment -name PROJECT_CREATION_TIME_DATE "20:00:12  JANUARY 15, 2016"
 set_global_assignment -name LAST_QUARTUS_VERSION 9.0
@@ -53,3 +53,6 @@ set_global_assignment -name VERILOG_FILE key_Control.v
 set_global_assignment -name VERILOG_FILE Six_counter.v
 set_global_assignment -name VERILOG_FILE smg_disp.v
 set_global_assignment -name VERILOG_FILE watch_cnt.v
+set_global_assignment -name VECTOR_WAVEFORM_FILE smg_disp_test.vwf
+set_global_assignment -name INCREMENTAL_VECTOR_INPUT_SOURCE smg_disp_test.vwf
+set_global_assignment -name VECTOR_COMPARE_TRIGGER_MODE ALL_EDGE

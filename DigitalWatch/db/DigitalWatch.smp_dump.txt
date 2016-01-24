@@ -1,5 +1,15 @@
 
-State Machine - |DigitalWatch|key_Control:Control|Start_status
+State Machine - |key_Control|Read_Status
+Name Read_Status.READDATA 
+Read_Status.PREREAD 0 
+Read_Status.READDATA 1 
+
+State Machine - |key_Control|Write_Status
+Name Write_Status.STARTWRITE 
+Write_Status.PREWRITE 0 
+Write_Status.STARTWRITE 1 
+
+State Machine - |key_Control|Start_status
 Name Start_status.START Start_status.RESET Start_status.STOP 
 Start_status.START 0 0 0 
 Start_status.STOP 1 0 1 
