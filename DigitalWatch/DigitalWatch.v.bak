@@ -23,14 +23,25 @@ module DigitalWatch (
     //时钟控制信号
     wire rst,EN,load;
     wire [23:0] dispbuf;
+    wire [3:0] address;
+    wire [23:0] data_in,data_out;
+    wire ram_wren;
+
+    parameter preset = 28'h1234567;
 
     clk_div fdiv(.clk_50Mhz(clk_50Mhz),
                  .rst(rst),
                  .clk_1Khz(clk_1Khz)
                  );
-    key_Control Control(.key_start(key_start),
+    key_Control Control(.clk(clk_50Mhz),
+                        .key_start(key_start),
                         .key_pause(key_pause),
                         .key_load(key_load),
+                        .data_ram(data_out),
+                        .data_in(data_write),
+                        .disp_out(dispbuf),
+                        .wren(ram_wren),
+                        .address(address),
                         .rst(rst),
                         .EN(EN),
                         .load(load)
@@ -42,7 +53,16 @@ module DigitalWatch (
                   .preset(preset),
                   .dispbuf(dispbuf)
                   );
-    smg_disp disp(.dispbuf(dispbuf),
+    smg_disp disp(.clk(clk_1Khz),
+                  .Watch_cnt_disp(dispbuf),
                   .disp_out(disp_out)
                   );
+    ram_1port ram(.address(address),
+                  .clk(clk_50Mhz),
+                  .data(data_in),
+
+                  .wren(ram_wren),
+                  .q(data_out)
+                  );
+
 endmodule // DigitalWatch

@@ -61,10 +61,124 @@ clk_div:fdiv
 
 # end
 # entity
+key_Control
+# storage
+db|DigitalWatch.(2).cnf
+db|DigitalWatch.(2).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_sensitive
+# source_file
+key_Control.v
+f4fe377eb3e2dc62224189245d31efcd
+8
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+IGNORE_VERILOG_INITIAL_CONSTRUCTS
+OFF
+VERILOG_CONSTANT_LOOP_LIMIT
+5000
+VERILOG_NON_CONSTANT_LOOP_LIMIT
+250
+}
+# user_parameter {
+START
+00
+PARAMETER_UNSIGNED_BIN
+DEF
+STOP
+01
+PARAMETER_UNSIGNED_BIN
+DEF
+RESET
+10
+PARAMETER_UNSIGNED_BIN
+DEF
+STARTWRITE
+01
+PARAMETER_UNSIGNED_BIN
+DEF
+WRITEDATA
+10
+PARAMETER_UNSIGNED_BIN
+DEF
+FINISHWRITE
+11
+PARAMETER_UNSIGNED_BIN
+DEF
+PREWRITE
+00
+PARAMETER_UNSIGNED_BIN
+DEF
+READDATA
+01
+PARAMETER_UNSIGNED_BIN
+DEF
+FINISHREAD
+10
+PARAMETER_UNSIGNED_BIN
+DEF
+PREREAD
+00
+PARAMETER_UNSIGNED_BIN
+DEF
+}
+# hierarchies {
+key_Control:Control
+}
+# macro_sequence
+
+# end
+# entity
+watch_cnt
+# storage
+db|DigitalWatch.(10).cnf
+db|DigitalWatch.(10).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_sensitive
+# source_file
+watch_cnt.v
+808cbaf2cf19d4b799d7f28ad61e10ce
+8
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+IGNORE_VERILOG_INITIAL_CONSTRUCTS
+OFF
+VERILOG_CONSTANT_LOOP_LIMIT
+5000
+VERILOG_NON_CONSTANT_LOOP_LIMIT
+250
+}
+# hierarchies {
+watch_cnt:cnt
+}
+# macro_sequence
+
+# end
+# entity
 decimal_counter
 # storage
-db|DigitalWatch.(4).cnf
-db|DigitalWatch.(4).cnf
+db|DigitalWatch.(11).cnf
+db|DigitalWatch.(11).cnf
 # logic_option {
 AUTO_RAM_RECOGNITION
 ON
@@ -103,8 +217,8 @@ watch_cnt:cnt|decimal_counter:bit_5
 # entity
 Six_counter
 # storage
-db|DigitalWatch.(5).cnf
-db|DigitalWatch.(5).cnf
+db|DigitalWatch.(12).cnf
+db|DigitalWatch.(12).cnf
 # logic_option {
 AUTO_RAM_RECOGNITION
 ON
@@ -138,82 +252,10 @@ watch_cnt:cnt|Six_counter:bit_6
 
 # end
 # entity
-DigitalWatch
-# storage
-db|DigitalWatch.(0).cnf
-db|DigitalWatch.(0).cnf
-# logic_option {
-AUTO_RAM_RECOGNITION
-ON
-}
-# case_sensitive
-# source_file
-DigitalWatch.v
-6da3576b2d584ac8a1da22943b8759
-8
-# internal_option {
-HDL_INITIAL_FANOUT_LIMIT
-OFF
-AUTO_RESOURCE_SHARING
-OFF
-AUTO_RAM_RECOGNITION
-ON
-AUTO_ROM_RECOGNITION
-ON
-IGNORE_VERILOG_INITIAL_CONSTRUCTS
-OFF
-VERILOG_CONSTANT_LOOP_LIMIT
-5000
-VERILOG_NON_CONSTANT_LOOP_LIMIT
-250
-}
-# hierarchies {
-|
-}
-# macro_sequence
-
-# end
-# entity
-watch_cnt
-# storage
-db|DigitalWatch.(3).cnf
-db|DigitalWatch.(3).cnf
-# logic_option {
-AUTO_RAM_RECOGNITION
-ON
-}
-# case_sensitive
-# source_file
-watch_cnt.v
-808cbaf2cf19d4b799d7f28ad61e10ce
-8
-# internal_option {
-HDL_INITIAL_FANOUT_LIMIT
-OFF
-AUTO_RESOURCE_SHARING
-OFF
-AUTO_RAM_RECOGNITION
-ON
-AUTO_ROM_RECOGNITION
-ON
-IGNORE_VERILOG_INITIAL_CONSTRUCTS
-OFF
-VERILOG_CONSTANT_LOOP_LIMIT
-5000
-VERILOG_NON_CONSTANT_LOOP_LIMIT
-250
-}
-# hierarchies {
-watch_cnt:cnt
-}
-# macro_sequence
-
-# end
-# entity
 smg_disp
 # storage
-db|DigitalWatch.(6).cnf
-db|DigitalWatch.(6).cnf
+db|DigitalWatch.(13).cnf
+db|DigitalWatch.(13).cnf
 # logic_option {
 AUTO_RAM_RECOGNITION
 ON
@@ -221,7 +263,7 @@ ON
 # case_sensitive
 # source_file
 smg_disp.v
-7c6f83ff68cd36a28d274ca127caad
+722face26aeba6e67a5df5738160d428
 8
 # internal_option {
 HDL_INITIAL_FANOUT_LIMIT
@@ -246,18 +288,18 @@ smg_disp:disp
 
 # end
 # entity
-key_Control
+ram_1port
 # storage
-db|DigitalWatch.(2).cnf
-db|DigitalWatch.(2).cnf
+db|DigitalWatch.(14).cnf
+db|DigitalWatch.(14).cnf
 # logic_option {
 AUTO_RAM_RECOGNITION
 ON
 }
 # case_sensitive
 # source_file
-key_Control.v
-7d43bba9fa37a897312f1aa4cdf7732
+ram_1port.v
+fbcd8e4fb43e31aefe94201e2114dbfc
 8
 # internal_option {
 HDL_INITIAL_FANOUT_LIMIT
@@ -275,22 +317,8 @@ VERILOG_CONSTANT_LOOP_LIMIT
 VERILOG_NON_CONSTANT_LOOP_LIMIT
 250
 }
-# user_parameter {
-START
-00
-PARAMETER_UNSIGNED_BIN
-DEF
-STOP
-01
-PARAMETER_UNSIGNED_BIN
-DEF
-RESET
-10
-PARAMETER_UNSIGNED_BIN
-DEF
-}
 # hierarchies {
-key_Control:Control
+ram_1port:ram
 }
 # macro_sequence
 
@@ -298,8 +326,8 @@ key_Control:Control
 # entity
 lpm_counter
 # storage
-db|DigitalWatch.(7).cnf
-db|DigitalWatch.(7).cnf
+db|DigitalWatch.(15).cnf
+db|DigitalWatch.(15).cnf
 # case_insensitive
 # source_file
 d:|altera|90|quartus|libraries|megafunctions|lpm_counter.tdf
@@ -478,30 +506,30 @@ aclr
 3
 }
 # include_file {
-d:|altera|90|quartus|libraries|megafunctions|alt_counter_f10ke.inc
-536f8da8218b4a93689416f9baea1880
-d:|altera|90|quartus|libraries|megafunctions|aglobal90.inc
-99832fdf63412df51d7531202d74e75
-d:|altera|90|quartus|libraries|megafunctions|lpm_decode.inc
-bd0e2f5e01c1bd360461dceb53d48
-d:|altera|90|quartus|libraries|megafunctions|cmpconst.inc
-e61874547688138e6fc0b49ff8760
 d:|altera|90|quartus|libraries|megafunctions|alt_counter_stratix.inc
 2251b94d26afaa53635df1aff6b6e7be
-d:|altera|90|quartus|libraries|megafunctions|dffeea.inc
-55d29d20f7e852c37746bec4e2495ec
+d:|altera|90|quartus|libraries|megafunctions|alt_synch_counter_f.inc
+93a5aae1d8bd19c9e8e8eef93ab2177d
+d:|altera|90|quartus|libraries|megafunctions|alt_synch_counter.inc
+09966d10c3e95c888bf8e443df34d8
 d:|altera|90|quartus|libraries|megafunctions|lpm_add_sub.inc
 7d9a33dd39f13aa690c3d0edd88351
+d:|altera|90|quartus|libraries|megafunctions|cmpconst.inc
+e61874547688138e6fc0b49ff8760
+d:|altera|90|quartus|libraries|megafunctions|aglobal90.inc
+99832fdf63412df51d7531202d74e75
 d:|altera|90|quartus|libraries|megafunctions|lpm_compare.inc
 aec4ea1b78f4cda1c3effe18f1abbf63
 d:|altera|90|quartus|libraries|megafunctions|lpm_constant.inc
 dcde44eee59335c1e2fe75d574f9646
-d:|altera|90|quartus|libraries|megafunctions|alt_synch_counter.inc
-09966d10c3e95c888bf8e443df34d8
 d:|altera|90|quartus|libraries|megafunctions|lpm_counter.inc
 7f888b135ddf66f0653c44cb18ac5
-d:|altera|90|quartus|libraries|megafunctions|alt_synch_counter_f.inc
-93a5aae1d8bd19c9e8e8eef93ab2177d
+d:|altera|90|quartus|libraries|megafunctions|lpm_decode.inc
+bd0e2f5e01c1bd360461dceb53d48
+d:|altera|90|quartus|libraries|megafunctions|dffeea.inc
+55d29d20f7e852c37746bec4e2495ec
+d:|altera|90|quartus|libraries|megafunctions|alt_counter_f10ke.inc
+536f8da8218b4a93689416f9baea1880
 }
 # macro_sequence
 
@@ -509,8 +537,8 @@ d:|altera|90|quartus|libraries|megafunctions|alt_synch_counter_f.inc
 # entity
 alt_counter_f10ke
 # storage
-db|DigitalWatch.(8).cnf
-db|DigitalWatch.(8).cnf
+db|DigitalWatch.(16).cnf
+db|DigitalWatch.(16).cnf
 # case_insensitive
 # source_file
 d:|altera|90|quartus|libraries|megafunctions|alt_counter_f10ke.tdf
@@ -689,6 +717,403 @@ d:|altera|90|quartus|libraries|megafunctions|lpm_compare.inc
 aec4ea1b78f4cda1c3effe18f1abbf63
 d:|altera|90|quartus|libraries|megafunctions|lpm_constant.inc
 dcde44eee59335c1e2fe75d574f9646
+}
+# macro_sequence
+
+# end
+# entity
+altdpram
+# storage
+db|DigitalWatch.(17).cnf
+db|DigitalWatch.(17).cnf
+# case_insensitive
+# source_file
+d:|altera|90|quartus|libraries|megafunctions|altdpram.tdf
+141deab98b97c0c7d255c23419e3183f
+7
+# user_parameter {
+WIDTH_BYTEENA_A
+1
+PARAMETER_UNKNOWN
+DEF
+WIDTH_BYTEENA_B
+1
+PARAMETER_UNKNOWN
+DEF
+WIDTH
+24
+PARAMETER_UNKNOWN
+USR
+WIDTHAD
+3
+PARAMETER_UNKNOWN
+USR
+NUMWORDS
+8
+PARAMETER_UNKNOWN
+USR
+FILE
+UNUSED
+PARAMETER_UNKNOWN
+DEF
+LPM_FILE
+UNUSED
+PARAMETER_UNKNOWN
+DEF
+INDATA_REG
+INCLOCK
+PARAMETER_UNKNOWN
+USR
+INDATA_ACLR
+OFF
+PARAMETER_UNKNOWN
+USR
+WRADDRESS_REG
+INCLOCK
+PARAMETER_UNKNOWN
+USR
+WRADDRESS_ACLR
+OFF
+PARAMETER_UNKNOWN
+USR
+WRCONTROL_REG
+INCLOCK
+PARAMETER_UNKNOWN
+USR
+WRCONTROL_ACLR
+OFF
+PARAMETER_UNKNOWN
+USR
+RDADDRESS_REG
+UNREGISTERED
+PARAMETER_UNKNOWN
+USR
+RDADDRESS_ACLR
+OFF
+PARAMETER_UNKNOWN
+USR
+RDCONTROL_REG
+UNREGISTERED
+PARAMETER_UNKNOWN
+USR
+RDCONTROL_ACLR
+OFF
+PARAMETER_UNKNOWN
+USR
+OUTDATA_REG
+OUTCLOCK
+PARAMETER_UNKNOWN
+USR
+OUTDATA_ACLR
+OFF
+PARAMETER_UNKNOWN
+USR
+USE_EAB
+ON
+PARAMETER_UNKNOWN
+DEF
+MAXIMUM_DEPTH
+2048
+PARAMETER_UNKNOWN
+DEF
+DEVICE_FAMILY
+ACEX1K
+PARAMETER_UNKNOWN
+USR
+SUPPRESS_MEMORY_CONVERSION_WARNINGS
+OFF
+PARAMETER_UNKNOWN
+DEF
+INTENDED_DEVICE_FAMILY
+APEX20KE
+PARAMETER_UNKNOWN
+DEF
+ENABLE_RAM_BENCHMARKING_MODE
+OFF
+PARAMETER_UNKNOWN
+DEF
+RAM_BLOCK_TYPE
+AUTO
+PARAMETER_UNKNOWN
+DEF
+READ_DURING_WRITE_MODE_MIXED_PORTS
+DONT_CARE
+PARAMETER_UNKNOWN
+DEF
+BYTE_SIZE
+8
+PARAMETER_UNKNOWN
+DEF
+WIDTH_BYTEENA
+1
+PARAMETER_UNKNOWN
+DEF
+DISABLE_LE_RAM_LIMIT_CHECK
+OFF
+PARAMETER_UNKNOWN
+DEF
+CBXI_PARAMETER
+NOTHING
+PARAMETER_UNKNOWN
+DEF
+AUTO_CARRY_CHAINS
+ON
+AUTO_CARRY
+USR
+IGNORE_CARRY_BUFFERS
+OFF
+IGNORE_CARRY
+USR
+AUTO_CASCADE_CHAINS
+ON
+AUTO_CASCADE
+USR
+IGNORE_CASCADE_BUFFERS
+OFF
+IGNORE_CASCADE
+USR
+}
+# used_port {
+wren
+-1
+3
+wraddress2
+-1
+3
+wraddress1
+-1
+3
+wraddress0
+-1
+3
+rdaddress2
+-1
+3
+rdaddress1
+-1
+3
+rdaddress0
+-1
+3
+q9
+-1
+3
+q8
+-1
+3
+q7
+-1
+3
+q6
+-1
+3
+q5
+-1
+3
+q4
+-1
+3
+q3
+-1
+3
+q23
+-1
+3
+q22
+-1
+3
+q21
+-1
+3
+q20
+-1
+3
+q2
+-1
+3
+q19
+-1
+3
+q18
+-1
+3
+q17
+-1
+3
+q16
+-1
+3
+q15
+-1
+3
+q14
+-1
+3
+q13
+-1
+3
+q12
+-1
+3
+q11
+-1
+3
+q10
+-1
+3
+q1
+-1
+3
+q0
+-1
+3
+outclocken
+-1
+3
+outclock
+-1
+3
+inclock
+-1
+3
+data9
+-1
+3
+data8
+-1
+3
+data7
+-1
+3
+data6
+-1
+3
+data5
+-1
+3
+data4
+-1
+3
+data3
+-1
+3
+data23
+-1
+3
+data22
+-1
+3
+data21
+-1
+3
+data20
+-1
+3
+data2
+-1
+3
+data19
+-1
+3
+data18
+-1
+3
+data17
+-1
+3
+data16
+-1
+3
+data15
+-1
+3
+data14
+-1
+3
+data13
+-1
+3
+data12
+-1
+3
+data11
+-1
+3
+data10
+-1
+3
+data1
+-1
+3
+data0
+-1
+3
+}
+# include_file {
+d:|altera|90|quartus|libraries|megafunctions|a_rdenreg.inc
+60d229340bc3c24acb0a137b4849830
+d:|altera|90|quartus|libraries|megafunctions|a_hdffe.inc
+6e1dd1dda0dcf1122cd2b84d66c10b3
+d:|altera|90|quartus|libraries|megafunctions|altsyncram.inc
+1b5760dd55919ddb45bfb2c0e896218b
+d:|altera|90|quartus|libraries|megafunctions|altqpram.inc
+74e08939f96a7ea8e7a4d59a5b01fe7
+d:|altera|90|quartus|libraries|others|maxplus2|memmodes.inc
+44d4551a35f349f0dbacaf799d39950
+d:|altera|90|quartus|libraries|megafunctions|alt_le_rden_reg.inc
+7591066e9fa6e1ee16e5ba18b60506f
+d:|altera|90|quartus|libraries|megafunctions|lpm_mux.inc
+c22bfd353214c01495b560fc34e47d79
+d:|altera|90|quartus|libraries|megafunctions|aglobal90.inc
+99832fdf63412df51d7531202d74e75
+d:|altera|90|quartus|libraries|megafunctions|lpm_decode.inc
+bd0e2f5e01c1bd360461dceb53d48
+}
+# memory_file {
+none
+0
+}
+# macro_sequence
+
+# end
+# entity
+DigitalWatch
+# storage
+db|DigitalWatch.(0).cnf
+db|DigitalWatch.(0).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_sensitive
+# source_file
+DigitalWatch.v
+a7b5431b4f58583e5dd592fb376ab4c2
+8
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+IGNORE_VERILOG_INITIAL_CONSTRUCTS
+OFF
+VERILOG_CONSTANT_LOOP_LIMIT
+5000
+VERILOG_NON_CONSTANT_LOOP_LIMIT
+250
+}
+# user_parameter {
+preset
+0001001000110100010101100111
+PARAMETER_UNSIGNED_BIN
+DEF
+}
+# hierarchies {
+|
 }
 # macro_sequence
 

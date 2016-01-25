@@ -19,10 +19,14 @@
 module key_Control (
     input key_start,
     input key_pause,
+    input key_Record,
     input key_load,
+    input[23:0] data_read,
     output rst,
     output EN,
-    output load
+    output load,
+    output[23:0] data_write,
+    output[23:0] disp_out;
     );
     //START°´¼üÐÅºÅ×´Ì¬
     //START->STOP->RESET->START
@@ -53,6 +57,21 @@ module key_Control (
                    end
         endcase
     end
+
+    always @ ( posedge key_Record ) begin
+        case (Start_status)
+            START:begin
+                        address <= address + 1; wren <= 1;
+                  end
+            STOP:begin
+                        address <= address - 1; wren <= 0;
+                end
+            default:
+        endcase
+    end
+
+
+
     assign EN = en_;
     assign rst = rst_;
     assign load = key_load;

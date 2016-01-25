@@ -1,11 +1,11 @@
-Fitter Status : Successful - Sun Jan 17 18:23:34 2016
+Fitter Status : Successful - Mon Jan 25 16:13:00 2016
 Quartus II Version : 9.0 Build 132 02/25/2009 SJ Full Version
 Revision Name : DigitalWatch
 Top-level Entity Name : DigitalWatch
 Family : ACEX1K
 Device : EP1K30TC144-3
 Timing Models : Final
-Total logic elements : 114 / 1,728 ( 7 % )
-Total pins : 28 / 102 ( 27 % )
-Total memory bits : 0 / 24,576 ( 0 % )
+Total logic elements : 161 / 1,728 ( 9 % )
+Total pins : 29 / 102 ( 28 % )
+Total memory bits : 192 / 24,576 ( < 1 % )
 Total PLLs : 0

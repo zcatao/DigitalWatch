@@ -1,4 +1,23 @@
 
+State Machine - |DigitalWatch|key_Control:Control|Read_Status
+Name Read_Status.PREREAD Read_Status.FINISHREAD Read_Status.READDATA 
+Read_Status.PREREAD 0 0 0 
+Read_Status.READDATA 1 0 1 
+Read_Status.FINISHREAD 1 1 0 
+
+State Machine - |DigitalWatch|key_Control:Control|Write_Status
+Name Write_Status.FINISHWRITE Write_Status.WRITEDATA Write_Status.STARTWRITE Write_Status.PREWRITE 
+Write_Status.PREWRITE 0 0 0 0 
+Write_Status.STARTWRITE 0 0 1 1 
+Write_Status.WRITEDATA 0 1 0 1 
+Write_Status.FINISHWRITE 1 0 0 1 
+
+State Machine - |DigitalWatch|key_Control:Control|WRSEL
+Name WRSEL.00 WRSEL.10 WRSEL.01 
+WRSEL.00 0 0 0 
+WRSEL.01 1 0 1 
+WRSEL.10 1 1 0 
+
 State Machine - |DigitalWatch|key_Control:Control|Start_status
 Name Start_status.START Start_status.RESET Start_status.STOP 
 Start_status.START 0 0 0 

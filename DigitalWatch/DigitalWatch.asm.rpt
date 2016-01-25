@@ -1,5 +1,5 @@
 Assembler report for DigitalWatch
-Sun Jan 17 18:23:37 2016
+Mon Jan 25 16:13:03 2016
 Quartus II Version 9.0 Build 132 02/25/2009 SJ Full Version
 
 
@@ -10,8 +10,8 @@ Quartus II Version 9.0 Build 132 02/25/2009 SJ Full Version
   2. Assembler Summary
   3. Assembler Settings
   4. Assembler Generated Files
-  5. Assembler Device Options: C:/Users/yangs/Documents/DigitalWatch/DigitalWatch/DigitalWatch.sof
-  6. Assembler Device Options: C:/Users/yangs/Documents/DigitalWatch/DigitalWatch/DigitalWatch.pof
+  5. Assembler Device Options: C:/Users/Sontao/OneDrive/EDA课设/DigitalWatch/DigitalWatch.sof
+  6. Assembler Device Options: C:/Users/Sontao/OneDrive/EDA课设/DigitalWatch/DigitalWatch.pof
   7. Assembler Messages
 
 
@@ -38,7 +38,7 @@ applicable agreement for further details.
 +---------------------------------------------------------------+
 ; Assembler Summary                                             ;
 +-----------------------+---------------------------------------+
-; Assembler Status      ; Successful - Sun Jan 17 18:23:37 2016 ;
+; Assembler Status      ; Successful - Mon Jan 25 16:13:03 2016 ;
 ; Revision Name         ; DigitalWatch                          ;
 ; Top-level Entity Name ; DigitalWatch                          ;
 ; Family                ; ACEX1K                                ;
@@ -77,37 +77,37 @@ applicable agreement for further details.
 +-----------------------------------------------------------------------------+----------+---------------+
 
 
-+---------------------------------------------------------------------+
-; Assembler Generated Files                                           ;
-+---------------------------------------------------------------------+
-; File Name                                                           ;
-+---------------------------------------------------------------------+
-; C:/Users/yangs/Documents/DigitalWatch/DigitalWatch/DigitalWatch.sof ;
-; C:/Users/yangs/Documents/DigitalWatch/DigitalWatch/DigitalWatch.pof ;
-+---------------------------------------------------------------------+
++----------------------------------------------------------------+
+; Assembler Generated Files                                      ;
++----------------------------------------------------------------+
+; File Name                                                      ;
++----------------------------------------------------------------+
+; C:/Users/Sontao/OneDrive/EDA课设/DigitalWatch/DigitalWatch.sof ;
+; C:/Users/Sontao/OneDrive/EDA课设/DigitalWatch/DigitalWatch.pof ;
++----------------------------------------------------------------+
 
 
-+-----------------------------------------------------------------------------------------------+
-; Assembler Device Options: C:/Users/yangs/Documents/DigitalWatch/DigitalWatch/DigitalWatch.sof ;
-+----------------+------------------------------------------------------------------------------+
-; Option         ; Setting                                                                      ;
-+----------------+------------------------------------------------------------------------------+
-; Device         ; EP1K30TC144-3                                                                ;
-; JTAG usercode  ; 0x0000007F                                                                   ;
-; Checksum       ; 0x0001A88F                                                                   ;
-+----------------+------------------------------------------------------------------------------+
++------------------------------------------------------------------------------------------+
+; Assembler Device Options: C:/Users/Sontao/OneDrive/EDA课设/DigitalWatch/DigitalWatch.sof ;
++----------------+-------------------------------------------------------------------------+
+; Option         ; Setting                                                                 ;
++----------------+-------------------------------------------------------------------------+
+; Device         ; EP1K30TC144-3                                                           ;
+; JTAG usercode  ; 0x0000007F                                                              ;
+; Checksum       ; 0x00023F4C                                                              ;
++----------------+-------------------------------------------------------------------------+
 
 
-+-----------------------------------------------------------------------------------------------+
-; Assembler Device Options: C:/Users/yangs/Documents/DigitalWatch/DigitalWatch/DigitalWatch.pof ;
-+--------------------+--------------------------------------------------------------------------+
-; Option             ; Setting                                                                  ;
-+--------------------+--------------------------------------------------------------------------+
-; Device             ; EPC2                                                                     ;
-; JTAG usercode      ; 0x00000000                                                               ;
-; Checksum           ; 0x0258EC90                                                               ;
-; Compression Ratio  ; 1                                                                        ;
-+--------------------+--------------------------------------------------------------------------+
++------------------------------------------------------------------------------------------+
+; Assembler Device Options: C:/Users/Sontao/OneDrive/EDA课设/DigitalWatch/DigitalWatch.pof ;
++--------------------+---------------------------------------------------------------------+
+; Option             ; Setting                                                             ;
++--------------------+---------------------------------------------------------------------+
+; Device             ; EPC2                                                                ;
+; JTAG usercode      ; 0x00000000                                                          ;
+; Checksum           ; 0x0259B802                                                          ;
+; Compression Ratio  ; 1                                                                   ;
++--------------------+---------------------------------------------------------------------+
 
 
 +--------------------+
@@ -116,12 +116,12 @@ applicable agreement for further details.
 Info: *******************************************************************
 Info: Running Quartus II Assembler
     Info: Version 9.0 Build 132 02/25/2009 SJ Full Version
-    Info: Processing started: Sun Jan 17 18:23:35 2016
+    Info: Processing started: Mon Jan 25 16:13:01 2016
 Info: Command: quartus_asm --read_settings_files=off --write_settings_files=off DigitalWatch -c DigitalWatch
 Info: Assembler is generating device programming files
 Info: Quartus II Assembler was successful. 0 errors, 0 warnings
     Info: Peak virtual memory: 223 megabytes
-    Info: Processing ended: Sun Jan 17 18:23:37 2016
+    Info: Processing ended: Mon Jan 25 16:13:03 2016
     Info: Elapsed time: 00:00:02
     Info: Total CPU time (on all processors): 00:00:02
 

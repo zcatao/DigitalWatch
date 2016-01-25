@@ -2,12 +2,12 @@
 
 
 module ram_1port(
-    input [3:0] address;
+    input [3:0] address,
     input       clk,
     input [23:0]data,
     input       wren,
     output[23:0]q
-    )
+    );
 
     reg[23:0] mem[7:0];
 
