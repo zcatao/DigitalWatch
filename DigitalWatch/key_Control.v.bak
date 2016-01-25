@@ -29,7 +29,7 @@ module key_Control (
     output EN,
     output load,
     output wren,
-    output[23:0] data_write,
+    //output[23:0] data_write,
     output[23:0] disp_out
     );
     //START按键信号状态
@@ -83,7 +83,7 @@ module key_Control (
                 WRSEL <= 2'B01;
                 end
             default:begin
-                WRSEL <= 2' B00;
+                WRSEL <= 2'B00;
 			end
         endcase
     end
@@ -111,7 +111,10 @@ module key_Control (
                 else Write_Status <= PREWRITE;
             end
             STARTWRITE:begin
-                address_ <= address_ + 1'b1;
+                if(WRSEL == 2'b10)
+                    address_ <= address_ + 1'b1;
+                else
+                    address_ <= 4'bz;
                 Write_Status <= WRITEDATA;
             end
             WRITEDATA:begin
@@ -139,8 +142,10 @@ module key_Control (
             end
             FINISHREAD:begin
                 disp_SEL <= 1;
-
-                address_ <= address_ - 1'b1;
+                if(WRSEL == 2'b10)
+                    address_ <= address_ - 1'b1;
+                else
+                    address_ <= 4'bz;
                 Read_Status <= PREREAD;
             end
         endcase

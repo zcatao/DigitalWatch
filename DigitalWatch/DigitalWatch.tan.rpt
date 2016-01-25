@@ -1,5 +1,5 @@
 Classic Timing Analyzer report for DigitalWatch
-Mon Jan 25 16:13:04 2016
+Mon Jan 25 19:57:23 2016
 Quartus II Version 9.0 Build 132 02/25/2009 SJ Full Version
 
 
@@ -11,11 +11,14 @@ Quartus II Version 9.0 Build 132 02/25/2009 SJ Full Version
   3. Timing Analyzer Settings
   4. Clock Settings Summary
   5. Parallel Compilation
-  6. Clock Setup: 'clk_50Mhz'
-  7. Clock Setup: 'key_start'
-  8. Clock Setup: 'key_pause'
-  9. tco
- 10. Timing Analyzer Messages
+  6. Clock Setup: 'key_start'
+  7. Clock Setup: 'key_pause'
+  8. Clock Setup: 'clk'
+  9. tsu
+ 10. tco
+ 11. tpd
+ 12. th
+ 13. Timing Analyzer Messages
 
 
 
@@ -38,17 +41,20 @@ applicable agreement for further details.
 
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Timing Analyzer Summary                                                                                                                                                                                                            ;
-+------------------------------+-------+---------------+------------------------------------------------+--------------------------------------------+---------------------------------------+------------+-----------+--------------+
-; Type                         ; Slack ; Required Time ; Actual Time                                    ; From                                       ; To                                    ; From Clock ; To Clock  ; Failed Paths ;
-+------------------------------+-------+---------------+------------------------------------------------+--------------------------------------------+---------------------------------------+------------+-----------+--------------+
-; Worst-case tco               ; N/A   ; None          ; 11.700 ns                                      ; smg_disp:disp|out[12]                      ; disp_out[12]                          ; clk_50Mhz  ; --        ; 0            ;
-; Clock Setup: 'clk_50Mhz'     ; N/A   ; None          ; 58.82 MHz ( period = 17.000 ns )               ; watch_cnt:cnt|Six_counter:bit_6|out_dat[2] ; smg_disp:disp|out[22]                 ; clk_50Mhz  ; clk_50Mhz ; 0            ;
-; Clock Setup: 'key_pause'     ; N/A   ; None          ; Restricted to 200.00 MHz ( period = 5.000 ns ) ; key_Control:Control|en__                   ; key_Control:Control|en__              ; key_pause  ; key_pause ; 0            ;
-; Clock Setup: 'key_start'     ; N/A   ; None          ; Restricted to 200.00 MHz ( period = 5.000 ns ) ; key_Control:Control|Start_status.START     ; key_Control:Control|Start_status.STOP ; key_start  ; key_start ; 0            ;
-; Total number of failed paths ;       ;               ;                                                ;                                            ;                                       ;            ;           ; 0            ;
-+------------------------------+-------+---------------+------------------------------------------------+--------------------------------------------+---------------------------------------+------------+-----------+--------------+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Timing Analyzer Summary                                                                                                                                                                 ;
++------------------------------+-------+---------------+------------------------------------------------+--------------------+--------------------+------------+-----------+--------------+
+; Type                         ; Slack ; Required Time ; Actual Time                                    ; From               ; To                 ; From Clock ; To Clock  ; Failed Paths ;
++------------------------------+-------+---------------+------------------------------------------------+--------------------+--------------------+------------+-----------+--------------+
+; Worst-case tsu               ; N/A   ; None          ; 6.600 ns                                       ; data_ram[18]       ; data_read[18]      ; --         ; clk       ; 0            ;
+; Worst-case tco               ; N/A   ; None          ; 15.600 ns                                      ; disp_SEL           ; disp_out[16]       ; clk        ; --        ; 0            ;
+; Worst-case tpd               ; N/A   ; None          ; 17.600 ns                                      ; watch_data[17]     ; disp_out[17]       ; --         ; --        ; 0            ;
+; Worst-case th                ; N/A   ; None          ; -3.600 ns                                      ; data_ram[23]       ; data_read[23]      ; --         ; clk       ; 0            ;
+; Clock Setup: 'clk'           ; N/A   ; None          ; 107.53 MHz ( period = 9.300 ns )               ; address_[0]~en     ; address_[3]~8      ; clk        ; clk       ; 0            ;
+; Clock Setup: 'key_pause'     ; N/A   ; None          ; Restricted to 200.00 MHz ( period = 5.000 ns ) ; en__               ; en__               ; key_pause  ; key_pause ; 0            ;
+; Clock Setup: 'key_start'     ; N/A   ; None          ; Restricted to 200.00 MHz ( period = 5.000 ns ) ; Start_status.RESET ; Start_status.START ; key_start  ; key_start ; 0            ;
+; Total number of failed paths ;       ;               ;                                                ;                    ;                    ;            ;           ; 0            ;
++------------------------------+-------+---------------+------------------------------------------------+--------------------+--------------------+------------+-----------+--------------+
 
 
 +--------------------------------------------------------------------------------------------------------------------+
@@ -88,10 +94,10 @@ applicable agreement for further details.
 +-----------------+--------------------+----------+------------------+---------------+--------------+----------+-----------------------+---------------------+--------+--------------+
 ; Clock Node Name ; Clock Setting Name ; Type     ; Fmax Requirement ; Early Latency ; Late Latency ; Based on ; Multiply Base Fmax by ; Divide Base Fmax by ; Offset ; Phase offset ;
 +-----------------+--------------------+----------+------------------+---------------+--------------+----------+-----------------------+---------------------+--------+--------------+
-; clk_50Mhz       ;                    ; User Pin ; None             ; 0.000 ns      ; 0.000 ns     ; --       ; N/A                   ; N/A                 ; N/A    ;              ;
-; key_Record      ;                    ; User Pin ; None             ; 0.000 ns      ; 0.000 ns     ; --       ; N/A                   ; N/A                 ; N/A    ;              ;
 ; key_start       ;                    ; User Pin ; None             ; 0.000 ns      ; 0.000 ns     ; --       ; N/A                   ; N/A                 ; N/A    ;              ;
 ; key_pause       ;                    ; User Pin ; None             ; 0.000 ns      ; 0.000 ns     ; --       ; N/A                   ; N/A                 ; N/A    ;              ;
+; clk             ;                    ; User Pin ; None             ; 0.000 ns      ; 0.000 ns     ; --       ; N/A                   ; N/A                 ; N/A    ;              ;
+; key_Record      ;                    ; User Pin ; None             ; 0.000 ns      ; 0.000 ns     ; --       ; N/A                   ; N/A                 ; N/A    ;              ;
 +-----------------+--------------------+----------+------------------+---------------+--------------+----------+-----------------------+---------------------+--------+--------------+
 
 
@@ -100,277 +106,323 @@ applicable agreement for further details.
 +----------------------------+-------------+
 ; Processors                 ; Number      ;
 +----------------------------+-------------+
-; Number detected on machine ; 4           ;
-; Maximum allowed            ; 4           ;
+; Number detected on machine ; 2           ;
+; Maximum allowed            ; 2           ;
 ;                            ;             ;
 ; Average used               ; 1.00        ;
 ; Maximum used               ; 1           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     1 processor            ; 100.0%      ;
-;     2-4 processors         ;   0.0%      ;
+;     2 processors           ;   0.0%      ;
 +----------------------------+-------------+
 
 
-+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Clock Setup: 'clk_50Mhz'                                                                                                                                                                                                                                                                                                                                ;
-+-----------------------------------------+-----------------------------------------------------+-----------------------------------------------------------------------------------+--------------------------------------------------------+------------+-----------+-----------------------------+---------------------------+-------------------------+
-; Slack                                   ; Actual fmax (period)                                ; From                                                                              ; To                                                     ; From Clock ; To Clock  ; Required Setup Relationship ; Required Longest P2P Time ; Actual Longest P2P Time ;
-+-----------------------------------------+-----------------------------------------------------+-----------------------------------------------------------------------------------+--------------------------------------------------------+------------+-----------+-----------------------------+---------------------------+-------------------------+
-; N/A                                     ; 58.82 MHz ( period = 17.000 ns )                    ; watch_cnt:cnt|Six_counter:bit_6|out_dat[1]                                        ; ram_1port:ram|altdpram:mem_rtl_1|segment[0][21]~reg_in ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 2.500 ns                ;
-; N/A                                     ; 58.82 MHz ( period = 17.000 ns )                    ; watch_cnt:cnt|Six_counter:bit_6|out_dat[2]                                        ; smg_disp:disp|out[22]                                  ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 3.100 ns                ;
-; N/A                                     ; 59.17 MHz ( period = 16.900 ns )                    ; watch_cnt:cnt|Six_counter:bit_6|out_dat[0]                                        ; ram_1port:ram|altdpram:mem_rtl_1|segment[0][20]~reg_in ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 2.400 ns                ;
-; N/A                                     ; 59.17 MHz ( period = 16.900 ns )                    ; watch_cnt:cnt|Six_counter:bit_6|out_dat[2]                                        ; ram_1port:ram|altdpram:mem_rtl_1|segment[0][22]~reg_in ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 2.400 ns                ;
-; N/A                                     ; 59.52 MHz ( period = 16.800 ns )                    ; watch_cnt:cnt|Six_counter:bit_6|out_dat[3]                                        ; smg_disp:disp|out[23]                                  ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 2.900 ns                ;
-; N/A                                     ; 59.88 MHz ( period = 16.700 ns )                    ; watch_cnt:cnt|Six_counter:bit_6|out_dat[3]                                        ; ram_1port:ram|altdpram:mem_rtl_1|segment[0][23]~reg_in ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 2.200 ns                ;
-; N/A                                     ; 61.35 MHz ( period = 16.300 ns )                    ; watch_cnt:cnt|Six_counter:bit_6|out_dat[0]                                        ; smg_disp:disp|out[20]                                  ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 2.400 ns                ;
-; N/A                                     ; 61.35 MHz ( period = 16.300 ns )                    ; watch_cnt:cnt|Six_counter:bit_6|out_dat[1]                                        ; smg_disp:disp|out[21]                                  ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 2.400 ns                ;
-; N/A                                     ; 65.36 MHz ( period = 15.300 ns )                    ; watch_cnt:cnt|Six_counter:bit_4|out_dat[0]                                        ; ram_1port:ram|altdpram:mem_rtl_1|segment[0][12]~reg_in ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 3.200 ns                ;
-; N/A                                     ; 65.36 MHz ( period = 15.300 ns )                    ; watch_cnt:cnt|decimal_counter:bit_5|out_dat[1]                                    ; smg_disp:disp|out[17]                                  ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 3.000 ns                ;
-; N/A                                     ; 65.36 MHz ( period = 15.300 ns )                    ; watch_cnt:cnt|decimal_counter:bit_5|out_dat[1]                                    ; ram_1port:ram|altdpram:mem_rtl_1|segment[0][17]~reg_in ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 2.400 ns                ;
-; N/A                                     ; 65.36 MHz ( period = 15.300 ns )                    ; watch_cnt:cnt|decimal_counter:bit_5|out_dat[3]                                    ; ram_1port:ram|altdpram:mem_rtl_1|segment[0][19]~reg_in ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 2.400 ns                ;
-; N/A                                     ; 65.79 MHz ( period = 15.200 ns )                    ; watch_cnt:cnt|decimal_counter:bit_5|out_dat[0]                                    ; ram_1port:ram|altdpram:mem_rtl_1|segment[0][16]~reg_in ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 2.300 ns                ;
-; N/A                                     ; 65.79 MHz ( period = 15.200 ns )                    ; watch_cnt:cnt|decimal_counter:bit_5|out_dat[2]                                    ; ram_1port:ram|altdpram:mem_rtl_1|segment[0][18]~reg_in ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 2.300 ns                ;
-; N/A                                     ; 68.49 MHz ( period = 14.600 ns )                    ; watch_cnt:cnt|Six_counter:bit_4|out_dat[1]                                        ; ram_1port:ram|altdpram:mem_rtl_1|segment[0][13]~reg_in ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 2.500 ns                ;
-; N/A                                     ; 69.44 MHz ( period = 14.400 ns )                    ; watch_cnt:cnt|Six_counter:bit_4|out_dat[2]                                        ; smg_disp:disp|out[14]                                  ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 2.900 ns                ;
-; N/A                                     ; 69.44 MHz ( period = 14.400 ns )                    ; watch_cnt:cnt|Six_counter:bit_4|out_dat[3]                                        ; smg_disp:disp|out[15]                                  ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 2.900 ns                ;
-; N/A                                     ; 69.44 MHz ( period = 14.400 ns )                    ; watch_cnt:cnt|Six_counter:bit_4|out_dat[3]                                        ; ram_1port:ram|altdpram:mem_rtl_1|segment[0][15]~reg_in ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 2.300 ns                ;
-; N/A                                     ; 69.44 MHz ( period = 14.400 ns )                    ; watch_cnt:cnt|decimal_counter:bit_5|out_dat[0]                                    ; smg_disp:disp|out[16]                                  ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 2.100 ns                ;
-; N/A                                     ; 69.44 MHz ( period = 14.400 ns )                    ; watch_cnt:cnt|decimal_counter:bit_5|out_dat[2]                                    ; smg_disp:disp|out[18]                                  ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 2.100 ns                ;
-; N/A                                     ; 69.44 MHz ( period = 14.400 ns )                    ; watch_cnt:cnt|decimal_counter:bit_5|out_dat[3]                                    ; smg_disp:disp|out[19]                                  ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 2.100 ns                ;
-; N/A                                     ; 69.93 MHz ( period = 14.300 ns )                    ; watch_cnt:cnt|Six_counter:bit_4|out_dat[2]                                        ; ram_1port:ram|altdpram:mem_rtl_1|segment[0][14]~reg_in ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 2.200 ns                ;
-; N/A                                     ; 71.43 MHz ( period = 14.000 ns )                    ; watch_cnt:cnt|Six_counter:bit_4|out_dat[0]                                        ; smg_disp:disp|out[12]                                  ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 2.500 ns                ;
-; N/A                                     ; 71.43 MHz ( period = 14.000 ns )                    ; watch_cnt:cnt|Six_counter:bit_4|out_dat[1]                                        ; smg_disp:disp|out[13]                                  ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 2.500 ns                ;
-; N/A                                     ; 75.76 MHz ( period = 13.200 ns )                    ; key_Control:Control|address_[1]~10                                                ; ram_1port:ram|altdpram:mem_rtl_1|segment[0][2]         ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 11.500 ns               ;
-; N/A                                     ; 75.76 MHz ( period = 13.200 ns )                    ; key_Control:Control|address_[1]~10                                                ; ram_1port:ram|altdpram:mem_rtl_1|segment[0][4]         ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 11.500 ns               ;
-; N/A                                     ; 75.76 MHz ( period = 13.200 ns )                    ; key_Control:Control|address_[1]~10                                                ; ram_1port:ram|altdpram:mem_rtl_1|segment[0][6]         ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 11.500 ns               ;
-; N/A                                     ; 75.76 MHz ( period = 13.200 ns )                    ; key_Control:Control|address_[1]~10                                                ; ram_1port:ram|altdpram:mem_rtl_1|segment[0][8]         ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 11.500 ns               ;
-; N/A                                     ; 75.76 MHz ( period = 13.200 ns )                    ; key_Control:Control|address_[1]~10                                                ; ram_1port:ram|altdpram:mem_rtl_1|segment[0][10]        ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 11.500 ns               ;
-; N/A                                     ; 75.76 MHz ( period = 13.200 ns )                    ; key_Control:Control|address_[1]~10                                                ; ram_1port:ram|altdpram:mem_rtl_1|segment[0][12]        ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 11.500 ns               ;
-; N/A                                     ; 76.34 MHz ( period = 13.100 ns )                    ; key_Control:Control|address_[1]~10                                                ; ram_1port:ram|altdpram:mem_rtl_1|segment[0][1]         ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 11.400 ns               ;
-; N/A                                     ; 76.34 MHz ( period = 13.100 ns )                    ; key_Control:Control|address_[0]~7                                                 ; ram_1port:ram|altdpram:mem_rtl_1|segment[0][2]         ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 11.400 ns               ;
-; N/A                                     ; 76.34 MHz ( period = 13.100 ns )                    ; key_Control:Control|address_[1]~10                                                ; ram_1port:ram|altdpram:mem_rtl_1|segment[0][3]         ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 11.400 ns               ;
-; N/A                                     ; 76.34 MHz ( period = 13.100 ns )                    ; key_Control:Control|address_[0]~7                                                 ; ram_1port:ram|altdpram:mem_rtl_1|segment[0][4]         ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 11.400 ns               ;
-; N/A                                     ; 76.34 MHz ( period = 13.100 ns )                    ; key_Control:Control|address_[1]~10                                                ; ram_1port:ram|altdpram:mem_rtl_1|segment[0][5]         ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 11.400 ns               ;
-; N/A                                     ; 76.34 MHz ( period = 13.100 ns )                    ; key_Control:Control|address_[0]~7                                                 ; ram_1port:ram|altdpram:mem_rtl_1|segment[0][6]         ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 11.400 ns               ;
-; N/A                                     ; 76.34 MHz ( period = 13.100 ns )                    ; key_Control:Control|address_[1]~10                                                ; ram_1port:ram|altdpram:mem_rtl_1|segment[0][7]         ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 11.400 ns               ;
-; N/A                                     ; 76.34 MHz ( period = 13.100 ns )                    ; key_Control:Control|address_[0]~7                                                 ; ram_1port:ram|altdpram:mem_rtl_1|segment[0][8]         ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 11.400 ns               ;
-; N/A                                     ; 76.34 MHz ( period = 13.100 ns )                    ; key_Control:Control|address_[1]~10                                                ; ram_1port:ram|altdpram:mem_rtl_1|segment[0][9]         ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 11.400 ns               ;
-; N/A                                     ; 76.34 MHz ( period = 13.100 ns )                    ; watch_cnt:cnt|decimal_counter:bit_3|out_dat[1]                                    ; ram_1port:ram|altdpram:mem_rtl_1|segment[0][9]~reg_in  ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 2.700 ns                ;
-; N/A                                     ; 76.34 MHz ( period = 13.100 ns )                    ; key_Control:Control|address_[0]~7                                                 ; ram_1port:ram|altdpram:mem_rtl_1|segment[0][10]        ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 11.400 ns               ;
-; N/A                                     ; 76.34 MHz ( period = 13.100 ns )                    ; watch_cnt:cnt|decimal_counter:bit_3|out_dat[2]                                    ; ram_1port:ram|altdpram:mem_rtl_1|segment[0][10]~reg_in ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 2.700 ns                ;
-; N/A                                     ; 76.34 MHz ( period = 13.100 ns )                    ; key_Control:Control|address_[1]~10                                                ; ram_1port:ram|altdpram:mem_rtl_1|segment[0][11]        ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 11.400 ns               ;
-; N/A                                     ; 76.34 MHz ( period = 13.100 ns )                    ; watch_cnt:cnt|decimal_counter:bit_3|out_dat[3]                                    ; ram_1port:ram|altdpram:mem_rtl_1|segment[0][11]~reg_in ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 2.700 ns                ;
-; N/A                                     ; 76.34 MHz ( period = 13.100 ns )                    ; key_Control:Control|address_[0]~7                                                 ; ram_1port:ram|altdpram:mem_rtl_1|segment[0][12]        ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 11.400 ns               ;
-; N/A                                     ; 76.92 MHz ( period = 13.000 ns )                    ; key_Control:Control|address_[0]~7                                                 ; ram_1port:ram|altdpram:mem_rtl_1|segment[0][1]         ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 11.300 ns               ;
-; N/A                                     ; 76.92 MHz ( period = 13.000 ns )                    ; key_Control:Control|address_[0]~7                                                 ; ram_1port:ram|altdpram:mem_rtl_1|segment[0][3]         ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 11.300 ns               ;
-; N/A                                     ; 76.92 MHz ( period = 13.000 ns )                    ; key_Control:Control|address_[0]~7                                                 ; ram_1port:ram|altdpram:mem_rtl_1|segment[0][5]         ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 11.300 ns               ;
-; N/A                                     ; 76.92 MHz ( period = 13.000 ns )                    ; key_Control:Control|address_[0]~7                                                 ; ram_1port:ram|altdpram:mem_rtl_1|segment[0][7]         ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 11.300 ns               ;
-; N/A                                     ; 76.92 MHz ( period = 13.000 ns )                    ; watch_cnt:cnt|decimal_counter:bit_3|out_dat[0]                                    ; ram_1port:ram|altdpram:mem_rtl_1|segment[0][8]~reg_in  ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 2.600 ns                ;
-; N/A                                     ; 76.92 MHz ( period = 13.000 ns )                    ; key_Control:Control|address_[0]~7                                                 ; ram_1port:ram|altdpram:mem_rtl_1|segment[0][9]         ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 11.300 ns               ;
-; N/A                                     ; 76.92 MHz ( period = 13.000 ns )                    ; key_Control:Control|address_[0]~7                                                 ; ram_1port:ram|altdpram:mem_rtl_1|segment[0][11]        ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 11.300 ns               ;
-; N/A                                     ; 77.52 MHz ( period = 12.900 ns )                    ; key_Control:Control|address_[0]                                                   ; ram_1port:ram|altdpram:mem_rtl_1|segment[0][2]         ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 11.200 ns               ;
-; N/A                                     ; 77.52 MHz ( period = 12.900 ns )                    ; key_Control:Control|address_[0]                                                   ; ram_1port:ram|altdpram:mem_rtl_1|segment[0][4]         ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 11.200 ns               ;
-; N/A                                     ; 77.52 MHz ( period = 12.900 ns )                    ; key_Control:Control|address_[0]                                                   ; ram_1port:ram|altdpram:mem_rtl_1|segment[0][6]         ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 11.200 ns               ;
-; N/A                                     ; 77.52 MHz ( period = 12.900 ns )                    ; watch_cnt:cnt|decimal_counter:bit_3|out_dat[0]                                    ; smg_disp:disp|out[8]                                   ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 3.100 ns                ;
-; N/A                                     ; 77.52 MHz ( period = 12.900 ns )                    ; key_Control:Control|address_[0]                                                   ; ram_1port:ram|altdpram:mem_rtl_1|segment[0][8]         ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 11.200 ns               ;
-; N/A                                     ; 77.52 MHz ( period = 12.900 ns )                    ; watch_cnt:cnt|decimal_counter:bit_3|out_dat[1]                                    ; smg_disp:disp|out[9]                                   ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 3.100 ns                ;
-; N/A                                     ; 77.52 MHz ( period = 12.900 ns )                    ; watch_cnt:cnt|decimal_counter:bit_3|out_dat[2]                                    ; smg_disp:disp|out[10]                                  ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 3.100 ns                ;
-; N/A                                     ; 77.52 MHz ( period = 12.900 ns )                    ; key_Control:Control|address_[0]                                                   ; ram_1port:ram|altdpram:mem_rtl_1|segment[0][10]        ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 11.200 ns               ;
-; N/A                                     ; 77.52 MHz ( period = 12.900 ns )                    ; watch_cnt:cnt|decimal_counter:bit_3|out_dat[3]                                    ; smg_disp:disp|out[11]                                  ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 3.100 ns                ;
-; N/A                                     ; 77.52 MHz ( period = 12.900 ns )                    ; key_Control:Control|address_[0]                                                   ; ram_1port:ram|altdpram:mem_rtl_1|segment[0][12]        ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 11.200 ns               ;
-; N/A                                     ; 78.13 MHz ( period = 12.800 ns )                    ; key_Control:Control|address_[0]                                                   ; ram_1port:ram|altdpram:mem_rtl_1|segment[0][1]         ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 11.100 ns               ;
-; N/A                                     ; 78.13 MHz ( period = 12.800 ns )                    ; key_Control:Control|address_[0]                                                   ; ram_1port:ram|altdpram:mem_rtl_1|segment[0][3]         ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 11.100 ns               ;
-; N/A                                     ; 78.13 MHz ( period = 12.800 ns )                    ; key_Control:Control|address_[0]                                                   ; ram_1port:ram|altdpram:mem_rtl_1|segment[0][5]         ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 11.100 ns               ;
-; N/A                                     ; 78.13 MHz ( period = 12.800 ns )                    ; key_Control:Control|address_[0]                                                   ; ram_1port:ram|altdpram:mem_rtl_1|segment[0][7]         ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 11.100 ns               ;
-; N/A                                     ; 78.13 MHz ( period = 12.800 ns )                    ; key_Control:Control|address_[0]                                                   ; ram_1port:ram|altdpram:mem_rtl_1|segment[0][9]         ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 11.100 ns               ;
-; N/A                                     ; 78.13 MHz ( period = 12.800 ns )                    ; key_Control:Control|address_[0]                                                   ; ram_1port:ram|altdpram:mem_rtl_1|segment[0][11]        ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 11.100 ns               ;
-; N/A                                     ; 80.00 MHz ( period = 12.500 ns )                    ; key_Control:Control|address_[1]~10                                                ; ram_1port:ram|altdpram:mem_rtl_1|segment[0][13]        ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 10.800 ns               ;
-; N/A                                     ; 80.00 MHz ( period = 12.500 ns )                    ; key_Control:Control|address_[1]~10                                                ; ram_1port:ram|altdpram:mem_rtl_1|segment[0][15]        ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 10.800 ns               ;
-; N/A                                     ; 80.00 MHz ( period = 12.500 ns )                    ; key_Control:Control|address_[1]~10                                                ; ram_1port:ram|altdpram:mem_rtl_1|segment[0][17]        ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 10.800 ns               ;
-; N/A                                     ; 80.00 MHz ( period = 12.500 ns )                    ; key_Control:Control|address_[1]~10                                                ; ram_1port:ram|altdpram:mem_rtl_1|segment[0][19]        ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 10.800 ns               ;
-; N/A                                     ; 80.00 MHz ( period = 12.500 ns )                    ; key_Control:Control|address_[1]~10                                                ; ram_1port:ram|altdpram:mem_rtl_1|segment[0][21]        ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 10.800 ns               ;
-; N/A                                     ; 80.00 MHz ( period = 12.500 ns )                    ; key_Control:Control|address_[1]~10                                                ; ram_1port:ram|altdpram:mem_rtl_1|segment[0][23]        ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 10.800 ns               ;
-; N/A                                     ; 80.65 MHz ( period = 12.400 ns )                    ; key_Control:Control|address_[1]~10                                                ; ram_1port:ram|altdpram:mem_rtl_1|segment[0][0]         ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 10.700 ns               ;
-; N/A                                     ; 80.65 MHz ( period = 12.400 ns )                    ; key_Control:Control|address_[0]~7                                                 ; ram_1port:ram|altdpram:mem_rtl_1|segment[0][13]        ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 10.700 ns               ;
-; N/A                                     ; 80.65 MHz ( period = 12.400 ns )                    ; key_Control:Control|address_[1]~10                                                ; ram_1port:ram|altdpram:mem_rtl_1|segment[0][14]        ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 10.700 ns               ;
-; N/A                                     ; 80.65 MHz ( period = 12.400 ns )                    ; key_Control:Control|address_[0]~7                                                 ; ram_1port:ram|altdpram:mem_rtl_1|segment[0][15]        ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 10.700 ns               ;
-; N/A                                     ; 80.65 MHz ( period = 12.400 ns )                    ; key_Control:Control|address_[1]~10                                                ; ram_1port:ram|altdpram:mem_rtl_1|segment[0][16]        ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 10.700 ns               ;
-; N/A                                     ; 80.65 MHz ( period = 12.400 ns )                    ; key_Control:Control|address_[0]~7                                                 ; ram_1port:ram|altdpram:mem_rtl_1|segment[0][17]        ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 10.700 ns               ;
-; N/A                                     ; 80.65 MHz ( period = 12.400 ns )                    ; key_Control:Control|address_[1]~10                                                ; ram_1port:ram|altdpram:mem_rtl_1|segment[0][18]        ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 10.700 ns               ;
-; N/A                                     ; 80.65 MHz ( period = 12.400 ns )                    ; key_Control:Control|address_[0]~7                                                 ; ram_1port:ram|altdpram:mem_rtl_1|segment[0][19]        ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 10.700 ns               ;
-; N/A                                     ; 80.65 MHz ( period = 12.400 ns )                    ; key_Control:Control|address_[1]~10                                                ; ram_1port:ram|altdpram:mem_rtl_1|segment[0][20]        ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 10.700 ns               ;
-; N/A                                     ; 80.65 MHz ( period = 12.400 ns )                    ; key_Control:Control|address_[0]~7                                                 ; ram_1port:ram|altdpram:mem_rtl_1|segment[0][21]        ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 10.700 ns               ;
-; N/A                                     ; 80.65 MHz ( period = 12.400 ns )                    ; key_Control:Control|address_[1]~10                                                ; ram_1port:ram|altdpram:mem_rtl_1|segment[0][22]        ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 10.700 ns               ;
-; N/A                                     ; 80.65 MHz ( period = 12.400 ns )                    ; key_Control:Control|address_[0]~7                                                 ; ram_1port:ram|altdpram:mem_rtl_1|segment[0][23]        ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 10.700 ns               ;
-; N/A                                     ; 81.30 MHz ( period = 12.300 ns )                    ; key_Control:Control|address_[0]~7                                                 ; ram_1port:ram|altdpram:mem_rtl_1|segment[0][0]         ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 10.600 ns               ;
-; N/A                                     ; 81.30 MHz ( period = 12.300 ns )                    ; key_Control:Control|address_[0]~6                                                 ; ram_1port:ram|altdpram:mem_rtl_1|segment[0][2]         ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 10.600 ns               ;
-; N/A                                     ; 81.30 MHz ( period = 12.300 ns )                    ; key_Control:Control|address_[2]~9                                                 ; ram_1port:ram|altdpram:mem_rtl_1|segment[0][2]         ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 10.600 ns               ;
-; N/A                                     ; 81.30 MHz ( period = 12.300 ns )                    ; key_Control:Control|address_[0]~6                                                 ; ram_1port:ram|altdpram:mem_rtl_1|segment[0][4]         ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 10.600 ns               ;
-; N/A                                     ; 81.30 MHz ( period = 12.300 ns )                    ; key_Control:Control|address_[2]~9                                                 ; ram_1port:ram|altdpram:mem_rtl_1|segment[0][4]         ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 10.600 ns               ;
-; N/A                                     ; 81.30 MHz ( period = 12.300 ns )                    ; key_Control:Control|address_[0]~6                                                 ; ram_1port:ram|altdpram:mem_rtl_1|segment[0][6]         ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 10.600 ns               ;
-; N/A                                     ; 81.30 MHz ( period = 12.300 ns )                    ; key_Control:Control|address_[2]~9                                                 ; ram_1port:ram|altdpram:mem_rtl_1|segment[0][6]         ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 10.600 ns               ;
-; N/A                                     ; 81.30 MHz ( period = 12.300 ns )                    ; key_Control:Control|address_[0]~6                                                 ; ram_1port:ram|altdpram:mem_rtl_1|segment[0][8]         ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 10.600 ns               ;
-; N/A                                     ; 81.30 MHz ( period = 12.300 ns )                    ; key_Control:Control|address_[2]~9                                                 ; ram_1port:ram|altdpram:mem_rtl_1|segment[0][8]         ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 10.600 ns               ;
-; N/A                                     ; 81.30 MHz ( period = 12.300 ns )                    ; key_Control:Control|address_[0]~6                                                 ; ram_1port:ram|altdpram:mem_rtl_1|segment[0][10]        ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 10.600 ns               ;
-; N/A                                     ; 81.30 MHz ( period = 12.300 ns )                    ; key_Control:Control|address_[2]~9                                                 ; ram_1port:ram|altdpram:mem_rtl_1|segment[0][10]        ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 10.600 ns               ;
-; N/A                                     ; 81.30 MHz ( period = 12.300 ns )                    ; key_Control:Control|address_[0]~6                                                 ; ram_1port:ram|altdpram:mem_rtl_1|segment[0][12]        ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 10.600 ns               ;
-; N/A                                     ; 81.30 MHz ( period = 12.300 ns )                    ; key_Control:Control|address_[2]~9                                                 ; ram_1port:ram|altdpram:mem_rtl_1|segment[0][12]        ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 10.600 ns               ;
-; N/A                                     ; 81.30 MHz ( period = 12.300 ns )                    ; key_Control:Control|address_[0]~7                                                 ; ram_1port:ram|altdpram:mem_rtl_1|segment[0][14]        ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 10.600 ns               ;
-; N/A                                     ; 81.30 MHz ( period = 12.300 ns )                    ; key_Control:Control|address_[0]~7                                                 ; ram_1port:ram|altdpram:mem_rtl_1|segment[0][16]        ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 10.600 ns               ;
-; N/A                                     ; 81.30 MHz ( period = 12.300 ns )                    ; key_Control:Control|address_[0]~7                                                 ; ram_1port:ram|altdpram:mem_rtl_1|segment[0][18]        ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 10.600 ns               ;
-; N/A                                     ; 81.30 MHz ( period = 12.300 ns )                    ; key_Control:Control|address_[0]~7                                                 ; ram_1port:ram|altdpram:mem_rtl_1|segment[0][20]        ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 10.600 ns               ;
-; N/A                                     ; 81.30 MHz ( period = 12.300 ns )                    ; key_Control:Control|address_[0]~7                                                 ; ram_1port:ram|altdpram:mem_rtl_1|segment[0][22]        ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 10.600 ns               ;
-; N/A                                     ; 81.97 MHz ( period = 12.200 ns )                    ; key_Control:Control|address_[0]~6                                                 ; ram_1port:ram|altdpram:mem_rtl_1|segment[0][1]         ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 10.500 ns               ;
-; N/A                                     ; 81.97 MHz ( period = 12.200 ns )                    ; key_Control:Control|address_[2]~9                                                 ; ram_1port:ram|altdpram:mem_rtl_1|segment[0][1]         ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 10.500 ns               ;
-; N/A                                     ; 81.97 MHz ( period = 12.200 ns )                    ; key_Control:Control|address_[0]~en                                                ; ram_1port:ram|altdpram:mem_rtl_1|segment[0][2]         ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 10.500 ns               ;
-; N/A                                     ; 81.97 MHz ( period = 12.200 ns )                    ; key_Control:Control|address_[1]                                                   ; ram_1port:ram|altdpram:mem_rtl_1|segment[0][2]         ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 10.500 ns               ;
-; N/A                                     ; 81.97 MHz ( period = 12.200 ns )                    ; key_Control:Control|address_[2]                                                   ; ram_1port:ram|altdpram:mem_rtl_1|segment[0][2]         ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 10.500 ns               ;
-; N/A                                     ; 81.97 MHz ( period = 12.200 ns )                    ; key_Control:Control|address_[0]~6                                                 ; ram_1port:ram|altdpram:mem_rtl_1|segment[0][3]         ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 10.500 ns               ;
-; N/A                                     ; 81.97 MHz ( period = 12.200 ns )                    ; key_Control:Control|address_[2]~9                                                 ; ram_1port:ram|altdpram:mem_rtl_1|segment[0][3]         ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 10.500 ns               ;
-; N/A                                     ; 81.97 MHz ( period = 12.200 ns )                    ; key_Control:Control|address_[0]~en                                                ; ram_1port:ram|altdpram:mem_rtl_1|segment[0][4]         ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 10.500 ns               ;
-; N/A                                     ; 81.97 MHz ( period = 12.200 ns )                    ; key_Control:Control|address_[1]                                                   ; ram_1port:ram|altdpram:mem_rtl_1|segment[0][4]         ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 10.500 ns               ;
-; N/A                                     ; 81.97 MHz ( period = 12.200 ns )                    ; key_Control:Control|address_[2]                                                   ; ram_1port:ram|altdpram:mem_rtl_1|segment[0][4]         ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 10.500 ns               ;
-; N/A                                     ; 81.97 MHz ( period = 12.200 ns )                    ; key_Control:Control|address_[0]~6                                                 ; ram_1port:ram|altdpram:mem_rtl_1|segment[0][5]         ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 10.500 ns               ;
-; N/A                                     ; 81.97 MHz ( period = 12.200 ns )                    ; key_Control:Control|address_[2]~9                                                 ; ram_1port:ram|altdpram:mem_rtl_1|segment[0][5]         ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 10.500 ns               ;
-; N/A                                     ; 81.97 MHz ( period = 12.200 ns )                    ; key_Control:Control|address_[0]~en                                                ; ram_1port:ram|altdpram:mem_rtl_1|segment[0][6]         ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 10.500 ns               ;
-; N/A                                     ; 81.97 MHz ( period = 12.200 ns )                    ; key_Control:Control|address_[1]                                                   ; ram_1port:ram|altdpram:mem_rtl_1|segment[0][6]         ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 10.500 ns               ;
-; N/A                                     ; 81.97 MHz ( period = 12.200 ns )                    ; key_Control:Control|address_[2]                                                   ; ram_1port:ram|altdpram:mem_rtl_1|segment[0][6]         ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 10.500 ns               ;
-; N/A                                     ; 81.97 MHz ( period = 12.200 ns )                    ; key_Control:Control|address_[0]~6                                                 ; ram_1port:ram|altdpram:mem_rtl_1|segment[0][7]         ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 10.500 ns               ;
-; N/A                                     ; 81.97 MHz ( period = 12.200 ns )                    ; key_Control:Control|address_[2]~9                                                 ; ram_1port:ram|altdpram:mem_rtl_1|segment[0][7]         ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 10.500 ns               ;
-; N/A                                     ; 81.97 MHz ( period = 12.200 ns )                    ; key_Control:Control|address_[0]~en                                                ; ram_1port:ram|altdpram:mem_rtl_1|segment[0][8]         ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 10.500 ns               ;
-; N/A                                     ; 81.97 MHz ( period = 12.200 ns )                    ; key_Control:Control|address_[1]                                                   ; ram_1port:ram|altdpram:mem_rtl_1|segment[0][8]         ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 10.500 ns               ;
-; N/A                                     ; 81.97 MHz ( period = 12.200 ns )                    ; key_Control:Control|address_[2]                                                   ; ram_1port:ram|altdpram:mem_rtl_1|segment[0][8]         ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 10.500 ns               ;
-; N/A                                     ; 81.97 MHz ( period = 12.200 ns )                    ; key_Control:Control|address_[0]~6                                                 ; ram_1port:ram|altdpram:mem_rtl_1|segment[0][9]         ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 10.500 ns               ;
-; N/A                                     ; 81.97 MHz ( period = 12.200 ns )                    ; key_Control:Control|address_[2]~9                                                 ; ram_1port:ram|altdpram:mem_rtl_1|segment[0][9]         ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 10.500 ns               ;
-; N/A                                     ; 81.97 MHz ( period = 12.200 ns )                    ; key_Control:Control|address_[0]~en                                                ; ram_1port:ram|altdpram:mem_rtl_1|segment[0][10]        ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 10.500 ns               ;
-; N/A                                     ; 81.97 MHz ( period = 12.200 ns )                    ; key_Control:Control|address_[1]                                                   ; ram_1port:ram|altdpram:mem_rtl_1|segment[0][10]        ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 10.500 ns               ;
-; N/A                                     ; 81.97 MHz ( period = 12.200 ns )                    ; key_Control:Control|address_[2]                                                   ; ram_1port:ram|altdpram:mem_rtl_1|segment[0][10]        ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 10.500 ns               ;
-; N/A                                     ; 81.97 MHz ( period = 12.200 ns )                    ; key_Control:Control|address_[0]~6                                                 ; ram_1port:ram|altdpram:mem_rtl_1|segment[0][11]        ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 10.500 ns               ;
-; N/A                                     ; 81.97 MHz ( period = 12.200 ns )                    ; key_Control:Control|address_[2]~9                                                 ; ram_1port:ram|altdpram:mem_rtl_1|segment[0][11]        ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 10.500 ns               ;
-; N/A                                     ; 81.97 MHz ( period = 12.200 ns )                    ; key_Control:Control|address_[0]~en                                                ; ram_1port:ram|altdpram:mem_rtl_1|segment[0][12]        ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 10.500 ns               ;
-; N/A                                     ; 81.97 MHz ( period = 12.200 ns )                    ; key_Control:Control|address_[1]                                                   ; ram_1port:ram|altdpram:mem_rtl_1|segment[0][12]        ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 10.500 ns               ;
-; N/A                                     ; 81.97 MHz ( period = 12.200 ns )                    ; key_Control:Control|address_[2]                                                   ; ram_1port:ram|altdpram:mem_rtl_1|segment[0][12]        ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 10.500 ns               ;
-; N/A                                     ; 81.97 MHz ( period = 12.200 ns )                    ; key_Control:Control|address_[0]                                                   ; ram_1port:ram|altdpram:mem_rtl_1|segment[0][13]        ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 10.500 ns               ;
-; N/A                                     ; 81.97 MHz ( period = 12.200 ns )                    ; key_Control:Control|address_[0]                                                   ; ram_1port:ram|altdpram:mem_rtl_1|segment[0][15]        ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 10.500 ns               ;
-; N/A                                     ; 81.97 MHz ( period = 12.200 ns )                    ; key_Control:Control|address_[0]                                                   ; ram_1port:ram|altdpram:mem_rtl_1|segment[0][17]        ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 10.500 ns               ;
-; N/A                                     ; 81.97 MHz ( period = 12.200 ns )                    ; key_Control:Control|address_[0]                                                   ; ram_1port:ram|altdpram:mem_rtl_1|segment[0][19]        ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 10.500 ns               ;
-; N/A                                     ; 81.97 MHz ( period = 12.200 ns )                    ; key_Control:Control|address_[0]                                                   ; ram_1port:ram|altdpram:mem_rtl_1|segment[0][21]        ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 10.500 ns               ;
-; N/A                                     ; 81.97 MHz ( period = 12.200 ns )                    ; key_Control:Control|address_[0]                                                   ; ram_1port:ram|altdpram:mem_rtl_1|segment[0][23]        ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 10.500 ns               ;
-; N/A                                     ; 82.64 MHz ( period = 12.100 ns )                    ; key_Control:Control|address_[0]                                                   ; ram_1port:ram|altdpram:mem_rtl_1|segment[0][0]         ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 10.400 ns               ;
-; N/A                                     ; 82.64 MHz ( period = 12.100 ns )                    ; key_Control:Control|address_[0]~en                                                ; ram_1port:ram|altdpram:mem_rtl_1|segment[0][1]         ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 10.400 ns               ;
-; N/A                                     ; 82.64 MHz ( period = 12.100 ns )                    ; key_Control:Control|address_[1]                                                   ; ram_1port:ram|altdpram:mem_rtl_1|segment[0][1]         ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 10.400 ns               ;
-; N/A                                     ; 82.64 MHz ( period = 12.100 ns )                    ; key_Control:Control|address_[2]                                                   ; ram_1port:ram|altdpram:mem_rtl_1|segment[0][1]         ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 10.400 ns               ;
-; N/A                                     ; 82.64 MHz ( period = 12.100 ns )                    ; key_Control:Control|address_[0]~en                                                ; ram_1port:ram|altdpram:mem_rtl_1|segment[0][3]         ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 10.400 ns               ;
-; N/A                                     ; 82.64 MHz ( period = 12.100 ns )                    ; key_Control:Control|address_[1]                                                   ; ram_1port:ram|altdpram:mem_rtl_1|segment[0][3]         ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 10.400 ns               ;
-; N/A                                     ; 82.64 MHz ( period = 12.100 ns )                    ; key_Control:Control|address_[2]                                                   ; ram_1port:ram|altdpram:mem_rtl_1|segment[0][3]         ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 10.400 ns               ;
-; N/A                                     ; 82.64 MHz ( period = 12.100 ns )                    ; key_Control:Control|address_[0]~en                                                ; ram_1port:ram|altdpram:mem_rtl_1|segment[0][5]         ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 10.400 ns               ;
-; N/A                                     ; 82.64 MHz ( period = 12.100 ns )                    ; key_Control:Control|address_[1]                                                   ; ram_1port:ram|altdpram:mem_rtl_1|segment[0][5]         ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 10.400 ns               ;
-; N/A                                     ; 82.64 MHz ( period = 12.100 ns )                    ; key_Control:Control|address_[2]                                                   ; ram_1port:ram|altdpram:mem_rtl_1|segment[0][5]         ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 10.400 ns               ;
-; N/A                                     ; 82.64 MHz ( period = 12.100 ns )                    ; key_Control:Control|address_[0]~en                                                ; ram_1port:ram|altdpram:mem_rtl_1|segment[0][7]         ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 10.400 ns               ;
-; N/A                                     ; 82.64 MHz ( period = 12.100 ns )                    ; key_Control:Control|address_[1]                                                   ; ram_1port:ram|altdpram:mem_rtl_1|segment[0][7]         ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 10.400 ns               ;
-; N/A                                     ; 82.64 MHz ( period = 12.100 ns )                    ; key_Control:Control|address_[2]                                                   ; ram_1port:ram|altdpram:mem_rtl_1|segment[0][7]         ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 10.400 ns               ;
-; N/A                                     ; 82.64 MHz ( period = 12.100 ns )                    ; key_Control:Control|address_[0]~en                                                ; ram_1port:ram|altdpram:mem_rtl_1|segment[0][9]         ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 10.400 ns               ;
-; N/A                                     ; 82.64 MHz ( period = 12.100 ns )                    ; key_Control:Control|address_[1]                                                   ; ram_1port:ram|altdpram:mem_rtl_1|segment[0][9]         ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 10.400 ns               ;
-; N/A                                     ; 82.64 MHz ( period = 12.100 ns )                    ; key_Control:Control|address_[2]                                                   ; ram_1port:ram|altdpram:mem_rtl_1|segment[0][9]         ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 10.400 ns               ;
-; N/A                                     ; 82.64 MHz ( period = 12.100 ns )                    ; key_Control:Control|address_[0]~en                                                ; ram_1port:ram|altdpram:mem_rtl_1|segment[0][11]        ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 10.400 ns               ;
-; N/A                                     ; 82.64 MHz ( period = 12.100 ns )                    ; key_Control:Control|address_[1]                                                   ; ram_1port:ram|altdpram:mem_rtl_1|segment[0][11]        ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 10.400 ns               ;
-; N/A                                     ; 82.64 MHz ( period = 12.100 ns )                    ; key_Control:Control|address_[2]                                                   ; ram_1port:ram|altdpram:mem_rtl_1|segment[0][11]        ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 10.400 ns               ;
-; N/A                                     ; 82.64 MHz ( period = 12.100 ns )                    ; key_Control:Control|address_[0]                                                   ; ram_1port:ram|altdpram:mem_rtl_1|segment[0][14]        ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 10.400 ns               ;
-; N/A                                     ; 82.64 MHz ( period = 12.100 ns )                    ; key_Control:Control|address_[0]                                                   ; ram_1port:ram|altdpram:mem_rtl_1|segment[0][16]        ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 10.400 ns               ;
-; N/A                                     ; 82.64 MHz ( period = 12.100 ns )                    ; key_Control:Control|address_[0]                                                   ; ram_1port:ram|altdpram:mem_rtl_1|segment[0][18]        ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 10.400 ns               ;
-; N/A                                     ; 82.64 MHz ( period = 12.100 ns )                    ; key_Control:Control|address_[0]                                                   ; ram_1port:ram|altdpram:mem_rtl_1|segment[0][20]        ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 10.400 ns               ;
-; N/A                                     ; 82.64 MHz ( period = 12.100 ns )                    ; key_Control:Control|address_[0]                                                   ; ram_1port:ram|altdpram:mem_rtl_1|segment[0][22]        ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 10.400 ns               ;
-; N/A                                     ; 83.33 MHz ( period = 12.000 ns )                    ; clk_div:fdiv|lpm_counter:cnt_rtl_0|alt_counter_f10ke:wysi_counter|counter_cell[8] ; clk_div:fdiv|clk_out                                   ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 10.900 ns               ;
-; N/A                                     ; 84.03 MHz ( period = 11.900 ns )                    ; clk_div:fdiv|lpm_counter:cnt_rtl_0|alt_counter_f10ke:wysi_counter|counter_cell[4] ; clk_div:fdiv|clk_out                                   ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 10.800 ns               ;
-; N/A                                     ; 84.03 MHz ( period = 11.900 ns )                    ; clk_div:fdiv|lpm_counter:cnt_rtl_0|alt_counter_f10ke:wysi_counter|counter_cell[3] ; clk_div:fdiv|clk_out                                   ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 10.800 ns               ;
-; N/A                                     ; 85.47 MHz ( period = 11.700 ns )                    ; clk_div:fdiv|lpm_counter:cnt_rtl_0|alt_counter_f10ke:wysi_counter|counter_cell[6] ; clk_div:fdiv|clk_out                                   ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 10.600 ns               ;
-; N/A                                     ; 86.21 MHz ( period = 11.600 ns )                    ; key_Control:Control|address_[0]~6                                                 ; ram_1port:ram|altdpram:mem_rtl_1|segment[0][13]        ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 9.900 ns                ;
-; N/A                                     ; 86.21 MHz ( period = 11.600 ns )                    ; key_Control:Control|address_[2]~9                                                 ; ram_1port:ram|altdpram:mem_rtl_1|segment[0][13]        ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 9.900 ns                ;
-; N/A                                     ; 86.21 MHz ( period = 11.600 ns )                    ; key_Control:Control|address_[0]~6                                                 ; ram_1port:ram|altdpram:mem_rtl_1|segment[0][15]        ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 9.900 ns                ;
-; N/A                                     ; 86.21 MHz ( period = 11.600 ns )                    ; key_Control:Control|address_[2]~9                                                 ; ram_1port:ram|altdpram:mem_rtl_1|segment[0][15]        ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 9.900 ns                ;
-; N/A                                     ; 86.21 MHz ( period = 11.600 ns )                    ; key_Control:Control|address_[0]~6                                                 ; ram_1port:ram|altdpram:mem_rtl_1|segment[0][17]        ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 9.900 ns                ;
-; N/A                                     ; 86.21 MHz ( period = 11.600 ns )                    ; key_Control:Control|address_[2]~9                                                 ; ram_1port:ram|altdpram:mem_rtl_1|segment[0][17]        ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 9.900 ns                ;
-; N/A                                     ; 86.21 MHz ( period = 11.600 ns )                    ; key_Control:Control|address_[0]~6                                                 ; ram_1port:ram|altdpram:mem_rtl_1|segment[0][19]        ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 9.900 ns                ;
-; N/A                                     ; 86.21 MHz ( period = 11.600 ns )                    ; key_Control:Control|address_[2]~9                                                 ; ram_1port:ram|altdpram:mem_rtl_1|segment[0][19]        ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 9.900 ns                ;
-; N/A                                     ; 86.21 MHz ( period = 11.600 ns )                    ; key_Control:Control|address_[0]~6                                                 ; ram_1port:ram|altdpram:mem_rtl_1|segment[0][21]        ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 9.900 ns                ;
-; N/A                                     ; 86.21 MHz ( period = 11.600 ns )                    ; key_Control:Control|address_[2]~9                                                 ; ram_1port:ram|altdpram:mem_rtl_1|segment[0][21]        ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 9.900 ns                ;
-; N/A                                     ; 86.21 MHz ( period = 11.600 ns )                    ; key_Control:Control|address_[0]~6                                                 ; ram_1port:ram|altdpram:mem_rtl_1|segment[0][23]        ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 9.900 ns                ;
-; N/A                                     ; 86.21 MHz ( period = 11.600 ns )                    ; key_Control:Control|address_[2]~9                                                 ; ram_1port:ram|altdpram:mem_rtl_1|segment[0][23]        ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 9.900 ns                ;
-; N/A                                     ; 86.96 MHz ( period = 11.500 ns )                    ; key_Control:Control|address_[2]                                                   ; ram_1port:ram|altdpram:mem_rtl_1|segment[0][15]        ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 9.800 ns                ;
-; N/A                                     ; 86.96 MHz ( period = 11.500 ns )                    ; key_Control:Control|address_[0]~6                                                 ; ram_1port:ram|altdpram:mem_rtl_1|segment[0][16]        ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 9.800 ns                ;
-; N/A                                     ; 86.96 MHz ( period = 11.500 ns )                    ; key_Control:Control|address_[2]~9                                                 ; ram_1port:ram|altdpram:mem_rtl_1|segment[0][16]        ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 9.800 ns                ;
-; N/A                                     ; 86.96 MHz ( period = 11.500 ns )                    ; key_Control:Control|address_[0]~en                                                ; ram_1port:ram|altdpram:mem_rtl_1|segment[0][17]        ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 9.800 ns                ;
-; N/A                                     ; 86.96 MHz ( period = 11.500 ns )                    ; key_Control:Control|address_[1]                                                   ; ram_1port:ram|altdpram:mem_rtl_1|segment[0][17]        ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 9.800 ns                ;
-; N/A                                     ; 86.96 MHz ( period = 11.500 ns )                    ; key_Control:Control|address_[2]                                                   ; ram_1port:ram|altdpram:mem_rtl_1|segment[0][17]        ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 9.800 ns                ;
-; N/A                                     ; 86.96 MHz ( period = 11.500 ns )                    ; key_Control:Control|address_[0]~6                                                 ; ram_1port:ram|altdpram:mem_rtl_1|segment[0][18]        ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 9.800 ns                ;
-; N/A                                     ; 86.96 MHz ( period = 11.500 ns )                    ; key_Control:Control|address_[2]~9                                                 ; ram_1port:ram|altdpram:mem_rtl_1|segment[0][18]        ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 9.800 ns                ;
-; N/A                                     ; 86.96 MHz ( period = 11.500 ns )                    ; key_Control:Control|address_[0]~en                                                ; ram_1port:ram|altdpram:mem_rtl_1|segment[0][19]        ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 9.800 ns                ;
-; N/A                                     ; 86.96 MHz ( period = 11.500 ns )                    ; key_Control:Control|address_[1]                                                   ; ram_1port:ram|altdpram:mem_rtl_1|segment[0][19]        ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 9.800 ns                ;
-; N/A                                     ; 86.96 MHz ( period = 11.500 ns )                    ; key_Control:Control|address_[2]                                                   ; ram_1port:ram|altdpram:mem_rtl_1|segment[0][19]        ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 9.800 ns                ;
-; N/A                                     ; 86.96 MHz ( period = 11.500 ns )                    ; key_Control:Control|address_[0]~6                                                 ; ram_1port:ram|altdpram:mem_rtl_1|segment[0][20]        ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 9.800 ns                ;
-; N/A                                     ; 86.96 MHz ( period = 11.500 ns )                    ; key_Control:Control|address_[2]~9                                                 ; ram_1port:ram|altdpram:mem_rtl_1|segment[0][20]        ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 9.800 ns                ;
-; N/A                                     ; 86.96 MHz ( period = 11.500 ns )                    ; key_Control:Control|address_[0]~en                                                ; ram_1port:ram|altdpram:mem_rtl_1|segment[0][21]        ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 9.800 ns                ;
-; N/A                                     ; 86.96 MHz ( period = 11.500 ns )                    ; key_Control:Control|address_[1]                                                   ; ram_1port:ram|altdpram:mem_rtl_1|segment[0][21]        ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 9.800 ns                ;
-; N/A                                     ; 86.96 MHz ( period = 11.500 ns )                    ; key_Control:Control|address_[2]                                                   ; ram_1port:ram|altdpram:mem_rtl_1|segment[0][21]        ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 9.800 ns                ;
-; N/A                                     ; 86.96 MHz ( period = 11.500 ns )                    ; key_Control:Control|address_[0]~6                                                 ; ram_1port:ram|altdpram:mem_rtl_1|segment[0][22]        ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 9.800 ns                ;
-; N/A                                     ; 86.96 MHz ( period = 11.500 ns )                    ; key_Control:Control|address_[2]~9                                                 ; ram_1port:ram|altdpram:mem_rtl_1|segment[0][22]        ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 9.800 ns                ;
-; N/A                                     ; 86.96 MHz ( period = 11.500 ns )                    ; key_Control:Control|address_[0]~en                                                ; ram_1port:ram|altdpram:mem_rtl_1|segment[0][23]        ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 9.800 ns                ;
-; N/A                                     ; 86.96 MHz ( period = 11.500 ns )                    ; key_Control:Control|address_[1]                                                   ; ram_1port:ram|altdpram:mem_rtl_1|segment[0][23]        ; clk_50Mhz  ; clk_50Mhz ; None                        ; None                      ; 9.800 ns                ;
-; Timing analysis restricted to 200 rows. ; To change the limit use Settings (Assignments menu) ;                                                                                   ;                                                        ;            ;           ;                             ;                           ;                         ;
-+-----------------------------------------+-----------------------------------------------------+-----------------------------------------------------------------------------------+--------------------------------------------------------+------------+-----------+-----------------------------+---------------------------+-------------------------+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clock Setup: 'key_start'                                                                                                                                                                                      ;
++-------+------------------------------------------------+--------------------+--------------------+------------+-----------+-----------------------------+---------------------------+-------------------------+
+; Slack ; Actual fmax (period)                           ; From               ; To                 ; From Clock ; To Clock  ; Required Setup Relationship ; Required Longest P2P Time ; Actual Longest P2P Time ;
++-------+------------------------------------------------+--------------------+--------------------+------------+-----------+-----------------------------+---------------------------+-------------------------+
+; N/A   ; Restricted to 200.00 MHz ( period = 5.000 ns ) ; Start_status.STOP  ; Start_status.RESET ; key_start  ; key_start ; None                        ; None                      ; 1.100 ns                ;
+; N/A   ; Restricted to 200.00 MHz ( period = 5.000 ns ) ; Start_status.START ; Start_status.STOP  ; key_start  ; key_start ; None                        ; None                      ; 1.100 ns                ;
+; N/A   ; Restricted to 200.00 MHz ( period = 5.000 ns ) ; Start_status.RESET ; Start_status.START ; key_start  ; key_start ; None                        ; None                      ; 1.100 ns                ;
++-------+------------------------------------------------+--------------------+--------------------+------------+-----------+-----------------------------+---------------------------+-------------------------+
 
 
-+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Clock Setup: 'key_start'                                                                                                                                                                                                                              ;
-+-------+------------------------------------------------+----------------------------------------+----------------------------------------+------------+-----------+-----------------------------+---------------------------+-------------------------+
-; Slack ; Actual fmax (period)                           ; From                                   ; To                                     ; From Clock ; To Clock  ; Required Setup Relationship ; Required Longest P2P Time ; Actual Longest P2P Time ;
-+-------+------------------------------------------------+----------------------------------------+----------------------------------------+------------+-----------+-----------------------------+---------------------------+-------------------------+
-; N/A   ; Restricted to 200.00 MHz ( period = 5.000 ns ) ; key_Control:Control|Start_status.RESET ; key_Control:Control|Start_status.START ; key_start  ; key_start ; None                        ; None                      ; 1.100 ns                ;
-; N/A   ; Restricted to 200.00 MHz ( period = 5.000 ns ) ; key_Control:Control|Start_status.STOP  ; key_Control:Control|Start_status.RESET ; key_start  ; key_start ; None                        ; None                      ; 1.100 ns                ;
-; N/A   ; Restricted to 200.00 MHz ( period = 5.000 ns ) ; key_Control:Control|Start_status.START ; key_Control:Control|Start_status.STOP  ; key_start  ; key_start ; None                        ; None                      ; 1.100 ns                ;
-+-------+------------------------------------------------+----------------------------------------+----------------------------------------+------------+-----------+-----------------------------+---------------------------+-------------------------+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clock Setup: 'key_pause'                                                                                                                                                          ;
++-------+------------------------------------------------+------+------+------------+-----------+-----------------------------+---------------------------+-------------------------+
+; Slack ; Actual fmax (period)                           ; From ; To   ; From Clock ; To Clock  ; Required Setup Relationship ; Required Longest P2P Time ; Actual Longest P2P Time ;
++-------+------------------------------------------------+------+------+------------+-----------+-----------------------------+---------------------------+-------------------------+
+; N/A   ; Restricted to 200.00 MHz ( period = 5.000 ns ) ; en__ ; en__ ; key_pause  ; key_pause ; None                        ; None                      ; 1.300 ns                ;
++-------+------------------------------------------------+------+------+------------+-----------+-----------------------------+---------------------------+-------------------------+
 
 
-+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Clock Setup: 'key_pause'                                                                                                                                                                                                  ;
-+-------+------------------------------------------------+--------------------------+--------------------------+------------+-----------+-----------------------------+---------------------------+-------------------------+
-; Slack ; Actual fmax (period)                           ; From                     ; To                       ; From Clock ; To Clock  ; Required Setup Relationship ; Required Longest P2P Time ; Actual Longest P2P Time ;
-+-------+------------------------------------------------+--------------------------+--------------------------+------------+-----------+-----------------------------+---------------------------+-------------------------+
-; N/A   ; Restricted to 200.00 MHz ( period = 5.000 ns ) ; key_Control:Control|en__ ; key_Control:Control|en__ ; key_pause  ; key_pause ; None                        ; None                      ; 2.800 ns                ;
-+-------+------------------------------------------------+--------------------------+--------------------------+------------+-----------+-----------------------------+---------------------------+-------------------------+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clock Setup: 'clk'                                                                                                                                                                                                       ;
++-------+------------------------------------------------+--------------------------+--------------------------+------------+----------+-----------------------------+---------------------------+-------------------------+
+; Slack ; Actual fmax (period)                           ; From                     ; To                       ; From Clock ; To Clock ; Required Setup Relationship ; Required Longest P2P Time ; Actual Longest P2P Time ;
++-------+------------------------------------------------+--------------------------+--------------------------+------------+----------+-----------------------------+---------------------------+-------------------------+
+; N/A   ; 107.53 MHz ( period = 9.300 ns )               ; address_[0]              ; address_[3]~8            ; clk        ; clk      ; None                        ; None                      ; 8.200 ns                ;
+; N/A   ; 107.53 MHz ( period = 9.300 ns )               ; address_[0]~en           ; address_[3]~8            ; clk        ; clk      ; None                        ; None                      ; 8.200 ns                ;
+; N/A   ; 109.89 MHz ( period = 9.100 ns )               ; address_[0]              ; address_[3]              ; clk        ; clk      ; None                        ; None                      ; 8.000 ns                ;
+; N/A   ; 109.89 MHz ( period = 9.100 ns )               ; address_[0]~en           ; address_[3]              ; clk        ; clk      ; None                        ; None                      ; 8.000 ns                ;
+; N/A   ; 116.28 MHz ( period = 8.600 ns )               ; address_[0]~6            ; address_[3]~8            ; clk        ; clk      ; None                        ; None                      ; 7.500 ns                ;
+; N/A   ; 116.28 MHz ( period = 8.600 ns )               ; address_[0]~7            ; address_[3]~8            ; clk        ; clk      ; None                        ; None                      ; 7.500 ns                ;
+; N/A   ; 117.65 MHz ( period = 8.500 ns )               ; address_[1]~10           ; address_[3]~8            ; clk        ; clk      ; None                        ; None                      ; 7.400 ns                ;
+; N/A   ; 119.05 MHz ( period = 8.400 ns )               ; address_[0]~7            ; address_[3]              ; clk        ; clk      ; None                        ; None                      ; 7.300 ns                ;
+; N/A   ; 120.48 MHz ( period = 8.300 ns )               ; address_[1]              ; address_[3]~8            ; clk        ; clk      ; None                        ; None                      ; 7.200 ns                ;
+; N/A   ; 121.95 MHz ( period = 8.200 ns )               ; address_[0]~6            ; address_[3]              ; clk        ; clk      ; None                        ; None                      ; 7.100 ns                ;
+; N/A   ; 123.46 MHz ( period = 8.100 ns )               ; address_[1]~10           ; address_[3]              ; clk        ; clk      ; None                        ; None                      ; 7.000 ns                ;
+; N/A   ; 126.58 MHz ( period = 7.900 ns )               ; address_[1]              ; address_[3]              ; clk        ; clk      ; None                        ; None                      ; 6.800 ns                ;
+; N/A   ; 135.14 MHz ( period = 7.400 ns )               ; address_[0]              ; address_[2]~9            ; clk        ; clk      ; None                        ; None                      ; 6.300 ns                ;
+; N/A   ; 135.14 MHz ( period = 7.400 ns )               ; address_[0]~en           ; address_[2]~9            ; clk        ; clk      ; None                        ; None                      ; 6.300 ns                ;
+; N/A   ; 135.14 MHz ( period = 7.400 ns )               ; address_[0]              ; address_[2]              ; clk        ; clk      ; None                        ; None                      ; 6.300 ns                ;
+; N/A   ; 135.14 MHz ( period = 7.400 ns )               ; address_[0]~en           ; address_[2]              ; clk        ; clk      ; None                        ; None                      ; 6.300 ns                ;
+; N/A   ; 149.25 MHz ( period = 6.700 ns )               ; address_[0]~6            ; address_[2]~9            ; clk        ; clk      ; None                        ; None                      ; 5.600 ns                ;
+; N/A   ; 149.25 MHz ( period = 6.700 ns )               ; address_[0]~7            ; address_[2]~9            ; clk        ; clk      ; None                        ; None                      ; 5.600 ns                ;
+; N/A   ; 149.25 MHz ( period = 6.700 ns )               ; address_[0]~7            ; address_[2]              ; clk        ; clk      ; None                        ; None                      ; 5.600 ns                ;
+; N/A   ; 151.52 MHz ( period = 6.600 ns )               ; address_[1]~10           ; address_[2]~9            ; clk        ; clk      ; None                        ; None                      ; 5.500 ns                ;
+; N/A   ; 153.85 MHz ( period = 6.500 ns )               ; address_[0]~6            ; address_[2]              ; clk        ; clk      ; None                        ; None                      ; 5.400 ns                ;
+; N/A   ; 156.25 MHz ( period = 6.400 ns )               ; address_[1]              ; address_[2]~9            ; clk        ; clk      ; None                        ; None                      ; 5.300 ns                ;
+; N/A   ; 156.25 MHz ( period = 6.400 ns )               ; address_[1]~10           ; address_[2]              ; clk        ; clk      ; None                        ; None                      ; 5.300 ns                ;
+; N/A   ; 161.29 MHz ( period = 6.200 ns )               ; address_[1]              ; address_[2]              ; clk        ; clk      ; None                        ; None                      ; 5.100 ns                ;
+; N/A   ; 166.67 MHz ( period = 6.000 ns )               ; address_[2]~9            ; address_[3]~8            ; clk        ; clk      ; None                        ; None                      ; 4.900 ns                ;
+; N/A   ; 166.67 MHz ( period = 6.000 ns )               ; address_[2]~9            ; address_[3]              ; clk        ; clk      ; None                        ; None                      ; 4.900 ns                ;
+; N/A   ; 166.67 MHz ( period = 6.000 ns )               ; address_[3]~8            ; address_[3]              ; clk        ; clk      ; None                        ; None                      ; 4.900 ns                ;
+; N/A   ; 172.41 MHz ( period = 5.800 ns )               ; address_[2]              ; address_[3]~8            ; clk        ; clk      ; None                        ; None                      ; 4.700 ns                ;
+; N/A   ; 172.41 MHz ( period = 5.800 ns )               ; address_[3]~8            ; address_[3]~8            ; clk        ; clk      ; None                        ; None                      ; 4.700 ns                ;
+; N/A   ; 172.41 MHz ( period = 5.800 ns )               ; address_[2]              ; address_[3]              ; clk        ; clk      ; None                        ; None                      ; 4.700 ns                ;
+; N/A   ; 172.41 MHz ( period = 5.800 ns )               ; address_[3]              ; address_[3]              ; clk        ; clk      ; None                        ; None                      ; 4.700 ns                ;
+; N/A   ; 175.44 MHz ( period = 5.700 ns )               ; address_[0]              ; address_[0]              ; clk        ; clk      ; None                        ; None                      ; 4.600 ns                ;
+; N/A   ; 175.44 MHz ( period = 5.700 ns )               ; address_[0]~en           ; address_[0]              ; clk        ; clk      ; None                        ; None                      ; 4.600 ns                ;
+; N/A   ; 178.57 MHz ( period = 5.600 ns )               ; address_[3]              ; address_[3]~8            ; clk        ; clk      ; None                        ; None                      ; 4.500 ns                ;
+; N/A   ; 181.82 MHz ( period = 5.500 ns )               ; address_[0]~6            ; address_[1]~10           ; clk        ; clk      ; None                        ; None                      ; 4.400 ns                ;
+; N/A   ; 181.82 MHz ( period = 5.500 ns )               ; address_[0]~6            ; address_[1]              ; clk        ; clk      ; None                        ; None                      ; 4.400 ns                ;
+; N/A   ; 200.00 MHz ( period = 5.000 ns )               ; address_[0]~7            ; address_[0]              ; clk        ; clk      ; None                        ; None                      ; 3.900 ns                ;
+; N/A   ; 200.00 MHz ( period = 5.000 ns )               ; address_[0]              ; address_[1]~10           ; clk        ; clk      ; None                        ; None                      ; 3.900 ns                ;
+; N/A   ; 200.00 MHz ( period = 5.000 ns )               ; address_[0]~en           ; address_[1]~10           ; clk        ; clk      ; None                        ; None                      ; 3.900 ns                ;
+; N/A   ; 200.00 MHz ( period = 5.000 ns )               ; address_[0]              ; address_[1]              ; clk        ; clk      ; None                        ; None                      ; 3.900 ns                ;
+; N/A   ; 200.00 MHz ( period = 5.000 ns )               ; address_[0]~en           ; address_[1]              ; clk        ; clk      ; None                        ; None                      ; 3.900 ns                ;
+; N/A   ; Restricted to 200.00 MHz ( period = 5.000 ns ) ; Read_Status.READDATA     ; data_read[6]             ; clk        ; clk      ; None                        ; None                      ; 3.800 ns                ;
+; N/A   ; Restricted to 200.00 MHz ( period = 5.000 ns ) ; Read_Status.READDATA     ; data_read[7]             ; clk        ; clk      ; None                        ; None                      ; 3.800 ns                ;
+; N/A   ; Restricted to 200.00 MHz ( period = 5.000 ns ) ; Read_Status.READDATA     ; data_read[9]             ; clk        ; clk      ; None                        ; None                      ; 3.800 ns                ;
+; N/A   ; Restricted to 200.00 MHz ( period = 5.000 ns ) ; Read_Status.READDATA     ; data_read[10]            ; clk        ; clk      ; None                        ; None                      ; 3.800 ns                ;
+; N/A   ; Restricted to 200.00 MHz ( period = 5.000 ns ) ; address_[0]~6            ; address_[0]              ; clk        ; clk      ; None                        ; None                      ; 3.700 ns                ;
+; N/A   ; Restricted to 200.00 MHz ( period = 5.000 ns ) ; address_[0]              ; address_[0]~7            ; clk        ; clk      ; None                        ; None                      ; 3.700 ns                ;
+; N/A   ; Restricted to 200.00 MHz ( period = 5.000 ns ) ; address_[0]~en           ; address_[0]~7            ; clk        ; clk      ; None                        ; None                      ; 3.700 ns                ;
+; N/A   ; Restricted to 200.00 MHz ( period = 5.000 ns ) ; Read_Status.READDATA     ; data_read[3]             ; clk        ; clk      ; None                        ; None                      ; 3.600 ns                ;
+; N/A   ; Restricted to 200.00 MHz ( period = 5.000 ns ) ; Read_Status.READDATA     ; data_read[4]             ; clk        ; clk      ; None                        ; None                      ; 3.600 ns                ;
+; N/A   ; Restricted to 200.00 MHz ( period = 5.000 ns ) ; Read_Status.READDATA     ; data_read[8]             ; clk        ; clk      ; None                        ; None                      ; 3.600 ns                ;
+; N/A   ; Restricted to 200.00 MHz ( period = 5.000 ns ) ; Read_Status.READDATA     ; data_read[15]            ; clk        ; clk      ; None                        ; None                      ; 3.600 ns                ;
+; N/A   ; Restricted to 200.00 MHz ( period = 5.000 ns ) ; Read_Status.READDATA     ; data_read[16]            ; clk        ; clk      ; None                        ; None                      ; 3.600 ns                ;
+; N/A   ; Restricted to 200.00 MHz ( period = 5.000 ns ) ; Read_Status.READDATA     ; data_read[17]            ; clk        ; clk      ; None                        ; None                      ; 3.600 ns                ;
+; N/A   ; Restricted to 200.00 MHz ( period = 5.000 ns ) ; Read_Status.READDATA     ; data_read[18]            ; clk        ; clk      ; None                        ; None                      ; 3.600 ns                ;
+; N/A   ; Restricted to 200.00 MHz ( period = 5.000 ns ) ; address_[0]~7            ; address_[1]~10           ; clk        ; clk      ; None                        ; None                      ; 3.200 ns                ;
+; N/A   ; Restricted to 200.00 MHz ( period = 5.000 ns ) ; address_[0]~7            ; address_[1]              ; clk        ; clk      ; None                        ; None                      ; 3.200 ns                ;
+; N/A   ; Restricted to 200.00 MHz ( period = 5.000 ns ) ; address_[2]~9            ; address_[2]~9            ; clk        ; clk      ; None                        ; None                      ; 3.200 ns                ;
+; N/A   ; Restricted to 200.00 MHz ( period = 5.000 ns ) ; address_[2]~9            ; address_[2]              ; clk        ; clk      ; None                        ; None                      ; 3.200 ns                ;
+; N/A   ; Restricted to 200.00 MHz ( period = 5.000 ns ) ; Read_Status.READDATA     ; data_read[11]            ; clk        ; clk      ; None                        ; None                      ; 3.000 ns                ;
+; N/A   ; Restricted to 200.00 MHz ( period = 5.000 ns ) ; Read_Status.READDATA     ; data_read[12]            ; clk        ; clk      ; None                        ; None                      ; 3.000 ns                ;
+; N/A   ; Restricted to 200.00 MHz ( period = 5.000 ns ) ; Read_Status.READDATA     ; data_read[13]            ; clk        ; clk      ; None                        ; None                      ; 3.000 ns                ;
+; N/A   ; Restricted to 200.00 MHz ( period = 5.000 ns ) ; Read_Status.READDATA     ; data_read[14]            ; clk        ; clk      ; None                        ; None                      ; 3.000 ns                ;
+; N/A   ; Restricted to 200.00 MHz ( period = 5.000 ns ) ; Read_Status.READDATA     ; data_read[19]            ; clk        ; clk      ; None                        ; None                      ; 3.000 ns                ;
+; N/A   ; Restricted to 200.00 MHz ( period = 5.000 ns ) ; Read_Status.READDATA     ; data_read[20]            ; clk        ; clk      ; None                        ; None                      ; 3.000 ns                ;
+; N/A   ; Restricted to 200.00 MHz ( period = 5.000 ns ) ; Read_Status.READDATA     ; data_read[21]            ; clk        ; clk      ; None                        ; None                      ; 3.000 ns                ;
+; N/A   ; Restricted to 200.00 MHz ( period = 5.000 ns ) ; Read_Status.READDATA     ; data_read[22]            ; clk        ; clk      ; None                        ; None                      ; 3.000 ns                ;
+; N/A   ; Restricted to 200.00 MHz ( period = 5.000 ns ) ; address_[0]~7            ; address_[0]~7            ; clk        ; clk      ; None                        ; None                      ; 3.000 ns                ;
+; N/A   ; Restricted to 200.00 MHz ( period = 5.000 ns ) ; address_[1]~10           ; address_[1]~10           ; clk        ; clk      ; None                        ; None                      ; 3.000 ns                ;
+; N/A   ; Restricted to 200.00 MHz ( period = 5.000 ns ) ; address_[1]~10           ; address_[1]              ; clk        ; clk      ; None                        ; None                      ; 3.000 ns                ;
+; N/A   ; Restricted to 200.00 MHz ( period = 5.000 ns ) ; address_[2]              ; address_[2]~9            ; clk        ; clk      ; None                        ; None                      ; 3.000 ns                ;
+; N/A   ; Restricted to 200.00 MHz ( period = 5.000 ns ) ; address_[2]              ; address_[2]              ; clk        ; clk      ; None                        ; None                      ; 3.000 ns                ;
+; N/A   ; Restricted to 200.00 MHz ( period = 5.000 ns ) ; Read_Status.READDATA     ; data_read[0]             ; clk        ; clk      ; None                        ; None                      ; 2.800 ns                ;
+; N/A   ; Restricted to 200.00 MHz ( period = 5.000 ns ) ; Read_Status.READDATA     ; data_read[2]             ; clk        ; clk      ; None                        ; None                      ; 2.800 ns                ;
+; N/A   ; Restricted to 200.00 MHz ( period = 5.000 ns ) ; Read_Status.READDATA     ; data_read[5]             ; clk        ; clk      ; None                        ; None                      ; 2.800 ns                ;
+; N/A   ; Restricted to 200.00 MHz ( period = 5.000 ns ) ; Read_Status.READDATA     ; data_read[23]            ; clk        ; clk      ; None                        ; None                      ; 2.800 ns                ;
+; N/A   ; Restricted to 200.00 MHz ( period = 5.000 ns ) ; address_[0]~6            ; address_[0]~7            ; clk        ; clk      ; None                        ; None                      ; 2.800 ns                ;
+; N/A   ; Restricted to 200.00 MHz ( period = 5.000 ns ) ; address_[1]              ; address_[1]~10           ; clk        ; clk      ; None                        ; None                      ; 2.800 ns                ;
+; N/A   ; Restricted to 200.00 MHz ( period = 5.000 ns ) ; address_[1]              ; address_[1]              ; clk        ; clk      ; None                        ; None                      ; 2.800 ns                ;
+; N/A   ; Restricted to 200.00 MHz ( period = 5.000 ns ) ; Read_Status.FINISHREAD   ; address_[2]~9            ; clk        ; clk      ; None                        ; None                      ; 2.300 ns                ;
+; N/A   ; Restricted to 200.00 MHz ( period = 5.000 ns ) ; Read_Status.FINISHREAD   ; address_[3]~8            ; clk        ; clk      ; None                        ; None                      ; 2.300 ns                ;
+; N/A   ; Restricted to 200.00 MHz ( period = 5.000 ns ) ; Read_Status.FINISHREAD   ; address_[0]~6            ; clk        ; clk      ; None                        ; None                      ; 2.200 ns                ;
+; N/A   ; Restricted to 200.00 MHz ( period = 5.000 ns ) ; Read_Status.FINISHREAD   ; address_[0]~7            ; clk        ; clk      ; None                        ; None                      ; 2.200 ns                ;
+; N/A   ; Restricted to 200.00 MHz ( period = 5.000 ns ) ; Read_Status.FINISHREAD   ; address_[1]~10           ; clk        ; clk      ; None                        ; None                      ; 2.200 ns                ;
+; N/A   ; Restricted to 200.00 MHz ( period = 5.000 ns ) ; Write_Status.STARTWRITE  ; address_[1]              ; clk        ; clk      ; None                        ; None                      ; 2.000 ns                ;
+; N/A   ; Restricted to 200.00 MHz ( period = 5.000 ns ) ; Write_Status.STARTWRITE  ; address_[2]              ; clk        ; clk      ; None                        ; None                      ; 2.000 ns                ;
+; N/A   ; Restricted to 200.00 MHz ( period = 5.000 ns ) ; Write_Status.STARTWRITE  ; address_[3]              ; clk        ; clk      ; None                        ; None                      ; 2.000 ns                ;
+; N/A   ; Restricted to 200.00 MHz ( period = 5.000 ns ) ; Write_Status.WRITEDATA   ; wren_                    ; clk        ; clk      ; None                        ; None                      ; 1.400 ns                ;
+; N/A   ; Restricted to 200.00 MHz ( period = 5.000 ns ) ; wren_                    ; wren_                    ; clk        ; clk      ; None                        ; None                      ; 1.300 ns                ;
+; N/A   ; Restricted to 200.00 MHz ( period = 5.000 ns ) ; Write_Status.STARTWRITE  ; wren_                    ; clk        ; clk      ; None                        ; None                      ; 1.300 ns                ;
+; N/A   ; Restricted to 200.00 MHz ( period = 5.000 ns ) ; Write_Status.PREWRITE    ; Write_Status.PREWRITE    ; clk        ; clk      ; None                        ; None                      ; 1.300 ns                ;
+; N/A   ; Restricted to 200.00 MHz ( period = 5.000 ns ) ; Write_Status.FINISHWRITE ; Write_Status.PREWRITE    ; clk        ; clk      ; None                        ; None                      ; 1.300 ns                ;
+; N/A   ; Restricted to 200.00 MHz ( period = 5.000 ns ) ; disp_SEL                 ; disp_SEL                 ; clk        ; clk      ; None                        ; None                      ; 1.300 ns                ;
+; N/A   ; Restricted to 200.00 MHz ( period = 5.000 ns ) ; Read_Status.FINISHREAD   ; disp_SEL                 ; clk        ; clk      ; None                        ; None                      ; 1.300 ns                ;
+; N/A   ; Restricted to 200.00 MHz ( period = 5.000 ns ) ; Read_Status.PREREAD      ; Read_Status.PREREAD      ; clk        ; clk      ; None                        ; None                      ; 1.300 ns                ;
+; N/A   ; Restricted to 200.00 MHz ( period = 5.000 ns ) ; Read_Status.FINISHREAD   ; Read_Status.PREREAD      ; clk        ; clk      ; None                        ; None                      ; 1.300 ns                ;
+; N/A   ; Restricted to 200.00 MHz ( period = 5.000 ns ) ; Read_Status.READDATA     ; data_read[1]             ; clk        ; clk      ; None                        ; None                      ; 1.300 ns                ;
+; N/A   ; Restricted to 200.00 MHz ( period = 5.000 ns ) ; Write_Status.STARTWRITE  ; address_[0]              ; clk        ; clk      ; None                        ; None                      ; 1.300 ns                ;
+; N/A   ; Restricted to 200.00 MHz ( period = 5.000 ns ) ; Write_Status.STARTWRITE  ; address_[0]~en           ; clk        ; clk      ; None                        ; None                      ; 1.300 ns                ;
+; N/A   ; Restricted to 200.00 MHz ( period = 5.000 ns ) ; Write_Status.PREWRITE    ; wren_                    ; clk        ; clk      ; None                        ; None                      ; 1.100 ns                ;
+; N/A   ; Restricted to 200.00 MHz ( period = 5.000 ns ) ; Write_Status.PREWRITE    ; Write_Status.STARTWRITE  ; clk        ; clk      ; None                        ; None                      ; 1.100 ns                ;
+; N/A   ; Restricted to 200.00 MHz ( period = 5.000 ns ) ; Write_Status.STARTWRITE  ; Write_Status.WRITEDATA   ; clk        ; clk      ; None                        ; None                      ; 1.100 ns                ;
+; N/A   ; Restricted to 200.00 MHz ( period = 5.000 ns ) ; Read_Status.PREREAD      ; Read_Status.READDATA     ; clk        ; clk      ; None                        ; None                      ; 1.100 ns                ;
+; N/A   ; Restricted to 200.00 MHz ( period = 5.000 ns ) ; Read_Status.READDATA     ; disp_SEL                 ; clk        ; clk      ; None                        ; None                      ; 1.100 ns                ;
+; N/A   ; Restricted to 200.00 MHz ( period = 5.000 ns ) ; Read_Status.READDATA     ; Read_Status.FINISHREAD   ; clk        ; clk      ; None                        ; None                      ; 1.100 ns                ;
+; N/A   ; Restricted to 200.00 MHz ( period = 5.000 ns ) ; Write_Status.WRITEDATA   ; Write_Status.FINISHWRITE ; clk        ; clk      ; None                        ; None                      ; 1.100 ns                ;
++-------+------------------------------------------------+--------------------------+--------------------------+------------+----------+-----------------------------+---------------------------+-------------------------+
 
 
-+---------------------------------------------------------------------------------------+
-; tco                                                                                   ;
-+-------+--------------+------------+-----------------------+--------------+------------+
-; Slack ; Required tco ; Actual tco ; From                  ; To           ; From Clock ;
-+-------+--------------+------------+-----------------------+--------------+------------+
-; N/A   ; None         ; 11.700 ns  ; smg_disp:disp|out[12] ; disp_out[12] ; clk_50Mhz  ;
-; N/A   ; None         ; 11.500 ns  ; smg_disp:disp|out[22] ; disp_out[22] ; clk_50Mhz  ;
-; N/A   ; None         ; 11.500 ns  ; smg_disp:disp|out[10] ; disp_out[10] ; clk_50Mhz  ;
-; N/A   ; None         ; 11.500 ns  ; smg_disp:disp|out[9]  ; disp_out[9]  ; clk_50Mhz  ;
-; N/A   ; None         ; 11.400 ns  ; smg_disp:disp|out[17] ; disp_out[17] ; clk_50Mhz  ;
-; N/A   ; None         ; 11.400 ns  ; smg_disp:disp|out[4]  ; disp_out[4]  ; clk_50Mhz  ;
-; N/A   ; None         ; 11.300 ns  ; smg_disp:disp|out[18] ; disp_out[18] ; clk_50Mhz  ;
-; N/A   ; None         ; 11.300 ns  ; smg_disp:disp|out[8]  ; disp_out[8]  ; clk_50Mhz  ;
-; N/A   ; None         ; 11.300 ns  ; smg_disp:disp|out[0]  ; disp_out[0]  ; clk_50Mhz  ;
-; N/A   ; None         ; 11.200 ns  ; smg_disp:disp|out[5]  ; disp_out[5]  ; clk_50Mhz  ;
-; N/A   ; None         ; 11.100 ns  ; smg_disp:disp|out[13] ; disp_out[13] ; clk_50Mhz  ;
-; N/A   ; None         ; 10.600 ns  ; smg_disp:disp|out[23] ; disp_out[23] ; clk_50Mhz  ;
-; N/A   ; None         ; 10.600 ns  ; smg_disp:disp|out[14] ; disp_out[14] ; clk_50Mhz  ;
-; N/A   ; None         ; 10.600 ns  ; smg_disp:disp|out[3]  ; disp_out[3]  ; clk_50Mhz  ;
-; N/A   ; None         ; 10.600 ns  ; smg_disp:disp|out[2]  ; disp_out[2]  ; clk_50Mhz  ;
-; N/A   ; None         ; 10.400 ns  ; smg_disp:disp|out[7]  ; disp_out[7]  ; clk_50Mhz  ;
-; N/A   ; None         ; 10.400 ns  ; smg_disp:disp|out[6]  ; disp_out[6]  ; clk_50Mhz  ;
-; N/A   ; None         ; 10.400 ns  ; smg_disp:disp|out[1]  ; disp_out[1]  ; clk_50Mhz  ;
-; N/A   ; None         ; 10.000 ns  ; smg_disp:disp|out[21] ; disp_out[21] ; clk_50Mhz  ;
-; N/A   ; None         ; 10.000 ns  ; smg_disp:disp|out[20] ; disp_out[20] ; clk_50Mhz  ;
-; N/A   ; None         ; 10.000 ns  ; smg_disp:disp|out[19] ; disp_out[19] ; clk_50Mhz  ;
-; N/A   ; None         ; 10.000 ns  ; smg_disp:disp|out[16] ; disp_out[16] ; clk_50Mhz  ;
-; N/A   ; None         ; 10.000 ns  ; smg_disp:disp|out[15] ; disp_out[15] ; clk_50Mhz  ;
-; N/A   ; None         ; 9.900 ns   ; smg_disp:disp|out[11] ; disp_out[11] ; clk_50Mhz  ;
-+-------+--------------+------------+-----------------------+--------------+------------+
++-----------------------------------------------------------------------------+
+; tsu                                                                         ;
++-------+--------------+------------+--------------+---------------+----------+
+; Slack ; Required tsu ; Actual tsu ; From         ; To            ; To Clock ;
++-------+--------------+------------+--------------+---------------+----------+
+; N/A   ; None         ; 6.600 ns   ; data_ram[18] ; data_read[18] ; clk      ;
+; N/A   ; None         ; 6.500 ns   ; data_ram[4]  ; data_read[4]  ; clk      ;
+; N/A   ; None         ; 6.400 ns   ; data_ram[9]  ; data_read[9]  ; clk      ;
+; N/A   ; None         ; 6.400 ns   ; data_ram[3]  ; data_read[3]  ; clk      ;
+; N/A   ; None         ; 6.300 ns   ; data_ram[21] ; data_read[21] ; clk      ;
+; N/A   ; None         ; 6.300 ns   ; data_ram[19] ; data_read[19] ; clk      ;
+; N/A   ; None         ; 6.300 ns   ; data_ram[17] ; data_read[17] ; clk      ;
+; N/A   ; None         ; 6.300 ns   ; data_ram[8]  ; data_read[8]  ; clk      ;
+; N/A   ; None         ; 6.300 ns   ; data_ram[5]  ; data_read[5]  ; clk      ;
+; N/A   ; None         ; 6.300 ns   ; data_ram[1]  ; data_read[1]  ; clk      ;
+; N/A   ; None         ; 6.200 ns   ; data_ram[22] ; data_read[22] ; clk      ;
+; N/A   ; None         ; 6.200 ns   ; data_ram[13] ; data_read[13] ; clk      ;
+; N/A   ; None         ; 6.200 ns   ; data_ram[12] ; data_read[12] ; clk      ;
+; N/A   ; None         ; 6.200 ns   ; data_ram[10] ; data_read[10] ; clk      ;
+; N/A   ; None         ; 6.200 ns   ; data_ram[7]  ; data_read[7]  ; clk      ;
+; N/A   ; None         ; 6.200 ns   ; data_ram[6]  ; data_read[6]  ; clk      ;
+; N/A   ; None         ; 6.200 ns   ; data_ram[2]  ; data_read[2]  ; clk      ;
+; N/A   ; None         ; 6.200 ns   ; data_ram[0]  ; data_read[0]  ; clk      ;
+; N/A   ; None         ; 6.100 ns   ; data_ram[16] ; data_read[16] ; clk      ;
+; N/A   ; None         ; 6.000 ns   ; data_ram[20] ; data_read[20] ; clk      ;
+; N/A   ; None         ; 6.000 ns   ; data_ram[15] ; data_read[15] ; clk      ;
+; N/A   ; None         ; 5.900 ns   ; data_ram[14] ; data_read[14] ; clk      ;
+; N/A   ; None         ; 5.800 ns   ; data_ram[11] ; data_read[11] ; clk      ;
+; N/A   ; None         ; 5.500 ns   ; data_ram[23] ; data_read[23] ; clk      ;
++-------+--------------+------------+--------------+---------------+----------+
+
+
++------------------------------------------------------------------------------------+
+; tco                                                                                ;
++-------+--------------+------------+--------------------+--------------+------------+
+; Slack ; Required tco ; Actual tco ; From               ; To           ; From Clock ;
++-------+--------------+------------+--------------------+--------------+------------+
+; N/A   ; None         ; 15.600 ns  ; disp_SEL           ; disp_out[17] ; clk        ;
+; N/A   ; None         ; 15.600 ns  ; disp_SEL           ; disp_out[16] ; clk        ;
+; N/A   ; None         ; 15.400 ns  ; disp_SEL           ; disp_out[10] ; clk        ;
+; N/A   ; None         ; 15.000 ns  ; disp_SEL           ; disp_out[19] ; clk        ;
+; N/A   ; None         ; 14.700 ns  ; disp_SEL           ; disp_out[13] ; clk        ;
+; N/A   ; None         ; 14.600 ns  ; disp_SEL           ; disp_out[18] ; clk        ;
+; N/A   ; None         ; 14.600 ns  ; disp_SEL           ; disp_out[15] ; clk        ;
+; N/A   ; None         ; 14.600 ns  ; disp_SEL           ; disp_out[9]  ; clk        ;
+; N/A   ; None         ; 14.600 ns  ; disp_SEL           ; disp_out[7]  ; clk        ;
+; N/A   ; None         ; 14.600 ns  ; disp_SEL           ; disp_out[6]  ; clk        ;
+; N/A   ; None         ; 14.600 ns  ; disp_SEL           ; disp_out[3]  ; clk        ;
+; N/A   ; None         ; 14.400 ns  ; disp_SEL           ; disp_out[2]  ; clk        ;
+; N/A   ; None         ; 14.100 ns  ; disp_SEL           ; disp_out[14] ; clk        ;
+; N/A   ; None         ; 14.100 ns  ; disp_SEL           ; disp_out[12] ; clk        ;
+; N/A   ; None         ; 14.100 ns  ; disp_SEL           ; disp_out[11] ; clk        ;
+; N/A   ; None         ; 14.000 ns  ; disp_SEL           ; disp_out[22] ; clk        ;
+; N/A   ; None         ; 14.000 ns  ; disp_SEL           ; disp_out[21] ; clk        ;
+; N/A   ; None         ; 14.000 ns  ; disp_SEL           ; disp_out[8]  ; clk        ;
+; N/A   ; None         ; 14.000 ns  ; disp_SEL           ; disp_out[4]  ; clk        ;
+; N/A   ; None         ; 13.800 ns  ; disp_SEL           ; disp_out[23] ; clk        ;
+; N/A   ; None         ; 13.800 ns  ; disp_SEL           ; disp_out[5]  ; clk        ;
+; N/A   ; None         ; 13.800 ns  ; disp_SEL           ; disp_out[0]  ; clk        ;
+; N/A   ; None         ; 13.600 ns  ; disp_SEL           ; disp_out[20] ; clk        ;
+; N/A   ; None         ; 13.500 ns  ; data_read[17]      ; disp_out[17] ; clk        ;
+; N/A   ; None         ; 13.500 ns  ; data_read[16]      ; disp_out[16] ; clk        ;
+; N/A   ; None         ; 13.300 ns  ; data_read[19]      ; disp_out[19] ; clk        ;
+; N/A   ; None         ; 13.100 ns  ; data_read[10]      ; disp_out[10] ; clk        ;
+; N/A   ; None         ; 13.100 ns  ; data_read[2]       ; disp_out[2]  ; clk        ;
+; N/A   ; None         ; 13.000 ns  ; data_read[13]      ; disp_out[13] ; clk        ;
+; N/A   ; None         ; 13.000 ns  ; data_read[1]       ; disp_out[1]  ; clk        ;
+; N/A   ; None         ; 13.000 ns  ; address_[0]~6      ; address[3]   ; clk        ;
+; N/A   ; None         ; 13.000 ns  ; address_[0]~en     ; address[3]   ; clk        ;
+; N/A   ; None         ; 13.000 ns  ; address_[0]~6      ; address[2]   ; clk        ;
+; N/A   ; None         ; 13.000 ns  ; address_[0]~en     ; address[2]   ; clk        ;
+; N/A   ; None         ; 13.000 ns  ; address_[0]~en     ; address[1]   ; clk        ;
+; N/A   ; None         ; 13.000 ns  ; address_[0]        ; address[0]   ; clk        ;
+; N/A   ; None         ; 13.000 ns  ; address_[0]~en     ; address[0]   ; clk        ;
+; N/A   ; None         ; 12.800 ns  ; disp_SEL           ; disp_out[1]  ; clk        ;
+; N/A   ; None         ; 12.500 ns  ; data_read[23]      ; disp_out[23] ; clk        ;
+; N/A   ; None         ; 12.500 ns  ; data_read[18]      ; disp_out[18] ; clk        ;
+; N/A   ; None         ; 12.500 ns  ; data_read[15]      ; disp_out[15] ; clk        ;
+; N/A   ; None         ; 12.500 ns  ; data_read[5]       ; disp_out[5]  ; clk        ;
+; N/A   ; None         ; 12.500 ns  ; data_read[3]       ; disp_out[3]  ; clk        ;
+; N/A   ; None         ; 12.500 ns  ; data_read[0]       ; disp_out[0]  ; clk        ;
+; N/A   ; None         ; 12.400 ns  ; data_read[14]      ; disp_out[14] ; clk        ;
+; N/A   ; None         ; 12.400 ns  ; data_read[12]      ; disp_out[12] ; clk        ;
+; N/A   ; None         ; 12.400 ns  ; data_read[11]      ; disp_out[11] ; clk        ;
+; N/A   ; None         ; 12.400 ns  ; address_[0]~6      ; address[1]   ; clk        ;
+; N/A   ; None         ; 12.300 ns  ; data_read[22]      ; disp_out[22] ; clk        ;
+; N/A   ; None         ; 12.300 ns  ; data_read[21]      ; disp_out[21] ; clk        ;
+; N/A   ; None         ; 12.300 ns  ; data_read[9]       ; disp_out[9]  ; clk        ;
+; N/A   ; None         ; 12.300 ns  ; data_read[7]       ; disp_out[7]  ; clk        ;
+; N/A   ; None         ; 12.300 ns  ; data_read[6]       ; disp_out[6]  ; clk        ;
+; N/A   ; None         ; 12.300 ns  ; en__               ; EN           ; key_pause  ;
+; N/A   ; None         ; 12.300 ns  ; address_[3]~8      ; address[3]   ; clk        ;
+; N/A   ; None         ; 12.300 ns  ; address_[2]~9      ; address[2]   ; clk        ;
+; N/A   ; None         ; 12.300 ns  ; address_[1]~10     ; address[1]   ; clk        ;
+; N/A   ; None         ; 12.300 ns  ; address_[0]~7      ; address[0]   ; clk        ;
+; N/A   ; None         ; 12.200 ns  ; address_[0]~6      ; address[0]   ; clk        ;
+; N/A   ; None         ; 12.100 ns  ; Start_status.START ; EN           ; key_start  ;
+; N/A   ; None         ; 12.100 ns  ; address_[3]        ; address[3]   ; clk        ;
+; N/A   ; None         ; 12.100 ns  ; address_[2]        ; address[2]   ; clk        ;
+; N/A   ; None         ; 12.100 ns  ; address_[1]        ; address[1]   ; clk        ;
+; N/A   ; None         ; 11.900 ns  ; data_read[20]      ; disp_out[20] ; clk        ;
+; N/A   ; None         ; 11.900 ns  ; data_read[8]       ; disp_out[8]  ; clk        ;
+; N/A   ; None         ; 11.900 ns  ; data_read[4]       ; disp_out[4]  ; clk        ;
+; N/A   ; None         ; 11.200 ns  ; Start_status.RESET ; rst          ; key_start  ;
+; N/A   ; None         ; 10.100 ns  ; wren_              ; wren         ; clk        ;
++-------+--------------+------------+--------------------+--------------+------------+
+
+
++-----------------------------------------------------------------------------+
+; tpd                                                                         ;
++-------+-------------------+-----------------+----------------+--------------+
+; Slack ; Required P2P Time ; Actual P2P Time ; From           ; To           ;
++-------+-------------------+-----------------+----------------+--------------+
+; N/A   ; None              ; 17.600 ns       ; watch_data[17] ; disp_out[17] ;
+; N/A   ; None              ; 17.400 ns       ; watch_data[16] ; disp_out[16] ;
+; N/A   ; None              ; 17.200 ns       ; watch_data[19] ; disp_out[19] ;
+; N/A   ; None              ; 17.200 ns       ; watch_data[13] ; disp_out[13] ;
+; N/A   ; None              ; 17.200 ns       ; watch_data[2]  ; disp_out[2]  ;
+; N/A   ; None              ; 17.100 ns       ; watch_data[22] ; disp_out[22] ;
+; N/A   ; None              ; 17.100 ns       ; watch_data[10] ; disp_out[10] ;
+; N/A   ; None              ; 16.900 ns       ; watch_data[1]  ; disp_out[1]  ;
+; N/A   ; None              ; 16.700 ns       ; watch_data[18] ; disp_out[18] ;
+; N/A   ; None              ; 16.700 ns       ; watch_data[15] ; disp_out[15] ;
+; N/A   ; None              ; 16.600 ns       ; watch_data[14] ; disp_out[14] ;
+; N/A   ; None              ; 16.600 ns       ; watch_data[5]  ; disp_out[5]  ;
+; N/A   ; None              ; 16.500 ns       ; watch_data[7]  ; disp_out[7]  ;
+; N/A   ; None              ; 16.500 ns       ; watch_data[6]  ; disp_out[6]  ;
+; N/A   ; None              ; 16.400 ns       ; watch_data[23] ; disp_out[23] ;
+; N/A   ; None              ; 16.300 ns       ; watch_data[11] ; disp_out[11] ;
+; N/A   ; None              ; 16.300 ns       ; watch_data[9]  ; disp_out[9]  ;
+; N/A   ; None              ; 16.300 ns       ; watch_data[3]  ; disp_out[3]  ;
+; N/A   ; None              ; 16.200 ns       ; watch_data[21] ; disp_out[21] ;
+; N/A   ; None              ; 16.000 ns       ; watch_data[8]  ; disp_out[8]  ;
+; N/A   ; None              ; 15.800 ns       ; watch_data[20] ; disp_out[20] ;
+; N/A   ; None              ; 15.200 ns       ; watch_data[12] ; disp_out[12] ;
+; N/A   ; None              ; 15.200 ns       ; watch_data[4]  ; disp_out[4]  ;
+; N/A   ; None              ; 11.800 ns       ; watch_data[0]  ; disp_out[0]  ;
+; N/A   ; None              ; 11.000 ns       ; key_load       ; load         ;
++-------+-------------------+-----------------+----------------+--------------+
+
+
++-----------------------------------------------------------------------------------+
+; th                                                                                ;
++---------------+-------------+-----------+--------------+---------------+----------+
+; Minimum Slack ; Required th ; Actual th ; From         ; To            ; To Clock ;
++---------------+-------------+-----------+--------------+---------------+----------+
+; N/A           ; None        ; -3.600 ns ; data_ram[23] ; data_read[23] ; clk      ;
+; N/A           ; None        ; -3.900 ns ; data_ram[11] ; data_read[11] ; clk      ;
+; N/A           ; None        ; -4.000 ns ; data_ram[14] ; data_read[14] ; clk      ;
+; N/A           ; None        ; -4.100 ns ; data_ram[20] ; data_read[20] ; clk      ;
+; N/A           ; None        ; -4.100 ns ; data_ram[15] ; data_read[15] ; clk      ;
+; N/A           ; None        ; -4.200 ns ; data_ram[16] ; data_read[16] ; clk      ;
+; N/A           ; None        ; -4.300 ns ; data_ram[22] ; data_read[22] ; clk      ;
+; N/A           ; None        ; -4.300 ns ; data_ram[13] ; data_read[13] ; clk      ;
+; N/A           ; None        ; -4.300 ns ; data_ram[12] ; data_read[12] ; clk      ;
+; N/A           ; None        ; -4.300 ns ; data_ram[10] ; data_read[10] ; clk      ;
+; N/A           ; None        ; -4.300 ns ; data_ram[7]  ; data_read[7]  ; clk      ;
+; N/A           ; None        ; -4.300 ns ; data_ram[6]  ; data_read[6]  ; clk      ;
+; N/A           ; None        ; -4.300 ns ; data_ram[2]  ; data_read[2]  ; clk      ;
+; N/A           ; None        ; -4.300 ns ; data_ram[0]  ; data_read[0]  ; clk      ;
+; N/A           ; None        ; -4.400 ns ; data_ram[21] ; data_read[21] ; clk      ;
+; N/A           ; None        ; -4.400 ns ; data_ram[19] ; data_read[19] ; clk      ;
+; N/A           ; None        ; -4.400 ns ; data_ram[17] ; data_read[17] ; clk      ;
+; N/A           ; None        ; -4.400 ns ; data_ram[8]  ; data_read[8]  ; clk      ;
+; N/A           ; None        ; -4.400 ns ; data_ram[5]  ; data_read[5]  ; clk      ;
+; N/A           ; None        ; -4.400 ns ; data_ram[1]  ; data_read[1]  ; clk      ;
+; N/A           ; None        ; -4.500 ns ; data_ram[9]  ; data_read[9]  ; clk      ;
+; N/A           ; None        ; -4.500 ns ; data_ram[3]  ; data_read[3]  ; clk      ;
+; N/A           ; None        ; -4.600 ns ; data_ram[4]  ; data_read[4]  ; clk      ;
+; N/A           ; None        ; -4.700 ns ; data_ram[18] ; data_read[18] ; clk      ;
++---------------+-------------+-----------+--------------+---------------+----------+
 
 
 +--------------------------+
@@ -379,107 +431,125 @@ applicable agreement for further details.
 Info: *******************************************************************
 Info: Running Quartus II Classic Timing Analyzer
     Info: Version 9.0 Build 132 02/25/2009 SJ Full Version
-    Info: Processing started: Mon Jan 25 16:13:03 2016
+    Info: Processing started: Mon Jan 25 19:57:22 2016
 Info: Command: quartus_tan --read_settings_files=off --write_settings_files=off DigitalWatch -c DigitalWatch
-Info: Parallel compilation is enabled and will use 4 of the 4 processors detected
+Info: Parallel compilation is enabled and will use 2 of the 2 processors detected
 Info: Started post-fitting delay annotation
 Info: Delay annotation completed successfully
 Warning: Found pins functioning as undefined clocks and/or memory enables
-    Info: Assuming node "clk_50Mhz" is an undefined clock
-    Info: Assuming node "key_Record" is an undefined clock
     Info: Assuming node "key_start" is an undefined clock
     Info: Assuming node "key_pause" is an undefined clock
-Warning: Found 7 node(s) in clock paths which may be acting as ripple and/or gated clocks -- node(s) analyzed as buffer(s) resulting in clock skew
-    Info: Detected ripple clock "watch_cnt:cnt|decimal_counter:bit_5|FULL" as buffer
-    Info: Detected ripple clock "watch_cnt:cnt|Six_counter:bit_4|FULL" as buffer
-    Info: Detected ripple clock "watch_cnt:cnt|decimal_counter:bit_3|FULL" as buffer
-    Info: Detected ripple clock "watch_cnt:cnt|decimal_counter:bit_2|FULL" as buffer
-    Info: Detected ripple clock "watch_cnt:cnt|decimal_counter:bit_1|FULL" as buffer
-    Info: Detected ripple clock "clk_div:fdiv|clk_out" as buffer
-    Info: Detected ripple clock "watch_cnt:cnt|decimal_counter:bit_0|FULL" as buffer
-Info: Clock "clk_50Mhz" has Internal fmax of 58.82 MHz between source register "watch_cnt:cnt|Six_counter:bit_6|out_dat[1]" and destination memory "ram_1port:ram|altdpram:mem_rtl_1|segment[0][21]~reg_in" (period= 17.0 ns)
-    Info: + Longest register to memory delay is 2.500 ns
-        Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = LC2_C14; Fanout = 5; REG Node = 'watch_cnt:cnt|Six_counter:bit_6|out_dat[1]'
-        Info: 2: + IC(1.700 ns) + CELL(0.800 ns) = 2.500 ns; Loc. = EC16_C; Fanout = 1; MEM Node = 'ram_1port:ram|altdpram:mem_rtl_1|segment[0][21]~reg_in'
-        Info: Total cell delay = 0.800 ns ( 32.00 % )
-        Info: Total interconnect delay = 1.700 ns ( 68.00 % )
-    Info: - Smallest clock skew is -12.800 ns
-        Info: + Shortest clock path from clock "clk_50Mhz" to destination memory is 2.400 ns
-            Info: 1: + IC(0.000 ns) + CELL(2.000 ns) = 2.000 ns; Loc. = PIN_55; Fanout = 242; CLK Node = 'clk_50Mhz'
-            Info: 2: + IC(0.400 ns) + CELL(0.000 ns) = 2.400 ns; Loc. = EC16_C; Fanout = 1; MEM Node = 'ram_1port:ram|altdpram:mem_rtl_1|segment[0][21]~reg_in'
-            Info: Total cell delay = 2.000 ns ( 83.33 % )
-            Info: Total interconnect delay = 0.400 ns ( 16.67 % )
-        Info: - Longest clock path from clock "clk_50Mhz" to source register is 15.200 ns
-            Info: 1: + IC(0.000 ns) + CELL(2.000 ns) = 2.000 ns; Loc. = PIN_55; Fanout = 242; CLK Node = 'clk_50Mhz'
-            Info: 2: + IC(0.400 ns) + CELL(0.500 ns) = 2.900 ns; Loc. = LC2_D2; Fanout = 6; REG Node = 'clk_div:fdiv|clk_out'
-            Info: 3: + IC(2.300 ns) + CELL(0.500 ns) = 5.700 ns; Loc. = LC1_D31; Fanout = 5; REG Node = 'watch_cnt:cnt|decimal_counter:bit_0|FULL'
-            Info: 4: + IC(0.300 ns) + CELL(0.500 ns) = 6.500 ns; Loc. = LC4_D31; Fanout = 5; REG Node = 'watch_cnt:cnt|decimal_counter:bit_1|FULL'
-            Info: 5: + IC(2.100 ns) + CELL(0.500 ns) = 9.100 ns; Loc. = LC2_C22; Fanout = 5; REG Node = 'watch_cnt:cnt|decimal_counter:bit_2|FULL'
-            Info: 6: + IC(1.300 ns) + CELL(0.500 ns) = 10.900 ns; Loc. = LC3_C24; Fanout = 5; REG Node = 'watch_cnt:cnt|decimal_counter:bit_3|FULL'
-            Info: 7: + IC(0.300 ns) + CELL(0.500 ns) = 11.700 ns; Loc. = LC2_C24; Fanout = 5; REG Node = 'watch_cnt:cnt|Six_counter:bit_4|FULL'
-            Info: 8: + IC(1.200 ns) + CELL(0.500 ns) = 13.400 ns; Loc. = LC1_C22; Fanout = 4; REG Node = 'watch_cnt:cnt|decimal_counter:bit_5|FULL'
-            Info: 9: + IC(1.800 ns) + CELL(0.000 ns) = 15.200 ns; Loc. = LC2_C14; Fanout = 5; REG Node = 'watch_cnt:cnt|Six_counter:bit_6|out_dat[1]'
-            Info: Total cell delay = 5.500 ns ( 36.18 % )
-            Info: Total interconnect delay = 9.700 ns ( 63.82 % )
-    Info: + Micro clock to output delay of source is 0.500 ns
-    Info: + Micro setup delay of destination is 1.200 ns
-Info: No valid register-to-register data paths exist for clock "key_Record"
-Info: Clock "key_start" Internal fmax is restricted to 200.0 MHz between source register "key_Control:Control|Start_status.RESET" and destination register "key_Control:Control|Start_status.START"
+    Info: Assuming node "clk" is an undefined clock
+    Info: Assuming node "key_Record" is an undefined clock
+Info: Clock "key_start" Internal fmax is restricted to 200.0 MHz between source register "Start_status.STOP" and destination register "Start_status.RESET"
     Info: fmax restricted to Clock High delay (2.5 ns) plus Clock Low delay (2.5 ns) : restricted to 5.0 ns. Expand message to see actual delay path.
         Info: + Longest register to register delay is 1.100 ns
-            Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = LC1_C12; Fanout = 64; REG Node = 'key_Control:Control|Start_status.RESET'
-            Info: 2: + IC(0.300 ns) + CELL(0.800 ns) = 1.100 ns; Loc. = LC6_C12; Fanout = 3; REG Node = 'key_Control:Control|Start_status.START'
+            Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = LC1_E3; Fanout = 2; REG Node = 'Start_status.STOP'
+            Info: 2: + IC(0.300 ns) + CELL(0.800 ns) = 1.100 ns; Loc. = LC6_E3; Fanout = 2; REG Node = 'Start_status.RESET'
             Info: Total cell delay = 0.800 ns ( 72.73 % )
             Info: Total interconnect delay = 0.300 ns ( 27.27 % )
         Info: - Smallest clock skew is 0.000 ns
             Info: + Shortest clock path from clock "key_start" to destination register is 2.400 ns
                 Info: 1: + IC(0.000 ns) + CELL(2.000 ns) = 2.000 ns; Loc. = PIN_125; Fanout = 3; CLK Node = 'key_start'
-                Info: 2: + IC(0.400 ns) + CELL(0.000 ns) = 2.400 ns; Loc. = LC6_C12; Fanout = 3; REG Node = 'key_Control:Control|Start_status.START'
+                Info: 2: + IC(0.400 ns) + CELL(0.000 ns) = 2.400 ns; Loc. = LC6_E3; Fanout = 2; REG Node = 'Start_status.RESET'
                 Info: Total cell delay = 2.000 ns ( 83.33 % )
                 Info: Total interconnect delay = 0.400 ns ( 16.67 % )
             Info: - Longest clock path from clock "key_start" to source register is 2.400 ns
                 Info: 1: + IC(0.000 ns) + CELL(2.000 ns) = 2.000 ns; Loc. = PIN_125; Fanout = 3; CLK Node = 'key_start'
-                Info: 2: + IC(0.400 ns) + CELL(0.000 ns) = 2.400 ns; Loc. = LC1_C12; Fanout = 64; REG Node = 'key_Control:Control|Start_status.RESET'
+                Info: 2: + IC(0.400 ns) + CELL(0.000 ns) = 2.400 ns; Loc. = LC1_E3; Fanout = 2; REG Node = 'Start_status.STOP'
                 Info: Total cell delay = 2.000 ns ( 83.33 % )
                 Info: Total interconnect delay = 0.400 ns ( 16.67 % )
         Info: + Micro clock to output delay of source is 0.500 ns
         Info: + Micro setup delay of destination is 0.600 ns
-Info: Clock "key_pause" Internal fmax is restricted to 200.0 MHz between source register "key_Control:Control|en__" and destination register "key_Control:Control|en__"
+Info: Clock "key_pause" Internal fmax is restricted to 200.0 MHz between source register "en__" and destination register "en__"
     Info: fmax restricted to Clock High delay (2.5 ns) plus Clock Low delay (2.5 ns) : restricted to 5.0 ns. Expand message to see actual delay path.
-        Info: + Longest register to register delay is 2.800 ns
-            Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = LC1_C32; Fanout = 1; REG Node = 'key_Control:Control|en__'
-            Info: 2: + IC(0.300 ns) + CELL(1.400 ns) = 1.700 ns; Loc. = LC2_C32; Fanout = 35; COMB Node = 'key_Control:Control|EN'
-            Info: 3: + IC(0.300 ns) + CELL(0.800 ns) = 2.800 ns; Loc. = LC1_C32; Fanout = 1; REG Node = 'key_Control:Control|en__'
-            Info: Total cell delay = 2.200 ns ( 78.57 % )
-            Info: Total interconnect delay = 0.600 ns ( 21.43 % )
+        Info: + Longest register to register delay is 1.300 ns
+            Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = LC3_E3; Fanout = 2; REG Node = 'en__'
+            Info: 2: + IC(0.300 ns) + CELL(1.000 ns) = 1.300 ns; Loc. = LC3_E3; Fanout = 2; REG Node = 'en__'
+            Info: Total cell delay = 1.000 ns ( 76.92 % )
+            Info: Total interconnect delay = 0.300 ns ( 23.08 % )
         Info: - Smallest clock skew is 0.000 ns
             Info: + Shortest clock path from clock "key_pause" to destination register is 2.400 ns
                 Info: 1: + IC(0.000 ns) + CELL(2.000 ns) = 2.000 ns; Loc. = PIN_124; Fanout = 1; CLK Node = 'key_pause'
-                Info: 2: + IC(0.400 ns) + CELL(0.000 ns) = 2.400 ns; Loc. = LC1_C32; Fanout = 1; REG Node = 'key_Control:Control|en__'
+                Info: 2: + IC(0.400 ns) + CELL(0.000 ns) = 2.400 ns; Loc. = LC3_E3; Fanout = 2; REG Node = 'en__'
                 Info: Total cell delay = 2.000 ns ( 83.33 % )
                 Info: Total interconnect delay = 0.400 ns ( 16.67 % )
             Info: - Longest clock path from clock "key_pause" to source register is 2.400 ns
                 Info: 1: + IC(0.000 ns) + CELL(2.000 ns) = 2.000 ns; Loc. = PIN_124; Fanout = 1; CLK Node = 'key_pause'
-                Info: 2: + IC(0.400 ns) + CELL(0.000 ns) = 2.400 ns; Loc. = LC1_C32; Fanout = 1; REG Node = 'key_Control:Control|en__'
+                Info: 2: + IC(0.400 ns) + CELL(0.000 ns) = 2.400 ns; Loc. = LC3_E3; Fanout = 2; REG Node = 'en__'
                 Info: Total cell delay = 2.000 ns ( 83.33 % )
                 Info: Total interconnect delay = 0.400 ns ( 16.67 % )
         Info: + Micro clock to output delay of source is 0.500 ns
         Info: + Micro setup delay of destination is 0.600 ns
-Info: tco from clock "clk_50Mhz" to destination pin "disp_out[12]" through register "smg_disp:disp|out[12]" is 11.700 ns
-    Info: + Longest clock path from clock "clk_50Mhz" to source register is 2.400 ns
-        Info: 1: + IC(0.000 ns) + CELL(2.000 ns) = 2.000 ns; Loc. = PIN_55; Fanout = 242; CLK Node = 'clk_50Mhz'
-        Info: 2: + IC(0.400 ns) + CELL(0.000 ns) = 2.400 ns; Loc. = LC6_C16; Fanout = 1; REG Node = 'smg_disp:disp|out[12]'
+Info: Clock "clk" has Internal fmax of 107.53 MHz between source register "address_[0]" and destination register "address_[3]~8" (period= 9.3 ns)
+    Info: + Longest register to register delay is 8.200 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = LC3_E34; Fanout = 1; REG Node = 'address_[0]'
+        Info: 2: + IC(0.900 ns) + CELL(1.700 ns) = 2.600 ns; Loc. = LC7_E35; Fanout = 7; COMB Node = 'address_[0]~20'
+        Info: 3: + IC(0.300 ns) + CELL(1.700 ns) = 4.600 ns; Loc. = LC8_E35; Fanout = 2; COMB Node = 'Add1~0'
+        Info: 4: + IC(0.900 ns) + CELL(1.600 ns) = 7.100 ns; Loc. = LC7_E36; Fanout = 1; COMB Node = 'Add1~2'
+        Info: 5: + IC(0.300 ns) + CELL(0.800 ns) = 8.200 ns; Loc. = LC5_E36; Fanout = 1; REG Node = 'address_[3]~8'
+        Info: Total cell delay = 5.800 ns ( 70.73 % )
+        Info: Total interconnect delay = 2.400 ns ( 29.27 % )
+    Info: - Smallest clock skew is 0.000 ns
+        Info: + Shortest clock path from clock "clk" to destination register is 2.400 ns
+            Info: 1: + IC(0.000 ns) + CELL(2.000 ns) = 2.000 ns; Loc. = PIN_55; Fanout = 43; CLK Node = 'clk'
+            Info: 2: + IC(0.400 ns) + CELL(0.000 ns) = 2.400 ns; Loc. = LC5_E36; Fanout = 1; REG Node = 'address_[3]~8'
+            Info: Total cell delay = 2.000 ns ( 83.33 % )
+            Info: Total interconnect delay = 0.400 ns ( 16.67 % )
+        Info: - Longest clock path from clock "clk" to source register is 2.400 ns
+            Info: 1: + IC(0.000 ns) + CELL(2.000 ns) = 2.000 ns; Loc. = PIN_55; Fanout = 43; CLK Node = 'clk'
+            Info: 2: + IC(0.400 ns) + CELL(0.000 ns) = 2.400 ns; Loc. = LC3_E34; Fanout = 1; REG Node = 'address_[0]'
+            Info: Total cell delay = 2.000 ns ( 83.33 % )
+            Info: Total interconnect delay = 0.400 ns ( 16.67 % )
+    Info: + Micro clock to output delay of source is 0.500 ns
+    Info: + Micro setup delay of destination is 0.600 ns
+Info: No valid register-to-register data paths exist for clock "key_Record"
+Info: tsu for register "data_read[18]" (data pin = "data_ram[18]", clock pin = "clk") is 6.600 ns
+    Info: + Longest pin to register delay is 8.400 ns
+        Info: 1: + IC(0.000 ns) + CELL(4.900 ns) = 4.900 ns; Loc. = PIN_110; Fanout = 1; PIN Node = 'data_ram[18]'
+        Info: 2: + IC(2.700 ns) + CELL(0.800 ns) = 8.400 ns; Loc. = LC7_F14; Fanout = 1; REG Node = 'data_read[18]'
+        Info: Total cell delay = 5.700 ns ( 67.86 % )
+        Info: Total interconnect delay = 2.700 ns ( 32.14 % )
+    Info: + Micro setup delay of destination is 0.600 ns
+    Info: - Shortest clock path from clock "clk" to destination register is 2.400 ns
+        Info: 1: + IC(0.000 ns) + CELL(2.000 ns) = 2.000 ns; Loc. = PIN_55; Fanout = 43; CLK Node = 'clk'
+        Info: 2: + IC(0.400 ns) + CELL(0.000 ns) = 2.400 ns; Loc. = LC7_F14; Fanout = 1; REG Node = 'data_read[18]'
+        Info: Total cell delay = 2.000 ns ( 83.33 % )
+        Info: Total interconnect delay = 0.400 ns ( 16.67 % )
+Info: tco from clock "clk" to destination pin "disp_out[17]" through register "disp_SEL" is 15.600 ns
+    Info: + Longest clock path from clock "clk" to source register is 2.400 ns
+        Info: 1: + IC(0.000 ns) + CELL(2.000 ns) = 2.000 ns; Loc. = PIN_55; Fanout = 43; CLK Node = 'clk'
+        Info: 2: + IC(0.400 ns) + CELL(0.000 ns) = 2.400 ns; Loc. = LC1_E23; Fanout = 25; REG Node = 'disp_SEL'
         Info: Total cell delay = 2.000 ns ( 83.33 % )
         Info: Total interconnect delay = 0.400 ns ( 16.67 % )
     Info: + Micro clock to output delay of source is 0.500 ns
-    Info: + Longest register to pin delay is 8.800 ns
-        Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = LC6_C16; Fanout = 1; REG Node = 'smg_disp:disp|out[12]'
-        Info: 2: + IC(2.500 ns) + CELL(6.300 ns) = 8.800 ns; Loc. = PIN_10; Fanout = 0; PIN Node = 'disp_out[12]'
-        Info: Total cell delay = 6.300 ns ( 71.59 % )
-        Info: Total interconnect delay = 2.500 ns ( 28.41 % )
-Info: Quartus II Classic Timing Analyzer was successful. 0 errors, 2 warnings
-    Info: Peak virtual memory: 207 megabytes
-    Info: Processing ended: Mon Jan 25 16:13:04 2016
+    Info: + Longest register to pin delay is 12.700 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = LC1_E23; Fanout = 25; REG Node = 'disp_SEL'
+        Info: 2: + IC(2.600 ns) + CELL(1.400 ns) = 4.000 ns; Loc. = LC8_F14; Fanout = 1; COMB Node = 'disp_out~41'
+        Info: 3: + IC(2.400 ns) + CELL(6.300 ns) = 12.700 ns; Loc. = PIN_100; Fanout = 0; PIN Node = 'disp_out[17]'
+        Info: Total cell delay = 7.700 ns ( 60.63 % )
+        Info: Total interconnect delay = 5.000 ns ( 39.37 % )
+Info: Longest tpd from source pin "watch_data[17]" to destination pin "disp_out[17]" is 17.600 ns
+    Info: 1: + IC(0.000 ns) + CELL(4.900 ns) = 4.900 ns; Loc. = PIN_68; Fanout = 1; PIN Node = 'watch_data[17]'
+    Info: 2: + IC(2.400 ns) + CELL(1.600 ns) = 8.900 ns; Loc. = LC8_F14; Fanout = 1; COMB Node = 'disp_out~41'
+    Info: 3: + IC(2.400 ns) + CELL(6.300 ns) = 17.600 ns; Loc. = PIN_100; Fanout = 0; PIN Node = 'disp_out[17]'
+    Info: Total cell delay = 12.800 ns ( 72.73 % )
+    Info: Total interconnect delay = 4.800 ns ( 27.27 % )
+Info: th for register "data_read[23]" (data pin = "data_ram[23]", clock pin = "clk") is -3.600 ns
+    Info: + Longest clock path from clock "clk" to destination register is 2.400 ns
+        Info: 1: + IC(0.000 ns) + CELL(2.000 ns) = 2.000 ns; Loc. = PIN_55; Fanout = 43; CLK Node = 'clk'
+        Info: 2: + IC(0.400 ns) + CELL(0.000 ns) = 2.400 ns; Loc. = LC7_F24; Fanout = 1; REG Node = 'data_read[23]'
+        Info: Total cell delay = 2.000 ns ( 83.33 % )
+        Info: Total interconnect delay = 0.400 ns ( 16.67 % )
+    Info: + Micro hold delay of destination is 1.300 ns
+    Info: - Shortest pin to register delay is 7.300 ns
+        Info: 1: + IC(0.000 ns) + CELL(4.900 ns) = 4.900 ns; Loc. = PIN_32; Fanout = 1; PIN Node = 'data_ram[23]'
+        Info: 2: + IC(1.600 ns) + CELL(0.800 ns) = 7.300 ns; Loc. = LC7_F24; Fanout = 1; REG Node = 'data_read[23]'
+        Info: Total cell delay = 5.700 ns ( 78.08 % )
+        Info: Total interconnect delay = 1.600 ns ( 21.92 % )
+Info: Quartus II Classic Timing Analyzer was successful. 0 errors, 1 warning
+    Info: Peak virtual memory: 205 megabytes
+    Info: Processing ended: Mon Jan 25 19:57:23 2016
     Info: Elapsed time: 00:00:01
     Info: Total CPU time (on all processors): 00:00:00
 

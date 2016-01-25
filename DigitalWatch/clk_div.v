@@ -19,7 +19,7 @@ module clk_div(
 
     reg clk_out;
     integer cnt = 1'b0;
-    parameter integer clk_div = 32'd25000;
+    parameter integer clk_div = 32'd250;
 
     always@(posedge clk_50Mhz or posedge rst) begin
         if(rst) begin

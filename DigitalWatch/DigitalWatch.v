@@ -25,7 +25,7 @@ module DigitalWatch (
     wire rst,EN,load;
     wire [23:0] dispbuf;
     wire [3:0] address;
-    wire [23:0] data_in,data_out;
+    wire [23:0] data_out;
     wire ram_wren;
     wire [23:0] watch_data;
 
@@ -41,7 +41,7 @@ module DigitalWatch (
                         .key_load(key_load),
                         .key_Record(key_Record),
                         .data_ram(data_out),
-                        .data_write(data_in),
+                        //.data_write(data_in),
                         .watch_data(watch_data),
                         .disp_out(dispbuf),
                         .wren(ram_wren),
@@ -63,7 +63,7 @@ module DigitalWatch (
                   );
     ram_1port ram(.address(address),
                   .clk(clk_50Mhz),
-                  .data(data_in),
+                  .data(watch_data),
 
                   .wren(ram_wren),
                   .q(data_out)

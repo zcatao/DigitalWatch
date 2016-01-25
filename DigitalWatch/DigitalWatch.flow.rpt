@@ -1,5 +1,5 @@
 Flow report for DigitalWatch
-Mon Jan 25 16:13:04 2016
+Mon Jan 25 19:57:23 2016
 Quartus II Version 9.0 Build 132 02/25/2009 SJ Full Version
 
 
@@ -38,17 +38,17 @@ applicable agreement for further details.
 +--------------------------------------------------------------------+
 ; Flow Summary                                                       ;
 +-------------------------+------------------------------------------+
-; Flow Status             ; Successful - Mon Jan 25 16:13:04 2016    ;
+; Flow Status             ; Successful - Mon Jan 25 19:57:23 2016    ;
 ; Quartus II Version      ; 9.0 Build 132 02/25/2009 SJ Full Version ;
 ; Revision Name           ; DigitalWatch                             ;
-; Top-level Entity Name   ; DigitalWatch                             ;
+; Top-level Entity Name   ; key_Control                              ;
 ; Family                  ; ACEX1K                                   ;
 ; Device                  ; EP1K30TC144-3                            ;
 ; Timing Models           ; Final                                    ;
 ; Met timing requirements ; Yes                                      ;
-; Total logic elements    ; 161 / 1,728 ( 9 % )                      ;
-; Total pins              ; 29 / 102 ( 28 % )                        ;
-; Total memory bits       ; 192 / 24,576 ( < 1 % )                   ;
+; Total logic elements    ; 84 / 1,728 ( 5 % )                       ;
+; Total pins              ; 85 / 102 ( 83 % )                        ;
+; Total memory bits       ; 0 / 24,576 ( 0 % )                       ;
 ; Total PLLs              ; 0                                        ;
 +-------------------------+------------------------------------------+
 
@@ -58,22 +58,23 @@ applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 01/25/2016 16:12:57 ;
+; Start date & time ; 01/25/2016 19:57:15 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; DigitalWatch        ;
 +-------------------+---------------------+
 
 
-+--------------------------------------------------------------------------------------------------------------------+
-; Flow Non-Default Global Settings                                                                                   ;
-+------------------------------------+--------------------------------+---------------+-------------+----------------+
-; Assignment Name                    ; Value                          ; Default Value ; Entity Name ; Section Id     ;
-+------------------------------------+--------------------------------+---------------+-------------+----------------+
-; COMPILER_SIGNATURE_ID              ; 17642273470732.145370957645676 ; --            ; --          ; --             ;
-; MAX_CORE_JUNCTION_TEMP             ; 85                             ; --            ; --          ; --             ;
-; MIN_CORE_JUNCTION_TEMP             ; 0                              ; --            ; --          ; --             ;
-; USE_GENERATED_PHYSICAL_CONSTRAINTS ; Off                            ; --            ; --          ; eda_blast_fpga ;
-+------------------------------------+--------------------------------+---------------+-------------+----------------+
++-------------------------------------------------------------------------------------------------------------------+
+; Flow Non-Default Global Settings                                                                                  ;
++------------------------------------+-------------------------------+---------------+-------------+----------------+
+; Assignment Name                    ; Value                         ; Default Value ; Entity Name ; Section Id     ;
++------------------------------------+-------------------------------+---------------+-------------+----------------+
+; COMPILER_SIGNATURE_ID              ; 9169756206721.145372303509844 ; --            ; --          ; --             ;
+; MAX_CORE_JUNCTION_TEMP             ; 85                            ; --            ; --          ; --             ;
+; MIN_CORE_JUNCTION_TEMP             ; 0                             ; --            ; --          ; --             ;
+; TOP_LEVEL_ENTITY                   ; key_Control                   ; DigitalWatch  ; --          ; --             ;
+; USE_GENERATED_PHYSICAL_CONSTRAINTS ; Off                           ; --            ; --          ; eda_blast_fpga ;
++------------------------------------+-------------------------------+---------------+-------------+----------------+
 
 
 +-----------------------------------------------------------------------------------------------------------------------------+
@@ -81,11 +82,11 @@ applicable agreement for further details.
 +-------------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name             ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +-------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis    ; 00:00:02     ; 1.0                     ; 245 MB              ; 00:00:01                           ;
-; Fitter                  ; 00:00:02     ; 1.0                     ; 247 MB              ; 00:00:02                           ;
-; Assembler               ; 00:00:02     ; 1.0                     ; 223 MB              ; 00:00:02                           ;
-; Classic Timing Analyzer ; 00:00:01     ; 1.0                     ; 194 MB              ; 00:00:00                           ;
-; Total                   ; 00:00:07     ; --                      ; --                  ; 00:00:05                           ;
+; Analysis & Synthesis    ; 00:00:00     ; 1.0                     ; 244 MB              ; 00:00:01                           ;
+; Fitter                  ; 00:00:02     ; 1.0                     ; 246 MB              ; 00:00:02                           ;
+; Assembler               ; 00:00:03     ; 1.0                     ; 223 MB              ; 00:00:02                           ;
+; Classic Timing Analyzer ; 00:00:01     ; 1.0                     ; 192 MB              ; 00:00:00                           ;
+; Total                   ; 00:00:06     ; --                      ; --                  ; 00:00:05                           ;
 +-------------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
@@ -94,10 +95,10 @@ applicable agreement for further details.
 +-------------------------+------------------+---------------+------------+----------------+
 ; Module Name             ; Machine Hostname ; OS Name       ; OS Version ; Processor type ;
 +-------------------------+------------------+---------------+------------+----------------+
-; Analysis & Synthesis    ; DESKTOP-JQUMOJ1  ; Windows Vista ; 6.2        ; x86_64         ;
-; Fitter                  ; DESKTOP-JQUMOJ1  ; Windows Vista ; 6.2        ; x86_64         ;
-; Assembler               ; DESKTOP-JQUMOJ1  ; Windows Vista ; 6.2        ; x86_64         ;
-; Classic Timing Analyzer ; DESKTOP-JQUMOJ1  ; Windows Vista ; 6.2        ; x86_64         ;
+; Analysis & Synthesis    ; DESKTOP-55T2D20  ; Windows Vista ; 6.2        ; x86_64         ;
+; Fitter                  ; DESKTOP-55T2D20  ; Windows Vista ; 6.2        ; x86_64         ;
+; Assembler               ; DESKTOP-55T2D20  ; Windows Vista ; 6.2        ; x86_64         ;
+; Classic Timing Analyzer ; DESKTOP-55T2D20  ; Windows Vista ; 6.2        ; x86_64         ;
 +-------------------------+------------------+---------------+------------+----------------+
 
 

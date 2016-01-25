@@ -38,7 +38,7 @@
 
 set_global_assignment -name FAMILY ACEX1K
 set_global_assignment -name DEVICE "EP1K30TC144-3"
-set_global_assignment -name TOP_LEVEL_ENTITY DigitalWatch
+set_global_assignment -name TOP_LEVEL_ENTITY key_Control
 set_global_assignment -name ORIGINAL_QUARTUS_VERSION 9.0
 set_global_assignment -name PROJECT_CREATION_TIME_DATE "20:00:12  JANUARY 15, 2016"
 set_global_assignment -name LAST_QUARTUS_VERSION 9.0
@@ -57,4 +57,8 @@ set_global_assignment -name VECTOR_WAVEFORM_FILE smg_disp_test.vwf
 set_global_assignment -name VECTOR_COMPARE_TRIGGER_MODE INPUT_EDGE
 set_global_assignment -name VECTOR_WAVEFORM_FILE DigitalWatch.vwf
 set_global_assignment -name SIMULATION_MODE FUNCTIONAL
-set_global_assignment -name INCREMENTAL_VECTOR_INPUT_SOURCE DigitalWatch.vwf
+set_global_assignment -name VECTOR_WAVEFORM_FILE clk_div_test.vwf
+set_global_assignment -name VECTOR_WAVEFORM_FILE watch_cnt_test.vwf
+set_global_assignment -name VECTOR_WAVEFORM_FILE ram_test.vwf
+set_global_assignment -name VECTOR_WAVEFORM_FILE key_Control_test.vwf
+set_global_assignment -name INCREMENTAL_VECTOR_INPUT_SOURCE key_Control_test.vwf

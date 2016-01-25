@@ -29,7 +29,7 @@ module key_Control (
     output EN,
     output load,
     output wren,
-    output[23:0] data_write,
+    //output[23:0] data_write,
     output[23:0] disp_out
     );
     //START按键信号状态
@@ -155,7 +155,7 @@ module key_Control (
     assign rst = rst_;
     assign load = key_load;
     assign wren = wren_;
-    assign data_write = watch_data;
+    //assign data_write = watch_data;
     assign address = address_;
     //disp_SEL 置位为一时 选择输出 RAM中读取的数据，否则输出Watch当前计数值
     assign disp_out = (disp_SEL) ? data_read : watch_data;
